@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getAssetPath } from "@/lib/assets";
 import type { Project } from "@/data/projects";
 import Link from "next/link";
 import { Safari } from "@/components/magicui/safari";
@@ -13,6 +14,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
+  const mediaSrc = getAssetPath(project.mediaUrl);
   const isVideoOrGif = project.mediaType === "video" || project.mediaType === "gif";
 
   return (
@@ -37,7 +39,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
               <Safari className="w-full h-full shadow-2xl">
                 {project.mediaType === "video" ? (
                   <video
-                    src={project.mediaUrl}
+                    src={mediaSrc}
                     autoPlay
                     loop
                     muted
@@ -46,7 +48,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                   />
                 ) : (
                   <img
-                    src={project.mediaUrl}
+                    src={mediaSrc}
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
@@ -56,7 +58,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           ) : (
             <div className="w-full h-full max-w-2xl rounded-xl overflow-hidden shadow-2xl border border-white/10 transform transition-transform duration-700 ease-[cubic-bezier(0.25,0.4,0.25,1)] group-hover:scale-[1.03] group-hover:-translate-y-2">
               <img
-                src={project.mediaUrl}
+                src={mediaSrc}
                 alt={project.title}
                 className="w-full h-full object-cover"
               />

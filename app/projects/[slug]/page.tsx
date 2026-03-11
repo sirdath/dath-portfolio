@@ -1,4 +1,5 @@
 import { projects } from "@/data/projects";
+import { getAssetPath } from "@/lib/assets";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -18,13 +19,15 @@ export default async function ProjectPage({ params }: Props) {
     );
   }
 
+  const mediaSrc = getAssetPath(project.mediaUrl);
+
   return (
     <main className="min-h-screen bg-void">
-      {/* Hero video header */}
+      {/* Hero media header */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         {project.mediaType === "video" ? (
           <video
-            src={project.mediaUrl}
+            src={mediaSrc}
             autoPlay
             loop
             muted
@@ -33,7 +36,7 @@ export default async function ProjectPage({ params }: Props) {
           />
         ) : (
           <img
-            src={project.mediaUrl}
+            src={mediaSrc}
             alt={project.title}
             className="h-full w-full object-cover"
           />

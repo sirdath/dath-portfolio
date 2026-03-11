@@ -6,8 +6,8 @@ import { GlowButton } from "@/components/shared/GlowButton";
 
 const languages = [
   { name: "Greek", level: "Native" },
-  { name: "English", level: "Fluent" },
-  { name: "Spanish", level: "Intermediate" },
+  { name: "English", level: "C2 Proficient" },
+  { name: "Spanish", level: "B1 Intermediate" },
 ];
 
 export function ContactSection() {
@@ -18,7 +18,7 @@ export function ContactSection() {
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          
+
           {/* Left Column: Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -37,12 +37,12 @@ export function ContactSection() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <GlowButton onClick={() => window.open('mailto:dath@example.com', '_blank')}>
+              <GlowButton onClick={() => window.open('mailto:dimo.atheneos@gmail.com', '_blank')}>
                 <Mail className="w-4 h-4" />
                 Email Me
               </GlowButton>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/Dimitriosath"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-text-primary hover:bg-white/10 hover:border-white/20 transition-all font-medium text-sm"
@@ -51,7 +51,7 @@ export function ContactSection() {
                 LinkedIn
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/daththeanalyst"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-text-primary hover:bg-white/10 hover:border-white/20 transition-all font-medium text-sm"
@@ -73,7 +73,7 @@ export function ContactSection() {
             <div className="p-8 rounded-3xl bg-void border border-white/[0.06] shadow-xl relative overflow-hidden group">
               {/* Decorative border gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="p-2 rounded-lg bg-white/5 border border-white/10">

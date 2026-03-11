@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#120c22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  <!-- Scatter plot visualization -->
+  <g opacity="0.5">
+    <line x1="120" y1="400" x2="680" y2="400" stroke="#52525b" stroke-width="1"/>
+    <line x1="120" y1="400" x2="120" y2="80" stroke="#52525b" stroke-width="1"/>
+  </g>
+  <!-- Data points -->
+  <g>
+    <circle cx="180" cy="320" r="6" fill="#a855f7" opacity="0.5"/>
+    <circle cx="220" cy="280" r="8" fill="#a855f7" opacity="0.6"/>
+    <circle cx="280" cy="340" r="5" fill="#22d3ee" opacity="0.5"/>
+    <circle cx="320" cy="250" r="7" fill="#a855f7" opacity="0.4"/>
+    <circle cx="360" cy="200" r="9" fill="#00f0ff" opacity="0.6"/>
+    <circle cx="400" cy="180" r="6" fill="#00f0ff" opacity="0.5"/>
+    <circle cx="440" cy="220" r="8" fill="#a855f7" opacity="0.5"/>
+    <circle cx="480" cy="160" r="7" fill="#00f0ff" opacity="0.7"/>
+    <circle cx="520" cy="150" r="10" fill="#00f0ff" opacity="0.6"/>
+    <circle cx="560" cy="130" r="6" fill="#22d3ee" opacity="0.5"/>
+    <circle cx="600" cy="120" r="8" fill="#00f0ff" opacity="0.4"/>
+    <circle cx="640" cy="100" r="5" fill="#22d3ee" opacity="0.6"/>
+  </g>
+  <!-- Trend line -->
+  <line x1="160" y1="350" x2="660" y2="100" stroke="#a855f7" stroke-width="1.5" opacity="0.4" stroke-dasharray="6 4"/>
+  <!-- Labels -->
+  <text x="400" y="440" font-family="monospace" font-size="14" fill="#a855f7" text-anchor="middle" opacity="0.6">Spatio-Temporal Analysis</text>
+  <text x="400" y="465" font-family="monospace" font-size="11" fill="#a1a1aa" text-anchor="middle" opacity="0.4">1M+ records | R² = 0.92 | Opportunity Index</text>
+</svg>

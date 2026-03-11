@@ -63,8 +63,8 @@ export function Hero() {
           className="mt-6 text-lg sm:text-xl md:text-2xl text-text-muted font-light tracking-wide"
         >
           Geospatial Data Scientist{" "}
-          <span className="text-accent-cyan/60">|</span> ML Engineer{" "}
-          <span className="text-accent-cyan/60">|</span> Analytics
+          <span className="text-accent-cyan/60">|</span> MSc Business Analytics @ UCL{" "}
+          <span className="text-accent-cyan/60">|</span> ML & AI
         </motion.p>
 
         {/* Description */}

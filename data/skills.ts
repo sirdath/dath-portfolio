@@ -9,7 +9,6 @@ export const skills: Skill[] = [
   { name: "SQL", category: "programming" },
   { name: "R", category: "programming" },
   { name: "JavaScript", category: "programming" },
-  { name: "TypeScript", category: "programming" },
 
   // ML
   { name: "XGBoost", category: "ml" },
@@ -17,31 +16,34 @@ export const skills: Skill[] = [
   { name: "TensorFlow", category: "ml" },
   { name: "Scikit-learn", category: "ml" },
   { name: "LangChain", category: "ml" },
+  { name: "Ollama", category: "ml" },
   { name: "Optuna", category: "ml" },
   { name: "SHAP", category: "ml" },
+  { name: "Graph Theory", category: "ml" },
 
   // Data Engineering
-  { name: "AWS", category: "data-engineering" },
-  { name: "Docker", category: "data-engineering" },
-  { name: "PySpark", category: "data-engineering" },
+  { name: "AWS (S3, Glue, Athena)", category: "data-engineering" },
   { name: "Databricks", category: "data-engineering" },
-  { name: "DuckDB", category: "data-engineering" },
-  { name: "MongoDB", category: "data-engineering" },
+  { name: "PySpark", category: "data-engineering" },
+  { name: "Docker", category: "data-engineering" },
   { name: "Kubernetes", category: "data-engineering" },
   { name: "Git", category: "data-engineering" },
+  { name: "DuckDB", category: "data-engineering" },
+  { name: "Star Schema", category: "data-engineering" },
 
   // Geospatial
   { name: "H3 Indexing", category: "geospatial" },
   { name: "Pydeck", category: "geospatial" },
-  { name: "NetworkX", category: "geospatial" },
-  { name: "LandScan", category: "geospatial" },
+  { name: "LandScan Raster", category: "geospatial" },
   { name: "OSM Data", category: "geospatial" },
-  { name: "Streamlit", category: "geospatial" },
+  { name: "Spatio-Temporal Analytics", category: "geospatial" },
+  { name: "Graph Centrality", category: "geospatial" },
 
   // Tools
   { name: "LangGraph", category: "tools" },
-  { name: "Three.js", category: "tools" },
-  { name: "SurrealDB", category: "tools" },
+  { name: "NetworkX", category: "tools" },
+  { name: "Streamlit", category: "tools" },
   { name: "Pandas", category: "tools" },
   { name: "NumPy", category: "tools" },
+  { name: "MongoDB", category: "tools" },
 ];
