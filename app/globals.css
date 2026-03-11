@@ -20,24 +20,39 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  body {
+    background: var(--color-void);
+    color: var(--color-text-primary);
+    font-family: var(--font-body), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
 
-body {
-  background: var(--color-void);
-  color: var(--color-text-primary);
-  font-family: var(--font-body), system-ui, sans-serif;
-  overflow-x: hidden;
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-void);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-light);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-cyan);
+  }
 }
 
 /* Custom cursor — hide native on devices with a precise pointer */
+/* Intentionally unlayered so it overrides all cursor styles */
 @media (pointer: fine) {
   *,
   *::before,
@@ -46,38 +61,62 @@ body {
   }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+@layer components {
+  /* Glow utilities */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), 0 0 60px rgba(0, 240, 255, 0.05);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15), 0 0 60px rgba(168, 85, 247, 0.05);
+  }
+
+  .glow-text-cyan {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
+  }
+
+  /* Animated gradient border */
+  .animated-border {
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image:
+      linear-gradient(var(--color-obsidian), var(--color-obsidian)),
+      conic-gradient(from var(--angle), transparent 60%, var(--color-accent-cyan) 80%, var(--color-accent-purple) 90%, transparent 100%);
+    animation: border-rotate 4s linear infinite;
+  }
+
+  /* Glass card base */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Marquee animations */
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee-reverse var(--duration) linear infinite;
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+  }
+
+  .animate-marquee-vertical-reverse {
+    animation: marquee-vertical-reverse var(--duration) linear infinite;
+  }
+
+  .animate-grid {
+    animation: grid-scroll 3s linear infinite;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-void);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-surface-light);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-cyan);
-}
-
-/* Glow utilities */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), 0 0 60px rgba(0, 240, 255, 0.05);
-}
-
-.glow-purple {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15), 0 0 60px rgba(168, 85, 247, 0.05);
-}
-
-.glow-text-cyan {
-  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
-}
-
-/* Animated gradient border */
+/* Keyframes (outside layers — they don't participate in cascade) */
 @keyframes border-rotate {
   0% { --angle: 0deg; }
   100% { --angle: 360deg; }
@@ -89,25 +128,6 @@ body {
   inherits: false;
 }
 
-.animated-border {
-  border: 1px solid transparent;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  background-image:
-    linear-gradient(var(--color-obsidian), var(--color-obsidian)),
-    conic-gradient(from var(--angle), transparent 60%, var(--color-accent-cyan) 80%, var(--color-accent-purple) 90%, transparent 100%);
-  animation: border-rotate 4s linear infinite;
-}
-
-/* Glass card base */
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Marquee animations */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(calc(-100% - var(--gap))); }
@@ -128,28 +148,7 @@ body {
   to { transform: translateY(0); }
 }
 
-.animate-marquee {
-  animation: marquee var(--duration) linear infinite;
-}
-
-.animate-marquee-reverse {
-  animation: marquee-reverse var(--duration) linear infinite;
-}
-
-.animate-marquee-vertical {
-  animation: marquee-vertical var(--duration) linear infinite;
-}
-
-.animate-marquee-vertical-reverse {
-  animation: marquee-vertical-reverse var(--duration) linear infinite;
-}
-
-/* Retro grid animation */
 @keyframes grid-scroll {
   0% { transform: translateY(0); }
   100% { transform: translateY(60px); }
-}
-
-.animate-grid {
-  animation: grid-scroll 3s linear infinite;
 }
