@@ -50,53 +50,11 @@ function ParticleGlobe() {
   );
 }
 
-function DataFlowLines() {
-  const linesRef = useRef<THREE.LineSegments>(null);
-
-  const lineGeometry = useMemo(() => {
-    const geometry = new THREE.BufferGeometry();
-    const points = [];
-    for (let i = 0; i < 100; i++) {
-      const x = (Math.random() - 0.5) * 15;
-      const y = (Math.random() - 0.5) * 15;
-      const z = (Math.random() - 0.5) * 15;
-      points.push(new THREE.Vector3(x, y, z));
-      points.push(
-        new THREE.Vector3(
-          x + (Math.random() - 0.5) * 2,
-          y + (Math.random() - 0.5) * 2,
-          z + (Math.random() - 0.5) * 2
-        )
-      );
-    }
-    geometry.setFromPoints(points);
-    return geometry;
-  }, []);
-
-  useFrame((state, delta) => {
-    if (linesRef.current) {
-      linesRef.current.rotation.y += delta * 0.02;
-    }
-  });
-
-  return (
-    <lineSegments ref={linesRef} geometry={lineGeometry}>
-      <lineBasicMaterial
-        color="#a855f7"
-        transparent
-        opacity={0.15}
-        blending={THREE.AdditiveBlending}
-      />
-    </lineSegments>
-  );
-}
-
 function Scene() {
   return (
     <Canvas camera={{ position: [0, 0, 8] }}>
       <ambientLight intensity={0.5} />
       <ParticleGlobe />
-      <DataFlowLines />
       <OrbitControls
         enableZoom={false}
         enablePan={false}
