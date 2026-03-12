@@ -21,7 +21,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
     <Link href={`/projects/${project.slug}`} className="block h-full">
       <motion.div
         className={cn(
-          "group relative flex flex-col overflow-hidden rounded-[24px] cursor-pointer h-full bg-void border border-white/[0.08] shadow-lg transition-colors duration-500 hover:bg-surface hover:border-accent-cyan/20",
+          "group relative flex flex-col overflow-hidden rounded-[24px] cursor-pointer h-full bg-void border border-white/[0.08] shadow-lg transition-all duration-500 hover:bg-surface hover:border-accent-cyan/20 hover:shadow-[0_0_30px_-5px_rgba(0,240,255,0.15)]",
           className
         )}
         initial={{ opacity: 0, y: 40 }}

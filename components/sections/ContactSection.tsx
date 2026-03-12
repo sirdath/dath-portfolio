@@ -32,6 +32,13 @@ export function ContactSection() {
             <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary leading-tight">
               Ready to build something extraordinary?
             </h2>
+            <motion.div
+              className="mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-accent-purple to-accent-cyan"
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            />
             <p className="mt-6 text-text-muted leading-relaxed max-w-md">
               Whether you're looking for Geospatial Intelligence, AI pipelines, or just want to chat about data science, I'm always open to discussing new projects and opportunities.
             </p>

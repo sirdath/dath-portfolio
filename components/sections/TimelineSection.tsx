@@ -22,6 +22,13 @@ export function TimelineSection() {
           <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
             Experience & Education
           </h2>
+          <motion.div
+            className="mt-3 mx-auto h-0.5 w-16 rounded-full bg-gradient-to-r from-accent-purple to-accent-magenta"
+            initial={{ scaleX: 0, opacity: 0 }}
+            whileInView={{ scaleX: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          />
         </motion.div>
 
         <div className="relative">
@@ -60,8 +67,12 @@ export function TimelineSection() {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                   >
-                    <div className="group relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-colors backdrop-blur-sm">
+                    <div className="group relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className={cn(
+                        "absolute top-4 bottom-4 w-0.5 bg-gradient-to-b from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                        isEven ? "right-0 via-accent-purple/50" : "left-0 via-accent-cyan/50"
+                      )} />
                       
                       <div className="relative z-10">
                         <span className="text-xs font-mono text-text-dim mb-2 block">

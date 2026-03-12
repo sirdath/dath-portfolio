@@ -51,9 +51,21 @@ export function Hero() {
           variants={itemVariants}
           className="font-[family-name:var(--font-space-grotesk)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]"
         >
-          <span className="block text-text-primary">Dimitrios</span>
-          <span className="block mt-2 bg-gradient-to-r from-accent-cyan via-accent-teal to-accent-purple bg-clip-text text-transparent">
-            Athinaios
+          <span className="block text-white" style={{ textShadow: '0 0 40px rgba(255,255,255,0.1)' }}>
+            Dimitrios
+          </span>
+          <span className="relative block mt-2">
+            {/* Glow layer */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(to_right,#00f0ff,#a855f7_50%,#00f0ff)] bg-clip-text text-transparent animate-gradient-text blur-2xl opacity-40 select-none"
+            >
+              Athinaios
+            </span>
+            {/* Visible gradient text */}
+            <span className="relative bg-[linear-gradient(to_right,#00f0ff,#22d3ee_25%,#a855f7_50%,#ec4899_75%,#00f0ff)] bg-clip-text text-transparent animate-gradient-text">
+              Athinaios
+            </span>
           </span>
         </motion.h1>
 

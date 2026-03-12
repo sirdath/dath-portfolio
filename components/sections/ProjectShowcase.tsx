@@ -22,6 +22,13 @@ export function ProjectShowcase() {
           <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
             Projects
           </h2>
+          <motion.div
+            className="mt-3 mx-auto h-0.5 w-16 rounded-full bg-gradient-to-r from-accent-cyan to-accent-teal"
+            initial={{ scaleX: 0, opacity: 0 }}
+            whileInView={{ scaleX: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          />
           <p className="mt-4 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
             Geospatial pipelines, predictive models, and AI-driven analytics
             — built to surface insights from complex spatial data.

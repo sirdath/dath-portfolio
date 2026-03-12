@@ -46,17 +46,26 @@ export function CertificationsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <Award className="w-6 h-6 text-accent-cyan" />
-              <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-bold text-text-primary">
-                Certifications
-              </h2>
+            <div className="mb-8">
+              <div className="flex items-center gap-3">
+                <Award className="w-6 h-6 text-accent-cyan" />
+                <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-bold text-text-primary">
+                  Certifications
+                </h2>
+              </div>
+              <motion.div
+                className="mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-accent-cyan to-accent-teal"
+                initial={{ scaleX: 0, opacity: 0 }}
+                whileInView={{ scaleX: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              />
             </div>
             <div className="space-y-4">
               {certifications.map((cert) => (
                 <div
                   key={cert.title}
-                  className="group relative p-5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-accent-cyan/20 transition-all duration-300 overflow-hidden"
+                  className="group relative p-5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-accent-cyan/20 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
                 >
                   <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div>
@@ -75,17 +84,26 @@ export function CertificationsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <Star className="w-6 h-6 text-accent-purple" />
-              <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-bold text-text-primary">
-                Beyond the Code
-              </h2>
+            <div className="mb-8">
+              <div className="flex items-center gap-3">
+                <Star className="w-6 h-6 text-accent-purple" />
+                <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-bold text-text-primary">
+                  Beyond the Code
+                </h2>
+              </div>
+              <motion.div
+                className="mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-accent-purple to-accent-magenta"
+                initial={{ scaleX: 0, opacity: 0 }}
+                whileInView={{ scaleX: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              />
             </div>
             <div className="space-y-4">
               {extracurriculars.map((item) => (
                 <div
                   key={item.title}
-                  className="group relative p-5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-accent-purple/20 transition-all duration-300"
+                  className="group relative p-5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-accent-purple/20 hover:-translate-y-0.5 transition-all duration-300"
                 >
                   <h3 className="text-text-primary font-medium">{item.title}</h3>
                   <p className="text-sm text-text-muted mt-2 leading-relaxed">

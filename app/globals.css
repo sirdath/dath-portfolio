@@ -114,6 +114,11 @@
   .animate-grid {
     animation: grid-scroll 3s linear infinite;
   }
+
+  .animate-gradient-text {
+    background-size: 200% auto;
+    animation: gradient-shift 6s ease infinite;
+  }
 }
 
 /* Keyframes (outside layers — they don't participate in cascade) */
@@ -151,4 +156,10 @@
 @keyframes grid-scroll {
   0% { transform: translateY(0); }
   100% { transform: translateY(60px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
