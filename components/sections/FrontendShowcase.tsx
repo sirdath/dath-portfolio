@@ -46,14 +46,6 @@ const sites: SiteProject[] = [
     image: "/images/frontend/glassstudio.jpg",
   },
   {
-    name: "DataScrub",
-    description:
-      "AI-powered data cleaning agent that detects and fixes quality issues in CSV, Excel, and JSON files automatically.",
-    url: "https://daththeanalyst.github.io/DataScrub/",
-    tags: ["AI", "Data Tool", "Automation"],
-    image: "/images/frontend/datascrub.jpg",
-  },
-  {
     name: "Michael Saffell Antiques",
     description:
       "Specialist antiques dealer in Bath offering vintage biscuit tins, tobacco cases, and decorative collectibles since 1975.",
@@ -84,14 +76,6 @@ const sites: SiteProject[] = [
     url: "https://daththeanalyst.github.io/halepi-website-mock/",
     tags: ["Restaurant", "Hospitality", "London"],
     image: "/images/frontend/halepi.jpg",
-  },
-  {
-    name: "LinkTree",
-    description:
-      "Custom-built link-in-bio page with a modern glassmorphism design for social and professional links.",
-    url: "https://daththeanalyst.github.io/LinkTree/",
-    tags: ["Personal", "Social", "Minimal"],
-    image: "/images/frontend/linktree.jpg",
   },
 ];
 
@@ -152,6 +136,7 @@ export function FrontendShowcase() {
                 <img
                   src={getAssetPath(site.image)}
                   alt={`${site.name} screenshot`}
+                  loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 {/* Gradient fade at bottom */}
