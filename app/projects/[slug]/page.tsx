@@ -1,5 +1,6 @@
 import { projects } from "@/data/projects";
 import { getAssetPath } from "@/lib/assets";
+import { ProjectDetailSections } from "@/components/projects/ProjectDetailSections";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -65,30 +66,54 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       {/* Content */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-16 sm:py-24">
-        {/* Description */}
-        <div className="prose prose-invert max-w-none">
-          <p className="text-lg leading-relaxed text-text-muted">
-            {project.description}
-          </p>
-        </div>
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 py-16 sm:py-24">
+        {project.detailContent ? (
+          <>
+            <ProjectDetailSections content={project.detailContent} />
 
-        {/* Tech Stack */}
-        <div className="mt-12">
-          <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-text-primary mb-6">
-            Tech Stack
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            {project.techStack.map((tech) => (
-              <div
-                key={tech}
-                className="glass rounded-xl px-4 py-3 text-center text-sm font-medium text-text-muted hover:border-accent-cyan/20 hover:text-accent-cyan transition-all duration-300"
-              >
-                {tech}
+            {/* Tech Stack */}
+            <div className="mt-16">
+              <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-text-primary mb-6">
+                Tech Stack
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {project.techStack.map((tech) => (
+                  <div
+                    key={tech}
+                    className="glass rounded-xl px-4 py-3 text-center text-sm font-medium text-text-muted hover:border-accent-cyan/20 hover:text-accent-cyan transition-all duration-300"
+                  >
+                    {tech}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Simple layout for projects without detailContent */}
+            <div className="prose prose-invert max-w-none">
+              <p className="text-lg leading-relaxed text-text-muted">
+                {project.description}
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-text-primary mb-6">
+                Tech Stack
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {project.techStack.map((tech) => (
+                  <div
+                    key={tech}
+                    className="glass rounded-xl px-4 py-3 text-center text-sm font-medium text-text-muted hover:border-accent-cyan/20 hover:text-accent-cyan transition-all duration-300"
+                  >
+                    {tech}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
         {/* Links */}
         <div className="mt-12 flex items-center gap-4">

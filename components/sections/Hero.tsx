@@ -127,9 +127,9 @@ export function Hero() {
           variants={itemVariants}
           className="mt-6 text-lg sm:text-xl md:text-2xl text-text-muted font-light tracking-wide"
         >
-          Geospatial Data Scientist{" "}
+          Data Scientist & AI Engineer{" "}
           <span className="text-accent-cyan/60">|</span> MSc Business Analytics
-          @ UCL <span className="text-accent-cyan/60">|</span> ML & AI
+          @ UCL
         </motion.p>
 
         {/* Description */}
@@ -137,9 +137,9 @@ export function Hero() {
           variants={itemVariants}
           className="mt-4 max-w-2xl text-sm sm:text-base text-text-dim leading-relaxed"
         >
-          Transforming spatial data into strategic intelligence. Building
-          end-to-end geospatial pipelines, predictive models, and AI-driven
-          analytics at scale.
+          Building intelligent systems from data to deployment — geospatial
+          pipelines, multi-agent platforms, and full-stack AI applications at
+          scale.
         </motion.p>
 
         {/* CTA Button */}
