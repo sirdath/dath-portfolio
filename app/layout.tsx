@@ -6,25 +6,29 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Dimitrios Athinaios | Geospatial Data Scientist",
+  title: "Dimitrios Athinaios | Data Scientist & AI Engineer",
   description:
-    "Portfolio of Dimitrios Athinaios — Geospatial Data Scientist, ML Engineer, and Analytics professional. Explore projects in geospatial intelligence, machine learning, and data engineering.",
+    "Portfolio of Dimitrios Athinaios — Data Scientist & AI Engineer. Explore projects in geospatial intelligence, multi-agent AI platforms, machine learning, and data engineering.",
   keywords: [
-    "geospatial",
     "data scientist",
+    "AI engineer",
+    "geospatial",
     "machine learning",
     "portfolio",
     "analytics",

@@ -79,7 +79,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             )}
           </div>
 
-          <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl sm:text-2xl font-bold text-text-primary leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent-cyan group-hover:to-accent-teal transition-all duration-300">
+          <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl sm:text-2xl font-bold text-text-primary leading-tight group-hover:text-accent-cyan transition-colors duration-300">
             {project.title}
           </h3>
           <p className="mt-2 text-sm text-text-muted line-clamp-2">

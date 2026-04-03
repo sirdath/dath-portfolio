@@ -1,14 +1,12 @@
 "use client";
 
-import { useMemo, useRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useMemo, useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
 import { Points, PointMaterial, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 function ParticleGlobe() {
-  const ref = useRef<THREE.Points>(null);
-
-  const particlesCount = 3000;
+  const particlesCount = 1500;
   const positions = useMemo(() => {
     const pos = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount; i++) {
@@ -27,16 +25,9 @@ function ParticleGlobe() {
     return pos;
   }, [particlesCount]);
 
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y -= delta * 0.05;
-      ref.current.rotation.x -= delta * 0.02;
-    }
-  });
-
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+      <Points positions={positions} stride={3}>
         <PointMaterial
           transparent
           color="#00f0ff"
@@ -97,15 +88,6 @@ export function Background3D() {
       )}
       {/* Vignette Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-void)_100%)] opacity-80" />
-      {/* Film grain noise overlay */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
-        <svg className="w-full h-full">
-          <filter id="noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noise)" />
-        </svg>
-      </div>
     </div>
   );
 }

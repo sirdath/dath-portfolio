@@ -4,23 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
-  const [visible, setVisible] = useState(false);
   const [hovering, setHovering] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const trailX = useMotionValue(-100);
   const trailY = useMotionValue(-100);
 
-  // Smooth spring follow for the outer ring
   const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
   const smoothX = useSpring(trailX, springConfig);
   const smoothY = useSpring(trailY, springConfig);
 
-  // Track if device has a mouse (skip on touch devices)
   const hasMouse = useRef(true);
+  const visibleRef = useRef(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Detect touch-only devices
     const mq = window.matchMedia("(pointer: fine)");
     if (!mq.matches) {
       hasMouse.current = false;
@@ -32,13 +30,21 @@ export function CustomCursor() {
       cursorY.set(e.clientY);
       trailX.set(e.clientX);
       trailY.set(e.clientY);
-      if (!visible) setVisible(true);
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        setVisible(true);
+      }
     };
 
-    const onMouseEnter = () => setVisible(true);
-    const onMouseLeave = () => setVisible(false);
+    const onMouseEnter = () => {
+      visibleRef.current = true;
+      setVisible(true);
+    };
+    const onMouseLeave = () => {
+      visibleRef.current = false;
+      setVisible(false);
+    };
 
-    // Detect hovering on interactive elements
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const interactive = target.closest(
@@ -58,13 +64,14 @@ export function CustomCursor() {
       document.removeEventListener("mouseleave", onMouseLeave);
       document.removeEventListener("mouseover", onMouseOver);
     };
-  }, [cursorX, cursorY, trailX, trailY, visible]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!hasMouse.current) return null;
 
   return (
     <>
-      {/* Inner dot - follows cursor exactly */}
+      {/* Inner dot */}
       <motion.div
         className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference"
         style={{
@@ -82,7 +89,7 @@ export function CustomCursor() {
         <div className="w-2 h-2 rounded-full bg-accent-cyan" />
       </motion.div>
 
-      {/* Outer ring - smooth spring follow with glow */}
+      {/* Outer ring */}
       <motion.div
         className="fixed top-0 left-0 z-[9998] pointer-events-none"
         style={{
@@ -97,15 +104,7 @@ export function CustomCursor() {
         }}
         transition={{ duration: 0.2 }}
       >
-        <div
-          className="w-8 h-8 rounded-full border border-accent-cyan/40"
-          style={{
-            boxShadow: hovering
-              ? "0 0 20px rgba(0,240,255,0.3), 0 0 40px rgba(0,240,255,0.1)"
-              : "0 0 10px rgba(0,240,255,0.15)",
-            transition: "box-shadow 0.3s ease",
-          }}
-        />
+        <div className="w-8 h-8 rounded-full border border-accent-cyan/40" />
       </motion.div>
     </>
   );
