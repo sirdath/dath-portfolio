@@ -1,8 +1,7 @@
 import { projects } from "@/data/projects";
 import { getAssetPath } from "@/lib/assets";
 import { ProjectDetailSections } from "@/components/projects/ProjectDetailSections";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { BackButton } from "@/components/shared/BackButton";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -45,13 +44,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent" />
 
         {/* Back button */}
-        <Link
-          href="/"
-          className="absolute top-6 left-6 z-20 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm text-text-muted border border-white/10 bg-white/5 backdrop-blur-md hover:border-accent-cyan/30 hover:text-accent-cyan transition-all"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back
-        </Link>
+        <BackButton />
 
         {/* Title overlay */}
         <div className="absolute bottom-0 left-0 right-0 z-10 p-8 sm:p-12">
