@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="bg" cx="60%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#0f0a1a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="900" cy="350" rx="550" ry="400" fill="url(#glow1)"/>
+  <ellipse cx="400" cy="500" rx="350" ry="300" fill="url(#glow2)"/>
+  <!-- Network graph (supply chain) -->
+  <g opacity="0.12" stroke="#a855f7" stroke-width="0.8">
+    <!-- Edges -->
+    <line x1="800" y1="250" x2="600" y2="350"/>
+    <line x1="800" y1="250" x2="1000" y2="300"/>
+    <line x1="800" y1="250" x2="750" y2="150"/>
+    <line x1="800" y1="250" x2="900" y2="180"/>
+    <line x1="600" y1="350" x2="450" y2="300"/>
+    <line x1="600" y1="350" x2="500" y2="450"/>
+    <line x1="600" y1="350" x2="700" y2="420"/>
+    <line x1="1000" y1="300" x2="1150" y2="250"/>
+    <line x1="1000" y1="300" x2="1100" y2="400"/>
+    <line x1="1000" y1="300" x2="950" y2="420"/>
+    <line x1="450" y1="300" x2="350" y2="380"/>
+    <line x1="450" y1="300" x2="400" y2="200"/>
+    <line x1="1150" y1="250" x2="1250" y2="180"/>
+    <line x1="1150" y1="250" x2="1280" y2="320"/>
+    <line x1="500" y1="450" x2="400" y2="520"/>
+    <line x1="500" y1="450" x2="600" y2="500"/>
+    <line x1="1100" y1="400" x2="1200" y2="450"/>
+    <line x1="1100" y1="400" x2="1050" y2="500"/>
+    <line x1="700" y1="420" x2="750" y2="500"/>
+    <line x1="950" y1="420" x2="850" y2="480"/>
+  </g>
+  <!-- Nodes -->
+  <g opacity="0.25">
+    <!-- Central node -->
+    <circle cx="800" cy="250" r="8" fill="#a855f7"/>
+    <!-- Level 1 -->
+    <circle cx="600" cy="350" r="6" fill="#00f0ff"/>
+    <circle cx="1000" cy="300" r="6" fill="#00f0ff"/>
+    <circle cx="750" cy="150" r="4" fill="#a855f7"/>
+    <circle cx="900" cy="180" r="4" fill="#a855f7"/>
+    <!-- Level 2 -->
+    <circle cx="450" cy="300" r="5" fill="#ec4899"/>
+    <circle cx="500" cy="450" r="4" fill="#00f0ff"/>
+    <circle cx="700" cy="420" r="4" fill="#00f0ff"/>
+    <circle cx="1150" cy="250" r="5" fill="#ec4899"/>
+    <circle cx="1100" cy="400" r="4" fill="#00f0ff"/>
+    <circle cx="950" cy="420" r="4" fill="#00f0ff"/>
+    <!-- Level 3 -->
+    <circle cx="350" cy="380" r="3" fill="#a855f7"/>
+    <circle cx="400" cy="200" r="3" fill="#a855f7"/>
+    <circle cx="1250" cy="180" r="3" fill="#a855f7"/>
+    <circle cx="1280" cy="320" r="3" fill="#a855f7"/>
+    <circle cx="400" cy="520" r="3" fill="#ec4899"/>
+    <circle cx="600" cy="500" r="3" fill="#ec4899"/>
+    <circle cx="1200" cy="450" r="3" fill="#ec4899"/>
+    <circle cx="1050" cy="500" r="3" fill="#ec4899"/>
+    <circle cx="750" cy="500" r="3" fill="#a855f7"/>
+    <circle cx="850" cy="480" r="3" fill="#a855f7"/>
+  </g>
+  <!-- Risk ripples -->
+  <circle cx="450" cy="300" r="30" fill="none" stroke="#ec4899" stroke-width="0.5" opacity="0.1"/>
+  <circle cx="450" cy="300" r="50" fill="none" stroke="#ec4899" stroke-width="0.3" opacity="0.06"/>
+  <circle cx="1150" cy="250" r="35" fill="none" stroke="#ec4899" stroke-width="0.5" opacity="0.1"/>
+  <circle cx="1150" cy="250" r="55" fill="none" stroke="#ec4899" stroke-width="0.3" opacity="0.06"/>
+</svg>

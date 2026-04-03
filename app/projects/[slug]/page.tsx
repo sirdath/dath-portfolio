@@ -20,15 +20,15 @@ export default async function ProjectPage({ params }: Props) {
     );
   }
 
-  const mediaSrc = getAssetPath(project.mediaUrl);
+  const heroSrc = getAssetPath(project.heroMediaUrl || project.mediaUrl);
 
   return (
     <main className="min-h-screen bg-void">
       {/* Hero media header */}
       <div className="relative h-[70vh] w-full overflow-hidden">
-        {project.mediaType === "video" ? (
+        {project.mediaType === "video" && !project.heroMediaUrl ? (
           <video
-            src={mediaSrc}
+            src={heroSrc}
             autoPlay
             loop
             muted
@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: Props) {
           />
         ) : (
           <img
-            src={mediaSrc}
+            src={heroSrc}
             alt={project.title}
             className="h-full w-full object-cover"
           />

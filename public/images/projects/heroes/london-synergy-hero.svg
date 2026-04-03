@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#0c1420"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hexFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="800" cy="400" rx="600" ry="450" fill="url(#glow)"/>
+  <!-- Large hex tessellation pattern -->
+  <g opacity="0.12" stroke="#00f0ff" stroke-width="0.6" fill="none">
+    <!-- Row 1 -->
+    <polygon points="300,120 340,97 380,120 380,166 340,189 300,166"/>
+    <polygon points="380,120 420,97 460,120 460,166 420,189 380,166"/>
+    <polygon points="460,120 500,97 540,120 540,166 500,189 460,166"/>
+    <polygon points="540,120 580,97 620,120 620,166 580,189 540,166"/>
+    <polygon points="620,120 660,97 700,120 700,166 660,189 620,166"/>
+    <polygon points="700,120 740,97 780,120 780,166 740,189 700,166"/>
+    <polygon points="780,120 820,97 860,120 860,166 820,189 780,166"/>
+    <polygon points="860,120 900,97 940,120 940,166 900,189 860,166"/>
+    <polygon points="940,120 980,97 1020,120 1020,166 980,189 940,166"/>
+    <polygon points="1020,120 1060,97 1100,120 1100,166 1060,189 1020,166"/>
+    <polygon points="1100,120 1140,97 1180,120 1180,166 1140,189 1100,166"/>
+    <polygon points="1180,120 1220,97 1260,120 1260,166 1220,189 1180,166"/>
+    <!-- Row 2 (offset) -->
+    <polygon points="340,189 380,166 420,189 420,235 380,258 340,235"/>
+    <polygon points="420,189 460,166 500,189 500,235 460,258 420,235"/>
+    <polygon points="500,189 540,166 580,189 580,235 540,258 500,235"/>
+    <polygon points="580,189 620,166 660,189 660,235 620,258 580,235"/>
+    <polygon points="660,189 700,166 740,189 740,235 700,258 660,235"/>
+    <polygon points="740,189 780,166 820,189 820,235 780,258 740,235"/>
+    <polygon points="820,189 860,166 900,189 900,235 860,258 820,235"/>
+    <polygon points="900,189 940,166 980,189 980,235 940,258 900,235"/>
+    <polygon points="980,189 1020,166 1060,189 1060,235 1020,258 980,235"/>
+    <polygon points="1060,189 1100,166 1140,189 1140,235 1100,258 1060,235"/>
+    <polygon points="1140,189 1180,166 1220,189 1220,235 1180,258 1140,235"/>
+    <!-- Row 3 -->
+    <polygon points="300,258 340,235 380,258 380,304 340,327 300,304"/>
+    <polygon points="380,258 420,235 460,258 460,304 420,327 380,304"/>
+    <polygon points="460,258 500,235 540,258 540,304 500,327 460,304"/>
+    <polygon points="540,258 580,235 620,258 620,304 580,327 540,304"/>
+    <polygon points="620,258 660,235 700,258 700,304 660,327 620,304"/>
+    <polygon points="700,258 740,235 780,258 780,304 740,327 700,304"/>
+    <polygon points="780,258 820,235 860,258 860,304 820,327 780,304"/>
+    <polygon points="860,258 900,235 940,258 940,304 900,327 860,304"/>
+    <polygon points="940,258 980,235 1020,258 1020,304 980,327 940,304"/>
+    <polygon points="1020,258 1060,235 1100,258 1100,304 1060,327 1020,304"/>
+    <polygon points="1100,258 1140,235 1180,258 1180,304 1140,327 1100,304"/>
+    <polygon points="1180,258 1220,235 1260,258 1260,304 1220,327 1180,304"/>
+  </g>
+  <!-- Highlighted hexagons (hotspots) -->
+  <g fill="url(#hexFill)" stroke="#00f0ff" stroke-width="0.8" opacity="0.25">
+    <polygon points="580,189 620,166 660,189 660,235 620,258 580,235"/>
+    <polygon points="740,189 780,166 820,189 820,235 780,258 740,235"/>
+    <polygon points="860,258 900,235 940,258 940,304 900,327 860,304"/>
+    <polygon points="460,258 500,235 540,258 540,304 500,327 460,304"/>
+    <polygon points="1020,120 1060,97 1100,120 1100,166 1060,189 1020,166"/>
+  </g>
+  <!-- Scatter dots (POIs) -->
+  <g opacity="0.2">
+    <circle cx="620" cy="210" r="2" fill="#00f0ff"/>
+    <circle cx="650" cy="225" r="1.5" fill="#a855f7"/>
+    <circle cx="790" cy="215" r="2" fill="#00f0ff"/>
+    <circle cx="810" cy="200" r="1.5" fill="#00f0ff"/>
+    <circle cx="900" cy="280" r="2" fill="#a855f7"/>
+    <circle cx="510" cy="290" r="1.5" fill="#00f0ff"/>
+    <circle cx="1060" cy="140" r="2" fill="#a855f7"/>
+  </g>
+</svg>

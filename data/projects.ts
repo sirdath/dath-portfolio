@@ -22,6 +22,7 @@ export interface Project {
   techStack: string[];
   mediaUrl: string;
   mediaType: "video" | "gif" | "image";
+  heroMediaUrl?: string;
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;
@@ -54,6 +55,7 @@ export const projects: Project[] = [
     ],
     mediaUrl: "/images/projects/aegis.png",
     mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/aegis-hero.svg",
     featured: true,
     category: "ai",
     gridSpan: "large",
@@ -225,6 +227,7 @@ export const projects: Project[] = [
     techStack: ["Python", "XGBoost", "H3", "NetworkX", "Streamlit", "Pydeck"],
     mediaUrl: "/images/projects/london-synergy.svg",
     mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/london-synergy-hero.svg",
     githubUrl: "https://github.com/daththeanalyst",
     featured: true,
     category: "geospatial",
@@ -267,6 +270,7 @@ export const projects: Project[] = [
     techStack: ["Python", "Scikit-learn", "XGBoost", "Optuna", "Pandas"],
     mediaUrl: "/images/projects/housing-crime.svg",
     mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/housing-crime-hero.svg",
     githubUrl: "https://github.com/daththeanalyst",
     featured: true,
     category: "geospatial",
@@ -308,6 +312,7 @@ export const projects: Project[] = [
     techStack: ["Python", "LangGraph", "SurrealDB", "Three.js", "Docker"],
     mediaUrl: "/images/projects/risk-terrain.svg",
     mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/risk-terrain-hero.svg",
     githubUrl: "https://github.com/daththeanalyst",
     featured: true,
     category: "ai",
@@ -350,6 +355,7 @@ export const projects: Project[] = [
     techStack: ["Python", "PySpark", "MongoDB", "DuckDB", "Parquet"],
     mediaUrl: "/images/projects/data-engineering.svg",
     mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/data-engineering-hero.svg",
     githubUrl: "https://github.com/daththeanalyst",
     featured: false,
     category: "data-engineering",
@@ -387,6 +393,7 @@ export const projects: Project[] = [
     techStack: ["Next.js", "React", "Node.js", "PostgreSQL", "Tailwind"],
     mediaUrl: "/images/projects/dataportfolio.svg",
     mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/dataportfolio-hero.svg",
     liveUrl: "https://dataportfolio.co.uk",
     featured: false,
     category: "fullstack",
