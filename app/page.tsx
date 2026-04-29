@@ -5,12 +5,12 @@ import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { HexBackgroundLazy } from "@/components/ui/HexBackgroundLazy";
+import { IronFilingsLazy } from "@/components/ui/IronFilingsLazy";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-void relative">
-      <HexBackgroundLazy />
+      <IronFilingsLazy />
       <DathLogo />
       <div className="relative z-10">
         <Hero />
