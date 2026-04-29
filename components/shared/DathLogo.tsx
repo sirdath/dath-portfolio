@@ -10,51 +10,30 @@ export function DathLogo() {
   return (
     <motion.button
       onClick={scrollToTop}
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      whileHover={{ scale: 1.08 }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="fixed top-6 left-6 z-50 group"
-      aria-label="Scroll to top"
+      aria-label="Dimitrios Athinaios — back to top"
     >
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-[0_2px_8px_rgba(0,240,255,0.25)] transition-all duration-300 group-hover:drop-shadow-[0_2px_16px_rgba(0,240,255,0.5)]"
-      >
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00f0ff" />
-            <stop offset="100%" stopColor="#a855f7" />
-          </linearGradient>
-        </defs>
-        {/* Outer rounded square */}
-        <rect
-          x="2"
-          y="2"
-          width="44"
-          height="44"
-          rx="12"
-          stroke="url(#logoGrad)"
-          strokeWidth="1.5"
-          fill="rgba(9, 9, 11, 0.6)"
-          className="backdrop-blur-md"
-        />
-        {/* D — left side, rounded vertical bar with curve */}
-        <path
-          d="M11 13 L11 35 L19 35 C25 35 28 31 28 24 C28 17 25 13 19 13 Z"
-          fill="url(#logoGrad)"
-        />
-        {/* A — right side, geometric triangle with crossbar */}
-        <path
-          d="M30 35 L36 13 L37 13 L43 35 L40 35 L38.7 30 L34.3 30 L33 35 Z M35 27 L38 27 L36.5 21 Z"
-          fill="url(#logoGrad)"
-        />
-      </svg>
+      <div className="relative w-14 h-14 flex items-center justify-center rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md transition-all duration-500 group-hover:border-accent-cyan/40 group-hover:bg-black/60 group-hover:shadow-[0_0_32px_rgba(0,240,255,0.25)] overflow-hidden">
+        {/* Animated gradient sweep on hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-accent-cyan/[0.08] via-transparent to-accent-purple/[0.08]" />
+
+        {/* Subtle corner accents */}
+        <div className="absolute top-1.5 left-1.5 w-2 h-2 border-l border-t border-accent-cyan/30 group-hover:border-accent-cyan transition-colors duration-500" />
+        <div className="absolute bottom-1.5 right-1.5 w-2 h-2 border-r border-b border-accent-purple/30 group-hover:border-accent-purple transition-colors duration-500" />
+
+        {/* DA monogram - typographic */}
+        <span
+          className="relative font-[family-name:var(--font-playfair)] italic text-2xl font-medium tracking-tighter bg-gradient-to-br from-accent-cyan via-white to-accent-purple bg-clip-text text-transparent select-none"
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+        >
+          DA
+        </span>
+      </div>
     </motion.button>
   );
 }

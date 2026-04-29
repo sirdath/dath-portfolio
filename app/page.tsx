@@ -5,12 +5,12 @@ import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { Background3DLazy } from "@/components/ui/Background3DLazy";
+import { ConstellationFieldLazy } from "@/components/ui/ConstellationFieldLazy";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-void relative">
-      <Background3DLazy />
+      <ConstellationFieldLazy />
       <DathLogo />
       <div className="relative z-10">
         <Hero />
