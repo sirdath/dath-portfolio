@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { DathLogo } from "@/components/shared/DathLogo";
 import { TechMarquee } from "@/components/sections/TechMarquee";
 import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { TimelineSection } from "@/components/sections/TimelineSection";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-void relative">
       <Background3DLazy />
+      <DathLogo />
       <div className="relative z-10">
         <Hero />
         <TechMarquee />

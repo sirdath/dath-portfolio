@@ -90,8 +90,8 @@ export function Hero() {
             }}
           >
             <h1
-              className="font-[family-name:var(--font-space-grotesk)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]"
-              style={{ textShadow: "0 4px 12px rgba(0,0,0,0.4)" }}
+              className="font-[family-name:var(--font-playfair)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9]"
+              style={{ textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}
             >
               <motion.span
                 className="block text-white"
@@ -101,7 +101,7 @@ export function Hero() {
               >
                 Dimitrios
               </motion.span>
-              <span className="block mt-2">
+              <span className="block mt-1 italic font-normal">
                 {"Athinaios".split("").map((letter, i) => (
                   <motion.span
                     key={i}
