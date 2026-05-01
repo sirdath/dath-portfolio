@@ -248,28 +248,38 @@ export function ContactSection() {
                     </span>
                   </div>
 
-                  {/* Proficiency bar */}
-                  <div className="relative h-1 rounded-full bg-white/[0.06] overflow-hidden mb-2">
+                  {/* Proficiency bar — direct width animation (no scaleX) */}
+                  <div className="relative h-1.5 rounded-full bg-white/[0.06] overflow-hidden mb-3">
                     <motion.div
-                      className="absolute inset-y-0 left-0 rounded-full origin-left"
+                      className="absolute inset-y-0 left-0 rounded-full"
                       style={{
-                        background: `linear-gradient(90deg, #00f0ff, #a855f7)`,
-                        width: `${lang.proficiency}%`,
+                        background: `linear-gradient(90deg, #00f0ff 0%, #a855f7 100%)`,
+                        boxShadow:
+                          lang.proficiency === 100
+                            ? "0 0 8px rgba(168, 85, 247, 0.5)"
+                            : undefined,
                       }}
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
+                      initial={{ width: "0%" }}
+                      whileInView={{ width: `${lang.proficiency}%` }}
                       viewport={{ once: true }}
                       transition={{
-                        duration: 1.2,
-                        delay: 0.8 + i * 0.15,
+                        duration: 1.4,
+                        delay: 0.7 + i * 0.15,
                         ease: [0.25, 0.4, 0.25, 1],
                       }}
                     />
                   </div>
 
-                  {/* Sub-label */}
-                  <div className="text-[10px] text-text-dim">
-                    {lang.level}
+                  {/* Sub-label + max indicator */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-text-dim">
+                      {lang.level}
+                    </span>
+                    {lang.proficiency === 100 && (
+                      <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-accent-cyan">
+                        ◆ MAX
+                      </span>
+                    )}
                   </div>
                 </div>
               </motion.div>
