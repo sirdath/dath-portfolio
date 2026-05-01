@@ -44,38 +44,108 @@ export function ContactSection() {
     >
       {/* ─── Animated mesh gradient background ────────────────── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* 5 drifting orb layers — denser than before */}
         <div
-          className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-30"
+          className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-32"
           style={{
             background: "radial-gradient(circle, #00f0ff 0%, transparent 70%)",
-            animation: "mesh-drift-1 18s ease-in-out infinite",
+            animation: "mesh-drift-1 20s ease-in-out infinite",
           }}
         />
         <div
-          className="absolute top-1/3 -right-32 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
+          className="absolute top-1/4 -right-32 w-[700px] h-[700px] rounded-full blur-3xl opacity-28"
           style={{
             background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-            animation: "mesh-drift-2 22s ease-in-out infinite",
+            animation: "mesh-drift-2 24s ease-in-out infinite",
           }}
         />
         <div
-          className="absolute -bottom-40 left-1/3 w-[550px] h-[550px] rounded-full blur-3xl opacity-25"
+          className="absolute -bottom-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-26"
           style={{
             background: "radial-gradient(circle, #ec4899 0%, transparent 70%)",
-            animation: "mesh-drift-3 26s ease-in-out infinite",
+            animation: "mesh-drift-3 28s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute top-1/2 right-1/4 w-[450px] h-[450px] rounded-full blur-3xl opacity-22"
+          style={{
+            background: "radial-gradient(circle, #fbbf24 0%, transparent 70%)",
+            animation: "mesh-drift-4 30s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute bottom-1/3 -right-20 w-[400px] h-[400px] rounded-full blur-3xl opacity-20"
+          style={{
+            background: "radial-gradient(circle, #22d3ee 0%, transparent 70%)",
+            animation: "mesh-drift-5 32s ease-in-out infinite",
+          }}
+        />
+
+        {/* Floating particles */}
+        {[...Array(10)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 rounded-full"
+            style={{
+              left: `${(i * 10) + (i % 2 ? 5 : 0)}%`,
+              bottom: "-10px",
+              animation: `float-up ${22 + i * 2.5}s linear infinite`,
+              animationDelay: `${i * 2}s`,
+              background:
+                i % 3 === 0
+                  ? "rgba(0,240,255,0.5)"
+                  : i % 3 === 1
+                  ? "rgba(168,85,247,0.5)"
+                  : "rgba(236,72,153,0.5)",
+              boxShadow: `0 0 8px ${
+                i % 3 === 0
+                  ? "#00f0ff"
+                  : i % 3 === 1
+                  ? "#a855f7"
+                  : "#ec4899"
+              }`,
+            }}
+          />
+        ))}
+
+        {/* Animated grid */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+            animation: "grid-shift 20s linear infinite",
           }}
         />
       </div>
 
-      {/* Subtle dotted grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
+      {/* Wave divider at top */}
+      <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none overflow-hidden">
+        <svg
+          className="absolute top-0 left-0 w-full h-full"
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,80 C320,40 720,120 1440,60 L1440,0 L0,0 Z"
+            fill="var(--color-void)"
+            opacity="0.6"
+          />
+          <path
+            d="M0,40 C400,80 800,20 1440,60 L1440,0 L0,0 Z"
+            fill="url(#waveGrad)"
+            opacity="0.15"
+          />
+          <defs>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#00f0ff" />
+              <stop offset="50%" stopColor="#a855f7" />
+              <stop offset="100%" stopColor="#ec4899" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Eyebrow */}
