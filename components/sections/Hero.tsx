@@ -8,6 +8,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { ChevronDown, ArrowRight, Mail } from "lucide-react";
+import { EncryptedText } from "@/components/shared/EncryptedText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -118,7 +119,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
               >
-                Dimitrios
+                <EncryptedText text="Dimitrios" delay={800} totalDurationMs={1300} perCharDelayMs={70} />
               </motion.span>
               <span className="block italic font-normal text-white/95">
                 {"Athinaios".split("").map((letter, i) => (
