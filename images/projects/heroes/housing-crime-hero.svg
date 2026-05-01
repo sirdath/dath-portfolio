@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="bg" cx="40%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#10061a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="80%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="500" cy="400" rx="500" ry="400" fill="url(#glow1)"/>
+  <ellipse cx="1100" cy="350" rx="400" ry="350" fill="url(#glow2)"/>
+  <!-- Abstract bar chart -->
+  <g opacity="0.15">
+    <rect x="300" y="320" width="40" height="180" rx="4" fill="url(#barGrad)"/>
+    <rect x="370" y="280" width="40" height="220" rx="4" fill="url(#barGrad)"/>
+    <rect x="440" y="350" width="40" height="150" rx="4" fill="url(#barGrad)"/>
+    <rect x="510" y="240" width="40" height="260" rx="4" fill="url(#barGrad)"/>
+    <rect x="580" y="300" width="40" height="200" rx="4" fill="url(#barGrad)"/>
+    <rect x="650" y="260" width="40" height="240" rx="4" fill="url(#barGrad)"/>
+    <rect x="720" y="310" width="40" height="190" rx="4" fill="url(#barGrad)"/>
+    <rect x="790" y="220" width="40" height="280" rx="4" fill="url(#barGrad)"/>
+    <rect x="860" y="270" width="40" height="230" rx="4" fill="url(#barGrad)"/>
+    <rect x="930" y="340" width="40" height="160" rx="4" fill="url(#barGrad)"/>
+    <rect x="1000" y="290" width="40" height="210" rx="4" fill="url(#barGrad)"/>
+    <rect x="1070" y="250" width="40" height="250" rx="4" fill="url(#barGrad)"/>
+    <rect x="1140" y="310" width="40" height="190" rx="4" fill="url(#barGrad)"/>
+    <rect x="1210" y="280" width="40" height="220" rx="4" fill="url(#barGrad)"/>
+  </g>
+  <!-- Trend line overlay -->
+  <path d="M320,330 Q450,270 580,310 Q710,280 840,240 Q970,310 1100,270 Q1200,260 1230,290" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.2"/>
+  <!-- Scatter points (LSOA data points) -->
+  <g opacity="0.15">
+    <circle cx="350" cy="340" r="3" fill="#ec4899"/>
+    <circle cx="530" cy="260" r="4" fill="#ec4899"/>
+    <circle cx="670" cy="280" r="3" fill="#ec4899"/>
+    <circle cx="810" cy="240" r="5" fill="#ec4899"/>
+    <circle cx="950" cy="350" r="3" fill="#ec4899"/>
+    <circle cx="1090" cy="270" r="4" fill="#ec4899"/>
+  </g>
+  <!-- Baseline -->
+  <rect x="250" y="500" width="1100" height="1" fill="url(#lineGrad)"/>
+</svg>
