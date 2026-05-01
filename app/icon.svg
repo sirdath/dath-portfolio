@@ -10,8 +10,21 @@
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="96" fill="url(#bg)"/>
-  <!-- D letter - left side -->
-  <path d="M120,120 L120,392 L220,392 C310,392 360,340 360,256 C360,172 310,120 220,120 Z M176,172 L216,172 C280,172 304,204 304,256 C304,308 280,340 216,340 L176,340 Z" fill="url(#accent)"/>
-  <!-- Accent dot -->
-  <circle cx="400" cy="370" r="24" fill="#00f0ff"/>
+  <!-- Centered DA monogram (scaled to fit) -->
+  <g transform="translate(80, 200)">
+    <!-- D — angular octagon with bowl cutout -->
+    <path
+      d="M 5,5 L 65,5 L 90,25 L 90,65 L 65,85 L 5,85 Z M 22,22 L 58,22 L 73,33 L 73,57 L 58,68 L 22,68 Z"
+      fill="url(#accent)"
+      fill-rule="evenodd"
+      transform="scale(1.7)"
+    />
+    <!-- A — angular peak with crossbar and inner cutout -->
+    <path
+      d="M 105,85 L 145,5 L 170,5 L 210,85 L 188,85 L 180,68 L 135,68 L 127,85 Z M 142,52 L 173,52 L 157.5,21 Z"
+      fill="url(#accent)"
+      fill-rule="evenodd"
+      transform="scale(1.7)"
+    />
+  </g>
 </svg>
