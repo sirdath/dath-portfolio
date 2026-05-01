@@ -52,7 +52,7 @@
   }
 }
 
-/* Custom cursor — hide native on devices with a precise pointer */
+/* Custom cursor - hide native on devices with a precise pointer */
 /* Intentionally unlayered so it overrides all cursor styles */
 @media (pointer: fine) {
   *,
@@ -118,7 +118,7 @@
 
 }
 
-/* Keyframes (outside layers — they don't participate in cascade) */
+/* Keyframes (outside layers - they don't participate in cascade) */
 @keyframes border-rotate {
   0% { --angle: 0deg; }
   100% { --angle: 360deg; }
@@ -245,7 +245,7 @@
   pointer-events: none;
   transform-origin: left center;
   transition: opacity 0.25s ease, transform 0.25s ease;
-  /* Hidden by default — only shows on hover or active */
+  /* Hidden by default - only shows on hover or active */
   opacity: 0;
   transform: translateX(-6px) scale(0.94);
   z-index: 10;
@@ -259,14 +259,14 @@
   margin-top: 1px;
 }
 
-/* Show label on hover (CSS — works inside HTML elements rendered by react-globe.gl) */
+/* Show label on hover (CSS - works inside HTML elements rendered by react-globe.gl) */
 .beacon-wrap:hover .beacon-label {
   opacity: 1;
   transform: translateX(0) scale(1);
   z-index: 20;
 }
 
-/* Tiny project-number tag always visible — clickable too */
+/* Tiny project-number tag always visible - clickable too */
 .beacon-tag {
   position: absolute;
   left: 13px;

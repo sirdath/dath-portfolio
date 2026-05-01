@@ -31,7 +31,7 @@ export function ProjectShowcase() {
           />
           <p className="mt-4 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
             Geospatial pipelines, predictive models, and AI-driven analytics
-            — built to surface insights from complex spatial data.
+            - built to surface insights from complex spatial data.
           </p>
         </motion.div>
 

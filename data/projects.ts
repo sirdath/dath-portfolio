@@ -38,7 +38,7 @@ export const projects: Project[] = [
     title: "NeuroVault",
     subtitle: "Local-first AI memory for Claude",
     description:
-      "A Tauri desktop app that gives Claude persistent memory across conversations. Markdown vault + knowledge graph + hybrid retrieval (semantic + BM25 + graph) — outperforms RAG at 96% hit@3, ~275 tokens/answer, and runs entirely on your machine.",
+      "A Tauri desktop app that gives Claude persistent memory across conversations. Markdown vault + knowledge graph + hybrid retrieval (semantic + BM25 + graph) - outperforms RAG at 96% hit@3, ~275 tokens/answer, and runs entirely on your machine.",
     techStack: [
       "Tauri 2",
       "React 19",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     gridSpan: "large",
     detailContent: {
       overview:
-        "NeuroVault is a local-first AI memory system that fixes the central failure of LLM agents: they forget you after every conversation. Built as a Tauri 2 desktop app, NeuroVault stores notes as plain markdown in your home directory, indexes them with a Rust-powered hybrid retrieval engine (semantic + BM25 + knowledge graph), and exposes them to Claude over MCP. Most agent-memory products today are RAG pipelines in disguise. NeuroVault treats memory as a structured, updatable, inspectable knowledge base — what you get when you stop chunking-and-praying and start treating memory as a living wiki.",
+        "NeuroVault is a local-first AI memory system that fixes the central failure of LLM agents: they forget you after every conversation. Built as a Tauri 2 desktop app, NeuroVault stores notes as plain markdown in your home directory, indexes them with a Rust-powered hybrid retrieval engine (semantic + BM25 + knowledge graph), and exposes them to Claude over MCP. Most agent-memory products today are RAG pipelines in disguise. NeuroVault treats memory as a structured, updatable, inspectable knowledge base - what you get when you stop chunking-and-praying and start treating memory as a living wiki.",
       architectureDiagram: `+-------------------------------------------------+
 |  Tauri 2 desktop app (React 19 + TypeScript)    |
 |  Editor / Graph / Compile / Sidebar / Palette   |
@@ -79,25 +79,25 @@ export const projects: Project[] = [
 |  brain.db, vault/*.md, raw/, assets/, cache/    |
 +-------------------------------------------------+`,
       keyFeatures: [
-        "Hybrid retrieval — semantic (BGE-small) + BM25 + knowledge graph fused via Reciprocal Rank Fusion",
-        "Silent fact capture — UserPromptSubmit hook runs an 8-pattern regex extractor that promotes casual statements into first-class memories with provenance wiki-links",
-        "Multi-brain support — separate vaults for separate projects, switch instantly via dropdown or MCP",
-        "Knowledge graph view — force-directed layout with three automatic link types (semantic, entity, wikilink) plus opt-in PageRank node sizing",
-        "Memory strength via Ebbinghaus decay — used facts stay strong, unused ones fade, contradictions get a recency penalty",
-        "100% local — markdown files in your home directory, no telemetry, no cloud sync, no account",
-        "MCP-native — connects to any MCP client (Claude Desktop, Claude Code, Cursor) with 18+ tools",
+        "Hybrid retrieval - semantic (BGE-small) + BM25 + knowledge graph fused via Reciprocal Rank Fusion",
+        "Silent fact capture - UserPromptSubmit hook runs an 8-pattern regex extractor that promotes casual statements into first-class memories with provenance wiki-links",
+        "Multi-brain support - separate vaults for separate projects, switch instantly via dropdown or MCP",
+        "Knowledge graph view - force-directed layout with three automatic link types (semantic, entity, wikilink) plus opt-in PageRank node sizing",
+        "Memory strength via Ebbinghaus decay - used facts stay strong, unused ones fade, contradictions get a recency penalty",
+        "100% local - markdown files in your home directory, no telemetry, no cloud sync, no account",
+        "MCP-native - connects to any MCP client (Claude Desktop, Claude Code, Cursor) with 18+ tools",
         "Cost: $0.55/year vs Mem0 Pro at $2,988/year (1k notes, comparable feature set)",
       ],
       sections: [
         {
           heading: "Why this is not RAG",
-          body: "RAG is an answer-pipeline: question → chunk → embed → retrieve → stuff context → generate → repeat. The corpus is dead data. Contradictions are invisible. Provenance is a prayer. NeuroVault is a knowledge layer — it differs from RAG in five specific ways that map directly to what a living internal wiki needs.",
+          body: "RAG is an answer-pipeline: question → chunk → embed → retrieve → stuff context → generate → repeat. The corpus is dead data. Contradictions are invisible. Provenance is a prayer. NeuroVault is a knowledge layer - it differs from RAG in five specific ways that map directly to what a living internal wiki needs.",
           bullets: [
             "Accumulates via Ebbinghaus strength decay + access reinforcement (RAG re-chunks)",
             "Structured with Karpathy's 3-layer raw/wiki/schema pattern (RAG is flat chunks)",
             "Three automatic link types: semantic similarity, shared entities, explicit wikilinks (RAG has none)",
             "Silent fact capture promotes casually-dropped facts with wiki-link provenance (RAG cites the chunk)",
-            "Temporal fact tracking — when new facts contradict old, supersession + recency penalty stops pollution (RAG cannot challenge or update)",
+            "Temporal fact tracking - when new facts contradict old, supersession + recency penalty stops pollution (RAG cannot challenge or update)",
           ],
         },
         {
@@ -123,11 +123,11 @@ export const projects: Project[] = [
       apiEndpoints: [
         { method: "POST", path: "recall", description: "Hybrid search: semantic + BM25 + graph fused via RRF (optional cross-encoder rerank)" },
         { method: "POST", path: "recall_chunks", description: "Same retrieval but returns matching paragraphs (cheaper)" },
-        { method: "POST", path: "remember", description: "Save a memory — triggers chunk + embed + entity extract + graph link" },
+        { method: "POST", path: "remember", description: "Save a memory - triggers chunk + embed + entity extract + graph link" },
         { method: "POST", path: "related", description: "Direct neighbours of an engram via the graph (~50x cheaper than fresh recall)" },
-        { method: "POST", path: "session_start", description: "Wake-up tool — brain stats + L0 identity + top memories + open todos" },
+        { method: "POST", path: "session_start", description: "Wake-up tool - brain stats + L0 identity + top memories + open todos" },
         { method: "POST", path: "core_memory_set", description: "Persona-style always-included blocks (Letta pattern)" },
-        { method: "POST", path: "list_brains", description: "Multi-brain navigation — separate memory spaces" },
+        { method: "POST", path: "list_brains", description: "Multi-brain navigation - separate memory spaces" },
         { method: "POST", path: "switch_brain", description: "Switch active brain instantly without restart" },
         { method: "POST", path: "create_brain", description: "Create new memory space for a separate project/context" },
         { method: "POST", path: "check_duplicate", description: "Pure cosine pre-check before remember() to avoid duplicate storage" },

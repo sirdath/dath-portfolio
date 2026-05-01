@@ -77,7 +77,7 @@ const extras: Extra[] = [
   {
     title: "Discipline & Movement",
     description:
-      "Karate Black Belt 1-dan. Active kickboxing practitioner. The same Kaizen principles I bring to dojo training — small daily improvements compounding — shape how I approach engineering: deliberate practice, candid feedback, no shortcuts.",
+      "Karate Black Belt 1-dan. Active kickboxing practitioner. The same Kaizen principles I bring to dojo training - small daily improvements compounding - shape how I approach engineering: deliberate practice, candid feedback, no shortcuts.",
     icon: Dumbbell,
     color: "#ff4d8d",
     tags: ["Karate · 1-dan", "Kickboxing", "Kaizen"],
@@ -134,7 +134,7 @@ export function CertificationsSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
             />
             <p className="mt-5 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
-              Mathematics, machine learning, data analytics —
+              Mathematics, machine learning, data analytics -
               fundamentals deliberately deepened.
             </p>
           </div>
@@ -277,7 +277,7 @@ export function CertificationsSection() {
             </p>
           </div>
 
-          {/* Featured cards — bigger, more dramatic */}
+          {/* Featured cards - bigger, more dramatic */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {extras.map((item, i) => (
               <motion.div

@@ -60,7 +60,7 @@ const fragmentShader = /* glsl */ `
     q.x += uTime * 0.045;
     q.y -= uTime * 0.025;
 
-    // ─── Mouse attractor — warps the noise toward the cursor ───
+    // ─── Mouse attractor - warps the noise toward the cursor ───
     vec2 mouseAR = vec2(uMouse.x * aspect, uMouse.y);
     vec2 toMouse = mouseAR - cuv;
     float mouseDist = length(toMouse);

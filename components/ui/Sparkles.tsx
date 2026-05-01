@@ -22,7 +22,7 @@ interface Sparkle {
 }
 
 /**
- * Subtle sparkles overlay — twinkling particles drifting upward.
+ * Subtle sparkles overlay - twinkling particles drifting upward.
  * Aceternity-style ambient effect for hero/CTA backgrounds.
  */
 export function Sparkles({

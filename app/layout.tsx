@@ -30,7 +30,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Dimitrios Athinaios | Data Scientist & AI Engineer",
   description:
-    "Portfolio of Dimitrios Athinaios — Data Scientist & AI Engineer. Explore projects in geospatial intelligence, multi-agent AI platforms, machine learning, and data engineering.",
+    "Portfolio of Dimitrios Athinaios - Data Scientist & AI Engineer. Explore projects in geospatial intelligence, multi-agent AI platforms, machine learning, and data engineering.",
   keywords: [
     "data scientist",
     "AI engineer",

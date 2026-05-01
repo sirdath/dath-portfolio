@@ -169,7 +169,7 @@ export function Hero() {
           variants={itemVariants}
           className="mt-5 max-w-xl text-sm sm:text-base text-text-dim leading-relaxed font-[family-name:var(--font-inter)]"
         >
-          Building intelligent systems from data to deployment — geospatial
+          Building intelligent systems from data to deployment - geospatial
           pipelines, multi-agent platforms, and full-stack AI applications at
           scale.
         </motion.p>

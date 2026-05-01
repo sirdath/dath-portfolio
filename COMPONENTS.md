@@ -6,9 +6,9 @@
 
 ---
 
-## ⚡ TL;DR — what this site is
+## ⚡ TL;DR - what this site is
 
-Next.js 16 portfolio for **Dimitrios Athinaios** — Data Scientist & AI Engineer based in London, UCL MSc Business Analytics. Static export to GitHub Pages at `basePath: /dath-portfolio`. Dark cyberpunk theme (cyan `#00f0ff` + purple `#a855f7` accents on `#09090b` void background).
+Next.js 16 portfolio for **Dimitrios Athinaios** - Data Scientist & AI Engineer based in London, UCL MSc Business Analytics. Static export to GitHub Pages at `basePath: /dath-portfolio`. Dark cyberpunk theme (cyan `#00f0ff` + purple `#a855f7` accents on `#09090b` void background).
 
 7 projects. Single-page composition with hero + project atlas globe + project bento grid + timeline + certifications + contact, plus dynamic project detail pages at `/projects/[slug]`.
 
@@ -91,7 +91,7 @@ DATH-PERSONAL-PORTFOLIO/
 
 ### Background
 
-#### `components/ui/ShaderDotGrid.tsx` ⭐ (NEW — current background)
+#### `components/ui/ShaderDotGrid.tsx` ⭐ (NEW - current background)
 **Purpose:** Interactive shader-based dot grid covering the entire viewport behind all content.
 **How it works:**
 - Custom GLSL fragment shader on a fullscreen `planeGeometry` quad
@@ -152,7 +152,7 @@ Three.js particle globe with 1500 cyan particles + auto-rotation. Replaced by Sh
 - 7 HTML beacons (chill version):
   - 90px vertical light beam
   - 14px pulsing core with white-hot inner dot
-  - Single radar ring (was 2 — toned down)
+  - Single radar ring (was 2 - toned down)
   - Glassmorphic floating label with project number, name, region
   - Each beacon uses a unique color (no duplicates):
     - 01 NeuroVault: teal `#22d3ee`
@@ -206,7 +206,7 @@ Three.js particle globe with 1500 cyan particles + auto-rotation. Replaced by Sh
 
 #### `components/shared/DathLogo.tsx`
 **Purpose:** Top-left fixed logo, scrolls to top on click.
-**Visual:** Pure white angular DA monogram (octagonal D + angular A with crossbar), 68×26px. Soft white drop-shadow brightens on hover (1.06× scale). No frame, no ticks — minimal.
+**Visual:** Pure white angular DA monogram (octagonal D + angular A with crossbar), 68×26px. Soft white drop-shadow brightens on hover (1.06× scale). No frame, no ticks - minimal.
 
 #### `components/shared/EncryptedText.tsx`
 **Purpose:** Cipher decode reveal animation. Used on "Dimitrios" in hero.
@@ -220,7 +220,7 @@ Three.js particle globe with 1500 cyan particles + auto-rotation. Replaced by Sh
 - Static glow on hover from top
 - Media (image/video/gif) with subtle scale + lift on hover
 - Category badge + Featured badge if applicable
-- Title with cyan hover color (was rainbow gradient — simplified for performance)
+- Title with cyan hover color (was rainbow gradient - simplified for performance)
 - Tech stack pills (first 4 + count of remaining)
 - GitHub/LiveURL icons (revealed on hover)
 
@@ -293,23 +293,23 @@ Available but currently unused.
 ```
 
 **Custom animations defined:**
-- `border-rotate` — conic gradient angle for animated borders
+- `border-rotate` - conic gradient angle for animated borders
 - `marquee` / `marquee-reverse` / `marquee-vertical` / `marquee-vertical-reverse`
-- `grid-scroll` — 60px vertical scroll
-- `beacon-pulse` — chill version (1 → 1.25 scale, 3.2s)
-- `beacon-ring` — radar ring expansion (0.6 → 2.8 scale, 3.6s)
-- `beacon-beam-pulse` — beam scale + opacity, 3.6s
-- `mesh-drift-1/2/3` — drifting blurred orbs in Contact section
-- `shimmer-sweep` — gradient text shimmer
-- `lang-bar-grow` — proficiency bar grow
+- `grid-scroll` - 60px vertical scroll
+- `beacon-pulse` - chill version (1 → 1.25 scale, 3.2s)
+- `beacon-ring` - radar ring expansion (0.6 → 2.8 scale, 3.6s)
+- `beacon-beam-pulse` - beam scale + opacity, 3.6s
+- `mesh-drift-1/2/3` - drifting blurred orbs in Contact section
+- `shimmer-sweep` - gradient text shimmer
+- `lang-bar-grow` - proficiency bar grow
 
 **Custom utility classes:**
-- `.glass` — frosted glass (8px blur)
+- `.glass` - frosted glass (8px blur)
 - `.glow-cyan` / `.glow-purple` / `.glow-text-cyan`
-- `.animated-border` — conic gradient rotating border
-- `.text-shimmer-cyan` — shimmer-sweeping text gradient
-- `.beacon-*` — Project Atlas beacon styles
-- `.animate-marquee*` — marquee variants
+- `.animated-border` - conic gradient rotating border
+- `.text-shimmer-cyan` - shimmer-sweeping text gradient
+- `.beacon-*` - Project Atlas beacon styles
+- `.animate-marquee*` - marquee variants
 
 ---
 
@@ -345,14 +345,14 @@ Available but currently unused.
 
 If a future session is asked to modify the portfolio, here's the priority order:
 
-1. **`app/page.tsx`** — section order, what's rendered
-2. **`data/projects.ts`** — all project data + types
-3. **`app/globals.css`** — theme tokens, animations
-4. **`components/sections/Hero.tsx`** — first-screen hero
-5. **`components/sections/GlobeSection.tsx`** — Project Atlas (most complex section)
-6. **`components/sections/ContactSection.tsx`** — last section before footer
-7. **`components/shared/ProjectCard.tsx`** — bento card
-8. **`components/ui/ShaderDotGrid.tsx`** — current background
+1. **`app/page.tsx`** - section order, what's rendered
+2. **`data/projects.ts`** - all project data + types
+3. **`app/globals.css`** - theme tokens, animations
+4. **`components/sections/Hero.tsx`** - first-screen hero
+5. **`components/sections/GlobeSection.tsx`** - Project Atlas (most complex section)
+6. **`components/sections/ContactSection.tsx`** - last section before footer
+7. **`components/shared/ProjectCard.tsx`** - bento card
+8. **`components/ui/ShaderDotGrid.tsx`** - current background
 
 ---
 
@@ -380,9 +380,9 @@ npm run deploy       # push ./out to gh-pages branch
 
 ## 📚 Reference docs in repo
 
-- `INSPIRATION.md` — comprehensive vault of patterns, libraries (globe.gl, vanta.js, Galaxy/Uiverse, Babylon.js), Codrops tutorials, Aceternity UI catalog, master library matrix
-- `COMPONENTS.md` — this file (component-by-component breakdown for handoff)
-- `memory/` — auto-memory dir, ignored by build
+- `INSPIRATION.md` - comprehensive vault of patterns, libraries (globe.gl, vanta.js, Galaxy/Uiverse, Babylon.js), Codrops tutorials, Aceternity UI catalog, master library matrix
+- `COMPONENTS.md` - this file (component-by-component breakdown for handoff)
+- `memory/` - auto-memory dir, ignored by build
 
 ---
 

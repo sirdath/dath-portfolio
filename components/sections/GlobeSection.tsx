@@ -56,7 +56,7 @@ const PROJECT_PINS: ProjectPin[] = [
     name: "Housing & Crime Analysis",
     region: "London, UK",
     lat: 51.5074,
-    lng: -0.1278, // same coords as Synergy — stacked
+    lng: -0.1278, // same coords as Synergy - stacked
     color: "#ff4d8d", // hot pink
     index: "04",
     stackIndex: 1,
@@ -200,7 +200,7 @@ export function GlobeSection() {
     const tagTop = -7 + stackIndex * 30;
     const labelTop = -10 + stackIndex * 30;
 
-    // Hide beacon visuals (beam/core/ring) on non-base stacked pins —
+    // Hide beacon visuals (beam/core/ring) on non-base stacked pins -
     // they'd just stack on top of the base pin's visuals at the same coord
     const hideVisuals = stackIndex > 0;
 
@@ -268,7 +268,7 @@ export function GlobeSection() {
           </p>
         </motion.div>
 
-        {/* Globe + side info layout — symmetric */}
+        {/* Globe + side info layout - symmetric */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
           {/* Globe canvas with elegant frame */}
           <div className="relative">
@@ -361,7 +361,7 @@ export function GlobeSection() {
             </div>
           </div>
 
-          {/* Side panel — DRAMATIC */}
+          {/* Side panel - DRAMATIC */}
           <div className="space-y-3 lg:sticky lg:top-8">
             {/* Active project hero card */}
             <AnimatePresence mode="wait">
@@ -488,14 +488,14 @@ export function GlobeSection() {
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
                     Each beacon marks where a project does its work in the
-                    world — from London hexagon analysis to Mediterranean
+                    world - from London hexagon analysis to Mediterranean
                     shipping intelligence.
                   </p>
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Project list — premium navigation */}
+            {/* Project list - premium navigation */}
             <div className="rounded-2xl glass overflow-hidden">
               <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-[0.22em] text-text-dim font-mono">

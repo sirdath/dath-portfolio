@@ -6,7 +6,7 @@
 > - **inspoemergent** repo (20 hero variants V01-V20, in `frontendmaxxing-reference/external-repos/`)
 > - **21st.dev Magic MCP** queries
 >
-> Use this as a buffet — pick what fits the moment. Every entry has a file path or component name so you can pull the actual code.
+> Use this as a buffet - pick what fits the moment. Every entry has a file path or component name so you can pull the actual code.
 
 ---
 
@@ -48,7 +48,7 @@ WebGL/Three.js particles spawn in chaos, assemble into logo via attribute-based 
 Marching-cubes metaballs morph between drift and logo silhouette. PBR chrome with clearcoat 1.0, metalness 0.95, rim lighting. Mouse attracts an extra ball.
 
 **1.3 AnimIronFilings** | `apps/ds-site/src/components/heroes/anim-iron-filings.tsx`
-Pure Canvas 2D — particles trace tangent-field flow along logo brightness gradient (perpendicular to gradient = field lines wrapping letters). Cursor swirl pole. Lightweight, no GPU.
+Pure Canvas 2D - particles trace tangent-field flow along logo brightness gradient (perpendicular to gradient = field lines wrapping letters). Cursor swirl pole. Lightweight, no GPU.
 
 **1.4 AnimAsciiRain** | `apps/ds-site/src/components/heroes/anim-ascii-rain.tsx`
 Monospaced glyphs drift; brightness sampled from logo controls which character appears (10-char scale). Cursor scrambles nearby chars. Ultra-light, no WebGL.
@@ -71,7 +71,7 @@ Three.js Icosahedron with custom GLSL: cosine palette gradients, Cook-Torrance B
 Slate gradient minimal landing. Word-appear staggered animations with blur(10px)→blur(0) transitions. Mouse-following radial gradient overlay. Click ripples. SVG grid lines drawing in (stroke-dashoffset).
 
 **1.10 Hero Designali** (Magic MCP)
-Animated canvas with mouse-tracking color trails — HSL-cycling Bezier lines following cursor. Plus shape positioned at corners. ShineBorder component with conic-gradient animation. Available-now pulsing dot.
+Animated canvas with mouse-tracking color trails - HSL-cycling Bezier lines following cursor. Plus shape positioned at corners. ShineBorder component with conic-gradient animation. Available-now pulsing dot.
 
 **1.11 Portfolio Hero (Alex Kane)** (Magic MCP)
 Massive ALEX/KANE typography in Fira Code monospace, blur-text reveal letter-by-letter, profile picture overlapping huge name centered. Theme toggle (dark/light), menu panel slide-down.
@@ -122,7 +122,7 @@ Asymmetric bento (3-col × 3-row) with pastel-tinted cards. Each card has a tagl
 Slot-based 3-col grid with `md:row-span-3` for tall main feature card, `md:row-span-2` for stat card. Framer Motion stagger container variant (0.1s delay, 0.1s stagger). Spring physics on items (stiffness 100, damping 10).
 
 **3.3 BentoGridWithFeatures (Ali Imam style)**
-6-col grid with mixed `lg:col-span-2/4/6` widths. Border-divided cells (border-r/border-b on each card). Skeleton with rotated overlapping image stack — group-hover unrotates and scales. Yellow (#fff200) accent for hover state.
+6-col grid with mixed `lg:col-span-2/4/6` widths. Border-divided cells (border-r/border-b on each card). Skeleton with rotated overlapping image stack - group-hover unrotates and scales. Yellow (#fff200) accent for hover state.
 
 ### From DATHSTEL
 
@@ -172,10 +172,10 @@ Use for organic blob shapes that morph between forms. Heavy but stunning.
 ### From frontendmaxxing/effects/cursor-effects.js
 
 **6.2 CursorFX presets**:
-- `custom` — replace cursor, grow on interactive elements
-- `trail` — cascading dot trail
-- `magnetic` — pull toward cursor with smoothing lerp
-- `spotlight` — radial gradient overlay following cursor
+- `custom` - replace cursor, grow on interactive elements
+- `trail` - cascading dot trail
+- `magnetic` - pull toward cursor with smoothing lerp
+- `spotlight` - radial gradient overlay following cursor
 
 ### From Magic MCP
 
@@ -203,14 +203,14 @@ Replace cursor with custom React component (emoji, animated SVG, etc). Sets pare
 
 ### From frontendmaxxing/effects/text-reveal.js + text-wave.js
 
-**7.1 Split text reveal** — char/word/line splitter with stagger animation. Effects:
-- `fadeUp` — opacity + translateY
-- `scaleIn` — opacity + scale
-- `rotateIn` — opacity + rotateX
-- `typewriter` — cursor + char-by-char
-- `scramble/decode` — random chars cycling to final
+**7.1 Split text reveal** - char/word/line splitter with stagger animation. Effects:
+- `fadeUp` - opacity + translateY
+- `scaleIn` - opacity + scale
+- `rotateIn` - opacity + rotateX
+- `typewriter` - cursor + char-by-char
+- `scramble/decode` - random chars cycling to final
 
-**7.2 Text wave** — character blur/scale/opacity wave cascade. Auto-loop timing scaled to text length.
+**7.2 Text wave** - character blur/scale/opacity wave cascade. Auto-loop timing scaled to text length.
 
 ### From Magic MCP
 
@@ -226,9 +226,9 @@ Per-character animation: `blur(12px) → blur(0)`, translateY 40% → 0, scale 1
 ### Typography patterns from DATHSTEL
 
 **7.6 Multi-tier hierarchy** (used throughout):
-- `text-xs uppercase tracking-[0.2em]` — labels (eyebrows)
-- `text-3xl md:text-4xl font-semibold` — section headings
-- `text-sm md:text-base` — body
+- `text-xs uppercase tracking-[0.2em]` - labels (eyebrows)
+- `text-3xl md:text-4xl font-semibold` - section headings
+- `text-sm md:text-base` - body
 - Color modulation via opacity scale (ink-100/300/500), not different hues
 
 **7.7 Hero entrance keyframe** | `apps/ds-site/src/app/globals.css`
@@ -260,7 +260,7 @@ Left-side fixed dashes (one per section). Active dash widens and changes color. 
 **8.5 useScroll hook** (Magic MCP)
 ```ts
 function useScroll(threshold: number) {
-  // returns boolean — true if scrollY > threshold
+  // returns boolean - true if scrollY > threshold
 }
 ```
 Useful for sticky header backgrounds, scroll-progress bars, etc.
@@ -287,15 +287,15 @@ Element wrapped in `perspective: 1400px`. Mouse mapped to rotateX (-18°→18°)
 
 ### Concept ideas
 
-**9.5 Card Zoom + 3D Push** — clicked card lifts forward in 3D space, scales to fill viewport, becomes detail page hero. Uses Framer Motion `layoutId` for shared element.
+**9.5 Card Zoom + 3D Push** - clicked card lifts forward in 3D space, scales to fill viewport, becomes detail page hero. Uses Framer Motion `layoutId` for shared element.
 
-**9.6 Card Flip Reveal** — 180° Y-rotation, back face is new page. CSS `backface-visibility: hidden`.
+**9.6 Card Flip Reveal** - 180° Y-rotation, back face is new page. CSS `backface-visibility: hidden`.
 
-**9.7 Folding Origami** — 4 page panels rotate away in 3D, revealing detail page underneath.
+**9.7 Folding Origami** - 4 page panels rotate away in 3D, revealing detail page underneath.
 
-**9.8 Depth Push** — current page tilts/recedes in z-space, new page comes forward.
+**9.8 Depth Push** - current page tilts/recedes in z-space, new page comes forward.
 
-**9.9 Browser View Transitions API** — native `document.startViewTransition()` + CSS `view-transition-name` for shared element morphing.
+**9.9 Browser View Transitions API** - native `document.startViewTransition()` + CSS `view-transition-name` for shared element morphing.
 
 ---
 
@@ -324,7 +324,7 @@ useMotionValue → useSpring → useTransform pipeline. RotateX/Y from y/x. Defa
 
 ### Hover patterns from DATHSTEL
 
-**10.4 Subtle hover state** — change `bg-ink-900/60` to `bg-ink-800/40` (opacity-driven, not color-driven). `border-ink-800/60` → `border-ink-700` lightens. **Hover state is restraint, not noise.**
+**10.4 Subtle hover state** - change `bg-ink-900/60` to `bg-ink-800/40` (opacity-driven, not color-driven). `border-ink-800/60` → `border-ink-700` lightens. **Hover state is restraint, not noise.**
 
 ---
 
@@ -345,14 +345,14 @@ Four principles in 2-col grid. Subtle radial gradient at bottom-right (rgba acce
 6 principle cards (3-col) + 2 testimonial cards (2-col). Two-tier visual hierarchy (`bg-ink-950` solid for principles, `bg-ink-900/30` translucent for testimonials).
 
 **11.5 EngageUs** | `apps/ds-site/src/components/sections/engage-us.tsx`
-3 engagement paths in 3-col grid. Center card `featured: true` has bright border + different background. Bullet list with `—` separator. `flex-col + mt-auto` to push bullets to bottom.
+3 engagement paths in 3-col grid. Center card `featured: true` has bright border + different background. Bullet list with `-` separator. `flex-col + mt-auto` to push bullets to bottom.
 
 **11.6 FinalCTA** | `apps/ds-site/src/components/sections/final-cta.tsx`
 Centered CTA section with radial-gradient ellipse glow. Two CTAs (primary white pill + secondary bordered) + italic closing quote.
 
 ### Container pattern (used everywhere)
 
-**11.7 Container rhythm**: `max-w-6xl mx-auto px-6 md:px-8` — never squished, generous max-w (1536px). Responsive padding 6→8 on md.
+**11.7 Container rhythm**: `max-w-6xl mx-auto px-6 md:px-8` - never squished, generous max-w (1536px). Responsive padding 6→8 on md.
 
 ---
 
@@ -375,7 +375,7 @@ Single-line footer with copyright + 3 inline links separated by vertical rules. 
 Social buttons as `bg-muted/50 hover:bg-accent rounded-full px-4 py-2` pills with icon + label. Centered, wraps responsively.
 
 **12.5 Border-shared boxes layout**
-`flex flex-col + border-b md:border-r md:border-b-0` — boxes share single-pixel borders without doubling. Header bar (`bg-muted/40` + `border-b`) + body + footer description (`border-t`) within each box.
+`flex flex-col + border-b md:border-r md:border-b-0` - boxes share single-pixel borders without doubling. Header bar (`bg-muted/40` + `border-b`) + body + footer description (`border-t`) within each box.
 
 ---
 
@@ -383,9 +383,9 @@ Social buttons as `bg-muted/50 hover:bg-accent rounded-full px-4 py-2` pills wit
 
 ### From frontendmaxxing/blocks/buttons.js
 
-**13.1 Material ripple** — click creates expanding circle from click point.
-**13.2 Magnetic hover** — element translates toward cursor within proximity (typical: 50px range).
-**13.3 Submit state machine** — idle → loading (spinner) → success (check) → reset.
+**13.1 Material ripple** - click creates expanding circle from click point.
+**13.2 Magnetic hover** - element translates toward cursor within proximity (typical: 50px range).
+**13.3 Submit state machine** - idle → loading (spinner) → success (check) → reset.
 
 ### From Magic MCP
 
@@ -397,7 +397,7 @@ Shine animation via `before:` pseudo with `background-size: 300% 300%` + radial 
 **13.5 Primary + secondary pair**:
 - Primary: `bg-white text-ink-950` solid pill, `hover:bg-ink-100`
 - Secondary: `border border-white/40 text-white` pill with `backdrop-blur-sm` and `hover:bg-white/10`
-- Used in HeroShell + FinalCTA — classic conversion pattern
+- Used in HeroShell + FinalCTA - classic conversion pattern
 
 ---
 
@@ -405,9 +405,9 @@ Shine animation via `before:` pseudo with `background-size: 300% 300%` + radial 
 
 ### Tools available
 
-**14.1 GSAP ScrollTrigger** — scrub-linked scroll, pin sections, toggleActions for reversible reveals
-**14.2 Framer Motion `useScroll` + `useTransform`** — scroll progress 0→1 as MotionValue, derived transforms
-**14.3 IntersectionObserver** — `whileInView` + `viewport: { once: true, margin: "-50px" }`
+**14.1 GSAP ScrollTrigger** - scrub-linked scroll, pin sections, toggleActions for reversible reveals
+**14.2 Framer Motion `useScroll` + `useTransform`** - scroll progress 0→1 as MotionValue, derived transforms
+**14.3 IntersectionObserver** - `whileInView` + `viewport: { once: true, margin: "-50px" }`
 
 ### Scroll-driven patterns from DATHSTEL
 
@@ -426,9 +426,9 @@ gsap.fromTo(elements,
 
 ### Scroll progress UX
 
-**14.5 Scroll-linked progress bar** — fixed-top thin bar that grows with scroll percentage. Use Framer's `useScroll().scrollYProgress` mapped to `scaleX`.
+**14.5 Scroll-linked progress bar** - fixed-top thin bar that grows with scroll percentage. Use Framer's `useScroll().scrollYProgress` mapped to `scaleX`.
 
-**14.6 Velocity-based effects** — `(scrollY - lastY) * 0.01` gives velocity. Use to drive twist/skew/parallax intensity (Ethereal Hero pattern).
+**14.6 Velocity-based effects** - `(scrollY - lastY) * 0.01` gives velocity. Use to drive twist/skew/parallax intensity (Ethereal Hero pattern).
 
 ---
 
@@ -441,13 +441,13 @@ Horizontal & vertical, customizable speed, pauseOnHover, repeats N times.
 
 ### From frontendmaxxing/components
 
-**15.2 Marquee.js** — infinite scrolling text with **velocity from page scroll** (faster scroll = faster marquee). transform translate3d, scroll velocity tracking.
+**15.2 Marquee.js** - infinite scrolling text with **velocity from page scroll** (faster scroll = faster marquee). transform translate3d, scroll velocity tracking.
 
 ### Ideas to extend
 
 **15.3 Marquee variants**:
-- `marquee-fade` — gradient mask at edges
-- `marquee-xl` — large typography variant (tech names instead of logos)
+- `marquee-fade` - gradient mask at edges
+- `marquee-xl` - large typography variant (tech names instead of logos)
 - Mix horizontal + vertical (DATHSTEL pattern)
 - Reverse-direction pair (one row left, one right)
 
@@ -458,14 +458,14 @@ Horizontal & vertical, customizable speed, pauseOnHover, repeats N times.
 ### From DATHSTEL
 
 **16.1 Backdrop blur layers**:
-- `backdrop-blur-sm` — buttons (frosted)
-- `backdrop-blur-md` — sticky header (legible bg-ink-950/70 + blur)
+- `backdrop-blur-sm` - buttons (frosted)
+- `backdrop-blur-md` - sticky header (legible bg-ink-950/70 + blur)
 - Restraint: never `blur-lg` unless decorative
 - Heavy `blur(40px) saturate(180%)` for hero glass overlays
 
-**16.2 Multi-layer drop-shadow** — particles + cursors use 2-layer drop-shadow for depth without box-shadow's harsh edges.
+**16.2 Multi-layer drop-shadow** - particles + cursors use 2-layer drop-shadow for depth without box-shadow's harsh edges.
 
-**16.3 Subtle radial gradients** — large radial accents at top/bottom-right/center, rgba(accent, 0.06–0.08). Off-center positioning feels intentional.
+**16.3 Subtle radial gradients** - large radial accents at top/bottom-right/center, rgba(accent, 0.06–0.08). Off-center positioning feels intentional.
 
 ### From frontendmaxxing/effects/glassmorphism.css
 
@@ -477,9 +477,9 @@ Horizontal & vertical, customizable speed, pauseOnHover, repeats N times.
 
 ### Glow patterns
 
-**16.5 Text glow via drop-shadow** (cursor.tsx) — `drop-shadow(0 1px 2px rgba(0,0,0,0.6))`. Subtler than `text-shadow`.
+**16.5 Text glow via drop-shadow** (cursor.tsx) - `drop-shadow(0 1px 2px rgba(0,0,0,0.6))`. Subtler than `text-shadow`.
 
-**16.6 Edge glow on cards** — `box-shadow: 0 0 30px -5px rgba(accent, 0.15)` on hover. Negative spread keeps it tight.
+**16.6 Edge glow on cards** - `box-shadow: 0 0 30px -5px rgba(accent, 0.15)` on hover. Negative spread keeps it tight.
 
 ---
 
@@ -487,15 +487,15 @@ Horizontal & vertical, customizable speed, pauseOnHover, repeats N times.
 
 ### From frontendmaxxing/blocks/loaders.js
 
-**17.1 Spinning rings** — SVG with stroke-dasharray + rotation
-**17.2 Progress arcs** — circular progress with stroke-dashoffset transition
-**17.3 Skeleton screens** — pulse animation on placeholder rectangles
+**17.1 Spinning rings** - SVG with stroke-dasharray + rotation
+**17.2 Progress arcs** - circular progress with stroke-dashoffset transition
+**17.3 Skeleton screens** - pulse animation on placeholder rectangles
 
 ### From frontendmaxxing/micro/interactions.js
 
-**17.4 Tap feedback ripple** — pointer event triggers expanding circle
-**17.5 Long-press detection** — hold timer with cancel on movement
-**17.6 Swipe gesture** — velocity calculation from pointer events
+**17.4 Tap feedback ripple** - pointer event triggers expanding circle
+**17.5 Long-press detection** - hold timer with cancel on movement
+**17.6 Swipe gesture** - velocity calculation from pointer events
 
 ---
 
@@ -504,14 +504,14 @@ Horizontal & vertical, customizable speed, pauseOnHover, repeats N times.
 ### From frontendmaxxing/effects
 
 **18.1 Distortion.js**:
-- **Ripple warp** — scale + skew on event
-- **Stretch on velocity** — element stretches in direction of motion
-- **Noise jitter** — random translate/rotate (subtle)
+- **Ripple warp** - scale + skew on event
+- **Stretch on velocity** - element stretches in direction of motion
+- **Noise jitter** - random translate/rotate (subtle)
 
 **18.2 Glitch CSS** | `frontendmaxxing/effects/glitch.css`
 Multiple text layers with offset hue + clip-path bands that animate. Sub-1s glitch flashes.
 
-**18.3 RGB chromatic split** (V09 / V14) — render same element 3× with red/green/blue offsets. Use `mix-blend-mode: screen` on overlapping copies.
+**18.3 RGB chromatic split** (V09 / V14) - render same element 3× with red/green/blue offsets. Use `mix-blend-mode: screen` on overlapping copies.
 
 ---
 
@@ -520,21 +520,21 @@ Multiple text layers with offset hue + clip-path bands that animate. Sub-1s glit
 ### From frontendmaxxing/effects/particles.js
 
 **19.1 Particle presets**:
-- **Network** — connect lines between near particles
-- **Starfield** — 3D-projected dots with z-depth
-- **Snow** — gentle falling with horizontal drift
-- **Fireflies** — scattered glowing points with breath
-- **Bubbles** — rising with size variation
+- **Network** - connect lines between near particles
+- **Starfield** - 3D-projected dots with z-depth
+- **Snow** - gentle falling with horizontal drift
+- **Fireflies** - scattered glowing points with breath
+- **Bubbles** - rising with size variation
 
-**19.2 Verlet integration** (V15) — physics-accurate springs/cloth without solving full N-body
+**19.2 Verlet integration** (V15) - physics-accurate springs/cloth without solving full N-body
 
-**19.3 Spatial hashing** — for fast neighbor lookup in dense particle systems
+**19.3 Spatial hashing** - for fast neighbor lookup in dense particle systems
 
 ### Cursor field interactions
 
-**19.4 Repulsion field** — `(distance < radius) ? push_outward : 0` with smoothstep falloff
-**19.5 Swirl field** — perpendicular tangent vector from center → cursor
-**19.6 Attraction** — particles fall toward cursor with velocity damping
+**19.4 Repulsion field** - `(distance < radius) ? push_outward : 0` with smoothstep falloff
+**19.5 Swirl field** - perpendicular tangent vector from center → cursor
+**19.6 Attraction** - particles fall toward cursor with velocity damping
 
 ---
 
@@ -542,16 +542,16 @@ Multiple text layers with offset hue + clip-path bands that animate. Sub-1s glit
 
 ### Performance optimizations from DATHSTEL
 
-**20.1 DPR clamping** — `Math.min(window.devicePixelRatio, 2)` on all canvas/WebGL
-**20.2 Logo sample caching** — `Map<key, Promise<sample>>` prevents re-decode
-**20.3 Instanced rendering** — `<Instances>` for repeated geometries (single draw call for 100 particles)
-**20.4 Dynamic imports** — `next/dynamic` with `ssr: false` for Three.js bundles (defers ~200KB+)
+**20.1 DPR clamping** - `Math.min(window.devicePixelRatio, 2)` on all canvas/WebGL
+**20.2 Logo sample caching** - `Map<key, Promise<sample>>` prevents re-decode
+**20.3 Instanced rendering** - `<Instances>` for repeated geometries (single draw call for 100 particles)
+**20.4 Dynamic imports** - `next/dynamic` with `ssr: false` for Three.js bundles (defers ~200KB+)
 
 ### Accessibility patterns
 
-**20.5 prefers-reduced-motion** — wrap animations in `@media (prefers-reduced-motion: reduce) { animation: none; transform: none; }`
+**20.5 prefers-reduced-motion** - wrap animations in `@media (prefers-reduced-motion: reduce) { animation: none; transform: none; }`
 
-**20.6 Pointer fine query** — `@media (pointer: fine)` to enable custom cursor only on devices with precise pointers (skip touch).
+**20.6 Pointer fine query** - `@media (pointer: fine)` to enable custom cursor only on devices with precise pointers (skip touch).
 
 **20.7 ARIA labels** on icon-only buttons. `role="button"` on interactive divs.
 
@@ -579,7 +579,7 @@ Multiple text layers with offset hue + clip-path bands that animate. Sub-1s glit
 - `--duration-slow: 400ms`
 - `--ease-standard: cubic-bezier(0.4, 0, 0.2, 1)` (Material standard)
 
-**21.3 Two-tier accent** — hard primary + soft variant lets you use accent at full saturation for key moments and soft for ambient glows.
+**21.3 Two-tier accent** - hard primary + soft variant lets you use accent at full saturation for key moments and soft for ambient glows.
 
 ### Your portfolio's existing tokens (for reference)
 
@@ -635,7 +635,7 @@ Multiple text layers with offset hue + clip-path bands that animate. Sub-1s glit
 4. **Adapt to your stack**: Next.js 16 / TypeScript / Tailwind v4 / Framer Motion v12 / Three.js / Three Fiber
 5. **Match your tokens**: cyan #00f0ff, purple #a855f7, void #09090b backdrop
 6. **Test on throttled CPU** (Chrome DevTools 4× slowdown)
-7. **Respect prefers-reduced-motion** — provide a static fallback
+7. **Respect prefers-reduced-motion** - provide a static fallback
 
 ### When in doubt, copy from your own existing patterns
 
@@ -666,23 +666,23 @@ For raw code from the local files, use Read on the paths in this vault.
 
 ---
 
-## 24. SIGNATURE COMBINATIONS — what makes a portfolio FEEL premium
+## 24. SIGNATURE COMBINATIONS - what makes a portfolio FEEL premium
 
 Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 
-1. **One signature animation** as the hero (V13 Iron Filings, V05 Voxels, V18 DepthDiorama, or AnimStrata) — *not five*. The whole site is built around it.
+1. **One signature animation** as the hero (V13 Iron Filings, V05 Voxels, V18 DepthDiorama, or AnimStrata) - *not five*. The whole site is built around it.
 
-2. **Restrained color motion** — opacity-driven hierarchy, single-hue accents at 6–15% intensity for ambient glows, full saturation for *one* key moment per page.
+2. **Restrained color motion** - opacity-driven hierarchy, single-hue accents at 6–15% intensity for ambient glows, full saturation for *one* key moment per page.
 
-3. **Smooth-but-fast easing** — `cubic-bezier(0.25, 0.4, 0.25, 1)` for content, `power3.out` for entrances, `elastic.out(1, 0.3)` for magnetic snaps. Never linear, never bounce-heavy.
+3. **Smooth-but-fast easing** - `cubic-bezier(0.25, 0.4, 0.25, 1)` for content, `power3.out` for entrances, `elastic.out(1, 0.3)` for magnetic snaps. Never linear, never bounce-heavy.
 
-4. **Premium micro-interactions** — backdrop-blur `8–16px`, subtle borders `border-white/[0.08]`, hover lifts `translate-y-0.5`, edge glows `shadow-[0_0_30px_-5px_rgba(accent,0.15)]`.
+4. **Premium micro-interactions** - backdrop-blur `8–16px`, subtle borders `border-white/[0.08]`, hover lifts `translate-y-0.5`, edge glows `shadow-[0_0_30px_-5px_rgba(accent,0.15)]`.
 
-5. **Performance discipline** — DPR clamping, lazy-load heavy bundles, instanced rendering, `prefers-reduced-motion` fallbacks, `pointer: fine` for cursor effects.
+5. **Performance discipline** - DPR clamping, lazy-load heavy bundles, instanced rendering, `prefers-reduced-motion` fallbacks, `pointer: fine` for cursor effects.
 
-6. **Typography hierarchy via tracking + opacity, not size alone** — `text-xs uppercase tracking-[0.3em] text-text-dim` for labels reads as "premium label" not "small text".
+6. **Typography hierarchy via tracking + opacity, not size alone** - `text-xs uppercase tracking-[0.3em] text-text-dim` for labels reads as "premium label" not "small text".
 
-7. **Content rhythm** — every section has eyebrow + heading + underline rule + body. Cards have category badge + title + body + tech pills + hover-revealed icons.
+7. **Content rhythm** - every section has eyebrow + heading + underline rule + body. Cards have category badge + title + body + tech pills + hover-revealed icons.
 
 ---
 
@@ -690,7 +690,7 @@ Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 
 ---
 
-# 🌐 ADDENDUM — WEB RESEARCH (2026-05-01)
+# 🌐 ADDENDUM - WEB RESEARCH (2026-05-01)
 
 > Online research dump: latest component libraries, Awwwards SOTD trends, cutting-edge Codrops tutorials, top studios to study. Use this to bias toward what's *actually shipping* in 2026, not just what's in DATHSTEL/frontendmaxxing.
 
@@ -700,12 +700,12 @@ Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 
 ### What's hot
 
-- **Motion (formerly Framer Motion)** is the de-facto React animation library — 30M monthly downloads. v12+ has deeper SSR/server-component integration.
+- **Motion (formerly Framer Motion)** is the de-facto React animation library - 30M monthly downloads. v12+ has deeper SSR/server-component integration.
 - **GSAP + ScrollTrigger + Lenis** is the cinematic-portfolio standard. ScrollSmoother is a paid add-on; Lenis is the free alternative most studios use.
-- **WebGPU** shipped in Safari 26 (Sept 2025) — now universal. Three.js's **TSL (Three Shading Language)** compiles one shader to both WGSL (WebGPU) and GLSL (WebGL).
+- **WebGPU** shipped in Safari 26 (Sept 2025) - now universal. Three.js's **TSL (Three Shading Language)** compiles one shader to both WGSL (WebGPU) and GLSL (WebGL).
 - **React Three Fiber (R3F)** is the de-facto choice for React 3D. Maintained by **pmndrs** (Poimandres).
-- **CSS Scroll-Driven Animations** (`animation-timeline: scroll()` + `view()`) are universal in 2026 — zero JS, runs on compositor thread. Replace simple ScrollTrigger reveals with this.
-- **AI-generated Three.js scenes** via natural language are emerging — useful for prototyping atmospheric backgrounds.
+- **CSS Scroll-Driven Animations** (`animation-timeline: scroll()` + `view()`) are universal in 2026 - zero JS, runs on compositor thread. Replace simple ScrollTrigger reveals with this.
+- **AI-generated Three.js scenes** via natural language are emerging - useful for prototyping atmospheric backgrounds.
 
 ### What's fading
 
@@ -715,71 +715,71 @@ Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 
 ---
 
-## 26. ACETERNITY UI — FULL COMPONENT MAP
+## 26. ACETERNITY UI - FULL COMPONENT MAP
 
-> [ui.aceternity.com](https://ui.aceternity.com/components) — Tailwind + Framer Motion. Drop-in compatible with shadcn. **The most plug-and-play premium components in 2026.**
+> [ui.aceternity.com](https://ui.aceternity.com/components) - Tailwind + Framer Motion. Drop-in compatible with shadcn. **The most plug-and-play premium components in 2026.**
 
 ### Hero & Layout
-- **Hero Parallax** — scroll rotation/translation/opacity layers
-- **Hero Highlight** — background effect with text highlight (perfect for hero bg)
-- **Container Scroll Animation** — 3D rotation on scroll for marketing sections
-- **Macbook Scroll** — image emerges from screen on scroll (Apple-style)
+- **Hero Parallax** - scroll rotation/translation/opacity layers
+- **Hero Highlight** - background effect with text highlight (perfect for hero bg)
+- **Container Scroll Animation** - 3D rotation on scroll for marketing sections
+- **Macbook Scroll** - image emerges from screen on scroll (Apple-style)
 
 ### 3D & Card Effects
-- **3D Card Effect** — card perspective elevates on hover
-- **3D Globe** — realistic globe with tooltips and avatar pins ⭐ *(your AEGIS thematic match)*
-- **3D Pin** — gradient pin animates on hover
-- **3D Marquee** — 3D marquee grid for testimonials
-- **Comet Card** — perspective 3D tilt (as on Perplexity Comet)
-- **Evervault Card** — card hover reveals encrypted text + gradient
-- **Wobble Card** — translates and scales on mousemove
+- **3D Card Effect** - card perspective elevates on hover
+- **3D Globe** - realistic globe with tooltips and avatar pins ⭐ *(your AEGIS thematic match)*
+- **3D Pin** - gradient pin animates on hover
+- **3D Marquee** - 3D marquee grid for testimonials
+- **Comet Card** - perspective 3D tilt (as on Perplexity Comet)
+- **Evervault Card** - card hover reveals encrypted text + gradient
+- **Wobble Card** - translates and scales on mousemove
 
 ### Backgrounds (the deep menu)
-- **Aurora Background** — northern lights ambient
-- **Background Beams** — beams following SVG path
-- **Background Beams With Collision** — exploding beam intersections
-- **Background Boxes** — full-width grid that highlights cells on hover
-- **Background Gradient (Animated)** — moving multi-stop gradient
-- **Background Lines** — SVG paths animating in waves
-- **Background Ripple Effect** — grid cells ripple from click point ⭐
-- **Dotted Glow Background** — opacity animation with glow
-- **Grid and Dot Backgrounds** — subtle pattern bases
-- **Glowing Effect** — adaptive border glow
-- **Google Gemini Effect** — SVG morph (as on gemini.google.com)
-- **Noise Background** — animated gradients + grain
-- **Scales** — repeating diagonal/horizontal/vertical line pattern
-- **Vortex Background** — wavy swirly vortex (good for CTAs)
-- **Wavy Background** — moving waves
+- **Aurora Background** - northern lights ambient
+- **Background Beams** - beams following SVG path
+- **Background Beams With Collision** - exploding beam intersections
+- **Background Boxes** - full-width grid that highlights cells on hover
+- **Background Gradient (Animated)** - moving multi-stop gradient
+- **Background Lines** - SVG paths animating in waves
+- **Background Ripple Effect** - grid cells ripple from click point ⭐
+- **Dotted Glow Background** - opacity animation with glow
+- **Grid and Dot Backgrounds** - subtle pattern bases
+- **Glowing Effect** - adaptive border glow
+- **Google Gemini Effect** - SVG morph (as on gemini.google.com)
+- **Noise Background** - animated gradients + grain
+- **Scales** - repeating diagonal/horizontal/vertical line pattern
+- **Vortex Background** - wavy swirly vortex (good for CTAs)
+- **Wavy Background** - moving waves
 
 ### Scroll & Parallax
-- **Parallax Scroll** — grid where two columns scroll opposite directions
-- **Sticky Scroll Reveal** — sticky container with text reveal
-- **Tracing Beam** — beam follows SVG path, length adjusts with scroll velocity
-- **Parallax Hero Images** — mouse-driven blur/fade depth
+- **Parallax Scroll** - grid where two columns scroll opposite directions
+- **Sticky Scroll Reveal** - sticky container with text reveal
+- **Tracing Beam** - beam follows SVG path, length adjusts with scroll velocity
+- **Parallax Hero Images** - mouse-driven blur/fade depth
 
 ### Text Effects
-- **Canvas Text** — canvas-rendered animated text with curved color lines
-- **Colourful Text** — text with color/filter/scale FX
-- **Container Text Flip** — flips through words, container width animates
-- **Encrypted Text** — gradual reveal through gibberish ⭐
-- **Flip Words / Layout Text Flip** — word cycling
-- **Text Generate Effect** — fade-in word by word
-- **Text Hover Effect** — outline gradient on hover
-- **Text Reveal Card** — mousemove reveals hidden text at bottom of card ⭐
-- **Typewriter Effect** — generates text as if typed
+- **Canvas Text** - canvas-rendered animated text with curved color lines
+- **Colourful Text** - text with color/filter/scale FX
+- **Container Text Flip** - flips through words, container width animates
+- **Encrypted Text** - gradual reveal through gibberish ⭐
+- **Flip Words / Layout Text Flip** - word cycling
+- **Text Generate Effect** - fade-in word by word
+- **Text Hover Effect** - outline gradient on hover
+- **Text Reveal Card** - mousemove reveals hidden text at bottom of card ⭐
+- **Typewriter Effect** - generates text as if typed
 
 ### Cursor & Interaction
-- **Direction Aware Hover** — direction-aware reveal (Framer Motion)
-- **Following Pointer** — animated custom pointer
-- **Lens** — zooms into images/videos
-- **Pointer Highlight** — text highlights when in view (with pointer + border)
-- **SVG Mask Effect** — reveals on cursor hover via mask
+- **Direction Aware Hover** - direction-aware reveal (Framer Motion)
+- **Following Pointer** - animated custom pointer
+- **Lens** - zooms into images/videos
+- **Pointer Highlight** - text highlights when in view (with pointer + border)
+- **SVG Mask Effect** - reveals on cursor hover via mask
 
 ### Notable Specials
-- **Card Spotlight** — radial gradient reveals on cursor
-- **Card Stack** — testimonial/quote stacking
-- **Focus Cards** — hover focuses one, blurs others ⭐ *(great for project grid)*
-- **Sparkles** — configurable sparkle FX (background or standalone)
+- **Card Spotlight** - radial gradient reveals on cursor
+- **Card Stack** - testimonial/quote stacking
+- **Focus Cards** - hover focuses one, blurs others ⭐ *(great for project grid)*
+- **Sparkles** - configurable sparkle FX (background or standalone)
 
 ---
 
@@ -788,11 +788,11 @@ Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 | Library | URL | Strength |
 |---------|-----|----------|
 | **Motion Primitives** | motion-primitives.com | Simpler than Aceternity. Easy drop-in for existing codebases. |
-| **Magic UI** | magicui.design | Data-presentation specialty (charts, tickers, marquees) — already in your repo |
+| **Magic UI** | magicui.design | Data-presentation specialty (charts, tickers, marquees) - already in your repo |
 | **React Bits** | reactbits.dev | Animated text, components, backgrounds |
 | **Animate UI** | animate-ui.com | Pure animated React components |
 | **Aceternity UI Pro** | ui.aceternity.com/pro | Premium templates ($) |
-| **shadcn/ui** | ui.shadcn.com | Foundation primitives — combine with Aceternity for marketing pages |
+| **shadcn/ui** | ui.shadcn.com | Foundation primitives - combine with Aceternity for marketing pages |
 | **Spectrum UI** | shadcn.io/template/arihantcodes-spectrum-ui | Free Next template |
 
 **Recommendation**: Stay with `Magic UI + Aceternity UI` mix. shadcn for primitive plumbing.
@@ -838,23 +838,23 @@ Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 **Stack**: Three.js + GSAP (ScrollTrigger, Observer, SplitText) + Blender + KTX2/Basis Universal + Draco
 
 **Patterns to steal**:
-- **GPU instancing** for repeated geometry (floating blocks, debris) — collapses to single draw call → 144fps
+- **GPU instancing** for repeated geometry (floating blocks, debris) - collapses to single draw call → 144fps
 - **Low-res render targets** for atmospheric effects, then composite back at full res ("user never notices, phone doesn't suffer")
-- **Dynamic culling** instead of static LOD — aggressively cull off-screen geometry
+- **Dynamic culling** instead of static LOD - aggressively cull off-screen geometry
 - **GSAP Observer** to unify mouse/touch/trackpad into one consistent camera input
 - **Snap-block scrolling** for one critical mid-site sequence (page-turn feel) without breaking scroll continuity elsewhere
 - **Tesseract transition** when opening a project (4D shape unfolds + dissolves)
-- **WebGL shader contact menu** — "Ink Bleed" effect, written to NDC space (`gl_Position = vec4(pos.xy, 0, 1)`) so it pins to screen regardless of camera
+- **WebGL shader contact menu** - "Ink Bleed" effect, written to NDC space (`gl_Position = vec4(pos.xy, 0, 1)`) so it pins to screen regardless of camera
 
 ### 29.2 WebGL Portfolio (Roman Jean-Elie) ⭐ (Nov 2025)
 [link](https://tympanus.net/codrops/2025/11/27/letting-the-creative-process-shape-a-webgl-portfolio/)
 
 **Patterns to steal**:
-- **Fold effect** — WebGL sticker fold via vector projection + fake shadow rendering based on curvature
-- **MeshPortal system** — bounded 3D scene rendered to texture via Frame Buffer Objects, masked to viewport regions; dynamically repositions across sections via normalized DOM bounds (pixel → 0-1 WebGL space)
-- **Text morphing** — GSAP MorphSVG + canvas rendering callbacks (not DOM) for 60fps
-- **Velocity stretch shader** — sine-wave distortion driven by scroll velocity, max at viewport center, decays after stop ⭐ *(perfect for project titles)*
-- **Hash-based nav** — single-page with simultaneous in/out animations during section transitions
+- **Fold effect** - WebGL sticker fold via vector projection + fake shadow rendering based on curvature
+- **MeshPortal system** - bounded 3D scene rendered to texture via Frame Buffer Objects, masked to viewport regions; dynamically repositions across sections via normalized DOM bounds (pixel → 0-1 WebGL space)
+- **Text morphing** - GSAP MorphSVG + canvas rendering callbacks (not DOM) for 60fps
+- **Velocity stretch shader** - sine-wave distortion driven by scroll velocity, max at viewport center, decays after stop ⭐ *(perfect for project titles)*
+- **Hash-based nav** - single-page with simultaneous in/out animations during section transitions
 
 ### 29.3 Sticky Grid Scroll (March 2026)
 [link](https://tympanus.net/codrops/2026/03/02/sticky-grid-scroll-building-a-scroll-driven-animated-grid/)
@@ -883,11 +883,11 @@ Based on what shows up across DATHSTEL + frontendmaxxing + Awwwards-tier sites:
 [link](https://tympanus.net/codrops/2026/02/02/building-a-scroll-revealed-webgl-gallery-with-gsap-three-js-astro-and-barba-js/)
 
 **Patterns to steal**:
-- **DOM-WebGL sync** — `PlaneGeometry` meshes scaled/positioned via `getBoundingClientRect` to match HTML images
-- **ScrollSmoother in same tick as render** — keeps WebGL planes aligned with DOM during scroll
+- **DOM-WebGL sync** - `PlaneGeometry` meshes scaled/positioned via `getBoundingClientRect` to match HTML images
+- **ScrollSmoother in same tick as render** - keeps WebGL planes aligned with DOM during scroll
 - **`uProgress` shader uniform** for image reveals on viewport entry, `toggleActions: "play reset restart reset"` for restart on scroll-back
 - **SplitText line stagger** with `yPercent` transforms tied to scroll
-- **Barba.js Flip transitions** — capture state, append to new container, animate without jumps
+- **Barba.js Flip transitions** - capture state, append to new container, animate without jumps
 
 ### 29.6 Horizontal Parallax Gallery: DOM → WebGL (Feb 2026)
 [link](https://tympanus.net/codrops/2026/02/19/creating-a-smooth-horizontal-parallax-gallery-from-dom-to-webgl/)
@@ -928,7 +928,7 @@ Most of site uses smooth scroll, but ONE critical sequence (e.g., the project sh
 Contact menu opens via WebGL "ink bleeding into water" shader. Pins to screen via NDC bypass.
 
 ### 30.6 Custom Soundtrack with Lowpass Filter
-Background music applies a lowpass filter when entering project pages — creates "stepping into adjacent room" perception. Web Audio API is enough.
+Background music applies a lowpass filter when entering project pages - creates "stepping into adjacent room" perception. Web Audio API is enough.
 
 ### 30.7 Single-Color Project Accents
 Each project gets ONE accent color. Hero/cards/buttons all shift to that color when viewed. Drives visual variety without redesigning.
@@ -948,7 +948,7 @@ If you have >10 of anything (particles, blocks, dust motes), use `InstancedMesh`
 
 - **Prompt-to-Three.js scenes** via tools like Spline AI, Polycam, Anthropic Sonnet 4.6 with R3F context
 - **Texture generation** via Stable Diffusion 3.5 / Midjourney v7 + KTX2 compression
-- **Shader assistance** — describe a look, get TSL code
+- **Shader assistance** - describe a look, get TSL code
 
 For *your* portfolio: useful for prototyping atmospheric backgrounds quickly, then hand-tuning.
 
@@ -964,11 +964,11 @@ Given:
 
 **Three most-impactful upgrades in priority order**:
 
-1. **Velocity-stretch shader on project titles** — drop into existing project cards, low risk, high "wow." Codrops 29.2 pattern.
+1. **Velocity-stretch shader on project titles** - drop into existing project cards, low risk, high "wow." Codrops 29.2 pattern.
 
-2. **Aceternity 3D Globe + project pins as nav alternative** — directly references your AEGIS work. Click a pin → smooth zoom → project page. Replaces or augments your bento grid.
+2. **Aceternity 3D Globe + project pins as nav alternative** - directly references your AEGIS work. Click a pin → smooth zoom → project page. Replaces or augments your bento grid.
 
-3. **Sticky Grid Scroll for projects section** — Codrops 29.3 pattern. The 3-phase scroll-driven reveal is *exactly* the wow moment HexGenesis tried (and missed). This is the proven recipe.
+3. **Sticky Grid Scroll for projects section** - Codrops 29.3 pattern. The 3-phase scroll-driven reveal is *exactly* the wow moment HexGenesis tried (and missed). This is the proven recipe.
 
 **Lower-effort polish**:
 - Replace GSAP-style ScrollTrigger reveals with CSS scroll-driven (`animation-timeline: scroll()`) where possible
@@ -978,7 +978,7 @@ Given:
 
 ---
 
-*Web research snapshot: 2026-05-01. The frontier moves fast — re-search annually.*
+*Web research snapshot: 2026-05-01. The frontier moves fast - re-search annually.*
 
 ## SOURCES
 
@@ -1005,13 +1005,13 @@ Given:
 
 ---
 
-# 🛰️ ADDENDUM 2 — GLOBE.GL + VANTA.JS (must-use libraries)
+# 🛰️ ADDENDUM 2 - GLOBE.GL + VANTA.JS (must-use libraries)
 
 > Two MVP-tier libraries for portfolio backgrounds and geographic data visualization. Both are dependency-light and embed cleanly in Next.js.
 
 ---
 
-## 33. GLOBE.GL — vasturiano/globe.gl
+## 33. GLOBE.GL - vasturiano/globe.gl
 
 **Repo:** https://github.com/vasturiano/globe.gl
 **React wrapper:** [react-globe.gl](https://github.com/vasturiano/react-globe.gl) (already in your portfolio at `components/sections/GlobeSection.tsx`)
@@ -1033,16 +1033,16 @@ Given:
 | **Rings** | Self-propagating ripple animations | Radar pulses, beacon emanations |
 | **Labels** | 3D text positioned at lat/lng | Place names, project labels |
 | **HTML Elements** | CSS2D DOM overlay at lat/lng ⭐ | **Custom beacons (used in your atlas)** |
-| **Custom Layers** | User-defined Three.js objects | Anything — stations, satellites, fleets |
+| **Custom Layers** | User-defined Three.js objects | Anything - stations, satellites, fleets |
 
 ### Iconic example demos (worth studying)
 
-- **World Population** — population density via heatmap
-- **Airline Routes** — US international flight network with arcs
-- **Submarine Cables** — Global infrastructure paths
-- **Satellites** — Real-time orbital tracking with particle layer
-- **Earthquakes & Volcanoes** — Event clustering with hex binning
-- **Moon Landing Sites** — Historical markers with custom HTML
+- **World Population** - population density via heatmap
+- **Airline Routes** - US international flight network with arcs
+- **Submarine Cables** - Global infrastructure paths
+- **Satellites** - Real-time orbital tracking with particle layer
+- **Earthquakes & Volcanoes** - Event clustering with hex binning
+- **Moon Landing Sites** - Historical markers with custom HTML
 
 ### What you're already using
 
@@ -1064,7 +1064,7 @@ import Globe from "react-globe.gl";
 
 | Texture URL suffix | Look |
 |---|---|
-| `earth-day.jpg` | Standard daytime — NASA visible Earth |
+| `earth-day.jpg` | Standard daytime - NASA visible Earth |
 | `earth-blue-marble.jpg` | Vibrant blue oceans, green continents (current) |
 | `earth-night.jpg` | City lights at night (cyberpunk) |
 | `earth-dark.jpg` | Muted dark earth |
@@ -1075,15 +1075,15 @@ CDN base: `//cdn.jsdelivr.net/npm/three-globe/example/img/`
 
 ### Features to consider for your portfolio
 
-1. **HexBin layer** — directly references your H3 work. Bin project regions into hexagons that stick up from the surface.
-2. **Submarine cable paths** — extend AEGIS arcs into actual maritime routes following coastlines.
-3. **Satellites particle layer** — orbital data points around the globe (atmospheric, never literal).
-4. **Hex polygons mode** — render countries as hexagonal mosaics (looks like H3 tessellation).
-5. **Custom Three.js layer** — drop in 3D ship/plane models at coordinates.
+1. **HexBin layer** - directly references your H3 work. Bin project regions into hexagons that stick up from the surface.
+2. **Submarine cable paths** - extend AEGIS arcs into actual maritime routes following coastlines.
+3. **Satellites particle layer** - orbital data points around the globe (atmospheric, never literal).
+4. **Hex polygons mode** - render countries as hexagonal mosaics (looks like H3 tessellation).
+5. **Custom Three.js layer** - drop in 3D ship/plane models at coordinates.
 
 ---
 
-## 34. VANTA.JS — tengbao/vanta
+## 34. VANTA.JS - tengbao/vanta
 
 **Repo:** https://github.com/tengbao/vanta
 **Demo:** https://www.vantajs.com/
@@ -1155,12 +1155,12 @@ export function VantaBg() {
 
 ### Why Vanta is good for portfolios
 
-- **One-line setup** — just pass an element ref
-- **Mouse/touch responsive** — every effect reacts to interaction
-- **Customizable params** — colors, speed, density, all tweakable
-- **Smaller than custom Three.js** — pre-optimized, ~120KB
-- **Battle-tested** — used by thousands of sites since 2018
-- **Easy to swap** — change one import to test a different effect
+- **One-line setup** - just pass an element ref
+- **Mouse/touch responsive** - every effect reacts to interaction
+- **Customizable params** - colors, speed, density, all tweakable
+- **Smaller than custom Three.js** - pre-optimized, ~120KB
+- **Battle-tested** - used by thousands of sites since 2018
+- **Easy to swap** - change one import to test a different effect
 
 ### When to use Vanta vs custom Three.js
 
@@ -1173,12 +1173,12 @@ export function VantaBg() {
 
 ### Recommendation for your portfolio
 
-**Don't replace your particle globe with Vanta** — your custom Three.js scene is more on-brand. But Vanta could shine in:
+**Don't replace your particle globe with Vanta** - your custom Three.js scene is more on-brand. But Vanta could shine in:
 
-1. **Project detail page heroes** — `WAVES` for AEGIS (maritime), `TOPOLOGY` for London Synergy (H3 grid feel), `NET` for RiskTerrain (network analysis)
-2. **About/Contact section** — `FOG` or `HALO` for atmospheric depth
-3. **Section transitions** — `BIRDS` or `DOTS` between major sections
-4. **404 page** — any of them, no risk of conflict
+1. **Project detail page heroes** - `WAVES` for AEGIS (maritime), `TOPOLOGY` for London Synergy (H3 grid feel), `NET` for RiskTerrain (network analysis)
+2. **About/Contact section** - `FOG` or `HALO` for atmospheric depth
+3. **Section transitions** - `BIRDS` or `DOTS` between major sections
+4. **404 page** - any of them, no risk of conflict
 
 ### Quick effect-to-project pairing
 
@@ -1197,18 +1197,18 @@ export function VantaBg() {
 
 Building on Section 32, here's what's most impactful given globe.gl + Vanta:
 
-### Tier 1 — quick wins (1-2 hours each)
-1. **Vanta WAVES on AEGIS detail page hero** — instant maritime vibe
-2. **Vanta TOPOLOGY on London Synergy detail page** — references H3 work
-3. **Add HexBin layer to Project Atlas** — H3 thematic match, technically yours
+### Tier 1 - quick wins (1-2 hours each)
+1. **Vanta WAVES on AEGIS detail page hero** - instant maritime vibe
+2. **Vanta TOPOLOGY on London Synergy detail page** - references H3 work
+3. **Add HexBin layer to Project Atlas** - H3 thematic match, technically yours
 
-### Tier 2 — bigger upgrades (1 day each)
+### Tier 2 - bigger upgrades (1 day each)
 4. **Submarine cable paths layer** in atlas (animated dashed paths along coastlines for AEGIS shipping routes)
 5. **Satellite particle layer** orbiting the atlas globe (atmospheric, ambient)
 
-### Tier 3 — signature features (2-3 days)
-6. **Multi-globe atlas** — switch between earth-blue-marble, earth-night, earth-water with a toggle for different "moods"
-7. **Live data on globe** — fetch real shipping/trade data and render it on the atlas (from AEGIS API even?)
+### Tier 3 - signature features (2-3 days)
+6. **Multi-globe atlas** - switch between earth-blue-marble, earth-night, earth-water with a toggle for different "moods"
+7. **Live data on globe** - fetch real shipping/trade data and render it on the atlas (from AEGIS API even?)
 
 ---
 
@@ -1225,13 +1225,13 @@ Building on Section 32, here's what's most impactful given globe.gl + Vanta:
 
 ---
 
-# 🎨 ADDENDUM 3 — GALAXY (UI components) + BABYLON.JS (3D engine)
+# 🎨 ADDENDUM 3 - GALAXY (UI components) + BABYLON.JS (3D engine)
 
 > Two more reference libraries to know about. Galaxy = grab-and-go UI bits. Babylon.js = the heavyweight Three.js alternative for ambitious 3D scenes.
 
 ---
 
-## 36. GALAXY — uiverse-io/galaxy
+## 36. GALAXY - uiverse-io/galaxy
 
 **Repo:** https://github.com/uiverse-io/galaxy
 **Browse + copy:** https://uiverse.io/
@@ -1251,15 +1251,15 @@ Building on Section 32, here's what's most impactful given globe.gl + Vanta:
 | **Radio buttons** | Animated, sliding indicators, custom shapes |
 | **Toggle switches** | Skeuomorphic, neon, animated states |
 | **Tooltips** | Slide, fade, pop animations |
-| **Loaders** | 3000+ — spinners, progress bars, skeletons, dots |
+| **Loaders** | 3000+ - spinners, progress bars, skeletons, dots |
 | **Patterns** | CSS background patterns, gradients, grids |
 
 ### Why it's useful
 
-- **Massive catalog** — when you want "a glowing pill button" or "a neon toggle," there are 50+ options to pick from
-- **CSS or Tailwind** — copy directly, no install
-- **Curated** — every submission is reviewed before inclusion
-- **No build step needed** — it's just HTML + CSS
+- **Massive catalog** - when you want "a glowing pill button" or "a neon toggle," there are 50+ options to pick from
+- **CSS or Tailwind** - copy directly, no install
+- **Curated** - every submission is reviewed before inclusion
+- **No build step needed** - it's just HTML + CSS
 
 ### How to use
 
@@ -1270,19 +1270,19 @@ Building on Section 32, here's what's most impactful given globe.gl + Vanta:
 
 ### Best fits for your portfolio
 
-- **Loaders** — for project page entry, when content is mounting
-- **Toggle switches** — for any preference settings (dark mode, sound on/off if you add audio)
-- **Notification toasts** — for "copied to clipboard" feedback on contact section
-- **Animated buttons** — alternative styles for the `Open project` CTA in atlas
-- **Patterns** — CSS-only background patterns to layer behind sections
+- **Loaders** - for project page entry, when content is mounting
+- **Toggle switches** - for any preference settings (dark mode, sound on/off if you add audio)
+- **Notification toasts** - for "copied to clipboard" feedback on contact section
+- **Animated buttons** - alternative styles for the `Open project` CTA in atlas
+- **Patterns** - CSS-only background patterns to layer behind sections
 
 ### When NOT to use
 
-- For hero animations or signature features — Galaxy components are *building blocks*, not centerpieces. Don't make your hero a Uiverse button — make your hero something custom and use Uiverse for the small touches around it.
+- For hero animations or signature features - Galaxy components are *building blocks*, not centerpieces. Don't make your hero a Uiverse button - make your hero something custom and use Uiverse for the small touches around it.
 
 ---
 
-## 37. BABYLON.JS — BabylonJS/Babylon.js
+## 37. BABYLON.JS - BabylonJS/Babylon.js
 
 **Repo:** https://github.com/BabylonJS/Babylon.js (25.4k★)
 **Site:** https://www.babylonjs.com/
@@ -1339,26 +1339,26 @@ import { Engine, Scene } from "react-babylonjs";
 
 ### Standout features worth knowing
 
-1. **Node Material Editor (NME)** — visual graph-based shader builder. Drag nodes to compose materials, export GLSL. Insanely productive vs raw GLSL.
-2. **Babylon GUI** — render UI directly inside the 3D canvas (buttons, sliders, panels positioned in 3D space). Great for VR.
-3. **Asset Manager** — built-in async loading of meshes/textures with progress events.
-4. **Inspector** — live debug panel for any scene (`scene.debugLayer.show()`).
-5. **Sandbox** — drop a `.glb` file at https://sandbox.babylonjs.com/ to inspect/test.
-6. **WebGPU rendering** — opt-in, faster than WebGL for compute-heavy scenes.
+1. **Node Material Editor (NME)** - visual graph-based shader builder. Drag nodes to compose materials, export GLSL. Insanely productive vs raw GLSL.
+2. **Babylon GUI** - render UI directly inside the 3D canvas (buttons, sliders, panels positioned in 3D space). Great for VR.
+3. **Asset Manager** - built-in async loading of meshes/textures with progress events.
+4. **Inspector** - live debug panel for any scene (`scene.debugLayer.show()`).
+5. **Sandbox** - drop a `.glb` file at https://sandbox.babylonjs.com/ to inspect/test.
+6. **WebGPU rendering** - opt-in, faster than WebGL for compute-heavy scenes.
 
 ### Notable Babylon-built portfolios / experiences
 
 - **Bruno Simon's car portfolio** uses Three.js, but Babylon would handle the same with built-in physics
-- **Microsoft Hololens demos** — many use Babylon.js for WebXR
-- **Babylon.js Playground itself** — proves what's achievable
+- **Microsoft Hololens demos** - many use Babylon.js for WebXR
+- **Babylon.js Playground itself** - proves what's achievable
 
 ### For YOUR portfolio specifically
 
 **Honest take**: stick with Three.js / R3F. You're already deep in that ecosystem (`react-globe.gl`, Background3D particle globe). Babylon's strengths (physics, GUI, XR) aren't strengths your portfolio needs.
 
 **Where Babylon.js MIGHT be worth it:**
-1. **A standalone "WebXR demo" page** — show off VR/AR portfolio support
-2. **A driveable car portfolio** Bruno-Simon-style — physics-heavy
+1. **A standalone "WebXR demo" page** - show off VR/AR portfolio support
+2. **A driveable car portfolio** Bruno-Simon-style - physics-heavy
 3. **A future product showcase** that needs game-tier 3D fidelity
 
 For now, log it in your "things to know" library and don't switch.

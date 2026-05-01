@@ -128,7 +128,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          Geospatial intelligence, AI pipelines, multi-agent platforms — or
+          Geospatial intelligence, AI pipelines, multi-agent platforms - or
           just data science chats. Always open to interesting work.
         </motion.p>
 
@@ -212,7 +212,7 @@ export function ContactSection() {
           ))}
         </motion.div>
 
-        {/* Languages section — elegant cards with proficiency bars */}
+        {/* Languages section - elegant cards with proficiency bars */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -261,7 +261,7 @@ export function ContactSection() {
                     </span>
                   </div>
 
-                  {/* Proficiency bar — direct width animation (no scaleX) */}
+                  {/* Proficiency bar - direct width animation (no scaleX) */}
                   <div className="relative h-1.5 rounded-full bg-white/[0.06] overflow-hidden mb-3">
                     <motion.div
                       className="absolute inset-y-0 left-0 rounded-full"

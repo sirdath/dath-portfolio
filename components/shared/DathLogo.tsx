@@ -16,7 +16,7 @@ export function DathLogo() {
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.95 }}
       className="fixed top-6 left-6 z-50 group"
-      aria-label="Dimitrios Athinaios — back to top"
+      aria-label="Dimitrios Athinaios - back to top"
       data-cursor-label="home"
     >
       <svg
@@ -26,16 +26,16 @@ export function DathLogo() {
         xmlns="http://www.w3.org/2000/svg"
         className="block transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] group-hover:drop-shadow-[0_0_16px_rgba(255,255,255,0.4)]"
       >
-        {/* D — angular octagon with bowl cutout */}
+        {/* D - bold angular shape with chevron bowl cutout */}
         <path
-          d="M 5,5 L 65,5 L 90,25 L 90,65 L 65,85 L 5,85 Z M 22,22 L 58,22 L 73,33 L 73,57 L 58,68 L 22,68 Z"
+          d="M 5,12 L 70,12 L 95,35 L 95,55 L 70,78 L 5,78 Z M 22,28 L 62,28 L 78,40 L 78,50 L 62,62 L 22,62 Z"
           fill="white"
           fillRule="evenodd"
         />
 
-        {/* A — angular peak with crossbar and inner cutout */}
+        {/* A - sharp angular peak with slash-triangle inner */}
         <path
-          d="M 105,85 L 145,5 L 170,5 L 210,85 L 188,85 L 180,68 L 135,68 L 127,85 Z M 142,52 L 173,52 L 157.5,21 Z"
+          d="M 105,78 L 148,12 L 168,12 L 210,78 L 188,78 L 180,64 L 134,64 L 127,78 Z M 144,50 L 172,50 L 158,24 Z"
           fill="white"
           fillRule="evenodd"
         />

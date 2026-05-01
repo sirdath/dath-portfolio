@@ -30,7 +30,7 @@
   <ellipse cx="500" cy="350" rx="600" ry="450" fill="url(#nvHeroGlow1)"/>
   <ellipse cx="1100" cy="500" rx="500" ry="400" fill="url(#nvHeroGlow2)"/>
 
-  <!-- Distant graph nodes (very dim — dormant memories) -->
+  <!-- Distant graph nodes (very dim - dormant memories) -->
   <g opacity="0.18">
     <circle cx="120" cy="180" r="2" fill="#ffffff"/>
     <circle cx="180" cy="280" r="1.5" fill="#ffffff"/>

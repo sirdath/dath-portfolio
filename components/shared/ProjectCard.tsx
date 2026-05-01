@@ -36,7 +36,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
       >
-        {/* Card Spotlight — cursor-tracked radial gradient */}
+        {/* Card Spotlight - cursor-tracked radial gradient */}
         <div
           className="pointer-events-none absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{

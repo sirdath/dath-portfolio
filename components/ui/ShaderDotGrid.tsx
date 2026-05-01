@@ -54,7 +54,7 @@ const fragmentShader = /* glsl */ `
     float sdf = sdfCircle(cellUv, radius);
     float dot = smoothstep(0.025, 0.0, sdf);
 
-    // ─── Ambient pulse — radial mask from center ───
+    // ─── Ambient pulse - radial mask from center ───
     float distFromCenter = distance(uv, vec2(0.5));
     float ambientPulse = 0.5 + 0.5 * sin(uTime * 0.3);
     float radialMask = smoothstep(0.95, 0.0, distFromCenter * 1.4 + ambientPulse * 0.04);
