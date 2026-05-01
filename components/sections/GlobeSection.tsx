@@ -67,9 +67,18 @@ const PROJECT_PINS: ProjectPin[] = [
     region: "London, UK",
     lat: 51.5074,
     lng: -0.1278, // also stacked with London cluster
-    color: "#fbbf24", // gold
+    color: "#2dd4bf", // mint/teal
     index: "05",
     stackIndex: 2,
+  },
+  {
+    slug: "megagym",
+    name: "MegaGym",
+    region: "Athens, Greece",
+    lat: 37.9838,
+    lng: 23.7275,
+    color: "#fbbf24", // brand gold/yellow
+    index: "06",
   },
   {
     slug: "risk-terrain",
@@ -78,7 +87,7 @@ const PROJECT_PINS: ProjectPin[] = [
     lat: 40.7074,
     lng: -74.0113,
     color: "#fb923c", // orange
-    index: "06",
+    index: "07",
   },
   {
     slug: "data-engineering-pipeline",
@@ -87,7 +96,7 @@ const PROJECT_PINS: ProjectPin[] = [
     lat: 0,
     lng: -160,
     color: "#f87171", // red
-    index: "07",
+    index: "08",
   },
 ];
 
@@ -263,7 +272,7 @@ export function GlobeSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           <p className="mt-5 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
-            Seven projects, seven beacons. Click a glowing marker to dive into the
+            Eight projects, eight beacons. Click a glowing marker to dive into the
             work anchored at that location.
           </p>
         </motion.div>
@@ -342,7 +351,7 @@ export function GlobeSection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-cyan" />
                 </div>
                 <span className="text-[10px] uppercase tracking-[0.28em] text-text-muted font-mono">
-                  LIVE · 7 BEACONS · 4 REGIONS
+                  LIVE · 8 BEACONS · 5 REGIONS
                 </span>
               </div>
 
@@ -396,7 +405,7 @@ export function GlobeSection() {
                         className="font-mono text-xs tracking-[0.3em]"
                         style={{ color: selectedPin.color }}
                       >
-                        {selectedPin.index} / 07
+                        {selectedPin.index} / 08
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
@@ -484,7 +493,7 @@ export function GlobeSection() {
                     Select a beacon
                   </div>
                   <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-white mb-3">
-                    Seven projects · four regions
+                    Eight projects · five regions
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
                     Each beacon marks where a project does its work in the
@@ -583,7 +592,7 @@ export function GlobeSection() {
             {/* Stats footer */}
             <div className="grid grid-cols-3 gap-2">
               {[
-                { label: "Projects", value: "7" },
+                { label: "Projects", value: "8" },
                 { label: "Regions", value: "4" },
                 { label: "Years", value: "3" },
               ].map((stat) => (
