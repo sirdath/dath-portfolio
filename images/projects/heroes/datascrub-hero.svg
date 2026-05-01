@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="dshBg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#11111e"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </radialGradient>
+    <linearGradient id="dshAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <radialGradient id="dshGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dshGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#dshBg)"/>
+
+  <!-- Ambient glows -->
+  <ellipse cx="500" cy="350" rx="600" ry="450" fill="url(#dshGlow1)"/>
+  <ellipse cx="1100" cy="500" rx="500" ry="400" fill="url(#dshGlow2)"/>
+
+  <!-- Subtle grid backdrop -->
+  <g opacity="0.04" stroke="#a5b4fc" stroke-width="0.5">
+    <line x1="0" y1="225" x2="1600" y2="225"/>
+    <line x1="0" y1="450" x2="1600" y2="450"/>
+    <line x1="0" y1="675" x2="1600" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="900"/>
+    <line x1="800" y1="0" x2="800" y2="900"/>
+    <line x1="1200" y1="0" x2="1200" y2="900"/>
+  </g>
+
+  <!-- Large data table grid: 14 cols x 8 rows -->
+  <g>
+    <!-- Top half: dirty cells (warm + dim) -->
+    <g opacity="0.85">
+      <!-- Row 1 -->
+      <rect x="200" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="290" y="200" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="380" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="470" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="560" y="200" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="650" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="740" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="830" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="920" y="200" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="1010" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1100" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1190" y="200" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="1280" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1370" y="200" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+
+      <!-- Row 2 -->
+      <rect x="200" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="290" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="380" y="250" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="470" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="560" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="650" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="740" y="250" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="830" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="920" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1010" y="250" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="1100" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1190" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1280" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1370" y="250" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+
+      <!-- Row 3 -->
+      <rect x="200" y="300" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="290" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="380" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="470" y="300" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="560" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="650" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="740" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="830" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="920" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1010" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1100" y="300" width="80" height="40" rx="4" fill="#3d2f1f" stroke="#7a5e3a" stroke-width="1"/>
+      <rect x="1190" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1280" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+      <rect x="1370" y="300" width="80" height="40" rx="4" fill="#1f1f2e" stroke="#33334a" stroke-width="1"/>
+    </g>
+
+    <!-- The scrubber bar (mid) -->
+    <rect x="160" y="370" width="1300" height="50" rx="6" fill="url(#dshAccent)" opacity="0.85"/>
+    <text x="800" y="403" font-family="ui-monospace, monospace" font-size="14" letter-spacing="10" fill="#0a0a14" text-anchor="middle" font-weight="700">
+      AI SCRUB IN PROGRESS
+    </text>
+
+    <!-- Bottom half: cleaned cells (cool + bright) -->
+    <g>
+      <!-- Row 5 -->
+      <rect x="200" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="290" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="380" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="470" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="560" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="650" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="740" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="830" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="920" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="1010" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="1100" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="1190" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="1280" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+      <rect x="1370" y="450" width="80" height="40" rx="4" fill="#2d2d4a" stroke="#a5b4fc" stroke-width="1.5"/>
+
+      <!-- Row 6 -->
+      <rect x="200" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="290" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="380" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="470" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="560" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="650" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="740" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="830" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="920" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1010" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1100" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1190" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1280" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1370" y="500" width="80" height="40" rx="4" fill="#34344f" stroke="#c7d2fe" stroke-width="1.5"/>
+
+      <!-- Row 7 -->
+      <rect x="200" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="290" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="380" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="470" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="560" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="650" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="740" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="830" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="920" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1010" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1100" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1190" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1280" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+      <rect x="1370" y="550" width="80" height="40" rx="4" fill="#3a3a5e" stroke="#c7d2fe" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- Sparkles flanking the scrubber -->
+  <g fill="#c7d2fe" opacity="0.85">
+    <circle cx="100" cy="395" r="3"/>
+    <circle cx="80" cy="375" r="2"/>
+    <circle cx="120" cy="380" r="2"/>
+    <circle cx="60" cy="395" r="2"/>
+    <circle cx="1500" cy="395" r="3"/>
+    <circle cx="1530" cy="375" r="2"/>
+    <circle cx="1480" cy="380" r="2"/>
+    <circle cx="1540" cy="395" r="2"/>
+    <polygon points="50,400 54,394 58,400 54,406"/>
+    <polygon points="1545,400 1549,394 1553,400 1549,406"/>
+  </g>
+
+  <!-- Top corner labels -->
+  <g opacity="0.5">
+    <line x1="80" y1="50" x2="200" y2="50" stroke="#a5b4fc" stroke-width="1"/>
+    <text x="80" y="80" font-family="ui-monospace, monospace" font-size="11" letter-spacing="4" fill="#a5b4fc">
+      DATA · CLEANED
+    </text>
+  </g>
+  <g opacity="0.5">
+    <text x="1520" y="80" font-family="ui-monospace, monospace" font-size="11" letter-spacing="4" fill="#a5b4fc" text-anchor="end">
+      LOCAL OR CLOUD
+    </text>
+    <line x1="1390" y1="50" x2="1520" y2="50" stroke="#a5b4fc" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom annotation -->
+  <g opacity="0.45">
+    <line x1="600" y1="850" x2="700" y2="850" stroke="#a5b4fc" stroke-width="1"/>
+    <text x="800" y="855" font-family="ui-monospace, monospace" font-size="10" letter-spacing="5" fill="#a5b4fc" text-anchor="middle">
+      RULE-BASED · LLM-ASSISTED · OLLAMA · GROQ · OPENAI
+    </text>
+    <line x1="900" y1="850" x2="1000" y2="850" stroke="#a5b4fc" stroke-width="1"/>
+  </g>
+</svg>
