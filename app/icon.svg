@@ -1,28 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0c0c14"/>
-      <stop offset="100%" stop-color="#09090b"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00f0ff"/>
-      <stop offset="100%" stop-color="#a855f7"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
-  <!-- Centered DA monogram (scaled to fit) -->
+  <rect width="512" height="512" rx="96" fill="#09090b"/>
   <g transform="translate(80, 200)">
-    <!-- D — angular octagon with bowl cutout -->
     <path
       d="M 5,5 L 65,5 L 90,25 L 90,65 L 65,85 L 5,85 Z M 22,22 L 58,22 L 73,33 L 73,57 L 58,68 L 22,68 Z"
-      fill="url(#accent)"
+      fill="white"
       fill-rule="evenodd"
       transform="scale(1.7)"
     />
-    <!-- A — angular peak with crossbar and inner cutout -->
     <path
       d="M 105,85 L 145,5 L 170,5 L 210,85 L 188,85 L 180,68 L 135,68 L 127,85 Z M 142,52 L 173,52 L 157.5,21 Z"
-      fill="url(#accent)"
+      fill="white"
       fill-rule="evenodd"
       transform="scale(1.7)"
     />
