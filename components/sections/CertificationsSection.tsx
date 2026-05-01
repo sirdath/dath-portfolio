@@ -87,72 +87,26 @@ const extras: Extra[] = [
 export function CertificationsSection() {
   return (
     <section className="relative w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 bg-void overflow-hidden">
-      {/* ─── Animated background layers ──────────────────── */}
+      {/* ─── Subtle ambient background ──────────────────── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Drifting blurred orbs */}
+        {/* 2 gentle drifting orbs (was 4) */}
         <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl opacity-12"
           style={{
             background: "radial-gradient(circle, #00f0ff 0%, transparent 70%)",
-            animation: "mesh-drift-1 22s ease-in-out infinite",
+            animation: "mesh-drift-1 32s ease-in-out infinite",
           }}
         />
         <div
-          className="absolute top-1/3 -right-40 w-[550px] h-[550px] rounded-full blur-3xl opacity-22"
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl opacity-12"
           style={{
             background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-            animation: "mesh-drift-2 26s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute -bottom-32 left-1/3 w-[500px] h-[500px] rounded-full blur-3xl opacity-20"
-          style={{
-            background: "radial-gradient(circle, #fbbf24 0%, transparent 70%)",
-            animation: "mesh-drift-4 30s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute top-2/3 left-1/4 w-[400px] h-[400px] rounded-full blur-3xl opacity-18"
-          style={{
-            background: "radial-gradient(circle, #ec4899 0%, transparent 70%)",
-            animation: "mesh-drift-5 32s ease-in-out infinite",
+            animation: "mesh-drift-2 36s ease-in-out infinite",
           }}
         />
 
-        {/* Animated diagonal grid */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            animation: "grid-shift 18s linear infinite",
-          }}
-        />
-
-        {/* Floating particles (CSS-only) */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-accent-cyan/40"
-            style={{
-              left: `${(i * 12.5) + (i % 2 ? 4 : -2)}%`,
-              bottom: "-10px",
-              animation: `float-up ${20 + i * 3}s linear infinite`,
-              animationDelay: `${i * 2.5}s`,
-              boxShadow: `0 0 6px ${
-                i % 3 === 0
-                  ? "#00f0ff"
-                  : i % 3 === 1
-                  ? "#a855f7"
-                  : "#fbbf24"
-              }`,
-            }}
-          />
-        ))}
-
-        {/* Subtle radial vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--color-void)_90%)] opacity-60" />
+        {/* Vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--color-void)_92%)] opacity-70" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
