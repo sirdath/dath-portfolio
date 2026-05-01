@@ -1,8 +1,8 @@
 # Portfolio Components Rundown
 
 > Snapshot for handing off to another Claude session. As of 2026-05-01, commit `e7ced6b`.
-> Live: https://daththeanalyst.github.io/dath-portfolio/
-> Repo: https://github.com/daththeanalyst/dath-portfolio
+> Live: https://sirdath.github.io/dath-portfolio/
+> Repo: https://github.com/sirdath/dath-portfolio
 
 ---
 
@@ -362,7 +362,7 @@ From `memory/portfolio_feature_ideas.md`:
 
 1. **Fake AI chatbot** with predetermined messages (AEGIS multi-agent themed, no real LLM)
 2. **Hex genesis transition** for Projects section (3D hexagon fractures into cards on scroll)
-3. **Custom domain** dataportfolio.co.uk (DNS via GoDaddy, currently on `daththeanalyst.github.io/dath-portfolio`)
+3. **Custom domain** dataportfolio.co.uk (DNS via GoDaddy, currently on `sirdath.github.io/dath-portfolio`)
 
 User has dismissed these for now but flagged them as future signature features.
 

@@ -28,9 +28,9 @@ const contactLinks = [
   },
   {
     label: "GitHub",
-    sublabel: "/daththeanalyst",
+    sublabel: "/sirdath",
     icon: Github,
-    href: "https://github.com/daththeanalyst",
+    href: "https://github.com/sirdath",
     color: "#ec4899",
     primary: false,
   },
