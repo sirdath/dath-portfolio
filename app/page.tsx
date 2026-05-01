@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { DathLogo } from "@/components/shared/DathLogo";
 import { TechMarquee } from "@/components/sections/TechMarquee";
 import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
+import { GlobeSectionLazy } from "@/components/sections/GlobeSectionLazy";
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -16,6 +17,8 @@ export default function Home() {
         <Hero />
         <TechMarquee />
         <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-accent-cyan/20 to-transparent" />
+        <GlobeSectionLazy />
+        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-accent-purple/20 to-transparent" />
         <ProjectShowcase />
         <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-accent-purple/20 to-transparent" />
         <TimelineSection />
