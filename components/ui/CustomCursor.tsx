@@ -110,15 +110,9 @@ export function CustomCursor() {
           className="block"
           style={{ filter: "drop-shadow(0 0 6px rgba(255,255,255,0.4))" }}
         >
-          {/* D - bold angular shape with chevron bowl cutout */}
+          {/* DA - single merged silhouette with V-valley between letters */}
           <path
-            d="M 5,12 L 70,12 L 95,35 L 95,55 L 70,78 L 5,78 Z M 22,28 L 62,28 L 78,40 L 78,50 L 62,62 L 22,62 Z"
-            fill="white"
-            fillRule="evenodd"
-          />
-          {/* A - sharp angular peak with slash-triangle inner */}
-          <path
-            d="M 105,78 L 148,12 L 168,12 L 210,78 L 188,78 L 180,64 L 134,64 L 127,78 Z M 144,50 L 172,50 L 158,24 Z"
+            d="M 5,12 L 70,12 L 95,42 L 148,12 L 170,12 L 215,82 L 5,82 Z M 22,28 L 58,28 L 75,42 L 75,52 L 58,66 L 22,66 Z M 142,56 L 174,56 L 158,28 Z"
             fill="white"
             fillRule="evenodd"
           />
