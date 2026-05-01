@@ -22,13 +22,22 @@ interface ProjectPin {
 
 const PROJECT_PINS: ProjectPin[] = [
   {
+    slug: "neurovault",
+    name: "NeuroVault",
+    region: "Local-first · Desktop",
+    lat: 51.5,
+    lng: -0.08, // London (slight offset from other London pins)
+    color: "#22d3ee",
+    index: "01",
+  },
+  {
     slug: "aegis",
     name: "AEGIS",
     region: "Strait of Hormuz · Maritime",
     lat: 26.5667,
     lng: 56.25,
     color: "#00f0ff",
-    index: "01",
+    index: "02",
   },
   {
     slug: "london-synergy-index",
@@ -37,16 +46,16 @@ const PROJECT_PINS: ProjectPin[] = [
     lat: 51.5074,
     lng: -0.1278,
     color: "#a855f7",
-    index: "02",
+    index: "03",
   },
   {
     slug: "housing-crime-analysis",
     name: "Housing & Crime Analysis",
     region: "Greater London",
-    lat: 51.515,
-    lng: -0.1,
+    lat: 51.535,
+    lng: -0.16,
     color: "#ec4899",
-    index: "03",
+    index: "04",
   },
   {
     slug: "risk-terrain",
@@ -55,7 +64,7 @@ const PROJECT_PINS: ProjectPin[] = [
     lat: 40.7074,
     lng: -74.0113,
     color: "#22d3ee",
-    index: "04",
+    index: "05",
   },
   {
     slug: "data-engineering-pipeline",
@@ -64,7 +73,7 @@ const PROJECT_PINS: ProjectPin[] = [
     lat: 0,
     lng: 0,
     color: "#00f0ff",
-    index: "05",
+    index: "06",
   },
   {
     slug: "dataportfolio",
@@ -73,7 +82,7 @@ const PROJECT_PINS: ProjectPin[] = [
     lat: 53.5,
     lng: -2.5,
     color: "#a855f7",
-    index: "06",
+    index: "07",
   },
 ];
 
@@ -240,7 +249,7 @@ export function GlobeSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           <p className="mt-5 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
-            Six projects, six beacons. Click a glowing marker to dive into the
+            Seven projects, seven beacons. Click a glowing marker to dive into the
             work anchored at that location.
           </p>
         </motion.div>
@@ -315,7 +324,7 @@ export function GlobeSection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-cyan" />
                 </div>
                 <span className="text-[10px] uppercase tracking-[0.28em] text-text-muted font-mono">
-                  LIVE · 6 BEACONS · 4 REGIONS
+                  LIVE · 7 BEACONS · 4 REGIONS
                 </span>
               </div>
 
@@ -369,7 +378,7 @@ export function GlobeSection() {
                         className="font-mono text-xs tracking-[0.3em]"
                         style={{ color: selectedPin.color }}
                       >
-                        {selectedPin.index} / 06
+                        {selectedPin.index} / 07
                       </div>
                       <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
                         <MapPin
@@ -448,7 +457,7 @@ export function GlobeSection() {
                     Select a beacon
                   </div>
                   <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-white mb-3">
-                    Six projects · four regions
+                    Seven projects · four regions
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
                     Each beacon marks where a project does its work in the
@@ -547,7 +556,7 @@ export function GlobeSection() {
             {/* Stats footer */}
             <div className="grid grid-cols-3 gap-2">
               {[
-                { label: "Projects", value: "6" },
+                { label: "Projects", value: "7" },
                 { label: "Regions", value: "4" },
                 { label: "Years", value: "3" },
               ].map((stat) => (

@@ -33,6 +33,110 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "neurovault",
+    slug: "neurovault",
+    title: "NeuroVault",
+    subtitle: "Local-first AI memory for Claude",
+    description:
+      "A Tauri desktop app that gives Claude persistent memory across conversations. Markdown vault + knowledge graph + hybrid retrieval (semantic + BM25 + graph) — outperforms RAG at 96% hit@3, ~275 tokens/answer, and runs entirely on your machine.",
+    techStack: [
+      "Tauri 2",
+      "React 19",
+      "TypeScript",
+      "Rust",
+      "SQLite",
+      "sqlite-vec",
+      "fastembed-rs",
+      "MCP",
+      "Tailwind v4",
+      "Axum",
+    ],
+    mediaUrl: "/images/projects/neurovault.svg",
+    mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/neurovault-hero.svg",
+    githubUrl: "https://github.com/daththeanalyst/NeuroVault",
+    featured: true,
+    category: "ai",
+    gridSpan: "large",
+    detailContent: {
+      overview:
+        "NeuroVault is a local-first AI memory system that fixes the central failure of LLM agents: they forget you after every conversation. Built as a Tauri 2 desktop app, NeuroVault stores notes as plain markdown in your home directory, indexes them with a Rust-powered hybrid retrieval engine (semantic + BM25 + knowledge graph), and exposes them to Claude over MCP. Most agent-memory products today are RAG pipelines in disguise. NeuroVault treats memory as a structured, updatable, inspectable knowledge base — what you get when you stop chunking-and-praying and start treating memory as a living wiki.",
+      architectureDiagram: `+-------------------------------------------------+
+|  Tauri 2 desktop app (React 19 + TypeScript)    |
+|  Editor / Graph / Compile / Sidebar / Palette   |
++-----------------------+-------------------------+
+                        | Tauri commands  +  HTTP :8765
++-----------------------v-------------------------+
+|  In-process Rust backend                        |
+|  - axum HTTP server (the MCP proxy talks here)  |
+|  - hybrid retriever (semantic + BM25 + graph)   |
+|  - fastembed-rs (BGE-small ONNX, local)         |
+|  - notify file watcher                          |
++-----------------------+-------------------------+
+                        | SQL + vec0
++-----------------------v-------------------------+
+|  SQLite + sqlite-vec  (~/.neurovault/...)       |
+|  brain.db, vault/*.md, raw/, assets/, cache/    |
++-------------------------------------------------+`,
+      keyFeatures: [
+        "Hybrid retrieval — semantic (BGE-small) + BM25 + knowledge graph fused via Reciprocal Rank Fusion",
+        "Silent fact capture — UserPromptSubmit hook runs an 8-pattern regex extractor that promotes casual statements into first-class memories with provenance wiki-links",
+        "Multi-brain support — separate vaults for separate projects, switch instantly via dropdown or MCP",
+        "Knowledge graph view — force-directed layout with three automatic link types (semantic, entity, wikilink) plus opt-in PageRank node sizing",
+        "Memory strength via Ebbinghaus decay — used facts stay strong, unused ones fade, contradictions get a recency penalty",
+        "100% local — markdown files in your home directory, no telemetry, no cloud sync, no account",
+        "MCP-native — connects to any MCP client (Claude Desktop, Claude Code, Cursor) with 18+ tools",
+        "Cost: $0.55/year vs Mem0 Pro at $2,988/year (1k notes, comparable feature set)",
+      ],
+      sections: [
+        {
+          heading: "Why this is not RAG",
+          body: "RAG is an answer-pipeline: question → chunk → embed → retrieve → stuff context → generate → repeat. The corpus is dead data. Contradictions are invisible. Provenance is a prayer. NeuroVault is a knowledge layer — it differs from RAG in five specific ways that map directly to what a living internal wiki needs.",
+          bullets: [
+            "Accumulates via Ebbinghaus strength decay + access reinforcement (RAG re-chunks)",
+            "Structured with Karpathy's 3-layer raw/wiki/schema pattern (RAG is flat chunks)",
+            "Three automatic link types: semantic similarity, shared entities, explicit wikilinks (RAG has none)",
+            "Silent fact capture promotes casually-dropped facts with wiki-link provenance (RAG cites the chunk)",
+            "Temporal fact tracking — when new facts contradict old, supersession + recency penalty stops pollution (RAG cannot challenge or update)",
+          ],
+        },
+        {
+          heading: "Performance benchmarks",
+          body: "All numbers are reproducible locally. Run cd server && uv run python ../benchmarks/run_recall.py to verify. The benchmark uses 25 hand-crafted notes and 25 queries (5 easy, 10 medium, 10 hard).",
+          bullets: [
+            "Hybrid retrieval: 92% Top-1, 96% Top-3 hit, 0.94 MRR, 73ms median latency",
+            "With cross-encoder rerank: 92% Top-1, 100% Top-3, 0.96 MRR, 133ms latency",
+            "Hard queries (no keyword overlap): 9/10 top-1 without reranker",
+            "Embed a note: ~20ms · Full vault ingest (25 notes): ~4s cold start",
+            "Tokens per answer: ~275 flat regardless of vault size (paste-whole-vault baseline: 93k+ growing linearly)",
+          ],
+        },
+        {
+          heading: "The silent fact-capture pipeline",
+          body: "The killer feature: drop a fact in conversation and NeuroVault picks it up without you saying \"remember this.\" A UserPromptSubmit lifecycle hook pipes every prompt through a regex extractor that recognizes 8 patterns: preferences, decisions, stack choices, deadlines, identity, anti-preferences, deployment targets, and explicit \"remember that...\" callouts. End-to-end bench: 80% Hit@1, 100% Hit@3 on 15 paraphrased questions that never use original wording.",
+        },
+        {
+          heading: "Tech stack rationale",
+          body: "Each layer was chosen for local-first guarantees: Tauri 2 over Electron (~30MB vs ~200MB installed), Rust backend in-process (no Python sidecar at boot), sqlite-vec for KNN in pure SQL (no separate vector DB), fastembed-rs for ONNX-quantized embeddings (no API keys, no internet), MCP as the agent contract (works with Claude Desktop, Claude Code, Cursor, any MCP-speaking client).",
+        },
+      ],
+      apiEndpoints: [
+        { method: "POST", path: "recall", description: "Hybrid search: semantic + BM25 + graph fused via RRF (optional cross-encoder rerank)" },
+        { method: "POST", path: "recall_chunks", description: "Same retrieval but returns matching paragraphs (cheaper)" },
+        { method: "POST", path: "remember", description: "Save a memory — triggers chunk + embed + entity extract + graph link" },
+        { method: "POST", path: "related", description: "Direct neighbours of an engram via the graph (~50x cheaper than fresh recall)" },
+        { method: "POST", path: "session_start", description: "Wake-up tool — brain stats + L0 identity + top memories + open todos" },
+        { method: "POST", path: "core_memory_set", description: "Persona-style always-included blocks (Letta pattern)" },
+        { method: "POST", path: "list_brains", description: "Multi-brain navigation — separate memory spaces" },
+        { method: "POST", path: "switch_brain", description: "Switch active brain instantly without restart" },
+        { method: "POST", path: "create_brain", description: "Create new memory space for a separate project/context" },
+        { method: "POST", path: "check_duplicate", description: "Pure cosine pre-check before remember() to avoid duplicate storage" },
+        { method: "POST", path: "list_unnamed_clusters", description: "Agent-driven cluster naming for the graph view's Analytics mode" },
+        { method: "POST", path: "add_todo", description: "Multi-agent coordination via append-only todos.jsonl" },
+      ],
+    },
+  },
+  {
     id: "aegis",
     slug: "aegis",
     title: "AEGIS",
