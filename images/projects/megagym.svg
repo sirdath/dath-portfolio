@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="mgBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1a1408"/>
+    </linearGradient>
+    <linearGradient id="mgYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5C518"/>
+      <stop offset="100%" stop-color="#d4a80e"/>
+    </linearGradient>
+    <radialGradient id="mgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5C518" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#F5C518" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#mgBg)"/>
+
+  <!-- Ambient glow -->
+  <ellipse cx="400" cy="250" rx="320" ry="220" fill="url(#mgGlow)"/>
+
+  <!-- Vertical light streaks (gym energy) -->
+  <g opacity="0.08">
+    <rect x="80" y="0" width="1" height="500" fill="#F5C518"/>
+    <rect x="180" y="0" width="1" height="500" fill="#F5C518"/>
+    <rect x="280" y="0" width="1" height="500" fill="#F5C518"/>
+    <rect x="380" y="0" width="1" height="500" fill="#F5C518"/>
+    <rect x="480" y="0" width="1" height="500" fill="#F5C518"/>
+    <rect x="580" y="0" width="1" height="500" fill="#F5C518"/>
+    <rect x="680" y="0" width="1" height="500" fill="#F5C518"/>
+  </g>
+
+  <!-- Bold M letter (centered, gym brand monogram) -->
+  <g transform="translate(400, 250)">
+    <!-- M outer angular shape -->
+    <path d="
+      M -130,90
+      L -130,-90
+      L -85,-90
+      L -45,-15
+      L -5,-90
+      L 35,-90
+      L 75,-15
+      L 115,-90
+      L 130,-90
+      L 130,90
+      L 95,90
+      L 95,-30
+      L 50,55
+      L 20,55
+      L -25,-30
+      L -25,90
+      Z
+    " fill="url(#mgYellow)"/>
+
+    <!-- Subtle highlight on M -->
+    <path d="
+      M -130,-90
+      L -85,-90
+      L -45,-15
+      L -5,-90
+      L 35,-90
+      L 75,-15
+      L 115,-90
+      L 130,-90
+      L 130,-80
+      L -130,-80
+      Z
+    " fill="white" opacity="0.18"/>
+  </g>
+
+  <!-- Dumbbell silhouettes (background, subtle) -->
+  <g opacity="0.12" stroke="#F5C518" stroke-width="2" fill="none">
+    <!-- Left dumbbell -->
+    <rect x="40" y="380" width="80" height="14" rx="2"/>
+    <rect x="32" y="372" width="14" height="30" rx="2"/>
+    <rect x="116" y="372" width="14" height="30" rx="2"/>
+    <!-- Right dumbbell -->
+    <rect x="680" y="100" width="80" height="14" rx="2"/>
+    <rect x="672" y="92" width="14" height="30" rx="2"/>
+    <rect x="756" y="92" width="14" height="30" rx="2"/>
+  </g>
+
+  <!-- Top label -->
+  <text x="400" y="60" font-family="ui-monospace, monospace" font-size="11" letter-spacing="6" fill="#F5C518" text-anchor="middle" opacity="0.7">
+    MEGA GYM
+  </text>
+
+  <!-- Bottom label -->
+  <text x="400" y="445" font-family="ui-monospace, monospace" font-size="10" letter-spacing="5" fill="#F5C518" text-anchor="middle" opacity="0.55">
+    ATHENS · 1993 · 7 LOCATIONS · 15,000+ MEMBERS
+  </text>
+</svg>

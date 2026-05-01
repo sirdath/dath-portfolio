@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="mghBg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#1a1408"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <linearGradient id="mghYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5C518"/>
+      <stop offset="100%" stop-color="#d4a80e"/>
+    </linearGradient>
+    <radialGradient id="mghGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5C518" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#F5C518" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mghGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5C518" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#F5C518" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#mghBg)"/>
+
+  <!-- Multiple ambient glows for depth -->
+  <ellipse cx="500" cy="400" rx="600" ry="450" fill="url(#mghGlow1)"/>
+  <ellipse cx="1100" cy="500" rx="500" ry="400" fill="url(#mghGlow2)"/>
+
+  <!-- Vertical light grid (gym studio energy) -->
+  <g opacity="0.06">
+    <rect x="100" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="220" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="340" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="460" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="580" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="700" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="820" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="940" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="1060" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="1180" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="1300" y="0" width="1" height="900" fill="#F5C518"/>
+    <rect x="1420" y="0" width="1" height="900" fill="#F5C518"/>
+  </g>
+
+  <!-- Horizontal scan lines -->
+  <g opacity="0.04">
+    <rect x="0" y="180" width="1600" height="1" fill="#F5C518"/>
+    <rect x="0" y="360" width="1600" height="1" fill="#F5C518"/>
+    <rect x="0" y="540" width="1600" height="1" fill="#F5C518"/>
+    <rect x="0" y="720" width="1600" height="1" fill="#F5C518"/>
+  </g>
+
+  <!-- Massive M letter (centered) -->
+  <g transform="translate(800, 450)">
+    <path d="
+      M -260,180
+      L -260,-180
+      L -170,-180
+      L -90,-30
+      L -10,-180
+      L 70,-180
+      L 150,-30
+      L 230,-180
+      L 260,-180
+      L 260,180
+      L 190,180
+      L 190,-60
+      L 100,110
+      L 40,110
+      L -50,-60
+      L -50,180
+      Z
+    " fill="url(#mghYellow)" opacity="0.5"/>
+
+    <!-- Inner stroke for crispness -->
+    <path d="
+      M -260,180
+      L -260,-180
+      L -170,-180
+      L -90,-30
+      L -10,-180
+      L 70,-180
+      L 150,-30
+      L 230,-180
+      L 260,-180
+      L 260,180
+      L 190,180
+      L 190,-60
+      L 100,110
+      L 40,110
+      L -50,-60
+      L -50,180
+      Z
+    " fill="none" stroke="#F5C518" stroke-width="2"/>
+  </g>
+
+  <!-- Equipment silhouettes (corners, subtle) -->
+  <g opacity="0.15" stroke="#F5C518" stroke-width="1.5" fill="none">
+    <!-- Top-left dumbbell -->
+    <rect x="80" y="120" width="120" height="20" rx="3"/>
+    <rect x="68" y="108" width="20" height="44" rx="3"/>
+    <rect x="192" y="108" width="20" height="44" rx="3"/>
+
+    <!-- Bottom-right barbell -->
+    <rect x="1320" y="760" width="200" height="14" rx="2"/>
+    <rect x="1310" y="752" width="14" height="30" rx="2"/>
+    <rect x="1516" y="752" width="14" height="30" rx="2"/>
+
+    <!-- Top-right kettlebell -->
+    <circle cx="1450" cy="160" r="32"/>
+    <path d="M 1432 138 Q 1432 120 1450 120 Q 1468 120 1468 138" />
+
+    <!-- Bottom-left plate -->
+    <circle cx="160" cy="780" r="40"/>
+    <circle cx="160" cy="780" r="20"/>
+  </g>
+
+  <!-- Top corner labels -->
+  <g opacity="0.5">
+    <line x1="80" y1="50" x2="200" y2="50" stroke="#F5C518" stroke-width="1"/>
+    <text x="80" y="80" font-family="ui-monospace, monospace" font-size="11" letter-spacing="4" fill="#F5C518">
+      ATHENS · GREECE
+    </text>
+  </g>
+  <g opacity="0.5">
+    <text x="1520" y="80" font-family="ui-monospace, monospace" font-size="11" letter-spacing="4" fill="#F5C518" text-anchor="end">
+      EST. 1993
+    </text>
+    <line x1="1400" y1="50" x2="1520" y2="50" stroke="#F5C518" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom annotation -->
+  <g opacity="0.45">
+    <line x1="600" y1="850" x2="700" y2="850" stroke="#F5C518" stroke-width="1"/>
+    <text x="800" y="855" font-family="ui-monospace, monospace" font-size="10" letter-spacing="5" fill="#F5C518" text-anchor="middle">
+      7 LOCATIONS · 15,000+ MEMBERS · BILINGUAL EL/EN
+    </text>
+    <line x1="900" y1="850" x2="1000" y2="850" stroke="#F5C518" stroke-width="1"/>
+  </g>
+</svg>
