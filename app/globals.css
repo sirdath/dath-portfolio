@@ -266,7 +266,7 @@
   z-index: 20;
 }
 
-/* Tiny project-number tag always visible (no overlap risk — just 1-2 chars) */
+/* Tiny project-number tag always visible — clickable too */
 .beacon-tag {
   position: absolute;
   left: 13px;
@@ -275,18 +275,26 @@
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.18em;
-  padding: 2px 6px;
+  padding: 3px 7px;
   border-radius: 4px;
-  background: rgba(9, 9, 11, 0.7);
+  background: rgba(9, 9, 11, 0.78);
   border: 1px solid currentColor;
   color: currentColor;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  opacity: 0.85;
+  cursor: pointer !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  opacity: 0.95;
+  z-index: 5;
 }
 
+/* When wrap is hovered or active, full label takes over and tag fades */
 .beacon-wrap:hover .beacon-tag,
-.beacon-active .beacon-tag { opacity: 0; }
+.beacon-active .beacon-tag { opacity: 0; pointer-events: none; }
+
+/* Tag itself can be hovered (gives subtle scale boost) */
+.beacon-tag:hover {
+  transform: scale(1.12);
+  background: rgba(9, 9, 11, 0.92);
+}
 
 .beacon-active .beacon-beam { width: 6px; left: -3px; height: 130px; opacity: 1; }
 .beacon-active .beacon-core { width: 18px; height: 18px; left: -9px; top: -9px; }

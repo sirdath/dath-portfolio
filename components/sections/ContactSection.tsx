@@ -5,7 +5,7 @@ import { Mail, Linkedin, Github, ArrowUpRight, Sparkles } from "lucide-react";
 
 const languages = [
   { name: "Greek", level: "Native", proficiency: 100, flag: "🇬🇷" },
-  { name: "English", level: "C2 Proficient", proficiency: 95, flag: "🇬🇧" },
+  { name: "English", level: "C2 Proficient", proficiency: 100, flag: "🇬🇧" },
   { name: "Spanish", level: "B1 Intermediate", proficiency: 50, flag: "🇪🇸" },
 ];
 

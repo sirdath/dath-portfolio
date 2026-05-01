@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ArrowUpRight, Globe2, Sparkles } from "lucide-react";
+import { MapPin, ArrowUpRight, Globe2, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import type { GlobeMethods } from "react-globe.gl";
 import { projects } from "@/data/projects";
@@ -18,6 +18,7 @@ interface ProjectPin {
   lng: number;
   color: string;
   index: string; // "01", "02", etc
+  stackIndex?: number; // 0 = base position; 1 = stacked below; 2 = further below
 }
 
 const PROJECT_PINS: ProjectPin[] = [
@@ -26,8 +27,8 @@ const PROJECT_PINS: ProjectPin[] = [
     name: "NeuroVault",
     region: "Local-first · Anywhere",
     lat: 30,
-    lng: -40, // mid-Atlantic — symbolic of "global / runs anywhere"
-    color: "#22d3ee", // teal
+    lng: -40,
+    color: "#00d9ff", // bright cyan
     index: "01",
   },
   {
@@ -36,26 +37,39 @@ const PROJECT_PINS: ProjectPin[] = [
     region: "Strait of Hormuz · Maritime",
     lat: 26.5667,
     lng: 56.25,
-    color: "#00f0ff", // cyan
+    color: "#a3e635", // lime
     index: "02",
   },
+  // ─── London cluster: same coords, vertical stack via stackIndex ───
   {
     slug: "london-synergy-index",
     name: "London Synergy Index",
     region: "London, UK",
     lat: 51.5074,
     lng: -0.1278,
-    color: "#a855f7", // purple
+    color: "#c084fc", // bright violet
     index: "03",
+    stackIndex: 0,
   },
   {
     slug: "housing-crime-analysis",
     name: "Housing & Crime Analysis",
-    region: "Greater London",
-    lat: 51.42,
-    lng: 0.05, // SE London — clearly separated from London Synergy
-    color: "#ec4899", // magenta
+    region: "London, UK",
+    lat: 51.5074,
+    lng: -0.1278, // same coords as Synergy — stacked
+    color: "#ff4d8d", // hot pink
     index: "04",
+    stackIndex: 1,
+  },
+  {
+    slug: "dataportfolio",
+    name: "Dataportfolio.co.uk",
+    region: "London, UK",
+    lat: 51.5074,
+    lng: -0.1278, // also stacked with London cluster
+    color: "#fbbf24", // gold
+    index: "05",
+    stackIndex: 2,
   },
   {
     slug: "risk-terrain",
@@ -63,25 +77,16 @@ const PROJECT_PINS: ProjectPin[] = [
     region: "Wall Street, NYC",
     lat: 40.7074,
     lng: -74.0113,
-    color: "#f59e0b", // amber (risk/alert vibe)
-    index: "05",
+    color: "#fb923c", // orange
+    index: "06",
   },
   {
     slug: "data-engineering-pipeline",
     name: "Data Engineering Pipeline",
     region: "Global infrastructure",
     lat: 0,
-    lng: -160, // Pacific — different ocean from NeuroVault
-    color: "#10b981", // emerald (engineering/build)
-    index: "06",
-  },
-  {
-    slug: "dataportfolio",
-    name: "Dataportfolio.co.uk",
-    region: "Manchester, UK",
-    lat: 53.5,
-    lng: -2.5,
-    color: "#f43f5e", // rose
+    lng: -160,
+    color: "#f87171", // red
     index: "07",
   },
 ];
@@ -190,12 +195,27 @@ export function GlobeSection() {
     wrap.className = `beacon-wrap${isActive ? " beacon-active" : ""}`;
     wrap.style.color = pin.color;
 
+    // Stack offset for clustered pins (e.g., London projects all at same coords)
+    const stackIndex = pin.stackIndex ?? 0;
+    const tagTop = -7 + stackIndex * 30;
+    const labelTop = -10 + stackIndex * 30;
+
+    // Hide beacon visuals (beam/core/ring) on non-base stacked pins —
+    // they'd just stack on top of the base pin's visuals at the same coord
+    const hideVisuals = stackIndex > 0;
+
     wrap.innerHTML = `
-      <div class="beacon-beam" style="background: linear-gradient(to top, ${pin.color}, ${pin.color}40 50%, transparent 100%); box-shadow: 0 0 12px ${pin.color}80;"></div>
-      <div class="beacon-core" style="background: ${pin.color}; box-shadow: 0 0 14px ${pin.color}, 0 0 28px ${pin.color}60;"></div>
-      <div class="beacon-ring" style="color: ${pin.color}"></div>
-      <div class="beacon-tag" style="color: ${pin.color}">${pin.index}</div>
-      <div class="beacon-label">
+      ${
+        hideVisuals
+          ? ""
+          : `
+        <div class="beacon-beam" style="background: linear-gradient(to top, ${pin.color}, ${pin.color}40 50%, transparent 100%); box-shadow: 0 0 12px ${pin.color}80;"></div>
+        <div class="beacon-core" style="background: ${pin.color}; box-shadow: 0 0 14px ${pin.color}, 0 0 28px ${pin.color}60;"></div>
+        <div class="beacon-ring" style="color: ${pin.color}"></div>
+      `
+      }
+      <div class="beacon-tag beacon-clickable" style="color: ${pin.color}; top: ${tagTop}px;">${pin.index}</div>
+      <div class="beacon-label" style="top: ${labelTop}px;">
         <div style="display: flex; align-items: center; gap: 7px;">
           <span style="font-family: ui-monospace, monospace; color: ${pin.color}; font-size: 8px; letter-spacing: 0.16em;">${pin.index}</span>
           <span style="font-weight: 500;">${pin.name}</span>
@@ -205,13 +225,17 @@ export function GlobeSection() {
     `;
     wrap.onclick = (e) => {
       e.stopPropagation();
-      setSelected(pin.slug);
+      // Click selected pin again = deselect (return to overview)
+      setSelected((prev) => (prev === pin.slug ? null : pin.slug));
     };
     return wrap;
   };
 
   return (
-    <section className="relative w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 overflow-hidden">
+    <section
+      id="atlas"
+      className="relative w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 overflow-hidden bg-void"
+    >
       {/* Subtle radial backdrop glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,240,255,0.04)_0%,transparent_60%)] pointer-events-none" />
 
@@ -374,12 +398,21 @@ export function GlobeSection() {
                       >
                         {selectedPin.index} / 07
                       </div>
-                      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
-                        <MapPin
-                          className="w-3 h-3"
-                          style={{ color: selectedPin.color }}
-                        />
-                        {selectedPin.region}
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
+                          <MapPin
+                            className="w-3 h-3"
+                            style={{ color: selectedPin.color }}
+                          />
+                          {selectedPin.region}
+                        </div>
+                        <button
+                          onClick={() => setSelected(null)}
+                          className="p-1 rounded-full border border-white/10 text-text-dim hover:text-white hover:border-white/30 transition-colors"
+                          aria-label="Clear selection"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
                       </div>
                     </div>
 
