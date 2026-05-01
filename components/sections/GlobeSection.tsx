@@ -262,10 +262,10 @@ export function GlobeSection() {
                 width={size.width}
                 height={size.height}
                 backgroundColor="rgba(0,0,0,0)"
-                globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg"
+                globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
                 bumpImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png"
                 showAtmosphere
-                atmosphereColor="#00f0ff"
+                atmosphereColor="#88ccff"
                 atmosphereAltitude={0.22}
                 /* ─── Pulsing rings on the surface ─── */
                 ringsData={ringsData}
