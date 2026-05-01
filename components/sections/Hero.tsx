@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { ChevronDown, ArrowRight, Mail } from "lucide-react";
 import { EncryptedText } from "@/components/shared/EncryptedText";
+import { Sparkles } from "@/components/ui/Sparkles";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -70,6 +71,9 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+      {/* Sparkles overlay (subtle ambient) */}
+      <Sparkles density={60} color="#00f0ff" />
+
       {/* Top meta line */}
       <motion.div
         className="absolute top-8 right-8 z-10 hidden md:flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-text-dim"
