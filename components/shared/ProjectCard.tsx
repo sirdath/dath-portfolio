@@ -17,9 +17,16 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
   const mediaSrc = getAssetPath(project.mediaUrl);
   const isVideoOrGif = project.mediaType === "video" || project.mediaType === "gif";
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
   return (
     <Link href={`/projects/${project.slug}`} className="block h-full">
       <motion.div
+        onMouseMove={handleMouseMove}
         className={cn(
           "group relative flex flex-col overflow-hidden rounded-[24px] cursor-pointer h-full bg-void border border-white/[0.08] shadow-lg transition-all duration-500 hover:bg-surface hover:border-accent-cyan/20 hover:shadow-[0_0_30px_-5px_rgba(0,240,255,0.15)]",
           className
@@ -29,6 +36,15 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
       >
+        {/* Card Spotlight — cursor-tracked radial gradient */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            background:
+              "radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(0,240,255,0.12), rgba(168,85,247,0.06) 40%, transparent 70%)",
+          }}
+        />
+
         {/* Glow effect on hover */}
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_50%_0%,rgba(0,240,255,0.1),transparent_70%)] pointer-events-none" />
 
