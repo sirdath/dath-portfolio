@@ -1222,3 +1222,179 @@ Building on Section 32, here's what's most impactful given globe.gl + Vanta:
 - [Vanta.js GitHub](https://github.com/tengbao/vanta)
 - [Vanta.js demo site](https://www.vantajs.com/)
 - [three-globe textures CDN](https://cdn.jsdelivr.net/npm/three-globe/example/img/)
+
+---
+
+# 🎨 ADDENDUM 3 — GALAXY (UI components) + BABYLON.JS (3D engine)
+
+> Two more reference libraries to know about. Galaxy = grab-and-go UI bits. Babylon.js = the heavyweight Three.js alternative for ambitious 3D scenes.
+
+---
+
+## 36. GALAXY — uiverse-io/galaxy
+
+**Repo:** https://github.com/uiverse-io/galaxy
+**Browse + copy:** https://uiverse.io/
+**License:** MIT (no attribution required, but appreciated)
+**Catalog:** 3,000+ community-made UI elements
+
+### Component categories
+
+| Category | Examples |
+|----------|----------|
+| **Buttons** | Animated, neon, magnetic, neumorphic, shine, hover-fill |
+| **Cards** | Hover-tilt, glow, glass, flip, spotlight, parallax |
+| **Checkboxes** | Animated checks, swipe states, neon variants |
+| **Forms** | Floating-label inputs, animated underlines, focus rings |
+| **Inputs** | Neon, glass, animated borders, search bars |
+| **Notifications** | Toast variants, alert cards, banner styles |
+| **Radio buttons** | Animated, sliding indicators, custom shapes |
+| **Toggle switches** | Skeuomorphic, neon, animated states |
+| **Tooltips** | Slide, fade, pop animations |
+| **Loaders** | 3000+ — spinners, progress bars, skeletons, dots |
+| **Patterns** | CSS background patterns, gradients, grids |
+
+### Why it's useful
+
+- **Massive catalog** — when you want "a glowing pill button" or "a neon toggle," there are 50+ options to pick from
+- **CSS or Tailwind** — copy directly, no install
+- **Curated** — every submission is reviewed before inclusion
+- **No build step needed** — it's just HTML + CSS
+
+### How to use
+
+1. Browse https://uiverse.io/
+2. Pick a component, copy its HTML + CSS (or Tailwind variant)
+3. Paste into your component, adapt classes to your design tokens
+4. Replace inline colors with your accent variables (`var(--color-accent-cyan)` etc.)
+
+### Best fits for your portfolio
+
+- **Loaders** — for project page entry, when content is mounting
+- **Toggle switches** — for any preference settings (dark mode, sound on/off if you add audio)
+- **Notification toasts** — for "copied to clipboard" feedback on contact section
+- **Animated buttons** — alternative styles for the `Open project` CTA in atlas
+- **Patterns** — CSS-only background patterns to layer behind sections
+
+### When NOT to use
+
+- For hero animations or signature features — Galaxy components are *building blocks*, not centerpieces. Don't make your hero a Uiverse button — make your hero something custom and use Uiverse for the small touches around it.
+
+---
+
+## 37. BABYLON.JS — BabylonJS/Babylon.js
+
+**Repo:** https://github.com/BabylonJS/Babylon.js (25.4k★)
+**Site:** https://www.babylonjs.com/
+**Playground:** https://playground.babylonjs.com/
+**License:** Apache 2.0
+
+### What it is
+
+A complete 3D game/rendering engine built on **WebGL / WebGL2 / WebGPU**. Originally Microsoft-backed, now community-maintained. The "batteries-included" alternative to Three.js.
+
+### Core features (out of the box)
+
+| Capability | Babylon.js | Three.js |
+|------------|------------|----------|
+| **Physics engine** | ✅ Built-in (Cannon, Oimo, Havok adapters) | ❌ Use rapier/cannon separately |
+| **GUI system** | ✅ Babylon GUI (canvas-rendered UI for 3D scenes) | ❌ DOM overlay or sprites |
+| **WebXR / VR / AR** | ✅ First-class | ⚠️ Possible via WebXR API |
+| **Animation system** | ✅ Built-in keyframe + skeletal | ✅ Has it but less batteries-included |
+| **Asset pipeline** | ✅ Blender / 3DS Max / Maya / Unity exporters | ✅ glTF support |
+| **Shader tools** | ✅ Node Material Editor (visual shader graph) | ❌ Write GLSL by hand |
+| **Bundle size** | Heavier (~600KB+ for full engine) | Lighter (~150KB+ tree-shakable) |
+| **Maturity** | 47k+ commits, 623+ releases | Comparable, larger community |
+
+### React integration
+
+```bash
+npm install @babylonjs/core @babylonjs/loaders react-babylonjs
+```
+
+```tsx
+import { Engine, Scene } from "react-babylonjs";
+
+<Engine antialias adaptToDeviceRatio canvasId="babylon-canvas">
+  <Scene>
+    <freeCamera name="cam" position={new Vector3(0, 5, -10)} setTarget={Vector3.Zero()} />
+    <hemisphericLight name="light" intensity={0.7} direction={Vector3.Up()} />
+    <box name="box" size={2} position={new Vector3(0, 1, 0)}>
+      <standardMaterial name="mat" diffuseColor={Color3.FromHexString("#00f0ff")} />
+    </box>
+  </Scene>
+</Engine>
+```
+
+### When to choose Babylon.js over Three.js
+
+| Use Babylon.js | Use Three.js / R3F |
+|----------------|---------------------|
+| Game-like portfolio (Bruno Simon's car portfolio style) | Atmospheric backgrounds, simpler scenes |
+| WebXR / VR experience | Standard 2D-with-3D-elements |
+| Need physics on multiple objects | Don't need physics or only minimal |
+| Visual node-based shader editing | Comfortable writing GLSL |
+| Complex character animation | Simple object animation |
+| Shipping a 3D-first product | Shipping a content site with 3D accents |
+
+### Standout features worth knowing
+
+1. **Node Material Editor (NME)** — visual graph-based shader builder. Drag nodes to compose materials, export GLSL. Insanely productive vs raw GLSL.
+2. **Babylon GUI** — render UI directly inside the 3D canvas (buttons, sliders, panels positioned in 3D space). Great for VR.
+3. **Asset Manager** — built-in async loading of meshes/textures with progress events.
+4. **Inspector** — live debug panel for any scene (`scene.debugLayer.show()`).
+5. **Sandbox** — drop a `.glb` file at https://sandbox.babylonjs.com/ to inspect/test.
+6. **WebGPU rendering** — opt-in, faster than WebGL for compute-heavy scenes.
+
+### Notable Babylon-built portfolios / experiences
+
+- **Bruno Simon's car portfolio** uses Three.js, but Babylon would handle the same with built-in physics
+- **Microsoft Hololens demos** — many use Babylon.js for WebXR
+- **Babylon.js Playground itself** — proves what's achievable
+
+### For YOUR portfolio specifically
+
+**Honest take**: stick with Three.js / R3F. You're already deep in that ecosystem (`react-globe.gl`, Background3D particle globe). Babylon's strengths (physics, GUI, XR) aren't strengths your portfolio needs.
+
+**Where Babylon.js MIGHT be worth it:**
+1. **A standalone "WebXR demo" page** — show off VR/AR portfolio support
+2. **A driveable car portfolio** Bruno-Simon-style — physics-heavy
+3. **A future product showcase** that needs game-tier 3D fidelity
+
+For now, log it in your "things to know" library and don't switch.
+
+---
+
+## 38. UPDATED MASTER LIBRARY MATRIX
+
+What to reach for, by use case:
+
+| Need | First choice | Backup |
+|------|-------------|--------|
+| **Animated React UI components** | Aceternity UI | Magic UI / React Bits |
+| **Pre-built buttons / loaders / toggles** | Galaxy (Uiverse) | Aceternity UI |
+| **Geographic 3D viz (atlas, pins, routes)** | globe.gl / react-globe.gl ⭐ already using | Custom Three.js |
+| **Atmospheric 3D backgrounds (waves, fog, birds)** | Vanta.js | Custom Three.js |
+| **Custom 3D scenes (light)** | Three.js + R3F ⭐ already using | Babylon.js |
+| **Game-like / physics 3D** | Babylon.js | Three.js + cannon-es |
+| **Smooth scroll** | Lenis | Locomotive |
+| **Scroll-triggered timelines** | GSAP ScrollTrigger | Framer Motion useScroll |
+| **CSS-only scroll animations** | `animation-timeline: scroll()` | n/a |
+| **Animated SVG paths** | GSAP MorphSVG | Flubber.js |
+| **Page transitions (multi-page)** | Next.js view-transitions API | Barba.js (with vanilla) |
+| **Animated text reveal** | Framer Motion `motion.span` stagger | GSAP SplitText |
+| **Particle systems** | Three.js shader-based | Vanta DOTS/CELLS |
+| **Heatmaps / hex bins on globe** | globe.gl HexBin layer | deck.gl |
+
+---
+
+*Galaxy + Babylon.js added: 2026-05-01*
+
+## SOURCES (this addendum)
+
+- [uiverse-io/galaxy GitHub](https://github.com/uiverse-io/galaxy)
+- [Uiverse.io browse + copy](https://uiverse.io/)
+- [BabylonJS/Babylon.js GitHub](https://github.com/BabylonJS/Babylon.js)
+- [Babylon.js Playground](https://playground.babylonjs.com/)
+- [Babylon.js Sandbox](https://sandbox.babylonjs.com/)
+- [react-babylonjs npm](https://www.npmjs.com/package/react-babylonjs)
