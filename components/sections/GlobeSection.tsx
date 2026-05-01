@@ -24,10 +24,10 @@ const PROJECT_PINS: ProjectPin[] = [
   {
     slug: "neurovault",
     name: "NeuroVault",
-    region: "Local-first · Desktop",
-    lat: 51.5,
-    lng: -0.08, // London (slight offset from other London pins)
-    color: "#22d3ee",
+    region: "Local-first · Anywhere",
+    lat: 30,
+    lng: -40, // mid-Atlantic — symbolic of "global / runs anywhere"
+    color: "#22d3ee", // teal
     index: "01",
   },
   {
@@ -36,7 +36,7 @@ const PROJECT_PINS: ProjectPin[] = [
     region: "Strait of Hormuz · Maritime",
     lat: 26.5667,
     lng: 56.25,
-    color: "#00f0ff",
+    color: "#00f0ff", // cyan
     index: "02",
   },
   {
@@ -45,16 +45,16 @@ const PROJECT_PINS: ProjectPin[] = [
     region: "London, UK",
     lat: 51.5074,
     lng: -0.1278,
-    color: "#a855f7",
+    color: "#a855f7", // purple
     index: "03",
   },
   {
     slug: "housing-crime-analysis",
     name: "Housing & Crime Analysis",
     region: "Greater London",
-    lat: 51.535,
-    lng: -0.16,
-    color: "#ec4899",
+    lat: 51.42,
+    lng: 0.05, // SE London — clearly separated from London Synergy
+    color: "#ec4899", // magenta
     index: "04",
   },
   {
@@ -63,7 +63,7 @@ const PROJECT_PINS: ProjectPin[] = [
     region: "Wall Street, NYC",
     lat: 40.7074,
     lng: -74.0113,
-    color: "#22d3ee",
+    color: "#f59e0b", // amber (risk/alert vibe)
     index: "05",
   },
   {
@@ -71,17 +71,17 @@ const PROJECT_PINS: ProjectPin[] = [
     name: "Data Engineering Pipeline",
     region: "Global infrastructure",
     lat: 0,
-    lng: 0,
-    color: "#00f0ff",
+    lng: -160, // Pacific — different ocean from NeuroVault
+    color: "#10b981", // emerald (engineering/build)
     index: "06",
   },
   {
     slug: "dataportfolio",
     name: "Dataportfolio.co.uk",
-    region: "United Kingdom",
+    region: "Manchester, UK",
     lat: 53.5,
     lng: -2.5,
-    color: "#a855f7",
+    color: "#f43f5e", // rose
     index: "07",
   },
 ];
@@ -191,24 +191,13 @@ export function GlobeSection() {
     wrap.style.color = pin.color;
 
     wrap.innerHTML = `
-      <div class="beacon-glyph" style="color: ${pin.color}">
-        <svg viewBox="-32 -32 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7">
-          <polygon points="0,-26 22.5,-13 22.5,13 0,26 -22.5,13 -22.5,-13" />
-          <circle cx="0" cy="0" r="14" stroke-dasharray="2 4" />
-          <line x1="-32" y1="0" x2="-22" y2="0"/>
-          <line x1="22" y1="0" x2="32" y2="0"/>
-          <line x1="0" y1="-32" x2="0" y2="-22"/>
-          <line x1="0" y1="22" x2="0" y2="32"/>
-        </svg>
-      </div>
-      <div class="beacon-beam" style="background: linear-gradient(to top, ${pin.color}, ${pin.color}60 30%, transparent 100%); box-shadow: 0 0 24px ${pin.color}, 0 0 8px white;"></div>
-      <div class="beacon-core" style="background: ${pin.color}; box-shadow: 0 0 24px ${pin.color}, 0 0 48px ${pin.color}80, 0 0 80px ${pin.color}40;"></div>
+      <div class="beacon-beam" style="background: linear-gradient(to top, ${pin.color}, ${pin.color}40 50%, transparent 100%); box-shadow: 0 0 12px ${pin.color}80;"></div>
+      <div class="beacon-core" style="background: ${pin.color}; box-shadow: 0 0 14px ${pin.color}, 0 0 28px ${pin.color}60;"></div>
       <div class="beacon-ring" style="color: ${pin.color}"></div>
-      <div class="beacon-ring-2" style="color: ${pin.color}"></div>
       <div class="beacon-label">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-family: ui-monospace, monospace; color: ${pin.color}; font-size: 9px; letter-spacing: 0.18em;">${pin.index}</span>
-          <span style="font-weight: 600;">${pin.name}</span>
+        <div style="display: flex; align-items: center; gap: 7px;">
+          <span style="font-family: ui-monospace, monospace; color: ${pin.color}; font-size: 8px; letter-spacing: 0.16em;">${pin.index}</span>
+          <span style="font-weight: 500;">${pin.name}</span>
         </div>
         <div class="beacon-label-region">${pin.region}</div>
       </div>
@@ -254,8 +243,8 @@ export function GlobeSection() {
           </p>
         </motion.div>
 
-        {/* Globe + side info layout */}
-        <div className="grid lg:grid-cols-[1fr_400px] gap-6 lg:gap-8 items-start">
+        {/* Globe + side info layout — symmetric */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
           {/* Globe canvas with elegant frame */}
           <div className="relative">
             <div
@@ -287,18 +276,18 @@ export function GlobeSection() {
                   return PROJECT_PINS.find(
                     (p) => p.lat === r.lat && p.lng === r.lng
                   )?.slug === selected
-                    ? 9
-                    : 5;
+                    ? 6
+                    : 3;
                 }}
                 ringPropagationSpeed={(d: object) => {
                   const r = d as RingDatum;
                   return PROJECT_PINS.find(
                     (p) => p.lat === r.lat && p.lng === r.lng
                   )?.slug === selected
-                    ? 4
-                    : 2.5;
+                    ? 2.5
+                    : 1.4;
                 }}
-                ringRepeatPeriod={1400}
+                ringRepeatPeriod={2200}
                 /* ─── HTML beacons (the WOW) ─── */
                 htmlElementsData={PROJECT_PINS}
                 htmlAltitude={0.001}

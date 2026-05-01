@@ -155,36 +155,20 @@
   100% { transform: translateY(60px); }
 }
 
-/* ─── Beacon animations for Project Atlas ──────────────────── */
+/* ─── Beacon animations for Project Atlas (chill version) ─── */
 @keyframes beacon-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.85; }
-}
-
-@keyframes beacon-flicker {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 0.4; }
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.25); opacity: 0.7; }
 }
 
 @keyframes beacon-ring {
-  0% { transform: scale(0.5); opacity: 1; }
-  100% { transform: scale(4); opacity: 0; }
-}
-
-@keyframes beacon-ring-2 {
-  0%, 30% { transform: scale(0.5); opacity: 0; }
-  31% { opacity: 1; }
-  100% { transform: scale(4); opacity: 0; }
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.8); opacity: 0; }
 }
 
 @keyframes beacon-beam-pulse {
-  0%, 100% { opacity: 0.7; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.15); }
-}
-
-@keyframes beacon-glyph-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  0%, 100% { opacity: 0.55; transform: scaleY(1); }
+  50% { opacity: 0.8; transform: scaleY(1.08); }
 }
 
 .beacon-wrap {
@@ -198,105 +182,121 @@
 
 .beacon-beam {
   position: absolute;
-  left: -3px;
+  left: -2px;
   bottom: 0;
-  width: 6px;
-  height: 180px;
+  width: 4px;
+  height: 90px;
   transform-origin: bottom center;
-  border-radius: 3px;
+  border-radius: 2px;
   pointer-events: none;
-  filter: blur(1px);
-  animation: beacon-beam-pulse 2.4s ease-in-out infinite;
+  animation: beacon-beam-pulse 3.6s ease-in-out infinite;
 }
 
 .beacon-core {
   position: absolute;
-  left: -10px;
-  top: -10px;
-  width: 20px;
-  height: 20px;
+  left: -7px;
+  top: -7px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   pointer-events: none;
-  animation: beacon-pulse 2s ease-in-out infinite;
+  animation: beacon-pulse 3.2s ease-in-out infinite;
 }
 
 .beacon-core::after {
   content: "";
   position: absolute;
-  inset: 5px;
+  inset: 4px;
   border-radius: 50%;
   background: white;
-  filter: blur(1px);
+  filter: blur(0.5px);
 }
 
 .beacon-ring {
   position: absolute;
-  left: -25px;
-  top: -25px;
-  width: 50px;
-  height: 50px;
+  left: -18px;
+  top: -18px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 2px solid currentColor;
+  border: 1.5px solid currentColor;
   pointer-events: none;
-  animation: beacon-ring 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-.beacon-ring-2 {
-  position: absolute;
-  left: -25px;
-  top: -25px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid currentColor;
-  pointer-events: none;
-  animation: beacon-ring-2 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-.beacon-glyph {
-  position: absolute;
-  left: -32px;
-  top: -32px;
-  width: 64px;
-  height: 64px;
-  pointer-events: none;
-  animation: beacon-glyph-spin 14s linear infinite;
-  opacity: 0.55;
+  opacity: 0.6;
+  animation: beacon-ring 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
 .beacon-label {
   position: absolute;
-  left: 28px;
-  top: -14px;
+  left: 18px;
+  top: -10px;
   white-space: nowrap;
   font-family: ui-sans-serif, system-ui, sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: white;
-  background: rgba(9, 9, 11, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 6px 12px;
+  background: rgba(9, 9, 11, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 5px 10px;
   border-radius: 999px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
   pointer-events: none;
   transform-origin: left center;
   transition: all 0.3s ease;
+  opacity: 0.85;
 }
 
 .beacon-label-region {
-  font-size: 9px;
-  letter-spacing: 0.18em;
+  font-size: 8px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  opacity: 0.55;
-  margin-top: 2px;
+  opacity: 0.5;
+  margin-top: 1px;
 }
 
-.beacon-active .beacon-beam { width: 10px; left: -5px; height: 240px; }
-.beacon-active .beacon-core { width: 28px; height: 28px; left: -14px; top: -14px; }
-.beacon-active .beacon-ring,
-.beacon-active .beacon-ring-2 { border-width: 2.5px; }
-.beacon-active .beacon-label { transform: scale(1.05); }
+.beacon-active .beacon-beam { width: 6px; left: -3px; height: 130px; opacity: 1; }
+.beacon-active .beacon-core { width: 18px; height: 18px; left: -9px; top: -9px; }
+.beacon-active .beacon-ring { border-width: 2px; }
+.beacon-active .beacon-label { transform: scale(1.05); opacity: 1; }
+
+/* ─── Contact section: shimmer & mesh ──────────────────────── */
+@keyframes shimmer-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes mesh-drift-1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, -30px); }
+}
+@keyframes mesh-drift-2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-50px, 30px); }
+}
+@keyframes mesh-drift-3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 50px); }
+}
+
+@keyframes lang-bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(var(--bar-target, 1)); }
+}
+
+.text-shimmer-cyan {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 240, 255, 0.85) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(168, 85, 247, 0.85) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer-sweep 4s linear infinite;
+}
 
