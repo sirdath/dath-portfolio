@@ -194,6 +194,7 @@ export function GlobeSection() {
       <div class="beacon-beam" style="background: linear-gradient(to top, ${pin.color}, ${pin.color}40 50%, transparent 100%); box-shadow: 0 0 12px ${pin.color}80;"></div>
       <div class="beacon-core" style="background: ${pin.color}; box-shadow: 0 0 14px ${pin.color}, 0 0 28px ${pin.color}60;"></div>
       <div class="beacon-ring" style="color: ${pin.color}"></div>
+      <div class="beacon-tag" style="color: ${pin.color}">${pin.index}</div>
       <div class="beacon-label">
         <div style="display: flex; align-items: center; gap: 7px;">
           <span style="font-family: ui-monospace, monospace; color: ${pin.color}; font-size: 8px; letter-spacing: 0.16em;">${pin.index}</span>
@@ -292,6 +293,10 @@ export function GlobeSection() {
                 htmlElementsData={PROJECT_PINS}
                 htmlAltitude={0.001}
                 htmlElement={buildBeacon}
+                htmlElementVisibilityModifier={(el: HTMLElement, isVisible: boolean) => {
+                  el.style.opacity = isVisible ? "1" : "0";
+                  el.style.pointerEvents = isVisible ? "auto" : "none";
+                }}
                 /* ─── Animated arcs (shipping route metaphor) ─── */
                 arcsData={ARCS}
                 arcStartLat={(d: object) => (d as Arc).startLat}
