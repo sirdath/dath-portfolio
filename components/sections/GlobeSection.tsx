@@ -98,6 +98,15 @@ const PROJECT_PINS: ProjectPin[] = [
     color: "#f87171", // red
     index: "08",
   },
+  {
+    slug: "datascrub",
+    name: "DataScrub",
+    region: "Global · Browser-based",
+    lat: -10,
+    lng: 75, // Indian Ocean (different from other "global" pins)
+    color: "#818cf8", // indigo
+    index: "09",
+  },
 ];
 
 interface Arc {
@@ -160,7 +169,7 @@ export function GlobeSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate
+  // Auto-rotate (initial setup)
   useEffect(() => {
     const globe = globeRef.current;
     if (!globe) return;
@@ -176,13 +185,27 @@ export function GlobeSection() {
     }
   }, []);
 
-  // Fly to selected pin
+  // Fly to selected pin + pause auto-rotate while focused
   useEffect(() => {
-    if (!selectedPin || !globeRef.current) return;
-    globeRef.current.pointOfView(
-      { lat: selectedPin.lat, lng: selectedPin.lng, altitude: 1.7 },
-      1500
-    );
+    const globe = globeRef.current;
+    if (!globe) return;
+    const controls = globe.controls() as unknown as {
+      autoRotate: boolean;
+      autoRotateSpeed: number;
+    };
+    if (selectedPin) {
+      // Dramatic zoom-in to selected location
+      globe.pointOfView(
+        { lat: selectedPin.lat, lng: selectedPin.lng, altitude: 1.15 },
+        1400
+      );
+      // Pause rotation so it doesn't drift away from the selection
+      if (controls) controls.autoRotate = false;
+    } else {
+      // No selection: zoom back out + resume rotation
+      globe.pointOfView({ altitude: 2.5 }, 1200);
+      if (controls) controls.autoRotate = true;
+    }
   }, [selectedPin]);
 
   const ringsData: RingDatum[] = useMemo(
@@ -272,7 +295,7 @@ export function GlobeSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           <p className="mt-5 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
-            Eight projects, eight beacons. Click a glowing marker to dive into the
+            Nine projects, nine beacons. Click a glowing marker to dive into the
             work anchored at that location.
           </p>
         </motion.div>
@@ -351,7 +374,7 @@ export function GlobeSection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-cyan" />
                 </div>
                 <span className="text-[10px] uppercase tracking-[0.28em] text-text-muted font-mono">
-                  LIVE · 8 BEACONS · 5 REGIONS
+                  LIVE · 9 BEACONS · 5 REGIONS
                 </span>
               </div>
 
@@ -405,7 +428,7 @@ export function GlobeSection() {
                         className="font-mono text-xs tracking-[0.3em]"
                         style={{ color: selectedPin.color }}
                       >
-                        {selectedPin.index} / 08
+                        {selectedPin.index} / 09
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
@@ -493,7 +516,7 @@ export function GlobeSection() {
                     Select a beacon
                   </div>
                   <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-white mb-3">
-                    Eight projects · five regions
+                    Nine projects · five regions
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
                     Each beacon marks where a project does its work in the
@@ -545,17 +568,17 @@ export function GlobeSection() {
                         {pin.index}
                       </span>
 
-                      {/* Beacon dot */}
-                      <span className="relative w-2 h-2 shrink-0">
+                      {/* Beacon dot - flex-centered to fix baseline alignment */}
+                      <span className="relative flex items-center justify-center w-3 h-3 shrink-0">
                         <span
-                          className="absolute inset-0 rounded-full opacity-50 animate-ping"
+                          className="absolute inset-0 rounded-full opacity-30 animate-ping"
                           style={{ background: pin.color }}
                         />
                         <span
-                          className="relative inline-block w-full h-full rounded-full"
+                          className="relative block w-2 h-2 rounded-full"
                           style={{
                             background: pin.color,
-                            boxShadow: `0 0 8px ${pin.color}`,
+                            boxShadow: `0 0 6px ${pin.color}`,
                           }}
                         />
                       </span>
@@ -592,7 +615,7 @@ export function GlobeSection() {
             {/* Stats footer */}
             <div className="grid grid-cols-3 gap-2">
               {[
-                { label: "Projects", value: "8" },
+                { label: "Projects", value: "9" },
                 { label: "Regions", value: "4" },
                 { label: "Years", value: "3" },
               ].map((stat) => (

@@ -526,6 +526,69 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "datascrub",
+    slug: "datascrub",
+    title: "DataScrub",
+    subtitle: "AI-powered data cleaning agent",
+    description:
+      "A privacy-first browser-based data cleaning tool that combines rule-based automation with LLM insights. Upload raw datasets, fix common inconsistencies automatically, and use an AI agent for advanced profiling and cleaning. Runs entirely client-side with optional Local (Ollama) or Cloud (Groq, OpenAI, OpenRouter) inference.",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript ES6+",
+      "PapaParse",
+      "SheetJS",
+      "Ollama",
+      "Groq",
+      "OpenAI",
+    ],
+    mediaUrl: "/images/projects/datascrub.svg",
+    mediaType: "image",
+    heroMediaUrl: "/images/projects/heroes/datascrub-hero.svg",
+    featured: true,
+    category: "ai",
+    gridSpan: "wide",
+    detailContent: {
+      overview:
+        "DataScrub is a client-side data cleaning utility that pairs deterministic rule-based automation with optional LLM intelligence. The whole application runs in the browser as a single self-contained static file - no backend, no server, no data ever leaves your machine in Local Mode. Users can upload raw datasets, automatically rectify common inconsistencies (whitespace, missing-value indicators, duplicates), and engage an AI agent for advanced profiling, imputation suggestions, and outlier handling. Multi-provider support (Ollama for local privacy-first inference, Groq for low-latency cloud, OpenAI/OpenRouter for frontier reasoning) means it adapts to whatever environment a data scientist needs.",
+      keyFeatures: [
+        "Automatic cleaning: whitespace trimming, standardized missing-value indicators (NULL/N/A/None/-), exact duplicate removal",
+        "Statistical imputation suggestions (mean, median, mode) for missing values",
+        "Outlier detection via Interquartile Range (IQR) method with capping or removal strategies",
+        "Context-aware AI processing - users define domain rules to guide the agent's decisions",
+        "Natural language interface for data interrogation and cleaning queries",
+        "Multi-provider LLM support: Ollama (local), Groq (low-latency), OpenAI/OpenRouter (frontier models)",
+        "Privacy-first architecture - browser-only execution, no DataScrub servers, API keys stored locally",
+        "Full undo/redo history stack with version control for safe data manipulation",
+        "Nine professional color themes plus resizable workspace and control panel",
+      ],
+      sections: [
+        {
+          heading: "Privacy-first by design",
+          body: "DataScrub is architected as a pure client-side application. In Local Mode (Ollama), data processing happens entirely on the user's device and no data crosses the network. In Cloud Mode (third-party APIs), only necessary snippets - schema, summaries, or specific queries - are transmitted to the chosen provider for processing. API keys live in the browser's localStorage for convenience and can be cleared at any time. The application has no telemetry and no server backend.",
+        },
+        {
+          heading: "Local inference with Ollama",
+          body: "For sensitive data, DataScrub recommends running a local LLM via Ollama. After installing Ollama and pulling a model (qwen2.5:7b, llama3.1:8b, mistral, or gemma2), users configure CORS and connect DataScrub to the local Ollama endpoint. From that moment forward, no internet connection is required and no data leaves the machine.",
+          bullets: [
+            "Install Ollama from the official site",
+            "Run: ollama pull qwen2.5:7b",
+            "Configure CORS: OLLAMA_ORIGINS=\"*\" ollama serve",
+            "Select Ollama in DataScrub settings",
+          ],
+        },
+        {
+          heading: "AI agent capabilities",
+          body: "Beyond rule-based automation, the AI agent layer offers deeper analytical assistance. It can profile a dataset's structure, suggest column-by-column imputation strategies based on data type and distribution, flag outliers with statistical justification, and respond to natural language queries about the data. Users can supply project-specific context (e.g., \"this is healthcare data, prefer median imputation for age\") so the agent's recommendations align with domain rules.",
+        },
+        {
+          heading: "Self-contained deployment",
+          body: "DataScrub ships as a single self-contained set of static files. No build step, no server, no database. Users can run it by opening index.html directly, or fork the repo to host on any static-page provider (GitHub Pages, Cloudflare Pages, Netlify, etc). The whole project is MIT licensed for personal or commercial use.",
+        },
+      ],
+    },
+  },
+  {
     id: "megagym",
     slug: "megagym",
     title: "MegaGym",
