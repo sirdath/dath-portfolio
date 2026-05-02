@@ -36,7 +36,7 @@
       </a>
       <br/>
       <sub>
-        <samp>London · UCL Business Analytics · Karate 1-dan</samp> &nbsp;·&nbsp; Crafting AI that does something useful — and does it fast.
+        <samp>London · UCL Business Analytics · Intelmatix · Karate 1-dan</samp>
       </sub>
     </td>
   </tr>
@@ -426,8 +426,22 @@ hobbies:
 
 <br/>
 
+<!-- ─────────  PRINCIPLES  ─────────
+     Replaces the random-quote widget with a typing animation rotating
+     through statements that reflect actual work + values. Keeps it
+     personal instead of pulling from a generic quote bank. -->
+
 <div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="dev quote"/>
+  <table align="center">
+    <tr>
+      <td align="center">
+        <img
+          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=500&size=18&duration=3400&pause=900&color=BF91F3&center=true&vCenter=true&width=700&lines=Latency+is+the+benchmark+that+matters.;If+it+doesn't+run+in+real+time%2C+it+doesn't+run.;Local-first+beats+cloud-default+when+privacy+matters.;Spatial+context+turns+dumb+features+into+smart+ones.;An+MVP+shipped+today+beats+a+perfect+one+shipped+never.;Agentic+systems+should+be+debuggable%2C+not+magic."
+          alt="principles"
+        />
+      </td>
+    </tr>
+  </table>
 </div>
 
 <!-- ─────────  FOOTER  ───────── -->
