@@ -11,7 +11,7 @@
 
 <table align="center" width="100%">
   <tr>
-    <td width="240" align="center">
+    <td width="240" align="center" valign="middle">
       <a href="https://github.com/sirdath">
         <img
           src="https://raw.githubusercontent.com/sirdath/dath-portfolio/main/public/dath-logo.png"
