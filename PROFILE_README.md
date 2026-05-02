@@ -23,7 +23,7 @@
     <td valign="middle">
       <a href="https://github.com/sirdath">
         <img
-          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=44&duration=1500&pause=99999999&color=BF91F3&width=620&height=64&lines=Dimitrios+Athinaios"
+          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=44&duration=1500&pause=99999999&color=00F0FF&width=620&height=64&lines=Dimitrios+Athinaios"
           alt="Dimitrios Athinaios"
         />
       </a>
@@ -59,7 +59,7 @@
 <div align="center">
   <a href="https://dathproject.com">
     <img
-      src="https://img.shields.io/badge/%E2%96%B6%20Visit%20my%20Portfolio-dathproject.com-BF91F3?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1a1b27&color=BF91F3"
+      src="https://img.shields.io/badge/%E2%96%B6%20Visit%20my%20Portfolio-dathproject.com-00F0FF?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1a1b27&color=00F0FF"
       height="44"
       alt="Visit dathproject.com"
     />
