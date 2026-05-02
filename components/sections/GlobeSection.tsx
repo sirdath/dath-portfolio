@@ -141,6 +141,7 @@ interface RingDatum {
 export function GlobeSection() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [size, setSize] = useState({ width: 600, height: 600 });
 
@@ -201,6 +202,16 @@ export function GlobeSection() {
       );
       // Pause rotation so it doesn't drift away from the selection
       if (controls) controls.autoRotate = false;
+
+      // Mobile: side panel sits below the globe canvas, so a tap on a
+      // beacon number gives no visible feedback. Smooth-scroll the
+      // panel into view on viewports below the lg breakpoint.
+      if (typeof window !== "undefined" && window.innerWidth < 1024) {
+        panelRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     } else {
       // No selection: zoom back out + resume rotation
       globe.pointOfView({ altitude: 2.5 }, 1200);
@@ -394,7 +405,10 @@ export function GlobeSection() {
           </div>
 
           {/* Side panel - DRAMATIC */}
-          <div className="space-y-3 lg:sticky lg:top-8">
+          <div
+            ref={panelRef}
+            className="space-y-3 lg:sticky lg:top-8 scroll-mt-20"
+          >
             {/* Active project hero card */}
             <AnimatePresence mode="wait">
               {selectedPin && selectedProject ? (
