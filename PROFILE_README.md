@@ -14,7 +14,7 @@
     <td width="240" align="center">
       <a href="https://github.com/sirdath">
         <img
-          src="https://raw.githubusercontent.com/sirdath/dath-portfolio/main/public/dath-logo-white.svg"
+          src="https://raw.githubusercontent.com/sirdath/dath-portfolio/main/public/dath-logo.png"
           width="220"
           alt="DA"
         />
