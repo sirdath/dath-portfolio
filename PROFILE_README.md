@@ -5,42 +5,64 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 
 <!-- ─────────  HERO  ─────────
-     Logo floats top-left; name + typing animation wrap on the right.
-     `align="left"` on an <img> is one of the few float behaviours GitHub
-     markdown actually respects, so we lean on it instead of flex/grid. -->
+     Borderless table: logo left cell, stylized name + typing animation
+     in the right cell. Avoids the GitHub h1/h2 bottom-border that was
+     cutting through the logo when we used a float layout. -->
 
-<a href="https://github.com/sirdath">
-  <img
-    src="https://raw.githubusercontent.com/sirdath/dath-portfolio/main/public/dath-logo-white.svg"
-    width="200"
-    align="left"
-    hspace="24"
-    vspace="6"
-    alt="DA"
-  />
-</a>
-
-# Dimitrios Athinaios
-
-<a href="https://github.com/sirdath">
-  <img
-    src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=22&duration=2800&pause=700&color=70A5FD&width=620&lines=Geospatial+Data+Scientist+%26+AI+Engineer;Building+end-to-end+agentic+pipelines+%E2%9A%A1;Spatial+ML+%C2%B7+H3+hexagons+%C2%B7+graph+features;Local-first+LLMs+%C2%B7+Qwen3+%C2%B7+Gemma3;Shipping+MVPs+daily+since+December"
-    alt="role"
-  />
-</a>
-
-`London · UCL Business Analytics · Karate 1-dan` &nbsp;·&nbsp; Crafting AI that does something useful — and does it fast.
-
-<br clear="left"/>
+<table align="center" width="100%">
+  <tr>
+    <td width="240" align="center">
+      <a href="https://github.com/sirdath">
+        <img
+          src="https://raw.githubusercontent.com/sirdath/dath-portfolio/main/public/dath-logo-white.svg"
+          width="220"
+          alt="DA"
+        />
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://github.com/sirdath">
+        <img
+          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=44&duration=99999&pause=99999&color=BF91F3&width=620&height=64&lines=Dimitrios+Athinaios"
+          alt="Dimitrios Athinaios"
+        />
+      </a>
+      <br/>
+      <a href="https://github.com/sirdath">
+        <img
+          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=22&duration=2800&pause=700&color=70A5FD&width=620&lines=Geospatial+Data+Scientist+%26+AI+Engineer;Building+end-to-end+agentic+pipelines+%E2%9A%A1;Spatial+ML+%C2%B7+H3+hexagons+%C2%B7+graph+features;Local-first+LLMs+%C2%B7+Qwen3+%C2%B7+Gemma3;Shipping+MVPs+daily+since+December"
+          alt="role"
+        />
+      </a>
+      <br/>
+      <sub>
+        <samp>London · UCL Business Analytics · Karate 1-dan</samp> &nbsp;·&nbsp; Crafting AI that does something useful — and does it fast.
+      </sub>
+    </td>
+  </tr>
+</table>
 
 <!-- ─────────  STATUS BADGES  ───────── -->
 
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=sirdath&label=Profile%20views&color=70a5fd&style=for-the-badge" alt="profile views"/>
+  &nbsp;
   <img src="https://img.shields.io/github/followers/sirdath?label=Followers&style=for-the-badge&color=70a5fd&labelColor=1a1b27" alt="followers"/>
+  &nbsp;
   <img src="https://img.shields.io/github/stars/sirdath?label=Stars&style=for-the-badge&color=70a5fd&labelColor=1a1b27" alt="stars"/>
+</div>
+
+<!-- ─────────  PORTFOLIO CTA — standalone, prominent ───────── -->
+
+<br/>
+
+<div align="center">
   <a href="https://dathproject.com">
-    <img src="https://img.shields.io/badge/Portfolio-dathproject.com-bf91f3?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1a1b27" alt="portfolio"/>
+    <img
+      src="https://img.shields.io/badge/%E2%96%B6%20Visit%20my%20Portfolio-dathproject.com-BF91F3?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1a1b27&color=BF91F3"
+      height="44"
+      alt="Visit dathproject.com"
+    />
   </a>
 </div>
 
@@ -104,6 +126,36 @@ hobbies:
 ## 🚀 Featured Projects
 
 <table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🧠 NeuroVault</h3>
+      <a href="https://github.com/sirdath/NeuroVault">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=NeuroVault&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="NeuroVault"/>
+      </a>
+      <p>Local-first AI memory for Claude. Tauri + React + Rust desktop app with hybrid retrieval (semantic + BM25 + graph). <b>96% hit@3</b>, <b>~275 tokens/answer</b>, runs entirely on-device. Outperforms RAG.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Tauri_2-FFC131?style=flat-square&logo=tauri&logoColor=black"/>
+        <img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white"/>
+        <img src="https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+        <img src="https://img.shields.io/badge/sqlite--vec-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
+        <img src="https://img.shields.io/badge/MCP-8A2BE2?style=flat-square"/>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>⚓ AEGIS</h3>
+      <a href="https://github.com/sirdath/aegis">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=aegis&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="AEGIS"/>
+      </a>
+      <p>Multi-agent maritime intelligence platform centred on the <b>Strait of Hormuz</b>. RAG + LangGraph orchestrator with custom agents, vessel tracking ingestion, and supply-chain risk reasoning across the Mediterranean.</p>
+      <p>
+        <img src="https://img.shields.io/badge/LangGraph-FF6B6B?style=flat-square"/>
+        <img src="https://img.shields.io/badge/RAG-8A2BE2?style=flat-square"/>
+        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Multi--Agent-1A1A2E?style=flat-square"/>
+        <img src="https://img.shields.io/badge/Geospatial-139C5A?style=flat-square"/>
+      </p>
+    </td>
+  </tr>
   <tr>
     <td width="50%" valign="top">
       <h3>🗺️ London Synergy Index</h3>
@@ -178,12 +230,10 @@ hobbies:
 </table>
 
 <details>
-  <summary><b>+ See more projects (NeuroVault · MegaGym · AEGIS · Data Engineering Pipeline)</b></summary>
+  <summary><b>+ See more projects (MegaGym · Data Engineering Pipeline)</b></summary>
   <br/>
   <ul>
-    <li><b>🧠 NeuroVault</b> — local-first AI memory for Claude. Tauri + React + Rust. Hybrid retrieval (semantic + BM25 + graph), 96% hit@3, ~275 tokens/answer. <a href="https://github.com/sirdath/NeuroVault">Repo</a></li>
     <li><b>💪 MegaGym</b> — bilingual marketing site for one of Greece's largest gym chains. Vanilla JS, Leaflet finder, EL/EN switching, 7 Athens locations. <a href="https://megagym.dathproject.com">Live</a></li>
-    <li><b>⚓ AEGIS</b> — multi-agent maritime risk platform centred on the Strait of Hormuz. RAG + LangGraph + custom agent orchestrator.</li>
     <li><b>🛠️ Data Engineering Pipeline</b> — production-grade ELT with Databricks, PySpark, and Delta Lake on AWS.</li>
   </ul>
 </details>
@@ -269,17 +319,30 @@ hobbies:
 
 ## 📊 GitHub Analytics
 
+<!-- profile-summary-cards instead of github-readme-stats: the Vercel
+     instance of g-r-stats has been hammered by GH-API rate limits for
+     months and frequently 5xx's. profile-summary-cards uses its own
+     auth flow and has been stable. -->
+
 <div align="center">
-  <a href="https://github.com/sirdath">
-    <img height="180" src="https://github-readme-stats.vercel.app/api?username=sirdath&show_icons=true&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3&text_color=a9b1d6&card_width=445&include_all_commits=true&count_private=true" alt="stats"/>
-    <img height="180" src="https://github-readme-streak-stats.herokuapp.com/?user=sirdath&theme=tokyonight&hide_border=true&background=1a1b27&stroke=70a5fd&ring=bf91f3&fire=bf91f3&currStreakLabel=70a5fd&card_width=445" alt="streak"/>
-  </a>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sirdath&theme=tokyonight" alt="profile details"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sirdath&theme=tokyonight" alt="stats"/>
 </div>
 
 <div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sirdath&theme=tokyonight" alt="repos per language"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=sirdath&theme=tokyonight" alt="most commit language"/>
+</div>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=sirdath&theme=tokyonight&utcOffset=0" alt="productive time"/>
+</div>
+
+#### 🔥 Streak
+
+<div align="center">
   <a href="https://github.com/sirdath">
-    <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sirdath&layout=compact&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&text_color=a9b1d6&card_width=445&langs_count=8" alt="top languages"/>
-    <img height="180" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sirdath&theme=tokyonight" alt="profile details"/>
+    <img src="https://streak-stats.demolab.com/?user=sirdath&theme=tokyonight&hide_border=true&background=1a1b27&stroke=70a5fd&ring=bf91f3&fire=bf91f3&currStreakLabel=70a5fd" alt="streak"/>
   </a>
 </div>
 
