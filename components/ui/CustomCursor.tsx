@@ -79,12 +79,13 @@ export function CustomCursor() {
       <img
         src="/cursor-scope.gif"
         alt=""
-        width={80}
-        height={80}
+        width={56}
+        height={56}
         className="block"
         style={{
           imageRendering: "pixelated",
-          filter: "drop-shadow(0 0 6px rgba(0,0,0,0.55))",
+          filter:
+            "drop-shadow(0 0 5px rgba(0,240,255,0.55)) drop-shadow(0 0 2px rgba(0,0,0,0.8))",
         }}
       />
     </motion.div>
