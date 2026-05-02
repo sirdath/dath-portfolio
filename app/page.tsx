@@ -7,15 +7,11 @@ import { TimelineSection } from "@/components/sections/TimelineSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { BackgroundManager } from "@/components/ui/BackgroundManager";
-import { ShaderGradientBackground } from "@/components/ui/ShaderGradientBackground";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-void relative">
-      {/* Experimental: matte-black shader gradient. To revert,
-          comment this out and uncomment <BackgroundManager /> below. */}
-      <ShaderGradientBackground />
-      {/* <BackgroundManager /> */}
+      <BackgroundManager />
       <DathLogo />
       <div className="relative z-10">
         <Hero />
