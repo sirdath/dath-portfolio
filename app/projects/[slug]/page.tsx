@@ -20,11 +20,22 @@ export default async function ProjectPage({ params }: Props) {
   }
 
   const heroSrc = getAssetPath(project.heroMediaUrl || project.mediaUrl);
+  const isMegaGym = project.slug === "megagym";
 
   return (
     <main className="min-h-screen bg-void">
       {/* Hero media header */}
-      <div className="relative h-[70vh] w-full overflow-hidden">
+      <div
+        className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center"
+        style={
+          isMegaGym
+            ? {
+                background:
+                  "radial-gradient(ellipse at center, rgba(255,200,40,0.32) 0%, rgba(255,140,40,0.14) 35%, rgba(10,10,10,0.98) 75%)",
+              }
+            : undefined
+        }
+      >
         {project.mediaType === "video" && !project.heroMediaUrl ? (
           <video
             src={heroSrc}
@@ -33,6 +44,12 @@ export default async function ProjectPage({ params }: Props) {
             muted
             playsInline
             className="h-full w-full object-cover"
+          />
+        ) : isMegaGym ? (
+          <img
+            src={heroSrc}
+            alt={project.title}
+            className="max-w-[60%] sm:max-w-[45%] max-h-[60%] object-contain drop-shadow-[0_0_60px_rgba(255,200,40,0.5)]"
           />
         ) : (
           <img
