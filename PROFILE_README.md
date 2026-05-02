@@ -159,8 +159,8 @@ hobbies:
   <tr>
     <td width="50%" valign="top">
       <h3>🗺️ London Synergy Index</h3>
-      <a href="https://github.com/sirdath/london-synergy-index">
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=london-synergy-index&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="London Synergy Index"/>
+      <a href="https://github.com/sirdath/geospatial-site-selection">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=geospatial-site-selection&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="London Synergy Index"/>
       </a>
       <p>Predictive site selection across <b>55,000 H3 hexagons</b> — LandScan rasters + ONS Census + OSM POIs with graph-centrality features. Spatially CV'd XGBoost reaching <b>R² = 0.92</b>.</p>
       <p>
@@ -173,8 +173,8 @@ hobbies:
     </td>
     <td width="50%" valign="top">
       <h3>⚡ RiskTerrain</h3>
-      <a href="https://github.com/sirdath/riskterrain">
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=riskterrain&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="RiskTerrain"/>
+      <a href="https://github.com/sirdath/Risk-Terrain-Hackathon-SurrealDB-Langchain">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=Risk-Terrain-Hackathon-SurrealDB-Langchain&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="RiskTerrain"/>
       </a>
       <p><b>6-node LangGraph</b> pipeline ingesting USGS + NewsAPI feeds, traversing supply chains across <b>154 S&P 500 firms</b> in SurrealDB, scoring cascading risk in <b>under 8 seconds</b>.</p>
       <p>
@@ -189,9 +189,14 @@ hobbies:
   <tr>
     <td width="50%" valign="top">
       <h3>🌐 Dataportfolio.co.uk</h3>
-      <a href="https://dataportfolio.co.uk">
-        <img src="https://img.shields.io/badge/▶_Live_Site-dataportfolio.co.uk-ff69b4?style=for-the-badge&labelColor=1a1b27" alt="live site"/>
+      <a href="https://github.com/sirdath/Portfolio-Dath">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=sirdath&repo=Portfolio-Dath&theme=tokyonight&hide_border=true&bg_color=1a1b27&title_color=70a5fd&icon_color=bf91f3" alt="Portfolio-Dath"/>
       </a>
+      <p align="center">
+        <a href="https://dataportfolio.co.uk">
+          <img src="https://img.shields.io/badge/▶_Live_Site-dataportfolio.co.uk-ff69b4?style=flat-square&labelColor=1a1b27" alt="live site"/>
+        </a>
+      </p>
       <p>Production SaaS I designed, built and shipped — full FE/BE, LLM-backed CV extraction, portfolio-builder chat interface, persistent data layer. Zero code required for the user.</p>
       <p>
         <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
@@ -216,7 +221,7 @@ hobbies:
   </tr>
   <tr>
     <td colspan="2" valign="top">
-      <h3>🏠 Geospatial London Housing &amp; Crime</h3>
+      <h3>🏠 <a href="https://github.com/sirdath/DS">Geospatial London Housing &amp; Crime</a></h3>
       <p>Spatio-temporal pipeline merging <b>1M+ records</b> to engineer a predictive Opportunity Index. XGBoost regressor tuned via Optuna, outperforming KNN and polynomial baselines, with SHAP-based explainability throughout.</p>
       <p>
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
@@ -233,7 +238,7 @@ hobbies:
   <summary><b>+ See more projects (MegaGym · Data Engineering Pipeline)</b></summary>
   <br/>
   <ul>
-    <li><b>💪 MegaGym</b> — bilingual marketing site for one of Greece's largest gym chains. Vanilla JS, Leaflet finder, EL/EN switching, 7 Athens locations. <a href="https://megagym.dathproject.com">Live</a></li>
+    <li><b>💪 MegaGym</b> — bilingual marketing site for one of Greece's largest gym chains. Vanilla JS, Leaflet finder, EL/EN switching, 7 Athens locations. <a href="https://github.com/sirdath/mega-gym-website">Repo</a> · <a href="https://megagym.dathproject.com">Live</a></li>
     <li><b>🛠️ Data Engineering Pipeline</b> — production-grade ELT with Databricks, PySpark, and Delta Lake on AWS.</li>
   </ul>
 </details>
