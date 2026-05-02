@@ -102,21 +102,17 @@ export function CustomCursor() {
         }}
         transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
       >
-        <svg
-          width="44"
-          height="18"
-          viewBox="0 0 230 90"
-          xmlns="http://www.w3.org/2000/svg"
+        <img
+          src="/dath-logo.svg"
+          alt=""
+          width={48}
+          height={32}
           className="block"
-          style={{ filter: "drop-shadow(0 0 6px rgba(255,255,255,0.4))" }}
-        >
-          {/* DA - single merged silhouette with V-valley between letters */}
-          <path
-            d="M 5,12 L 70,12 L 95,42 L 148,12 L 170,12 L 215,82 L 5,82 Z M 22,28 L 58,28 L 75,42 L 75,52 L 58,66 L 22,66 Z M 142,56 L 174,56 L 158,28 Z"
-            fill="white"
-            fillRule="evenodd"
-          />
-        </svg>
+          style={{
+            filter:
+              "brightness(0) invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.4))",
+          }}
+        />
       </motion.div>
     </>
   );
