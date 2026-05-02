@@ -16,6 +16,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, className }: ProjectCardProps) {
   const mediaSrc = getAssetPath(project.mediaUrl);
   const isVideoOrGif = project.mediaType === "video" || project.mediaType === "gif";
+  const isMegaGym = project.slug === "megagym";
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -72,11 +73,28 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
               </Safari>
             </div>
           ) : (
-            <div className="w-full h-full max-w-2xl rounded-xl overflow-hidden shadow-2xl border border-white/10 transform transition-transform duration-700 ease-[cubic-bezier(0.25,0.4,0.25,1)] group-hover:scale-[1.03] group-hover:-translate-y-2">
+            <div
+              className={cn(
+                "w-full h-full max-w-2xl rounded-xl overflow-hidden shadow-2xl border border-white/10 transform transition-transform duration-700 ease-[cubic-bezier(0.25,0.4,0.25,1)] group-hover:scale-[1.03] group-hover:-translate-y-2",
+                isMegaGym && "flex items-center justify-center"
+              )}
+              style={
+                isMegaGym
+                  ? {
+                      background:
+                        "radial-gradient(ellipse at center, rgba(255,200,40,0.28) 0%, rgba(255,140,40,0.12) 35%, rgba(10,10,10,0.95) 75%)",
+                    }
+                  : undefined
+              }
+            >
               <img
                 src={mediaSrc}
                 alt={project.title}
-                className="w-full h-full object-cover"
+                className={cn(
+                  isMegaGym
+                    ? "max-w-[55%] max-h-[70%] object-contain drop-shadow-[0_0_30px_rgba(255,200,40,0.45)]"
+                    : "w-full h-full object-cover"
+                )}
               />
             </div>
           )}
