@@ -1,12 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
   const [hovering, setHovering] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+
+  // Gentle spring: smooths micro-jitter without lagging behind the
+  // pointer in any noticeable way. Damping > stiffness so the cursor
+  // settles cleanly instead of oscillating.
+  const smoothX = useSpring(cursorX, { damping: 30, stiffness: 500, mass: 0.4 });
+  const smoothY = useSpring(cursorY, { damping: 30, stiffness: 500, mass: 0.4 });
 
   const hasMouse = useRef(true);
   const visibleRef = useRef(false);
@@ -65,16 +71,16 @@ export function CustomCursor() {
     <motion.div
       className="fixed top-0 left-0 z-[9999] pointer-events-none"
       style={{
-        x: cursorX,
-        y: cursorY,
+        x: smoothX,
+        y: smoothY,
         translateX: "-50%",
         translateY: "-50%",
       }}
       animate={{
         opacity: visible ? 1 : 0,
-        scale: hovering ? 1.25 : 1,
+        scale: hovering ? 1.1 : 1,
       }}
-      transition={{ duration: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+      transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
     >
       <img
         src="/cursor-scope.gif"
@@ -85,7 +91,7 @@ export function CustomCursor() {
         style={{
           imageRendering: "pixelated",
           filter:
-            "drop-shadow(0 0 5px rgba(0,240,255,0.55)) drop-shadow(0 0 2px rgba(0,0,0,0.8))",
+            "drop-shadow(0 0 4px rgba(0,240,255,0.4)) drop-shadow(0 0 2px rgba(0,0,0,0.7))",
         }}
       />
     </motion.div>
