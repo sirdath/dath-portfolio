@@ -22,8 +22,8 @@ export function DathLogo() {
       <img
         src="/dath-logo.svg"
         alt="Dath logo"
-        width={75}
-        height={50}
+        width={150}
+        height={100}
         className="block transition-all duration-300 [filter:brightness(0)_invert(1)_drop-shadow(0_0_8px_rgba(255,255,255,0.15))] group-hover:[filter:brightness(0)_invert(1)_drop-shadow(0_0_16px_rgba(255,255,255,0.4))]"
       />
     </motion.button>

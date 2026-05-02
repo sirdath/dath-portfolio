@@ -105,8 +105,8 @@ export function CustomCursor() {
         <img
           src="/dath-logo.svg"
           alt=""
-          width={48}
-          height={32}
+          width={96}
+          height={64}
           className="block"
           style={{
             filter:
