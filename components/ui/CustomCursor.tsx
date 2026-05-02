@@ -8,11 +8,8 @@ export function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Gentle spring: smooths micro-jitter without lagging behind the
-  // pointer in any noticeable way. Damping > stiffness so the cursor
-  // settles cleanly instead of oscillating.
-  const smoothX = useSpring(cursorX, { damping: 30, stiffness: 500, mass: 0.4 });
-  const smoothY = useSpring(cursorY, { damping: 30, stiffness: 500, mass: 0.4 });
+  const smoothX = useSpring(cursorX, { damping: 28, stiffness: 480, mass: 0.4 });
+  const smoothY = useSpring(cursorY, { damping: 28, stiffness: 480, mass: 0.4 });
 
   const hasMouse = useRef(true);
   const visibleRef = useRef(false);
@@ -68,32 +65,52 @@ export function CustomCursor() {
   if (!hasMouse.current) return null;
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 z-[9999] pointer-events-none"
-      style={{
-        x: smoothX,
-        y: smoothY,
-        translateX: "-50%",
-        translateY: "-50%",
-      }}
-      animate={{
-        opacity: visible ? 1 : 0,
-        scale: hovering ? 1.1 : 1,
-      }}
-      transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
-    >
-      <img
-        src="/cursor-scope.gif"
-        alt=""
-        width={56}
-        height={56}
-        className="block"
+    <>
+      {/* Hexagon outline - spring-smoothed, references the H3 work */}
+      <motion.div
+        className="fixed top-0 left-0 z-[9998] pointer-events-none"
         style={{
-          imageRendering: "pixelated",
-          filter:
-            "drop-shadow(0 0 4px rgba(0,240,255,0.4)) drop-shadow(0 0 2px rgba(0,0,0,0.7))",
+          x: smoothX,
+          y: smoothY,
+          translateX: "-50%",
+          translateY: "-50%",
         }}
-      />
-    </motion.div>
+        animate={{
+          opacity: visible ? 1 : 0,
+          scale: hovering ? 1.45 : 1,
+          rotate: hovering ? 30 : 0,
+        }}
+        transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
+      >
+        <svg width="40" height="40" viewBox="0 0 40 40" className="block">
+          <polygon
+            points="20,4 34,12 34,28 20,36 6,28 6,12"
+            fill="none"
+            stroke="#00f0ff"
+            strokeWidth="1.4"
+            strokeLinejoin="round"
+            style={{ filter: "drop-shadow(0 0 4px rgba(0,240,255,0.5))" }}
+          />
+        </svg>
+      </motion.div>
+
+      {/* Center dot - exact pointer; fades when hovering interactive elements */}
+      <motion.div
+        className="fixed top-0 left-0 z-[9999] pointer-events-none"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{ opacity: visible ? (hovering ? 0 : 0.9) : 0 }}
+        transition={{ duration: 0.18 }}
+      >
+        <div
+          className="w-1.5 h-1.5 rounded-full bg-accent-cyan"
+          style={{ boxShadow: "0 0 5px rgba(0,240,255,0.7)" }}
+        />
+      </motion.div>
+    </>
   );
 }
