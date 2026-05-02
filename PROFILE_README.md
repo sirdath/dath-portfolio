@@ -21,6 +21,7 @@
       </a>
     </td>
     <td valign="middle">
+      <br/>
       <a href="https://github.com/sirdath">
         <img
           src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=44&duration=1500&pause=99999999&color=00F0FF&width=620&height=64&lines=Dimitrios+Athinaios"
