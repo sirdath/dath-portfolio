@@ -23,7 +23,7 @@
     <td valign="middle">
       <a href="https://github.com/sirdath">
         <img
-          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=44&duration=99999&pause=99999&color=BF91F3&width=620&height=64&lines=Dimitrios+Athinaios"
+          src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=44&duration=1500&pause=99999999&color=BF91F3&width=620&height=64&lines=Dimitrios+Athinaios"
           alt="Dimitrios Athinaios"
         />
       </a>
