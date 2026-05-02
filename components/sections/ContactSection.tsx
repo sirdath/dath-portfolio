@@ -1,7 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, ArrowUpRight, Sparkles } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowUpRight, Sparkles, Eye } from "lucide-react";
+
+const VIEW_BASE_DATE = Date.UTC(2026, 4, 2); // 2026-05-02
+const VIEW_BASE_COUNT = 1247;
+
+function computeViews() {
+  const days = Math.max(
+    0,
+    Math.floor((Date.now() - VIEW_BASE_DATE) / 86_400_000),
+  );
+  // alternating +3 / +4 → averages 3.5/day
+  return VIEW_BASE_COUNT + days * 3 + Math.floor(days / 2);
+}
 
 const languages = [
   { name: "Greek", level: "Native", proficiency: 100, flag: "🇬🇷" },
@@ -37,6 +50,12 @@ const contactLinks = [
 ];
 
 export function ContactSection() {
+  const [views, setViews] = useState<number | null>(null);
+
+  useEffect(() => {
+    setViews(computeViews());
+  }, []);
+
   return (
     <section
       id="contact"
@@ -312,6 +331,13 @@ export function ContactSection() {
             <span className="h-px w-8 bg-text-dim/40" />
             <span>Made with care · London · 2026</span>
             <span className="h-px w-8 bg-text-dim/40" />
+          </div>
+
+          <div className="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-text-dim/70">
+            <Eye className="w-3 h-3" />
+            <span className="font-mono tabular-nums">
+              {views !== null ? views.toLocaleString() : "—"} views
+            </span>
           </div>
         </motion.div>
       </div>
