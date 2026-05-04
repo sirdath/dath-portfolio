@@ -6,12 +6,10 @@ import { GlobeSectionLazy } from "@/components/sections/GlobeSectionLazy";
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { BackgroundManager } from "@/components/ui/BackgroundManager";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-void relative">
-      <BackgroundManager />
       <DathLogo />
       <div className="relative z-10">
         <Hero />
