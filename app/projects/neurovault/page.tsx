@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../../redesign.css";
 import "../aegis/aegis.css";
 import "./neurovault.css";
+import { RedesignCursor } from "@/components/redesign/RedesignCursor";
 
 export const metadata = {
   title: "NeuroVault — Local-first memory for AI · Dimitris Athinaios",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function NeuroVaultPage() {
   return (
     <div className="aegis-page">
+      <RedesignCursor />
       <nav className="nav nav-case">
         <div className="nav-left">
           <Link

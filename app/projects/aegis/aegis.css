@@ -512,3 +512,81 @@
   border-bottom: none;
   text-align: left;
 }
+
+/* ─── Responsive: case-study pages on tablets and phones ─────────── */
+
+/* Tablet (<= 980px) — the .aegis-stack-grid + .aegis-analyst-row
+   already collapse here via existing rules. Tighten section padding. */
+@media (max-width: 980px) {
+  .aegis-section {
+    padding: 80px 0;
+  }
+  .aegis-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .aegis-stack {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .stack-label {
+    margin-bottom: 4px;
+  }
+}
+
+/* Mobile (<= 640px) — further tighten + stack everything. */
+@media (max-width: 640px) {
+  .aegis-page {
+    padding-top: 56px;
+  }
+  .aegis-hero {
+    padding: 56px 0 40px;
+  }
+  .aegis-section {
+    padding: 56px 0;
+  }
+  .aegis-h2 {
+    margin-bottom: 16px;
+  }
+  .aegis-lead {
+    margin-bottom: 36px;
+  }
+  .aegis-stats {
+    margin-top: 36px;
+    padding: 24px 0;
+    gap: 18px;
+  }
+  /* The arch-feature caption is row-flex by default; stack it on mobile */
+  .aegis-arch-feature figcaption {
+    flex-direction: column !important;
+    gap: 8px;
+    justify-content: flex-start !important;
+  }
+  .aegis-arch-feature figcaption span {
+    max-width: none !important;
+  }
+  /* Case study footer is space-between by default; let it wrap */
+  .aegis-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  /* Trim the back-button padding so the nav fits on narrow phones */
+  .aegis-back {
+    padding: 4px 10px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* Mobile XS (<= 420px) — single-stat-per-row for very narrow phones */
+@media (max-width: 420px) {
+  .aegis-stats {
+    grid-template-columns: 1fr;
+  }
+  /* Hero h1 may overflow at this width — let clamp do the work but
+     reduce its lower bound */
+  .aegis-title {
+    font-size: clamp(32px, 11vw, 56px) !important;
+  }
+}

@@ -80,7 +80,10 @@ export function RedesignHero() {
       const heroBottomY = hero.offsetTop + hero.offsetHeight - window.innerHeight;
       const flySpan = window.innerHeight * 0.7;
       const flyP = clamp((window.scrollY - heroBottomY) / flySpan, 0, 1);
-      const logoWnow = Math.max(300, Math.min(0.34 * window.innerWidth, 480));
+      // Must match the --logoW clamp in app/redesign.css:
+      //   clamp(160px, 40vw, 480px)
+      // The fly-to-navbar scale needs the same logoW the CSS rendered.
+      const logoWnow = Math.max(160, Math.min(0.40 * window.innerWidth, 480));
       const targetCompositeW = 152;
       const targetCenterX = 40 + targetCompositeW / 2;
       const targetCenterY = 28;

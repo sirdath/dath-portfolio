@@ -99,7 +99,10 @@
     position:sticky; top:0; height:100vh; width:100%;
     overflow:hidden;
     display:flex; align-items:center; justify-content:center;
-    --logoW: clamp(300px, 34vw, 480px);
+    /* logoW drives both the floating composite size and the inline
+       brand-glyph translate math. Lower floor than the original 300px
+       so the layout works at all viewport widths down to ~360px. */
+    --logoW: clamp(160px, 40vw, 480px);
     --p:0; --p-logo:1; --p-align:1; --p-rev-d:0; --p-rev-a:0;
     --p-fin:0; --p-type:0;
   }
@@ -310,25 +313,31 @@
     .meta-strip{ flex-direction:column; align-items:flex-start; gap:14px; padding:14px var(--gut); }
   }
 
-  /* Mobile hero — collapse the 360vh scroll-driven animation to a single
-     screen. The scroll handler in RedesignHero.tsx keeps running and
-     writing CSS variables, but the rules below override anything it
-     could affect, so it has no visible effect on phones. */
-  @media (max-width: 768px){
+  /* Tablet hero (640-1023px): shorter scroll, mid-range logoW */
+  @media (max-width: 1023px){
+    .hero{ height: 300vh; }
+  }
+
+  /* Mobile hero (360-639px): proportionally scaled animation. The
+     scroll-driven phases (split, reveal, retract, fly-to-nav) all run
+     normally — they just play out over a shorter viewport-relative
+     scroll budget, and the brand-glyph translate math (which scales
+     with --logoW) keeps proportions correct because --logoW shrinks
+     all the way to 160px at this breakpoint. */
+  @media (max-width: 639px){
+    .hero{ height: 240vh; }
+  }
+
+  /* XS fallback (<360px) — extreme narrow viewports where even the
+     scaled animation can't fit cleanly. Collapse to a static hero. */
+  @media (max-width: 359px){
     .hero{ height: auto; min-height: 100vh; padding-bottom: 96px; }
-    .stage{ position: relative; height: auto; min-height: 100vh; padding: 80px 24px; }
-    /* Floating composite logo + split glyphs — display:none (not
-       opacity:0) so they don't reserve a flex slot in the centred
-       stage and don't leak a glow ::before ghost. */
+    .stage{ position: relative; height: auto; min-height: 100vh; padding: 64px 16px; }
     .dath-logo{ display: none !important; }
     .brand-glyph{ display: none !important; }
-    /* Force the row letters fully visible. On mobile --p-type stays
-       at 0 because there's no scrubbable hero. */
     .row{ opacity: 1 !important; }
     .row-d .L.ext,
     .row-a .L.ext{ font-size: 1em !important; opacity: 1 !important; }
-    /* Navbar brand is normally faded in by the hero's flying-logo
-       animation. On mobile there's no animation so pin it visible. */
     .nav-brand{ --nav-brand-op: 1 !important; pointer-events: auto !important; }
   }
 

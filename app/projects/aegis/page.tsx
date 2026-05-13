@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "../../redesign.css";
 import "./aegis.css";
+import { RedesignCursor } from "@/components/redesign/RedesignCursor";
 
 export const metadata = {
   title: "AEGIS — Maritime Intelligence Platform · Dimitris Athinaios",
@@ -62,6 +63,7 @@ const analyticsShots = [
 export default function AegisPage() {
   return (
     <div className="aegis-page">
+      <RedesignCursor />
       <nav className="nav nav-case">
         <div className="nav-left">
           <Link

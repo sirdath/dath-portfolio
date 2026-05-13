@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { RedesignCursor } from "../RedesignCursor";
 import { CaseStudyNav } from "./CaseStudyNav";
 import { CaseStudyFooter } from "./CaseStudyFooter";
 
@@ -24,6 +25,7 @@ export function CaseStudyShell({
 }) {
   return (
     <div className="aegis-page">
+      <RedesignCursor />
       <CaseStudyNav extraActions={extraNavActions} />
       <article>{children}</article>
       <CaseStudyFooter title={title} />
