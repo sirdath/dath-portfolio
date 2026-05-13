@@ -144,7 +144,7 @@ export function Work() {
             </div>
           </a>
           <a className="grid-card reveal" href="/projects/datascrub">
-            <div className="gc-media"><img src="/images/projects/heroes/datascrub-hero.svg" alt="DataScrub" /></div>
+            <div className="gc-media"><img src="/redesign/datascrub/hero.webp" alt="DataScrub" /></div>
             <div className="gc-body">
               <span className="gc-num">/ 06 · AI · Privacy</span>
               <h4 className="gc-title">DataScrub</h4>
