@@ -271,7 +271,7 @@ export function RedesignPage() {
                   <div className="work-tags">
                     <span>Tauri 2</span><span>React 19</span><span>Rust</span><span>SQLite + vec0</span><span>MCP</span>
                   </div>
-                  <a className="work-cta" href="https://github.com/sirdath/NeuroVault" target="_blank" rel="noopener noreferrer">
+                  <a className="work-cta" href="/projects/neurovault">
                     View case study
                   </a>
                 </div>

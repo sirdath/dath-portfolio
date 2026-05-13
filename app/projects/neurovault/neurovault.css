@@ -1,0 +1,258 @@
+/* NeuroVault case-study additions (builds on aegis.css base) */
+
+.nv-stats {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+@media (max-width: 760px) {
+  .nv-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+.nv-stats b {
+  font-size: clamp(22px, 2.4vw, 32px) !important;
+}
+
+.nv-code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  padding: 1px 6px;
+  background: rgba(230, 237, 243, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+}
+
+.nv-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+.nv-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--accent);
+  color: var(--ink);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: background .25s, border-color .25s, transform .2s;
+}
+.nv-cta-primary:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  transform: translateY(-2px);
+}
+.nv-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: transparent;
+  color: var(--ink-2);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: border-color .25s, color .25s, transform .2s;
+}
+.nv-cta-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent-2);
+  transform: translateY(-2px);
+}
+.nv-cta-final {
+  margin-top: 0;
+}
+
+.nv-live {
+  border-color: rgba(74, 222, 128, .35) !important;
+  color: rgba(74, 222, 128, .9) !important;
+}
+.nv-live:hover {
+  background: rgba(74, 222, 128, .08) !important;
+  border-color: rgba(74, 222, 128, .6) !important;
+  color: rgba(74, 222, 128, 1) !important;
+}
+
+/* Two-column "is / isn't" comparison */
+.nv-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 880px) {
+  .nv-two-col {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+.nv-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nv-h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.nv-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+.nv-list li {
+  position: relative;
+  padding-left: 22px;
+  font-family: var(--display);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  letter-spacing: -.005em;
+}
+.nv-list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent-2);
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 13px;
+}
+.nv-list-neg li::before {
+  content: "−";
+  color: var(--ink-4);
+}
+.nv-list em {
+  color: var(--ink);
+  font-style: italic;
+  font-family: var(--serif);
+  font-weight: 400;
+}
+
+/* Architecture diagram (pre block) */
+.nv-arch-diagram {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 32px;
+  overflow-x: auto;
+  margin-bottom: 48px;
+  white-space: pre;
+}
+
+.nv-fs-tree {
+  margin-bottom: 0;
+}
+
+/* Architecture notes (3-up) */
+.nv-arch-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 880px) {
+  .nv-arch-notes {
+    grid-template-columns: 1fr;
+  }
+}
+.nv-note {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  background: rgba(230, 237, 243, 0.015);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.nv-note-num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.nv-note p {
+  font-family: var(--display);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.nv-note .nv-code {
+  font-size: 11.5px;
+}
+
+/* Pipeline (numbered steps) */
+.nv-pipeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+.nv-pipeline li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 32px;
+  align-items: baseline;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.nv-pipeline li:last-child {
+  border-bottom: none;
+}
+.nv-step {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  color: var(--accent-2);
+  padding-top: 4px;
+}
+.nv-pipeline li > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nv-pipeline li b {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  color: var(--ink);
+}
+.nv-pipeline li p {
+  font-family: var(--display);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 66ch;
+}
+
+/* Final CTA section */
+.nv-final {
+  border-bottom: none;
+  text-align: left;
+}
