@@ -310,6 +310,28 @@
     .meta-strip{ flex-direction:column; align-items:flex-start; gap:14px; padding:14px var(--gut); }
   }
 
+  /* Mobile hero — collapse the 360vh scroll-driven animation to a single
+     screen. The scroll handler in RedesignHero.tsx keeps running and
+     writing CSS variables, but the rules below override anything it
+     could affect, so it has no visible effect on phones. */
+  @media (max-width: 768px){
+    .hero{ height: auto; min-height: 100vh; padding-bottom: 96px; }
+    .stage{ position: relative; height: auto; min-height: 100vh; padding: 80px 24px; }
+    /* Floating composite logo + split glyphs — display:none (not
+       opacity:0) so they don't reserve a flex slot in the centred
+       stage and don't leak a glow ::before ghost. */
+    .dath-logo{ display: none !important; }
+    .brand-glyph{ display: none !important; }
+    /* Force the row letters fully visible. On mobile --p-type stays
+       at 0 because there's no scrubbable hero. */
+    .row{ opacity: 1 !important; }
+    .row-d .L.ext,
+    .row-a .L.ext{ font-size: 1em !important; opacity: 1 !important; }
+    /* Navbar brand is normally faded in by the hero's flying-logo
+       animation. On mobile there's no animation so pin it visible. */
+    .nav-brand{ --nav-brand-op: 1 !important; pointer-events: auto !important; }
+  }
+
   /* ────── POST-HERO SECTIONS ─────────────────────────────── */
   main.post{ position:relative; z-index:2; background:var(--bg); }
   .wrap{ max-width:1280px; margin:0 auto; padding: 0 var(--gut); position:relative; }
