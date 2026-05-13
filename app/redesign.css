@@ -319,6 +319,133 @@
      160px bottom padding before the next section's top padding. */
   .section#skills{ padding-bottom: 60px; }
 
+  /* ATLAS — globe section */
+  .globe-block{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .globe-canvas{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* The Globe.gl canvas */
+  .globe-canvas canvas{
+    display:block;
+  }
+  .globe-info{
+    display:flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .globe-info-head{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .globe-num{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+  .globe-name{
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -.025em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  .globe-region{
+    font-family: var(--display);
+    font-size: 15px;
+    color: var(--ink-2);
+    font-style: italic;
+  }
+  .globe-coord{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--ink-4);
+  }
+  .globe-blurb{
+    font-family: var(--display);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 36ch;
+  }
+  .globe-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .globe-li{
+    display: grid;
+    grid-template-columns: 32px 12px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    transition: padding .2s, background .2s;
+  }
+  .globe-li:last-child{ border-bottom: none; }
+  .globe-li:hover{ padding-left: 6px; }
+  .globe-li.active{ padding-left: 6px; }
+  .globe-li-num{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    color: var(--ink-4);
+  }
+  .globe-li.active .globe-li-num{ color: var(--accent-2); }
+  .globe-li-dot{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink-4);
+    transition: background .3s, box-shadow .3s;
+  }
+  .globe-li:hover .globe-li-dot,
+  .globe-li.active .globe-li-dot{
+    background: var(--accent-2);
+    box-shadow: 0 0 8px rgba(230,57,70,.7);
+  }
+  .globe-li-name{
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    color: var(--ink-2);
+    transition: color .25s;
+  }
+  .globe-li:hover .globe-li-name,
+  .globe-li.active .globe-li-name{ color: var(--ink); }
+  .globe-li-region{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    color: var(--ink-4);
+  }
+  @media (max-width: 980px){
+    .globe-block{
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .globe-canvas{ max-width: 560px; margin: 0 auto; }
+  }
+
   /* Tightening between Trajectory ↘ Certifications — the lead paragraph
      in certs already gives breathing room, so collapse the outer gap. */
   .section#trajectory{ padding-bottom: 80px; }

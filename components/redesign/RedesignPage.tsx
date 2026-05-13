@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { RedesignCursor } from "./RedesignCursor";
+import { RedesignGlobe } from "./RedesignGlobe";
 
 /**
  * 2026 portfolio redesign — faithful port of the static index.html in
@@ -389,12 +390,25 @@ export function RedesignPage() {
           </div>
         </section>
 
-        {/* ── 02 SKILLS ── */}
+        {/* ── 02 ATLAS ── */}
+        <section className="section" id="atlas">
+          <div className="wrap">
+            <div className="reveal">
+              <span className="eyebrow">
+                <span className="bar" /><b>02</b><span>Atlas · Where the work lives</span>
+              </span>
+              <h2 className="section-title">Where it <em>lives</em>.</h2>
+            </div>
+            <RedesignGlobe />
+          </div>
+        </section>
+
+        {/* ── 03 SKILLS ── */}
         <section className="section" id="skills">
           <div className="wrap">
             <div className="reveal">
               <span className="eyebrow">
-                <span className="bar" /><b>02</b><span>Toolkit · 06 clusters · live ticker</span>
+                <span className="bar" /><b>03</b><span>Toolkit · 06 clusters · live ticker</span>
               </span>
               <h2 className="section-title">The <em>stack</em>.</h2>
             </div>
@@ -424,12 +438,12 @@ export function RedesignPage() {
           </div>
         </section>
 
-        {/* ── 03 TRAJECTORY ── */}
+        {/* ── 04 TRAJECTORY ── */}
         <section className="section" id="trajectory">
           <div className="wrap">
             <div className="reveal">
               <span className="eyebrow">
-                <span className="bar" /><b>03</b><span>Trajectory · Education & experience</span>
+                <span className="bar" /><b>04</b><span>Trajectory · Education & experience</span>
               </span>
               <h2 className="section-title">The <em>path</em>.</h2>
             </div>
@@ -494,12 +508,12 @@ export function RedesignPage() {
           </div>
         </section>
 
-        {/* ── 04 CERTS ── */}
+        {/* ── 05 CERTS ── */}
         <section className="section" id="certs">
           <div className="wrap">
             <div className="reveal">
               <span className="eyebrow">
-                <span className="bar" /><b>04</b><span>Continuous learning · 04 certifications</span>
+                <span className="bar" /><b>05</b><span>Continuous learning · 04 certifications</span>
               </span>
               <h2 className="section-title">Foundations <em>deepened</em>.</h2>
             </div>
@@ -545,12 +559,12 @@ export function RedesignPage() {
           </div>
         </section>
 
-        {/* ── 05 CONTACT ── */}
+        {/* ── 06 CONTACT ── */}
         <section className="section contact" id="contact">
           <div className="wrap">
             <div className="reveal">
               <span className="eyebrow">
-                <span className="bar" /><b>05</b><span>Get in touch · Available Spring 2026</span>
+                <span className="bar" /><b>06</b><span>Get in touch · Available Aug 15, 2026</span>
               </span>
             </div>
             <div className="contact-hero reveal">
