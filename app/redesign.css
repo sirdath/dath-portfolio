@@ -611,8 +611,13 @@
     display:grid; grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
+  /* 2x2 variant used when 4 cards present — reads as deliberate
+     instead of "3 + 1 orphan". */
+  .grid-rest.grid-rest-2x2{ grid-template-columns: repeat(2, 1fr); }
   @media (max-width: 1080px){ .grid-rest{ grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 680px){ .grid-rest{ grid-template-columns: 1fr; } }
+  @media (max-width: 680px){
+    .grid-rest, .grid-rest.grid-rest-2x2{ grid-template-columns: 1fr; }
+  }
   .grid-card{
     display:flex; flex-direction:column;
     background: var(--bg-1);
@@ -960,12 +965,38 @@
   /* CONTACT */
   .contact{ padding: 160px 0 80px; }
 
-  /* Hero block: portrait left, name + email + process note right. */
+  /* Hero block: portrait left, name + email + process note right.
+     Sized smaller (was 320px wide) and wrapped in a bordered card
+     with a subtle red rim glow so it reads as a deliberate section. */
   .contact-hero{
-    display:grid; grid-template-columns: 320px 1fr;
-    gap: 64px;
+    display:grid; grid-template-columns: 220px 1fr;
+    gap: 56px;
     margin: 40px 0 80px;
-    align-items: start;
+    align-items: center;
+  }
+  .contact-card{
+    position: relative;
+    padding: 40px 48px;
+    border-radius: 14px;
+    background:
+      linear-gradient(180deg, rgba(230, 237, 243, 0.018), rgba(230, 237, 243, 0.005)),
+      var(--bg-1);
+    border: 1px solid var(--line-2);
+    box-shadow:
+      0 24px 60px -32px rgba(200, 29, 37, 0.18),
+      inset 0 1px 0 rgba(230, 237, 243, 0.04);
+  }
+  /* Subtle red top accent bar (matches AEGIS card pattern) */
+  .contact-card::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(230, 57, 70, 0.6) 30%,
+      rgba(230, 57, 70, 0.6) 70%,
+      transparent);
   }
   .contact-portrait{
     width: 100%;
@@ -1018,8 +1049,9 @@
   .process-note.inline .process-text{ font-size: clamp(17px, 1.6vw, 20px); }
 
   @media (max-width: 880px){
-    .contact-hero{ grid-template-columns: 1fr; gap: 36px; }
-    .contact-portrait{ max-width: 280px; aspect-ratio: 4/5; }
+    .contact-hero{ grid-template-columns: 1fr; gap: 32px; }
+    .contact-card{ padding: 32px 28px; }
+    .contact-portrait{ max-width: 200px; aspect-ratio: 4/5; }
   }
 
   .contact-grid{

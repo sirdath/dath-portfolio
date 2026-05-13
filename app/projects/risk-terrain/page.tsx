@@ -58,10 +58,40 @@ export default function Page() {
         </div>
       </header>
 
-      {/* ── 01 The pipeline ── */}
+      {/* ── 01 Live demo shot ── */}
       <section className="aegis-section wrap">
         <h2 className="aegis-h2">
-          01 / The <em>pipeline</em>.
+          01 / Live <em>view</em>.
+        </h2>
+        <p className="aegis-lead">
+          The dashboard shows the system mid-cascade — a M7.4 earthquake hit Taiwan, the TSMC supply chain lit up, and within seconds the platform identified the S&amp;P 500 companies most exposed (AAPL: 92% critical, AMD: 88% critical) with per-row natural-language reasoning.
+        </p>
+
+        <figure className="aegis-arch-feature">
+          <div className="aegis-frame">
+            <img src="/redesign/risk-terrain/hero.webp" alt="RiskTerrain dashboard — TSMC critical event" loading="lazy" />
+          </div>
+          <figcaption>
+            <b>Cascading-risk view</b>
+            <span>3D globe with arcs showing supply-chain propagation from the event epicentre. The side panel ranks affected companies by exposure score with stock-impact context and AI-written rationale per row.</span>
+          </figcaption>
+        </figure>
+
+        <figure className="aegis-arch-feature">
+          <div className="aegis-frame">
+            <img src="/redesign/risk-terrain/analysis.webp" alt="RiskTerrain analyzing a political event" loading="lazy" />
+          </div>
+          <figcaption>
+            <b>Political-event mode</b>
+            <span>The same pipeline handles non-disaster shocks. Here it ingests a real media-coverage event around US-Iran tensions, classifies it, and surfaces communication-sector companies (AMZN, ADBE, AAPL) with their thematic exposure.</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      {/* ── 02 The pipeline ── */}
+      <section className="aegis-section wrap">
+        <h2 className="aegis-h2">
+          02 / The <em>pipeline</em>.
         </h2>
         <p className="aegis-lead">
           Six nodes, one direction. Each step is independently testable; the whole graph runs in batch (for backtesting) or streaming (for live events). The latency budget is dominated by the graph traversal — everything else is cheap.
@@ -113,10 +143,10 @@ export default function Page() {
         </ol>
       </section>
 
-      {/* ── 02 Hybrid retrieval ── */}
+      {/* ── 03 Hybrid retrieval ── */}
       <section className="aegis-section wrap">
         <h2 className="aegis-h2">
-          02 / Hybrid <em>retrieval</em>.
+          03 / Hybrid <em>retrieval</em>.
         </h2>
         <p className="aegis-lead">
           Pure graph traversal misses thematic risk — an event about "rare earth export controls" only catches downstream companies if their edges are tagged correctly. Pure vector search misses structural risk — semantic similarity doesn&apos;t encode "who supplies whom." So the system runs both and unions the results.
@@ -142,10 +172,40 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── 03 Why SurrealDB ── */}
+      {/* ── 04 Graph + events views ── */}
       <section className="aegis-section wrap">
         <h2 className="aegis-h2">
-          03 / Why <em>SurrealDB</em>.
+          04 / Graph &amp; <em>events</em>.
+        </h2>
+        <p className="aegis-lead">
+          Beyond the per-event drill-down, two other views let users browse the underlying data. The graph view exposes the supply-chain network directly; the events feed shows every shock the system has detected, with classification + tags.
+        </p>
+
+        <figure className="aegis-arch-feature">
+          <div className="aegis-frame">
+            <img src="/redesign/risk-terrain/graph.webp" alt="RiskTerrain — supply chain graph view" loading="lazy" />
+          </div>
+          <figcaption>
+            <b>Supply-chain graph</b>
+            <span>87 companies + 99 supplier / customer / sector-peer edges visible at once. Each arc colour-coded by relationship type. Search any ticker to centre the view on its first- and second-hop neighbours.</span>
+          </figcaption>
+        </figure>
+
+        <figure className="aegis-arch-feature">
+          <div className="aegis-frame">
+            <img src="/redesign/risk-terrain/events.webp" alt="RiskTerrain — live events feed" loading="lazy" />
+          </div>
+          <figcaption>
+            <b>Live event feed</b>
+            <span>Every ingested event with its classification, source, severity, and affected-region tags. Earthquakes (USGS), missile strikes, oil-price moves, political news (NewsAPI) all flow into the same monitor.</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      {/* ── 05 Why SurrealDB ── */}
+      <section className="aegis-section wrap">
+        <h2 className="aegis-h2">
+          05 / Why <em>SurrealDB</em>.
         </h2>
         <p className="aegis-lead">
           The graph could have lived in Neo4j (more mature) or in PostgreSQL with recursive CTEs (no extra dependency). SurrealDB won three trade-offs.

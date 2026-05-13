@@ -94,11 +94,36 @@ export function Work() {
               </a>
             </div>
           </article>
+
+          <article className="work-row right reveal">
+            <div className="work-copy">
+              <span className="work-num">/ 04 — AI · Cascading risk intelligence</span>
+              <h3 className="work-name">Risk<em>Terrain</em>.</h3>
+              <p className="work-sub">
+                A 6-node LangGraph pipeline that ingests live geopolitical events (USGS, NewsAPI), traverses a 154-company supply-chain graph in SurrealDB, and scores cascading exposure in under 8 seconds. Hybrid graph-vector retrieval with sentence-transformer embeddings.
+              </p>
+              <div className="work-tags">
+                <span>Python</span><span>LangGraph</span><span>SurrealDB</span><span>sentence-transformers</span><span>Three.js</span><span>Docker</span>
+              </div>
+              <a className="work-cta" href="/projects/risk-terrain">View case study</a>
+            </div>
+            <div className="work-media">
+              <div className="safari-frame">
+                <div className="chrome">
+                  <span className="dot r" /><span className="dot y" /><span className="dot g" />
+                  <span className="url">riskterrain.dathproject.com</span>
+                </div>
+                <div className="canvas dark">
+                  <img src="/redesign/risk-terrain/hero.webp" alt="RiskTerrain — TSMC critical-event view" />
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
 
         <div className="work-index-head reveal">
           <h3>
-            Index <em style={{ color: "var(--ink-3)", fontStyle: "normal", fontWeight: 400 }}>· 05 more</em>
+            Index <em style={{ color: "var(--ink-3)", fontStyle: "normal", fontWeight: 400 }}>· 04 more</em>
           </h3>
           <span
             className="work-num"
@@ -108,23 +133,14 @@ export function Work() {
           </span>
         </div>
 
-        <div className="grid-rest">
+        <div className="grid-rest grid-rest-2x2">
           <a className="grid-card reveal" href="/projects/housing-crime-analysis">
             <div className="gc-media"><img src="/images/projects/heroes/housing-crime-hero.svg" alt="London Housing & Crime" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 04 · Geospatial</span>
+              <span className="gc-num">/ 05 · Geospatial</span>
               <h4 className="gc-title">London Housing & Crime</h4>
               <p className="gc-sub">Spatio-temporal pipeline merging 1M+ records into a predictive Opportunity Index. XGBoost regressor tuned via Optuna, R² = 0.92.</p>
               <div className="gc-tags">Python · Optuna · XGBoost · Pandas</div>
-            </div>
-          </a>
-          <a className="grid-card reveal" href="/projects/risk-terrain">
-            <div className="gc-media"><img src="/images/projects/heroes/risk-terrain-hero.svg" alt="RiskTerrain" /></div>
-            <div className="gc-body">
-              <span className="gc-num">/ 05 · AI · Risk</span>
-              <h4 className="gc-title">RiskTerrain</h4>
-              <p className="gc-sub">6-node LangGraph pipeline scoring cascading risk across S&P 500 supply chains in SurrealDB. Sub-8-second end-to-end.</p>
-              <div className="gc-tags">LangGraph · SurrealDB · Three.js</div>
             </div>
           </a>
           <a className="grid-card reveal" href="/projects/datascrub">

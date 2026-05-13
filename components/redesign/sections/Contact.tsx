@@ -8,7 +8,7 @@ export function Contact() {
           </span>
         </div>
 
-        <div className="contact-hero reveal">
+        <div className="contact-hero contact-card reveal">
           <div className="contact-portrait">
             <img src="/redesign/profile.jpg" alt="Dimitris Athinaios" />
           </div>
@@ -23,7 +23,7 @@ export function Contact() {
             <div className="process-note inline">
               <span className="process-label">/ How I build</span>
               <p className="process-text">
-                Heavy on <em>AI-assisted</em> and <em>spec-driven</em> development — Claude, Cursor, agents, MCP. The receipts live at <a href="https://github.com/sirdath" target="_blank" rel="noopener noreferrer">@sirdath</a>.
+                Heavy on <em>AI-assisted</em> development — Claude, Cursor, agents, MCP. For specs I use <a href="https://github.com/ifixai-ai/claude-strike" target="_blank" rel="noopener noreferrer">claude-strike</a>; for diagnosing my AI agents I use <a href="https://github.com/ifixai-ai/iFixAi" target="_blank" rel="noopener noreferrer">Diagnostic by IfixAi</a>. The receipts live at <a href="https://github.com/sirdath" target="_blank" rel="noopener noreferrer">@sirdath</a>.
               </p>
             </div>
           </div>
