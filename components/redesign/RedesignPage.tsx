@@ -19,18 +19,6 @@ export function RedesignPage() {
       document.querySelector(".grid-bg")?.classList.add("in");
     });
 
-    // UTC clock
-    const utcEl = document.getElementById("utc");
-    const tickClock = () => {
-      const d = new Date();
-      const hh = String(d.getUTCHours()).padStart(2, "0");
-      const mm = String(d.getUTCMinutes()).padStart(2, "0");
-      const ss = String(d.getUTCSeconds()).padStart(2, "0");
-      if (utcEl) utcEl.textContent = `${hh}:${mm}:${ss} UTC`;
-    };
-    tickClock();
-    const clockInterval = setInterval(tickClock, 1000);
-
     // Scroll-driven hero variables
     const hero = document.querySelector(".hero") as HTMLElement | null;
     const stage = document.getElementById("stage");
@@ -162,7 +150,6 @@ export function RedesignPage() {
       .forEach((el) => revealObs.observe(el));
 
     return () => {
-      clearInterval(clockInterval);
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
       revealObs.disconnect();
@@ -179,11 +166,7 @@ export function RedesignPage() {
           <a className="nav-brand" id="navBrand" href="#top" aria-label="DATHPROJECT — back to top">
             <img src="/redesign/dath-logo.png" alt="DATH brand mark" />
           </a>
-          <div className="nav-meta">
-            <span>London · UK</span>
-            <span className="sep" />
-            <span id="utc">— : — UTC</span>
-          </div>
+          <span className="nav-loc">London · UK</span>
         </div>
         <div className="nav-right">
           <div className="nav-links">
@@ -193,7 +176,7 @@ export function RedesignPage() {
           </div>
           <a className="status-pill nav-status" href="#contact">
             <span className="dot" aria-hidden="true" />
-            <span className="lbl">Available from</span>
+            <span className="lbl">Available</span>
             <span className="when">Aug 15, 2026</span>
             <span className="arr" aria-hidden="true">→</span>
           </a>

@@ -61,10 +61,10 @@ export function RedesignCursor() {
 
   if (!hasMouse.current) return null;
 
-  // Display size: 36px tall keeps the A small enough to feel like a cursor.
-  // The PNG renders at 135x144 source, scaled down with image-rendering: auto.
-  const CURSOR_HEIGHT = 36;
-  const CURSOR_WIDTH = Math.round(36 * (135 / 144));  // preserve aspect ratio
+  // Display size: 22px tall — small enough to feel cursor-sized.
+  // Source PNG is 59x96 (aspect 0.62); preserve aspect ratio when sizing.
+  const CURSOR_HEIGHT = 22;
+  const CURSOR_WIDTH = Math.round(22 * (59 / 96));
 
   return (
     <motion.div
@@ -95,12 +95,7 @@ export function RedesignCursor() {
         alt=""
         width={CURSOR_WIDTH}
         height={CURSOR_HEIGHT}
-        style={{
-          display: "block",
-          // Subtle red drop-shadow so the white A is visible on light surfaces
-          filter:
-            "drop-shadow(0 1px 2px rgba(0,0,0,0.6)) drop-shadow(0 0 4px rgba(230,57,70,0.4))",
-        }}
+        style={{ display: "block" }}
       />
     </motion.div>
   );
