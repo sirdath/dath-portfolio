@@ -2,7 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # Temporarily building from redesign-2026 while previewing the new
+    # design live on dathproject.com. Flip back to [main] before merging
+    # the redesign to main, otherwise main pushes won't redeploy.
+    branches: [redesign-2026]
   workflow_dispatch:
 
 permissions:
