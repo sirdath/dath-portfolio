@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono, Playfair_Display } from "next/font/google";
-import { CustomCursor } from "@/components/ui/CustomCursor";
+import { Inter, Space_Grotesk, JetBrains_Mono, Playfair_Display, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,6 +26,14 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Dimitrios Athinaios | Data Scientist & AI Engineer",
   description:
@@ -49,9 +56,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${playfair.variable} antialiased bg-void text-text-primary`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${playfair.variable} ${instrumentSerif.variable} antialiased bg-void text-text-primary`}
       >
-        <CustomCursor />
         {children}
       </body>
     </html>
