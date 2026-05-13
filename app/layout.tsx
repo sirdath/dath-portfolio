@@ -34,18 +34,70 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
+const SITE_URL = "https://dathproject.com";
+const DESCRIPTION =
+  "Geospatial Data Scientist & AI Engineer building end-to-end agentic pipelines, spatial ML on H3 hexagons, and local-first LLM tooling. London ↔ Athens.";
+
 export const metadata: Metadata = {
-  title: "Dimitrios Athinaios | Data Scientist & AI Engineer",
-  description:
-    "Portfolio of Dimitrios Athinaios - Data Scientist & AI Engineer. Explore projects in geospatial intelligence, multi-agent AI platforms, machine learning, and data engineering.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Dimitris Athinaios — Geospatial Data Scientist & AI Engineer",
+    template: "%s · dathproject.com",
+  },
+  description: DESCRIPTION,
   keywords: [
-    "data scientist",
+    "Dimitris Athinaios",
+    "dathproject",
+    "geospatial data scientist",
     "AI engineer",
-    "geospatial",
-    "machine learning",
-    "portfolio",
-    "analytics",
+    "geospatial machine learning",
+    "H3 hexagon",
+    "multi-agent platforms",
+    "spatial ML",
+    "London data scientist",
+    "Athens AI engineer",
+    "LangGraph",
+    "CrewAI",
+    "NeuroVault",
+    "AEGIS maritime",
   ],
+  authors: [{ name: "Dimitris Athinaios", url: SITE_URL }],
+  creator: "Dimitris Athinaios",
+  publisher: "Dimitris Athinaios",
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: SITE_URL,
+    siteName: "dathproject.com",
+    title: "Dimitris Athinaios — Geospatial Data Scientist & AI Engineer",
+    description: DESCRIPTION,
+    // app/opengraph-image.png is auto-detected by Next.js
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dimitris Athinaios — Geospatial Data Scientist & AI Engineer",
+    description: DESCRIPTION,
+    creator: "@sirdath",
+    // app/twitter-image.png is auto-detected
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({

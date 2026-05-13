@@ -62,15 +62,24 @@ const analyticsShots = [
 export default function AegisPage() {
   return (
     <div className="aegis-page">
-      <nav className="nav">
+      <nav className="nav nav-case">
         <div className="nav-left">
-          <Link className="nav-brand" href="/" aria-label="Back to dathproject.com">
+          <Link
+            className="nav-brand nav-brand-static"
+            href="/"
+            aria-label="Back to dathproject.com"
+          >
             <img src="/redesign/dath-logo.png" alt="DATH brand mark" />
           </Link>
+          <span className="nav-loc">London · UK</span>
         </div>
         <div className="nav-right">
           <Link href="/#work" className="aegis-back">
             ← Back to work
+          </Link>
+          <Link href="/#contact" className="status-pill nav-status">
+            <span className="dot" aria-hidden="true" />
+            <span className="when">Aug 15, 2026</span>
           </Link>
         </div>
       </nav>
