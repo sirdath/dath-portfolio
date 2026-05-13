@@ -4,18 +4,19 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 /**
- * Editorial cursor for the 2026 redesign — the A from the DATH logo,
- * positioned so its apex (top edge) sits exactly on the pointer
- * position. Acts as a literal brand-integrated arrow cursor.
+ * Clean red arrow cursor for the 2026 redesign. Inline SVG, tip at the
+ * top-left of the viewBox so the SVG can be positioned with no offset
+ * and the tip sits exactly on the pointer. Filled with #E63946 (brand
+ * red, matches the "ai" highlight); thin dark stroke for visibility on
+ * light surfaces.
  */
 export function RedesignCursor() {
   const [hovering, setHovering] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Gentle spring so it feels deliberate, not jittery
-  const smoothX = useSpring(cursorX, { damping: 28, stiffness: 540, mass: 0.35 });
-  const smoothY = useSpring(cursorY, { damping: 28, stiffness: 540, mass: 0.35 });
+  const smoothX = useSpring(cursorX, { damping: 30, stiffness: 600, mass: 0.3 });
+  const smoothY = useSpring(cursorY, { damping: 30, stiffness: 600, mass: 0.3 });
 
   const hasMouse = useRef(true);
   const [visible, setVisible] = useState(false);
@@ -61,42 +62,44 @@ export function RedesignCursor() {
 
   if (!hasMouse.current) return null;
 
-  // Display size: 22px tall — small enough to feel cursor-sized.
-  // Source PNG is 59x96 (aspect 0.62); preserve aspect ratio when sizing.
-  const CURSOR_HEIGHT = 22;
-  const CURSOR_WIDTH = Math.round(22 * (59 / 96));
-
   return (
     <motion.div
       style={{
         x: smoothX,
         y: smoothY,
-        // translateX -50% centers the apex horizontally on the pointer.
-        // translateY 0 keeps the TOP edge of the image AT the pointer Y.
-        // Result: the A's apex (top point) sits exactly on the pointer.
-        translateX: "-50%",
-        translateY: "0%",
+        // Scale from the tip (top-left) so the hotspot stays anchored
+        // when the cursor grows on hover.
+        transformOrigin: "0 0",
         position: "fixed",
         top: 0,
         left: 0,
-        width: CURSOR_WIDTH,
-        height: CURSOR_HEIGHT,
+        width: 18,
+        height: 22,
         zIndex: 9999,
         pointerEvents: "none",
       }}
       animate={{
         opacity: visible ? 1 : 0,
-        scale: hovering ? 1.25 : 1,
+        scale: hovering ? 1.2 : 1,
       }}
-      transition={{ duration: 0.28, ease: [0.25, 0.4, 0.25, 1] }}
+      transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
     >
-      <img
-        src="/redesign/cursor-a.png"
-        alt=""
-        width={CURSOR_WIDTH}
-        height={CURSOR_HEIGHT}
+      <svg
+        width="18"
+        height="22"
+        viewBox="0 0 18 22"
+        xmlns="http://www.w3.org/2000/svg"
         style={{ display: "block" }}
-      />
+      >
+        {/* Classic arrow: tip at (0,0), tail goes down and right */}
+        <path
+          d="M0 0 L0 17 L4.5 13.5 L7.5 20 L10 19 L7 12.5 L13 12.5 Z"
+          fill="#E63946"
+          stroke="#0E1117"
+          strokeWidth="1"
+          strokeLinejoin="round"
+        />
+      </svg>
     </motion.div>
   );
 }

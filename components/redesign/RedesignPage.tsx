@@ -176,9 +176,7 @@ export function RedesignPage() {
           </div>
           <a className="status-pill nav-status" href="#contact">
             <span className="dot" aria-hidden="true" />
-            <span className="lbl">Available</span>
             <span className="when">Aug 15, 2026</span>
-            <span className="arr" aria-hidden="true">→</span>
           </a>
         </div>
       </nav>
