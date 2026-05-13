@@ -153,8 +153,22 @@ export default async function ProjectPage({ params }: Props) {
   );
 }
 
+// Slugs that have been ported to the 2026 redesign and now live at
+// app/projects/<slug>/page.tsx as explicit static routes. They must
+// be excluded here, otherwise static export tries to write two HTML
+// files to the same path and `next build` errors out.
+const PORTED_TO_REDESIGN = new Set([
+  "aegis",
+  "neurovault",
+  "datascrub",
+  "risk-terrain",
+  "housing-crime-analysis",
+  "dataportfolio",
+  "data-engineering-pipeline",
+]);
+
 export function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects
+    .filter((project) => !PORTED_TO_REDESIGN.has(project.slug))
+    .map((project) => ({ slug: project.slug }));
 }
