@@ -165,6 +165,7 @@ const PORTED_TO_REDESIGN = new Set([
   "housing-crime-analysis",
   "dataportfolio",
   "data-engineering-pipeline",
+  "london-synergy-index",
 ]);
 
 export function generateStaticParams() {

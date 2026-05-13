@@ -76,7 +76,7 @@ export function Work() {
                   <span className="url">geospatialondon.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/screenshots/london-synergy.webp" alt="London Synergy Index methodology" />
+                  <img src="/redesign/london-synergy/hero.webp" alt="London Synergy Index dashboard" />
                 </div>
               </div>
             </div>
@@ -89,8 +89,8 @@ export function Work() {
               <div className="work-tags">
                 <span>Python</span><span>XGBoost</span><span>H3</span><span>NetworkX</span><span>Pydeck</span><span>Streamlit</span>
               </div>
-              <a className="work-cta" href="https://geospatialondon.dathproject.com" target="_blank" rel="noopener noreferrer">
-                Open live site
+              <a className="work-cta" href="/projects/london-synergy-index">
+                View case study
               </a>
             </div>
           </article>
