@@ -4,7 +4,7 @@ export function Contact() {
       <div className="wrap">
         <div className="reveal">
           <span className="eyebrow">
-            <span className="bar" /><b>06</b><span>Get in touch · Available Aug 15, 2026</span>
+            <span className="bar" /><b>05</b><span>Get in touch · Available Aug 15, 2026</span>
           </span>
         </div>
 

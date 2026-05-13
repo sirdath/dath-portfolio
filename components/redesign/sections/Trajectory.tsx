@@ -51,7 +51,7 @@ export function Trajectory() {
       <div className="wrap">
         <div className="reveal">
           <span className="eyebrow">
-            <span className="bar" /><b>04</b><span>Trajectory · Education & experience</span>
+            <span className="bar" /><b>03</b><span>Trajectory · Education & experience</span>
           </span>
           <h2 className="section-title">The <em>path</em>.</h2>
         </div>

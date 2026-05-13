@@ -20,7 +20,7 @@ export function Skills() {
       <div className="wrap">
         <div className="reveal">
           <span className="eyebrow">
-            <span className="bar" /><b>03</b><span>Toolkit · 06 clusters · live ticker</span>
+            <span className="bar" /><b>02</b><span>Toolkit · 06 clusters · live ticker</span>
           </span>
           <h2 className="section-title">The <em>stack</em>.</h2>
         </div>

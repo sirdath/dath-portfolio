@@ -5,7 +5,6 @@ import { RedesignCursor } from "./RedesignCursor";
 import { RedesignNav } from "./RedesignNav";
 import { RedesignHero } from "./RedesignHero";
 import { Work } from "./sections/Work";
-import { Atlas } from "./sections/Atlas";
 import { Skills } from "./sections/Skills";
 import { Trajectory } from "./sections/Trajectory";
 import { Certs } from "./sections/Certs";
@@ -19,8 +18,7 @@ import { Contact } from "./sections/Contact";
  *      once it enters the viewport — drives the section fade-in.
  *
  * Per-section content lives in components/redesign/sections/*. The
- * scroll-driven hero animation lives in RedesignHero. The hex-tile
- * globe lives in RedesignGlobe (composed inside Atlas).
+ * scroll-driven hero animation lives in RedesignHero.
  */
 export function RedesignPage() {
   useEffect(() => {
@@ -49,7 +47,6 @@ export function RedesignPage() {
 
       <main className="post">
         <Work />
-        <Atlas />
         <Skills />
         <Trajectory />
         <Certs />

@@ -13,7 +13,7 @@ export function Certs() {
       <div className="wrap">
         <div className="reveal">
           <span className="eyebrow">
-            <span className="bar" /><b>05</b><span>Continuous learning · 04 certifications</span>
+            <span className="bar" /><b>04</b><span>Continuous learning · 04 certifications</span>
           </span>
           <h2 className="section-title">Foundations <em>deepened</em>.</h2>
         </div>
