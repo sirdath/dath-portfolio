@@ -258,7 +258,7 @@ export function RedesignPage() {
                       <span className="url">neurovault.dathproject.com</span>
                     </div>
                     <div className="canvas dark">
-                      <img src="/images/projects/heroes/neurovault-hero.svg" alt="NeuroVault interface" />
+                      <img src="/redesign/screenshots/neurovault.png" alt="NeuroVault neural graph view" />
                     </div>
                   </div>
                 </div>
@@ -310,7 +310,7 @@ export function RedesignPage() {
                       <span className="url">geospatialondon.dathproject.com</span>
                     </div>
                     <div className="canvas dark">
-                      <img src="/images/projects/heroes/london-synergy-hero.svg" alt="London Synergy Index" />
+                      <img src="/redesign/screenshots/london-synergy.png" alt="London Synergy Index methodology" />
                     </div>
                   </div>
                 </div>
@@ -444,7 +444,7 @@ export function RedesignPage() {
                     <span className="tl-kind">Exp · Placement</span>
                   </div>
                   <span className="tl-org">Intelmatix · London (Dissertation)</span>
-                  <p className="tl-note">Engineering a spatial network of 1M+ POIs (Python, NetworkX). Architecting serverless AWS pipelines (S3, Glue, Athena) for high-dimensional geospatial datasets at scale.</p>
+                  <p className="tl-note">Engineering a spatial network of 1.7M+ POIs (Python, NetworkX). Architecting serverless AWS pipelines (S3, Glue, Athena) for high-dimensional geospatial datasets at scale.</p>
                   <div className="tl-tags-inline"><span>Python</span><span>NetworkX</span><span>AWS · Glue · Athena</span></div>
                 </div>
               </article>
@@ -553,16 +553,25 @@ export function RedesignPage() {
                 <span className="bar" /><b>05</b><span>Get in touch · Available Spring 2026</span>
               </span>
             </div>
-            <a className="contact-email reveal" href="mailto:dimo.atheneos@gmail.com">
-              dimo.atheneos<br />@gmail<em>.com</em>
-              <span className="arr">↗</span>
-            </a>
-
-            <div className="process-note reveal">
-              <span className="process-label">/ How I build</span>
-              <p className="process-text">
-                Heavy on <em>AI-assisted</em> and <em>spec-driven</em> development — Claude, Cursor, agents, MCP. The receipts live at <a href="https://github.com/sirdath" target="_blank" rel="noopener noreferrer">@sirdath</a>.
-              </p>
+            <div className="contact-hero reveal">
+              <div className="contact-portrait">
+                <img src="/redesign/profile.jpg" alt="Dimitris Athinaios" />
+              </div>
+              <div className="contact-info">
+                <h2 className="contact-name">
+                  Dimitris <em>Athinaios</em>
+                </h2>
+                <a className="contact-email-new" href="mailto:dimo.atheneos@gmail.com">
+                  dimo.atheneos@gmail.com
+                  <span className="arr">↗</span>
+                </a>
+                <div className="process-note inline">
+                  <span className="process-label">/ How I build</span>
+                  <p className="process-text">
+                    Heavy on <em>AI-assisted</em> and <em>spec-driven</em> development — Claude, Cursor, agents, MCP. The receipts live at <a href="https://github.com/sirdath" target="_blank" rel="noopener noreferrer">@sirdath</a>.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="linktree reveal">
