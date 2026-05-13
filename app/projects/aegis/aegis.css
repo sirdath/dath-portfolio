@@ -1,5 +1,6 @@
 /* AEGIS case-study page — local overrides that build on redesign.css */
 
+
 .aegis-page {
   min-height: 100vh;
   background: var(--bg);
@@ -7,6 +8,12 @@
   font-family: var(--sans);
   position: relative;
   padding-top: 64px;
+  /* Clip any descendant that tries to push past the viewport on
+     phones (e.g. a long `<code>` token inside the tagline). The
+     hero/section/foot already pad correctly, but defensively
+     guarding the whole page keeps horizontal scroll dead. */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Case-study nav: brand mark always visible (no scroll-driven fade) */
@@ -37,7 +44,10 @@
 
 /* Hero */
 .aegis-hero {
-  padding: 80px 0 60px;
+  /* Explicit horizontal padding so the element doesn't depend on
+     .wrap's shorthand cascading through — keeps content off the
+     viewport edge on all sizes. */
+  padding: 80px var(--gut) 60px;
   border-bottom: 1px solid var(--line);
 }
 .aegis-title {
@@ -56,7 +66,15 @@
   color: var(--ink-2);
   max-width: 66ch;
   letter-spacing: -.005em;
+  /* Allow long words / inline <code> blocks to break instead of
+     overflowing the right edge on narrow viewports. */
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
+
+
+.aegis-tagline .nv-code,
+.aegis-tagline code { word-break: break-word; }
 .aegis-tagline em {
   font-family: var(--serif);
   color: var(--ink);
@@ -92,6 +110,11 @@
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--ink-3);
+  /* Long labels like "GRAPH + VECTOR RETRIEVAL" need to wrap on
+     narrow columns rather than being clipped. */
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
 }
 
 .aegis-stack {
@@ -116,7 +139,7 @@
 
 /* Sections */
 .aegis-section {
-  padding: 100px 0;
+  padding: 100px var(--gut);
   border-bottom: 1px solid var(--line);
 }
 .aegis-h2 {
@@ -241,7 +264,7 @@
 
 /* Footer */
 .aegis-foot {
-  padding: 48px 0;
+  padding: 48px var(--gut);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -519,7 +542,8 @@
    already collapse here via existing rules. Tighten section padding. */
 @media (max-width: 980px) {
   .aegis-section {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .aegis-stats {
     grid-template-columns: repeat(2, 1fr);
@@ -540,10 +564,10 @@
     padding-top: 56px;
   }
   .aegis-hero {
-    padding: 56px 0 40px;
+    padding: 56px var(--gut) 40px;
   }
   .aegis-section {
-    padding: 56px 0;
+    padding: 56px var(--gut);
   }
   .aegis-h2 {
     margin-bottom: 16px;
@@ -579,14 +603,63 @@
   }
 }
 
-/* Mobile XS (<= 420px) — single-stat-per-row for very narrow phones */
-@media (max-width: 420px) {
+/* Mobile XS (<= 500px) — single-stat-per-row. The 4-col stat labels
+   ("LANGGRAPH PIPELINE", "GRAPH + VECTOR RETRIEVAL", etc.) exceed
+   a 140px column width once we drop to 2-col on phones. Stacking
+   them removes the clipping entirely. */
+@media (max-width: 500px) {
   .aegis-stats {
     grid-template-columns: 1fr;
   }
-  /* Hero h1 may overflow at this width — let clamp do the work but
-     reduce its lower bound */
   .aegis-title {
     font-size: clamp(32px, 11vw, 56px) !important;
+  }
+}
+
+/* Case-study nav (.nav-case) on phones — shrink padding + fonts.
+   The home navbar is unaffected because it uses .nav without
+   .nav-case. */
+@media (max-width: 639px) {
+  .nav.nav-case {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .nav.nav-case .nav-left,
+  .nav.nav-case .nav-right {
+    gap: 6px;
+  }
+  /* Smaller brand mark to free horizontal room for pills */
+  .nav.nav-case .nav-brand {
+    width: 100px;
+    height: 26px;
+  }
+  /* Tight pill padding */
+  .nav.nav-case .aegis-back {
+    padding: 5px 9px;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+  }
+  .nav.nav-case .status-pill.nav-status {
+    padding: 5px 8px 5px 7px;
+    gap: 5px;
+  }
+  .nav.nav-case .status-pill.nav-status .when {
+    font-size: 10.5px;
+  }
+  /* Hide the static London·UK on case-study navs at phone width */
+  .nav.nav-case .nav-loc { display: none; }
+}
+
+/* When the row STILL doesn't fit (e.g., NeuroVault has 4 pills), let
+   nav-right wrap onto a second line. nav-left stays on top, pills go
+   below. Only kicks in at very narrow widths. */
+@media (max-width: 479px) {
+  .nav.nav-case {
+    flex-wrap: wrap;
+  }
+  .nav.nav-case .nav-right {
+    flex-basis: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }

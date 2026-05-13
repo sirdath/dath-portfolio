@@ -341,6 +341,32 @@
     .nav-brand{ --nav-brand-op: 1 !important; pointer-events: auto !important; }
   }
 
+  /* On any mobile (<=639px), pin the home nav-brand visible from the
+     start. Desktop intentionally hides it until the hero logo "flies"
+     into the navbar — but on mobile that docking happens after a long
+     scroll, leaving the navbar visually broken until then. */
+  @media (max-width: 639px){
+    .nav-brand{
+      --nav-brand-op: 1 !important;
+      pointer-events: auto !important;
+      /* The 152px desktop brand eats too much horizontal room on a
+         390px phone — shrink it so the status pill on the right has
+         space to render without clipping. */
+      width: 100px; height: 24px;
+    }
+    /* Tighten the home status pill so "Aug 15, 2026" doesn't clip */
+    .nav .status-pill.nav-status{
+      padding: 4px 9px 4px 7px;
+      gap: 5px;
+    }
+    .nav .status-pill.nav-status .when{
+      font-size: 10px;
+      letter-spacing: .08em;
+    }
+    /* Less generous nav padding on phones */
+    .nav{ padding: 10px 12px; gap: 8px; }
+  }
+
   /* ────── POST-HERO SECTIONS ─────────────────────────────── */
   main.post{ position:relative; z-index:2; background:var(--bg); }
   .wrap{ max-width:1280px; margin:0 auto; padding: 0 var(--gut); position:relative; }
