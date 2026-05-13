@@ -238,7 +238,7 @@ export default function NeuroVaultPage() {
 
           <figure className="aegis-arch-feature">
             <div className="aegis-frame">
-              <img src="/redesign/neurovault/neural-graph.png" alt="NeuroVault knowledge graph" loading="lazy" />
+              <img src="/redesign/neurovault/neural-graph.webp" alt="NeuroVault knowledge graph" loading="lazy" />
             </div>
             <figcaption>
               <b>Knowledge graph view</b>
@@ -248,7 +248,7 @@ export default function NeuroVaultPage() {
 
           <figure className="aegis-arch-feature">
             <div className="aegis-frame">
-              <img src="/redesign/neurovault/command-palette.png" alt="NeuroVault command palette" loading="lazy" />
+              <img src="/redesign/neurovault/command-palette.webp" alt="NeuroVault command palette" loading="lazy" />
             </div>
             <figcaption>
               <b>Command palette</b>

@@ -10,17 +10,17 @@ export const metadata = {
 
 const productShots = [
   {
-    src: "/redesign/aegis/Dashboard.png",
+    src: "/redesign/aegis/Dashboard.webp",
     label: "Operations dashboard",
     note: "Vessel state, risk heat-map, and ATA forecasts in one pane.",
   },
   {
-    src: "/redesign/aegis/3dGlobe.png",
+    src: "/redesign/aegis/3dGlobe.webp",
     label: "3D globe view",
     note: "Live AIS positions overlaid with active risk zones and choke-point density.",
   },
   {
-    src: "/redesign/aegis/2dmap.png",
+    src: "/redesign/aegis/2dmap.webp",
     label: "2D operational map",
     note: "Standard mercator projection for incident review and routing decisions.",
   },
@@ -28,17 +28,17 @@ const productShots = [
 
 const analystShots = [
   {
-    src: "/redesign/aegis/AEGISTANALYST.png",
+    src: "/redesign/aegis/AEGISTANALYST.webp",
     label: "Analyst — Query",
     note: "Natural-language query → CrewAI delegates to risk, routing, and compliance agents.",
   },
   {
-    src: "/redesign/aegis/AEGISTANALYST2.png",
+    src: "/redesign/aegis/AEGISTANALYST2.webp",
     label: "Analyst — Reasoning",
     note: "Each agent's intermediate output is captured with W3C PROV lineage for auditability.",
   },
   {
-    src: "/redesign/aegis/AEGISTANALYST-Results.png",
+    src: "/redesign/aegis/AEGISTANALYST-Results.webp",
     label: "Analyst — Results",
     note: "Synthesised answer with structured citations, source data, and hallucination check.",
   },
@@ -46,15 +46,15 @@ const analystShots = [
 
 const analyticsShots = [
   {
-    src: "/redesign/aegis/Tariff.png",
+    src: "/redesign/aegis/Tariff.webp",
     label: "Tariff explorer",
   },
   {
-    src: "/redesign/aegis/ChokePoint-MarineWeather.png",
+    src: "/redesign/aegis/ChokePoint-MarineWeather.webp",
     label: "Choke-point × marine weather",
   },
   {
-    src: "/redesign/aegis/ActiveRiskZones.png",
+    src: "/redesign/aegis/ActiveRiskZones.webp",
     label: "Active risk zones",
   },
 ];
@@ -203,7 +203,7 @@ export default function AegisPage() {
 
           <figure className="aegis-arch-feature">
             <div className="aegis-frame">
-              <img src="/redesign/aegis/AegisArchitectureUpdated.png" alt="System architecture diagram" loading="lazy" />
+              <img src="/redesign/aegis/AegisArchitectureUpdated.webp" alt="System architecture diagram" loading="lazy" />
             </div>
             <figcaption>
               <b>System architecture</b>
@@ -214,7 +214,7 @@ export default function AegisPage() {
           <div className="aegis-stack-grid aegis-arch-pair">
             <figure className="aegis-shot">
               <div className="aegis-frame">
-                <img src="/redesign/aegis/DataflowDiagram.png" alt="Data flow diagram" loading="lazy" />
+                <img src="/redesign/aegis/DataflowDiagram.webp" alt="Data flow diagram" loading="lazy" />
               </div>
               <figcaption>
                 <b>Data flow</b>
@@ -223,7 +223,7 @@ export default function AegisPage() {
             </figure>
             <figure className="aegis-shot">
               <div className="aegis-frame">
-                <img src="/redesign/aegis/ERD.png" alt="Entity-relationship diagram" loading="lazy" />
+                <img src="/redesign/aegis/ERD.webp" alt="Entity-relationship diagram" loading="lazy" />
               </div>
               <figcaption>
                 <b>Entity-relationship</b>
@@ -235,7 +235,7 @@ export default function AegisPage() {
           <div className="aegis-stack-grid aegis-arch-pair">
             <figure className="aegis-shot">
               <div className="aegis-frame">
-                <img src="/redesign/aegis/SwaggerAPIdocs1.png" alt="API documentation overview" loading="lazy" />
+                <img src="/redesign/aegis/SwaggerAPIdocs1.webp" alt="API documentation overview" loading="lazy" />
               </div>
               <figcaption>
                 <b>API surface (1/2)</b>
@@ -244,7 +244,7 @@ export default function AegisPage() {
             </figure>
             <figure className="aegis-shot">
               <div className="aegis-frame">
-                <img src="/redesign/aegis/SwaggerAPIdocs2.png" alt="API documentation detail" loading="lazy" />
+                <img src="/redesign/aegis/SwaggerAPIdocs2.webp" alt="API documentation detail" loading="lazy" />
               </div>
               <figcaption>
                 <b>API surface (2/2)</b>

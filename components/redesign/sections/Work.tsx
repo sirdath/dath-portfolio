@@ -26,7 +26,7 @@ export function Work() {
                   <span className="url">neurovault.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/screenshots/neurovault.png" alt="NeuroVault neural graph view" />
+                  <img src="/redesign/screenshots/neurovault.webp" alt="NeuroVault neural graph view" />
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ export function Work() {
                   <span className="url">aegis.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/aegis/Dashboard.png" alt="AEGIS dashboard" />
+                  <img src="/redesign/aegis/Dashboard.webp" alt="AEGIS dashboard" />
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@ export function Work() {
                   <span className="url">geospatialondon.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/screenshots/london-synergy.png" alt="London Synergy Index methodology" />
+                  <img src="/redesign/screenshots/london-synergy.webp" alt="London Synergy Index methodology" />
                 </div>
               </div>
             </div>
