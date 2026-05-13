@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { RedesignCursor } from "./RedesignCursor";
 
 /**
  * 2026 portfolio redesign — faithful port of the static index.html in
@@ -197,6 +198,7 @@ export function RedesignPage() {
 
   return (
     <>
+      <RedesignCursor />
       <div className="grid-bg" aria-hidden="true" />
 
       <nav className="nav">
