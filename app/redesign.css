@@ -12,6 +12,8 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{ background:var(--bg); color:var(--ink); min-height:100vh; }
+  /* Custom A cursor takes over on the redesign page; hide the system cursor. */
+  html, body, a, button, .dath-logo { cursor: none; }
   body{ font-family:var(--sans); font-size:15px; line-height:1.55;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
   a{ color:inherit; text-decoration:none; }
@@ -30,12 +32,37 @@
 
   .nav{
     position:fixed; top:0; left:0; right:0; z-index:90;
-    padding:18px var(--gut);
+    padding:14px var(--gut);
     display:flex; align-items:center; justify-content:space-between;
+    gap: 24px;
     font-family:var(--mono); font-size:11px; letter-spacing:.14em;
     text-transform:uppercase;
     background: linear-gradient(to bottom, rgba(14,17,23,.92), rgba(14,17,23,0));
     backdrop-filter: blur(6px);
+  }
+  .nav-left, .nav-right{
+    display:flex; align-items:center; gap:24px;
+    min-width: 0;
+  }
+  .nav-meta{
+    display:flex; align-items:center; gap:14px;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .nav-meta b{ color: var(--ink); font-weight: 500; }
+  .nav-meta .sep{
+    display:inline-block; width:1px; height:11px; background:var(--ink-4);
+  }
+  /* Compact status pill when used inside the navbar */
+  .status-pill.nav-status{
+    padding: 6px 14px 6px 12px;
+  }
+  .status-pill.nav-status .when{ font-size: 12px; }
+  @media (max-width:980px){
+    .nav-meta{ display:none; }
+  }
+  @media (max-width:760px){
+    .status-pill.nav-status .lbl{ display:none; }
   }
   .nav-brand{
     display: block; position: relative;
@@ -211,16 +238,21 @@
   .phase .tick.on{ background:var(--accent); }
   .phase .label{ color:var(--ink-2); min-width:160px; }
 
+  /* Minimalist scroll cue — just a thin animated drip line, no label. */
   .scroll-cue{
-    position:absolute; right:var(--gut); bottom:24px;
-    display:flex; flex-direction:column; align-items:flex-end; gap:8px;
-    font-family:var(--mono); font-size:10px; letter-spacing:.22em;
-    text-transform:uppercase; color:var(--ink-3); z-index:5;
+    position:absolute; left:50%; bottom:24px;
+    transform: translateX(-50%);
+    z-index:5;
     opacity: calc(1 - var(--p-fin));
     transition: opacity .4s;
     pointer-events:none;
   }
-  .scroll-cue .line{ width:1px; height:42px; background:var(--ink-4); position:relative; overflow:hidden; }
+  .scroll-cue .line{
+    display:block;
+    width:1px; height:32px;
+    background: rgba(230,237,243,.18);
+    position:relative; overflow:hidden;
+  }
   .scroll-cue .line::after{
     content:""; position:absolute; left:0; right:0; top:-50%; height:50%;
     background: linear-gradient(to bottom, transparent, var(--accent));
@@ -286,6 +318,9 @@
   .wrap{ max-width:1280px; margin:0 auto; padding: 0 var(--gut); position:relative; }
   .section{ position:relative; padding: 160px 0; border-top:1px solid var(--line); }
   .section:first-of-type{ border-top:none; padding-top: 200px; }
+  /* Skills section ends with a full-width marquee — no need for the full
+     160px bottom padding before the next section's top padding. */
+  .section#skills{ padding-bottom: 60px; }
 
   .eyebrow{
     display:flex; align-items:center; gap:14px;

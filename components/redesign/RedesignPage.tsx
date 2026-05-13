@@ -34,17 +34,8 @@ export function RedesignPage() {
     // Scroll-driven hero variables
     const hero = document.querySelector(".hero") as HTMLElement | null;
     const stage = document.getElementById("stage");
-    const phaseLabel = document.getElementById("phaseLabel");
-    const ticks = document.querySelectorAll(".phase .tick");
     const dExt = Array.from(document.querySelectorAll(".row-d .L.ext")) as HTMLElement[];
     const aExt = Array.from(document.querySelectorAll(".row-a .L.ext")) as HTMLElement[];
-    const PHASES = [
-      "01 · Brand",
-      "02 · Split",
-      "03 · Dimitris",
-      "04 · Athinaios",
-      "05 · Brand",
-    ];
 
     const clamp = (v: number, a: number, b: number) =>
       Math.max(a, Math.min(b, v));
@@ -111,10 +102,6 @@ export function RedesignPage() {
         Math.max(0, logoGlow).toFixed(3),
       );
 
-      const meta = document.getElementById("meta");
-      if (meta)
-        meta.style.setProperty("--meta-pe", pFin > 0.5 ? "auto" : "none");
-
       // Fly the logo to the navbar position past the hero
       const heroBottomY = hero.offsetTop + hero.offsetHeight - window.innerHeight;
       const flySpan = window.innerHeight * 0.7;
@@ -152,20 +139,6 @@ export function RedesignPage() {
       }
 
       if (flyP > 0.02) stage.style.setProperty("--p-logo", "1");
-
-      const metaOpacity = Math.max(
-        0,
-        Math.min(pFin, 1 - flyP * 1.4),
-      );
-      if (meta) meta.style.opacity = metaOpacity.toFixed(3);
-
-      let idx = 0;
-      if (p >= 0.05) idx = 1;
-      if (p >= 0.2) idx = 2;
-      if (p >= 0.42) idx = 3;
-      if (p >= 0.84) idx = 4;
-      ticks.forEach((t, i) => t.classList.toggle("on", i <= idx));
-      if (phaseLabel) phaseLabel.textContent = PHASES[idx];
     };
 
     window.addEventListener("scroll", update, { passive: true });
@@ -202,14 +175,28 @@ export function RedesignPage() {
       <div className="grid-bg" aria-hidden="true" />
 
       <nav className="nav">
-        <a className="nav-brand" id="navBrand" href="#top" aria-label="DATHPROJECT — back to top">
-          <img src="/redesign/dath-logo.png" alt="DATH brand mark" />
-        </a>
-        <div className="nav-links">
-          <a href="#work">Work</a>
-          <a href="#skills">Skills</a>
-          <a href="#trajectory">Trajectory</a>
-          <a href="#contact" className="cta">Get in touch</a>
+        <div className="nav-left">
+          <a className="nav-brand" id="navBrand" href="#top" aria-label="DATHPROJECT — back to top">
+            <img src="/redesign/dath-logo.png" alt="DATH brand mark" />
+          </a>
+          <div className="nav-meta">
+            <span>London · UK</span>
+            <span className="sep" />
+            <span id="utc">— : — UTC</span>
+          </div>
+        </div>
+        <div className="nav-right">
+          <div className="nav-links">
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="#trajectory">Trajectory</a>
+          </div>
+          <a className="status-pill nav-status" href="#contact">
+            <span className="dot" aria-hidden="true" />
+            <span className="lbl">Available from</span>
+            <span className="when">Aug 15, 2026</span>
+            <span className="arr" aria-hidden="true">→</span>
+          </a>
         </div>
       </nav>
 
@@ -260,39 +247,11 @@ export function RedesignPage() {
             <div className="key"><span>Operating System</span><b>Os</b></div>
           </aside>
 
-          <div className="phase">
-            <span className="ticks">
-              <span className="tick" />
-              <span className="tick" />
-              <span className="tick" />
-              <span className="tick" />
-              <span className="tick" />
-            </span>
-            <span className="label" id="phaseLabel">01 · Brand</span>
-          </div>
-
           <div className="scroll-cue">
-            <span>Scroll</span>
             <span className="line" />
           </div>
         </div>
       </section>
-
-      <div className="meta-strip" id="meta">
-        <div className="left-meta">
-          <span><b>51.5074°</b> N · <b>0.1278°</b> W</span>
-          <span className="sep" />
-          <span>London · UK</span>
-          <span className="sep" />
-          <span id="utc">— : — UTC</span>
-        </div>
-        <a className="status-pill" href="#contact">
-          <span className="dot" aria-hidden="true" />
-          <span className="lbl">Available from</span>
-          <span className="when">Spring 2026</span>
-          <span className="arr" aria-hidden="true">→</span>
-        </a>
-      </div>
 
       <main className="post">
         {/* ── 01 WORK ── */}
