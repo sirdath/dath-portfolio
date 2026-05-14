@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 /**
- * Clean red arrow cursor for the 2026 redesign. Inline SVG, tip at the
- * top-left of the viewBox so the SVG can be positioned with no offset
- * and the tip sits exactly on the pointer. Filled with #E63946 (brand
- * red, matches the "ai" highlight); thin dark stroke for visibility on
- * light surfaces.
+ * Clean accent arrow cursor for the 2026 redesign. Inline SVG, tip at
+ * the top-left of the viewBox so the SVG can be positioned with no
+ * offset and the tip sits exactly on the pointer. Filled with #2D8659
+ * (brand forest green, matches the section accents); thin dark stroke
+ * for visibility on light surfaces.
  */
 export function RedesignCursor() {
   const [hovering, setHovering] = useState(false);
@@ -94,7 +94,7 @@ export function RedesignCursor() {
         {/* Classic arrow: tip at (0,0), tail goes down and right */}
         <path
           d="M0 0 L0 17 L4.5 13.5 L7.5 20 L10 19 L7 12.5 L13 12.5 Z"
-          fill="#E63946"
+          fill="#2D8659"
           stroke="#0E1117"
           strokeWidth="1"
           strokeLinejoin="round"

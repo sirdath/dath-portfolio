@@ -22,7 +22,7 @@
   pointer-events: auto !important;
 }
 .nav-case .nav-brand-static:hover {
-  filter: drop-shadow(0 4px 18px rgba(230, 57, 70, .45));
+  filter: drop-shadow(0 4px 18px rgba(45, 134, 89, .45));
 }
 
 .aegis-back {
@@ -39,7 +39,7 @@
 .aegis-back:hover {
   border-color: var(--accent);
   color: var(--accent-2);
-  background: rgba(200, 29, 37, .06);
+  background: rgba(31, 111, 67, .06);
 }
 
 /* Hero */
@@ -200,7 +200,7 @@
   transition: border-color .35s, transform .35s cubic-bezier(.2, .8, .2, 1);
 }
 .aegis-shot:hover .aegis-frame {
-  border-color: rgba(230, 57, 70, .35);
+  border-color: rgba(45, 134, 89, .35);
   transform: translateY(-3px);
 }
 .aegis-frame img {

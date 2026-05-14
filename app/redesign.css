@@ -3,7 +3,7 @@
     --ink:#E6EDF3; --ink-2:#9AA3AE; --ink-3:#6C7480; --ink-4:#3D444F;
     --line:rgba(230,237,243,.07); --line-2:rgba(230,237,243,.14);
     --grid:rgba(230,237,243,.035);
-    --accent:#C81D25; --accent-2:#E63946; --gold:#F0B100;
+    --accent:#1F6F43; --accent-2:#2D8659; --gold:#F0B100;
     --display: var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
     --serif: var(--font-instrument-serif), "Instrument Serif", "Times New Roman", serif;
     --mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
@@ -75,7 +75,7 @@
     object-fit: contain; object-position: left center;
     pointer-events: none;
   }
-  .nav-brand:hover{ filter: drop-shadow(0 4px 18px rgba(230,57,70,.45)); }
+  .nav-brand:hover{ filter: drop-shadow(0 4px 18px rgba(45, 134, 89,.45)); }
   .nav-links{ display:flex; align-items:center; gap:28px; color:var(--ink-3); }
   .nav-links a{ position:relative; padding:6px 0; transition:color .25s; }
   .nav-links a::after{
@@ -90,7 +90,7 @@
     transition: border-color .25s, color .25s, background .25s;
   }
   .nav-links .cta::after{ display:none; }
-  .nav-links .cta:hover{ border-color:var(--accent); color:var(--accent); background:rgba(200,29,37,.06); }
+  .nav-links .cta:hover{ border-color:var(--accent); color:var(--accent); background:rgba(31, 111, 67,.06); }
   @media (max-width:760px){ .nav-links a:not(.cta){ display:none; } }
 
   /* hero */
@@ -120,25 +120,43 @@
     opacity: var(--p-logo, 0);
     pointer-events: var(--fly-p-gt-half, none);
     cursor: pointer;
-    filter: drop-shadow(0 10px 40px rgba(200,29,37,.22)) blur(var(--logo-blur, 0));
+    filter: drop-shadow(0 10px 40px rgba(31, 111, 67,.22)) blur(var(--logo-blur, 0));
     transition: filter .4s;
   }
   a.dath-logo:hover{
-    filter: drop-shadow(0 10px 40px rgba(230,57,70,.45)) blur(var(--logo-blur, 0));
+    filter: drop-shadow(0 10px 40px rgba(45, 134, 89,.45)) blur(var(--logo-blur, 0));
   }
   /* radial glow burst behind logo on reveal */
   .dath-logo::before{
     content:"";
     position:absolute; inset:-30% -10%;
     background: radial-gradient(ellipse at center,
-      rgba(200,29,37,.32) 0%,
-      rgba(200,29,37,.10) 35%,
+      rgba(31, 111, 67,.32) 0%,
+      rgba(31, 111, 67,.10) 35%,
       transparent 65%);
     opacity: var(--logo-glow, 0);
     z-index:-1; pointer-events:none;
     filter: blur(20px);
   }
   .dath-logo img{ width:100%; height:auto; display:block; }
+
+  /* Brand PNGs (dath-logo, brand-d, brand-ath) have the original red
+     baked into the pixels. Recolor them to the forest-green accent via
+     a CSS filter so the brand mark matches the new palette without
+     needing new artwork. Tuned visually to land near #2D8659. */
+  .dath-logo img,
+  .brand-glyph,
+  .nav-brand img{
+    filter:
+      brightness(0)
+      saturate(100%)
+      invert(38%)
+      sepia(35%)
+      saturate(945%)
+      hue-rotate(105deg)
+      brightness(92%)
+      contrast(88%);
+  }
   .dath-logo .caption{
     position:absolute; left:50%; top:calc(100% + 22px);
     transform: translateX(-50%);
@@ -169,7 +187,7 @@
     display:inline-block;
     width:auto;
     pointer-events:none;
-    filter: drop-shadow(0 8px 28px rgba(200,29,37,.22));
+    filter: drop-shadow(0 8px 28px rgba(31, 111, 67,.22));
     vertical-align: middle;
   }
   /* Brand glyphs: both at 1em (matched cap heights — same as composite).
@@ -280,13 +298,13 @@
     display:inline-flex; align-items:center; gap:12px;
     padding: 9px 16px 9px 14px;
     border:1px solid var(--line-2); border-radius:999px;
-    color:var(--ink-2); background: rgba(200,29,37,.04);
+    color:var(--ink-2); background: rgba(31, 111, 67,.04);
     text-decoration:none;
     transition: border-color .3s, background .3s, color .3s, transform .3s;
     pointer-events:auto;
   }
   .status-pill:hover{
-    border-color: var(--accent); background: rgba(200,29,37,.10);
+    border-color: var(--accent); background: rgba(31, 111, 67,.10);
     color: var(--ink); transform: translateY(-1px);
   }
   .status-pill .dot{
@@ -446,7 +464,7 @@
     transform: translateY(0);
     transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s;
   }
-  .work-row:hover .safari-frame{ transform: translateY(-4px); box-shadow: 0 36px 100px -20px rgba(200,29,37,.18), 0 1px 0 rgba(255,255,255,.06) inset; }
+  .work-row:hover .safari-frame{ transform: translateY(-4px); box-shadow: 0 36px 100px -20px rgba(31, 111, 67,.18), 0 1px 0 rgba(255,255,255,.06) inset; }
   .safari-frame .chrome{
     height: 34px; display:flex; align-items:center; gap:7px;
     padding: 0 14px;
@@ -690,7 +708,7 @@
     border-color: var(--accent);
     color: var(--accent-2);
     transform: translateY(-2px);
-    background: rgba(200,29,37,.05);
+    background: rgba(31, 111, 67,.05);
   }
   .link-btn.primary{
     background: var(--accent); color: var(--ink); border-color: var(--accent);
@@ -792,7 +810,7 @@
   .tl-row:hover .tl-dot{
     background: var(--accent);
     transform: scale(1.18);
-    box-shadow: 0 0 0 5px rgba(200,29,37,.14);
+    box-shadow: 0 0 0 5px rgba(31, 111, 67,.14);
   }
   .tl-row.edu:hover .tl-dot{
     background: var(--ink-3);
@@ -849,7 +867,7 @@
   }
   .cert:nth-child(odd){ border-right:1px solid var(--line); padding-left:0; padding-right:48px; }
   .cert:nth-child(even){ padding-right:0; padding-left:48px; }
-  .cert:hover{ background: rgba(200,29,37,.025); }
+  .cert:hover{ background: rgba(31, 111, 67,.025); }
   .cert-from{ font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); }
   .cert-title{ font-family:var(--display); font-size:22px; font-weight:600; letter-spacing:-.012em; color:var(--ink); margin-top:8px; line-height:1.18; }
   .cert-detail{ font-family:var(--mono); font-size:11.5px; color:var(--ink-2); letter-spacing:.02em; margin-top:12px; line-height:1.7; }
@@ -882,7 +900,7 @@
       var(--bg-1);
     border: 1px solid var(--line-2);
     box-shadow:
-      0 24px 60px -32px rgba(200, 29, 37, 0.18),
+      0 24px 60px -32px rgba(31, 111, 67, 0.18),
       inset 0 1px 0 rgba(230, 237, 243, 0.04);
   }
   /* Subtle red top accent bar (matches AEGIS card pattern) */
@@ -893,8 +911,8 @@
     height: 1px;
     background: linear-gradient(90deg,
       transparent,
-      rgba(230, 57, 70, 0.6) 30%,
-      rgba(230, 57, 70, 0.6) 70%,
+      rgba(45, 134, 89, 0.6) 30%,
+      rgba(45, 134, 89, 0.6) 70%,
       transparent);
   }
   .contact-portrait{

@@ -7,7 +7,7 @@ import { useEffect } from "react";
  *   1. Logo centered (brand mark)
  *   2. Brand glyphs split outward, name letters fade in
  *   3. DIMITRIS reveals
- *   4. ATHINAIOS reveals ("ai" stays red italic)
+ *   4. ATHINAIOS reveals ("ai" stays accent-green italic)
  *   5. Letters retract, logo flies + docks into the navbar
  *
  * All animation is driven by a dozen CSS variables on #stage which the
@@ -153,7 +153,7 @@ export function RedesignHero() {
           <span className="lbl">Dimitris Athinaios</span>
           <span>Data Scientist · AI Engineer</span>
           <p className="role">
-            Building <em>intelligent systems</em> — geospatial pipelines, multi-agent platforms, full-stack ML.
+            Hard problems, <em>end to end</em>. Geospatial ML · multi-agent AI · full-stack data systems — the kind of work I'm proud to put my name on.
           </p>
         </aside>
 
