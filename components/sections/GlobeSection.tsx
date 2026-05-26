@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { MapPin, ArrowUpRight, Globe2, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import type { GlobeMethods } from "react-globe.gl";
@@ -138,19 +138,160 @@ interface RingDatum {
   rgb: string;
 }
 
+// Subcomponent to handle intersection observation per card
+function ScrollProjectCard({
+  pin,
+  project,
+  selected,
+  setSelected,
+}: {
+  pin: ProjectPin;
+  project: any;
+  selected: string | null;
+  setSelected: (slug: string) => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  // Triggers when the card crosses the middle 40% of the viewport height
+  const isInView = useInView(ref, { margin: "-30% 0px -30% 0px" });
+
+  useEffect(() => {
+    if (isInView) {
+      setSelected(pin.slug);
+    }
+  }, [isInView, pin.slug, setSelected]);
+
+  const isActive = selected === pin.slug;
+
+  if (!project) return null;
+
+  return (
+    <div
+      ref={ref}
+      className={`border-beam relative rounded-2xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,0.4,0.25,1)] ${
+        isActive
+          ? "opacity-100 scale-100 filter-none is-active"
+          : "opacity-40 scale-[0.98] blur-[2px]"
+      }`}
+      style={{
+        background: `
+          radial-gradient(circle at top right, ${pin.color}18, transparent 50%),
+          linear-gradient(to bottom, rgba(15,15,20,0.85), rgba(9,9,11,0.95))
+        `,
+        boxShadow: isActive
+          ? `0 24px 60px -20px ${pin.color}25, inset 0 0 0 1px ${pin.color}30`
+          : `0 10px 30px -10px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05)`,
+        "--beam-color-from": pin.color,
+        "--beam-color-to": `${pin.color}40`,
+      } as React.CSSProperties}
+    >
+      {/* Top accent bar (optional now, but keeping for flair) */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500 z-0"
+        style={{
+          background: `linear-gradient(90deg, transparent, ${pin.color}, transparent)`,
+          opacity: isActive ? 1 : 0.2,
+        }}
+      />
+
+      <div className="p-7 sm:p-10 relative z-10">
+        {/* Header row */}
+        <div className="flex items-start justify-between mb-6">
+          <div
+            className="font-mono text-xs tracking-[0.3em] transition-colors duration-500"
+            style={{ color: isActive ? pin.color : "var(--color-text-dim)" }}
+          >
+            {pin.index} / 09
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
+              <MapPin
+                className="w-3 h-3 transition-colors duration-500"
+                style={{ color: isActive ? pin.color : "var(--color-text-dim)" }}
+              />
+              {pin.region}
+            </div>
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="font-[family-name:var(--font-playfair)] text-3xl sm:text-4xl leading-[1.1] mb-4 text-white">
+          {pin.name}
+        </h3>
+
+        {/* Coordinates monospace */}
+        <div className="font-mono text-[10px] sm:text-xs text-text-dim mb-6 tracking-wider">
+          LAT {pin.lat.toFixed(4)}° · LNG {pin.lng.toFixed(4)}°
+        </div>
+
+        {/* Subtitle/description */}
+        <p className="text-sm sm:text-base text-text-muted leading-relaxed mb-8 max-w-prose">
+          {project.subtitle}
+        </p>
+
+        {/* Tech pills */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {project.techStack.slice(0, 6).map((tech: string) => (
+            <span
+              key={tech}
+              className="inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-medium uppercase tracking-wider border bg-white/[0.03] text-text-muted transition-colors duration-500"
+              style={{ borderColor: isActive ? `${pin.color}30` : "rgba(255,255,255,0.05)" }}
+            >
+              {tech}
+            </span>
+          ))}
+          {project.techStack.length > 6 && (
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-medium text-text-dim border border-white/[0.06]">
+              +{project.techStack.length - 6}
+            </span>
+          )}
+        </div>
+
+        {/* CTA */}
+        <Link
+          href={`/projects/${pin.slug}`}
+          className={`group/cta inline-flex items-center justify-between w-full px-5 py-4 rounded-xl text-sm font-medium border transition-all duration-300 ${
+            isActive ? "bg-white/[0.03] hover:bg-white/[0.08]" : "bg-transparent hover:bg-white/[0.03]"
+          }`}
+          style={{
+            borderColor: isActive ? `${pin.color}50` : "rgba(255,255,255,0.1)",
+            color: isActive ? pin.color : "var(--color-text-dim)",
+          }}
+          // Prevent Next.js from throwing error on non-active clicks if needed
+          onClick={(e) => {
+            if (!isActive) {
+              e.preventDefault();
+              setSelected(pin.slug);
+              // Optionally scroll this element into center if clicked while inactive
+              ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          }}
+        >
+          <span>Open project</span>
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
+        </Link>
+      </div>
+
+      {/* Bottom accent corner */}
+      <div
+        className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(circle at bottom right, ${pin.color}20, transparent 70%)`,
+          opacity: isActive ? 1 : 0,
+        }}
+      />
+    </div>
+  );
+}
+
+
 export function GlobeSection() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [size, setSize] = useState({ width: 600, height: 600 });
 
   const selectedPin = useMemo(
     () => PROJECT_PINS.find((p) => p.slug === selected),
-    [selected]
-  );
-  const selectedProject = useMemo(
-    () => projects.find((p) => p.slug === selected),
     [selected]
   );
 
@@ -202,16 +343,6 @@ export function GlobeSection() {
       );
       // Pause rotation so it doesn't drift away from the selection
       if (controls) controls.autoRotate = false;
-
-      // Mobile: side panel sits below the globe canvas, so a tap on a
-      // beacon number gives no visible feedback. Smooth-scroll the
-      // panel into view on viewports below the lg breakpoint.
-      if (typeof window !== "undefined" && window.innerWidth < 1024) {
-        panelRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
     } else {
       // No selection: zoom back out + resume rotation
       globe.pointOfView({ altitude: 2.5 }, 1200);
@@ -266,10 +397,18 @@ export function GlobeSection() {
         <div class="beacon-label-region">${pin.region}</div>
       </div>
     `;
+    
+    // Instead of completely deselecting, let clicking it trigger selection
     wrap.onclick = (e) => {
       e.stopPropagation();
-      // Click selected pin again = deselect (return to overview)
-      setSelected((prev) => (prev === pin.slug ? null : pin.slug));
+      setSelected(pin.slug);
+      
+      // If the user clicks a pin on the globe, smooth scroll the window to the corresponding card on the right
+      const cards = document.querySelectorAll('.scroll-project-cards > div');
+      const targetIndex = PROJECT_PINS.findIndex(p => p.slug === pin.slug);
+      if (targetIndex >= 0 && cards[targetIndex]) {
+         cards[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     };
     return wrap;
   };
@@ -277,7 +416,7 @@ export function GlobeSection() {
   return (
     <section
       id="atlas"
-      className="relative w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 overflow-hidden bg-void"
+      className="relative w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 overflow-visible bg-void"
     >
       {/* Subtle radial backdrop glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,240,255,0.04)_0%,transparent_60%)] pointer-events-none" />
@@ -285,7 +424,7 @@ export function GlobeSection() {
       <div className="mx-auto max-w-7xl relative">
         {/* Header */}
         <motion.div
-          className="mb-16 text-center"
+          className="mb-16 text-center lg:text-left"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -299,22 +438,22 @@ export function GlobeSection() {
             Project <span className="italic">Atlas</span>
           </h2>
           <motion.div
-            className="mt-4 mx-auto h-px w-24 bg-gradient-to-r from-transparent via-accent-cyan/60 to-transparent"
+            className="mt-4 mx-auto lg:mx-0 h-px w-24 bg-gradient-to-r from-transparent via-accent-cyan/60 to-transparent lg:bg-gradient-to-r lg:from-accent-cyan/60 lg:to-transparent"
             initial={{ scaleX: 0, opacity: 0 }}
             whileInView={{ scaleX: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
-          <p className="mt-5 max-w-xl mx-auto text-text-muted text-sm sm:text-base">
-            Nine projects, nine beacons. Click a glowing marker to dive into the
-            work anchored at that location.
+          <p className="mt-5 max-w-xl mx-auto lg:mx-0 text-text-muted text-sm sm:text-base">
+            Scroll down to explore nine projects across five regions. The globe will automatically fly to the coordinates of the active work.
           </p>
         </motion.div>
 
-        {/* Globe + side info layout - symmetric */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-          {/* Globe canvas with elegant frame */}
-          <div className="relative">
+        {/* Scroll-driven Layout: sticky globe on left, scrolling cards on right */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start relative">
+          
+          {/* LEFT: Globe canvas (Sticky) */}
+          <div className="w-full lg:w-1/2 lg:sticky lg:top-24 z-10 transition-transform duration-500">
             <div
               ref={containerRef}
               className="relative h-[500px] sm:h-[640px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#0a1020] via-void to-[#0c0820]"
@@ -392,11 +531,11 @@ export function GlobeSection() {
               {/* Bottom-right hint */}
               <div className="absolute bottom-5 right-5 text-[10px] uppercase tracking-[0.22em] text-text-dim pointer-events-none flex items-center gap-2">
                 <Sparkles className="w-3 h-3" />
-                Drag to rotate · Click to fly
+                Drag to rotate
               </div>
 
               {/* Coordinate readout */}
-              <div className="absolute bottom-5 left-5 font-mono text-[10px] text-text-dim pointer-events-none">
+              <div className="absolute bottom-5 left-5 font-mono text-[10px] text-text-dim pointer-events-none transition-all duration-300">
                 {selectedPin
                   ? `${selectedPin.lat.toFixed(4)}°N · ${selectedPin.lng.toFixed(4)}°E`
                   : "0.0000°N · 0.0000°E"}
@@ -404,248 +543,17 @@ export function GlobeSection() {
             </div>
           </div>
 
-          {/* Side panel - DRAMATIC */}
-          <div
-            ref={panelRef}
-            className="space-y-3 lg:sticky lg:top-8 scroll-mt-20"
-          >
-            {/* Active project hero card */}
-            <AnimatePresence mode="wait">
-              {selectedPin && selectedProject ? (
-                <motion.div
-                  key={selectedPin.slug}
-                  initial={{ opacity: 0, x: 24, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, x: -24, filter: "blur(8px)" }}
-                  transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-                  className="relative rounded-2xl overflow-hidden"
-                  style={{
-                    background: `
-                      radial-gradient(circle at top right, ${selectedPin.color}18, transparent 50%),
-                      linear-gradient(to bottom, rgba(15,15,20,0.85), rgba(9,9,11,0.95))
-                    `,
-                    boxShadow: `0 24px 60px -20px ${selectedPin.color}25, inset 0 0 0 1px ${selectedPin.color}30`,
-                  }}
-                >
-                  {/* Top accent bar */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-px"
-                    style={{
-                      background: `linear-gradient(90deg, transparent, ${selectedPin.color}, transparent)`,
-                    }}
-                  />
-
-                  <div className="p-7">
-                    {/* Header row */}
-                    <div className="flex items-start justify-between mb-6">
-                      <div
-                        className="font-mono text-xs tracking-[0.3em]"
-                        style={{ color: selectedPin.color }}
-                      >
-                        {selectedPin.index} / 09
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-text-muted">
-                          <MapPin
-                            className="w-3 h-3"
-                            style={{ color: selectedPin.color }}
-                          />
-                          {selectedPin.region}
-                        </div>
-                        <button
-                          onClick={() => setSelected(null)}
-                          className="p-1 rounded-full border border-white/10 text-text-dim hover:text-white hover:border-white/30 transition-colors"
-                          aria-label="Clear selection"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="font-[family-name:var(--font-playfair)] text-3xl leading-[1.1] mb-4 text-white">
-                      {selectedPin.name}
-                    </h3>
-
-                    {/* Coordinates monospace */}
-                    <div className="font-mono text-[10px] text-text-dim mb-5 tracking-wider">
-                      LAT {selectedPin.lat.toFixed(4)}° · LNG {selectedPin.lng.toFixed(4)}°
-                    </div>
-
-                    {/* Subtitle/description */}
-                    <p className="text-sm text-text-muted leading-relaxed mb-6">
-                      {selectedProject.subtitle}
-                    </p>
-
-                    {/* Tech pills */}
-                    <div className="flex flex-wrap gap-1.5 mb-7">
-                      {selectedProject.techStack.slice(0, 6).map((tech) => (
-                        <span
-                          key={tech}
-                          className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider border bg-white/[0.03] text-text-muted"
-                          style={{ borderColor: `${selectedPin.color}25` }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {selectedProject.techStack.length > 6 && (
-                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-medium text-text-dim border border-white/[0.06]">
-                          +{selectedProject.techStack.length - 6}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* CTA */}
-                    <Link
-                      href={`/projects/${selectedPin.slug}`}
-                      className="group/cta inline-flex items-center justify-between w-full px-5 py-3.5 rounded-xl text-sm font-medium border bg-white/[0.03] hover:bg-white/[0.08] transition-all duration-300"
-                      style={{
-                        borderColor: `${selectedPin.color}50`,
-                        color: selectedPin.color,
-                      }}
-                    >
-                      <span>Open project</span>
-                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
-                    </Link>
-                  </div>
-
-                  {/* Bottom accent corner */}
-                  <div
-                    className="absolute bottom-0 right-0 w-24 h-24 pointer-events-none"
-                    style={{
-                      background: `radial-gradient(circle at bottom right, ${selectedPin.color}20, transparent 70%)`,
-                    }}
-                  />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="empty"
-                  initial={{ opacity: 0, x: 24 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -24 }}
-                  transition={{ duration: 0.4 }}
-                  className="rounded-2xl p-7 glass border-l-2 border-accent-cyan/30"
-                >
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-accent-cyan/80 mb-3">
-                    Select a beacon
-                  </div>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-white mb-3">
-                    Nine projects · five regions
-                  </h3>
-                  <p className="text-sm text-text-muted leading-relaxed">
-                    Each beacon marks where a project does its work in the
-                    world - from London hexagon analysis to Mediterranean
-                    shipping intelligence.
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Project list - premium navigation */}
-            <div className="rounded-2xl glass overflow-hidden">
-              <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.22em] text-text-dim font-mono">
-                  All beacons
-                </span>
-                <span className="text-[10px] text-text-dim">{PROJECT_PINS.length}</span>
-              </div>
-              <div className="p-2">
-                {PROJECT_PINS.map((pin) => {
-                  const isActive = selected === pin.slug;
-                  return (
-                    <button
-                      key={pin.slug}
-                      onClick={() => setSelected(pin.slug)}
-                      className={`group/row relative w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all duration-300 overflow-hidden ${
-                        isActive
-                          ? "bg-white/[0.06]"
-                          : "hover:bg-white/[0.03] hover:translate-x-0.5"
-                      }`}
-                    >
-                      {/* Active indicator bar */}
-                      {isActive && (
-                        <motion.span
-                          layoutId="active-row"
-                          className="absolute left-0 top-2 bottom-2 w-0.5 rounded-r"
-                          style={{ background: pin.color }}
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
-
-                      {/* Index */}
-                      <span
-                        className="font-mono text-[10px] w-6 shrink-0"
-                        style={{
-                          color: isActive ? pin.color : "var(--color-text-dim)",
-                        }}
-                      >
-                        {pin.index}
-                      </span>
-
-                      {/* Beacon dot - flex-centered to fix baseline alignment */}
-                      <span className="relative flex items-center justify-center w-3 h-3 shrink-0">
-                        <span
-                          className="absolute inset-0 rounded-full opacity-30 animate-ping"
-                          style={{ background: pin.color }}
-                        />
-                        <span
-                          className="relative block w-2 h-2 rounded-full"
-                          style={{
-                            background: pin.color,
-                            boxShadow: `0 0 6px ${pin.color}`,
-                          }}
-                        />
-                      </span>
-
-                      {/* Name */}
-                      <span
-                        className={`text-sm truncate transition-colors ${
-                          isActive ? "text-white" : "text-text-muted group-hover/row:text-white"
-                        }`}
-                      >
-                        {pin.name}
-                      </span>
-
-                      {/* Region (right side) */}
-                      <span className="ml-auto text-[10px] text-text-dim shrink-0 hidden sm:inline">
-                        {pin.region.split("·")[0].trim()}
-                      </span>
-
-                      {/* Hover arrow */}
-                      <ArrowUpRight
-                        className={`w-3.5 h-3.5 shrink-0 transition-all duration-300 ${
-                          isActive
-                            ? "opacity-100 translate-x-0"
-                            : "opacity-0 -translate-x-1 group-hover/row:opacity-60 group-hover/row:translate-x-0"
-                        }`}
-                        style={{ color: isActive ? pin.color : undefined }}
-                      />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Stats footer */}
-            <div className="grid grid-cols-3 gap-2">
-              {[
-                { label: "Projects", value: "9" },
-                { label: "Regions", value: "4" },
-                { label: "Years", value: "3" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="glass rounded-xl px-3 py-3 text-center"
-                >
-                  <div className="font-[family-name:var(--font-playfair)] text-2xl text-white leading-none">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1.5 text-[9px] uppercase tracking-[0.2em] text-text-dim">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* RIGHT: Scrollable project cards */}
+          <div className="w-full lg:w-1/2 flex flex-col gap-12 sm:gap-24 pb-[30vh] scroll-project-cards">
+            {PROJECT_PINS.map((pin) => (
+              <ScrollProjectCard
+                key={pin.slug}
+                pin={pin}
+                project={projects.find((p) => p.slug === pin.slug)}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            ))}
           </div>
         </div>
       </div>

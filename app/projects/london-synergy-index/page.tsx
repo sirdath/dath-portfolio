@@ -1,5 +1,5 @@
 import "../../redesign.css";
-import "../aegis/aegis.css";
+import "../case-study.css";
 import { CaseStudyShell } from "@/components/redesign/case-study/CaseStudyShell";
 
 export const metadata = {

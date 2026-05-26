@@ -27,9 +27,8 @@ export function CaseStudyNav({ extraActions }: { extraActions?: ReactNode }) {
         <Link href="/#work" className="aegis-back">
           ← Back to work
         </Link>
-        <Link href="/#contact" className="status-pill nav-status">
-          <span className="dot" aria-hidden="true" />
-          <span className="when">Aug 15, 2026</span>
+        <Link href="/#contact" className="aegis-back">
+          Contact
         </Link>
       </div>
     </nav>

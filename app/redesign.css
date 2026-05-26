@@ -1,9 +1,11 @@
   :root{
-    --bg:#0E1117; --bg-1:#11161F; --bg-2:#161B25;
+    --bg:#0B0F0E; --bg-1:#131918; --bg-2:#19211F;
     --ink:#E6EDF3; --ink-2:#9AA3AE; --ink-3:#6C7480; --ink-4:#3D444F;
     --line:rgba(230,237,243,.07); --line-2:rgba(230,237,243,.14);
     --grid:rgba(230,237,243,.035);
-    --accent:#1F6F43; --accent-2:#2D8659; --gold:#F0B100;
+    /* --hilite (cool ice) replaces the old gold accent — used for labels,
+       etymology keys, eyebrows, the scroll cue and nav-CTA hover. */
+    --accent:#1F6F43; --accent-2:#2D8659; --hilite:#DCEFE6;
     --display: var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
     --serif: var(--font-instrument-serif), "Instrument Serif", "Times New Roman", serif;
     --mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
@@ -13,22 +15,67 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{ background:var(--bg); color:var(--ink); min-height:100vh; }
   /* Custom A cursor takes over on the redesign page; hide the system cursor. */
-  html, body, a, button, .dath-logo { cursor: none; }
+  html.cursor-custom-ready, 
+  html.cursor-custom-ready body, 
+  html.cursor-custom-ready a, 
+  html.cursor-custom-ready button, 
+  html.cursor-custom-ready .dath-logo { cursor: none; }
   body{ font-family:var(--sans); font-size:15px; line-height:1.55;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
   a{ color:inherit; text-decoration:none; }
   ::selection{ background:var(--accent); color:var(--ink); }
 
-  .grid-bg{
-    position:fixed; inset:0; pointer-events:none; z-index:0;
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 100%);
-    opacity:0; transition:opacity 1.4s ease .6s;
+  /* Logo aura — WebGL shader gradient (paper-design/shaders) rendered
+     inside the hero .stage as a halo behind the DATH brand mark. The
+     radial mask fades the gradient at the edges so it reads as a soft
+     atmosphere around the logo rather than a wall of colour. Opacity
+     is tied to --p-logo and --fly-p so the aura fades out with the
+     logo as it docks into the navbar at scroll-end.
+
+     Variant chosen via ?g=1|2|3 in the URL (see LogoAura.tsx). */
+  .logo-aura{
+    position:absolute; inset:0;
+    z-index:0;
+    pointer-events:none;
+    /* Wider mask = atmosphere, not halo. Solid 28% center, soft falloff
+       all the way to the viewport edges (92%). Gives the gradient real
+       presence without bleeding past the hero. */
+    mask-image:         radial-gradient(ellipse 65% 70% at 50% 50%, #000 28%, transparent 92%);
+    -webkit-mask-image: radial-gradient(ellipse 65% 70% at 50% 50%, #000 28%, transparent 92%);
+    /* Constant through the entire hero scroll — the stage is sticky so
+       the aura stays pinned to the viewport while the user scrolls;
+       it only disappears once main.post (z-index:2) covers the hero. */
+    opacity: 1;
   }
-  .grid-bg.in{ opacity:1; }
+  .logo-aura > div,
+  .logo-aura canvas{
+    width:100% !important;
+    height:100% !important;
+  }
+  /* Static gold ring sits roughly at the logo silhouette so yellow-on-green
+     contrast is guaranteed even when the shader's color spots have drifted
+     away from centre. Screen blend-mode adds the gold over whatever colour
+     the shader is showing underneath at that pixel.
+     Interactive: --cursor-active (set on :root by LogoAura.tsx) flips
+     between 0 and 1 based on whether the user is moving their mouse;
+     here it drives a subtle brightness/scale bloom so the ring reacts
+     without any React re-renders or shader uniform changes. */
+  .logo-aura::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    background: radial-gradient(circle at 50% 50%,
+      transparent 8%,
+      rgba(255, 214, 71, 0.28) 18%,
+      rgba(234, 184, 56, 0.22) 30%,
+      rgba(234, 184, 56, 0.08) 45%,
+      transparent 60%);
+    mix-blend-mode: screen;
+    opacity: calc(0.78 + 0.32 * var(--cursor-active, 0));
+    transform: scale(calc(1 + 0.06 * var(--cursor-active, 0)));
+    transform-origin: center;
+    transition: opacity .7s ease-out, transform .7s ease-out;
+  }
 
   .nav{
     position:fixed; top:0; left:0; right:0; z-index:90;
@@ -90,7 +137,7 @@
     transition: border-color .25s, color .25s, background .25s;
   }
   .nav-links .cta::after{ display:none; }
-  .nav-links .cta:hover{ border-color:var(--accent); color:var(--accent); background:rgba(31, 111, 67,.06); }
+  .nav-links .cta:hover{ border-color:var(--hilite); color:var(--hilite); background:rgba(220,239,230,.06); }
   @media (max-width:760px){ .nav-links a:not(.cta){ display:none; } }
 
   /* hero */
@@ -120,23 +167,11 @@
     opacity: var(--p-logo, 0);
     pointer-events: var(--fly-p-gt-half, none);
     cursor: pointer;
-    filter: drop-shadow(0 10px 40px rgba(31, 111, 67,.22)) blur(var(--logo-blur, 0));
+    filter: blur(var(--logo-blur, 0));
     transition: filter .4s;
   }
   a.dath-logo:hover{
-    filter: drop-shadow(0 10px 40px rgba(45, 134, 89,.45)) blur(var(--logo-blur, 0));
-  }
-  /* radial glow burst behind logo on reveal */
-  .dath-logo::before{
-    content:"";
-    position:absolute; inset:-30% -10%;
-    background: radial-gradient(ellipse at center,
-      rgba(31, 111, 67,.32) 0%,
-      rgba(31, 111, 67,.10) 35%,
-      transparent 65%);
-    opacity: var(--logo-glow, 0);
-    z-index:-1; pointer-events:none;
-    filter: blur(20px);
+    filter: blur(var(--logo-blur, 0));
   }
   .dath-logo img{ width:100%; height:auto; display:block; }
 
@@ -157,15 +192,117 @@
       brightness(92%)
       contrast(88%);
   }
+  /* Caption "DIMITRIS · ATHINAIOS" — gradient text with a slow shimmer
+     sweep. Ice→white→ice across 250% width, animated 0%↔100%
+     so the highlight rolls back and forth every ~7s. Children inherit
+     transparent text-fill so the gradient flows through the <b> tags
+     too; the only differentiation is font-weight. */
   .dath-logo .caption{
     position:absolute; left:50%; top:calc(100% + 22px);
     transform: translateX(-50%);
-    font-family:var(--mono); font-size:10px; letter-spacing:.32em;
-    text-transform:uppercase; color:var(--ink-3);
+    font-family:var(--mono); font-size:11px; letter-spacing:.34em;
+    text-transform:uppercase;
     white-space:nowrap;
-    opacity: calc(var(--p-logo, 0) * .85 * (1 - var(--fly-p, 0)));
+    opacity: calc(var(--p-logo, 0) * .9 * (1 - var(--fly-p, 0)));
+    background: linear-gradient(
+      100deg,
+      rgba(154,163,174,.6) 0%,
+      rgba(220,239,230,.95) 28%,
+      rgba(235,245,240,1)  46%,
+      rgba(230,237,243,1)  54%,
+      rgba(220,239,230,.95) 72%,
+      rgba(154,163,174,.6) 100%
+    );
+    background-size: 250% 100%;
+    background-position: 0% 0%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: captionShimmer 7s ease-in-out infinite;
   }
-  .dath-logo .caption b{ color:var(--ink); font-weight:500; }
+  .dath-logo .caption b{ font-weight: 600; }
+  @keyframes orb-float-c {
+  0%   { transform: translate3d(0, 0, 0) scale(0.95); }
+  100% { transform: translate3d(12%, -6%, 0) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+}
+
+/* ============================================
+   BORDER BEAM — Rotating gradient beam around a border
+   ============================================ */
+.border-beam {
+  --beam-size: 1px;
+  --beam-duration: 8s;
+  --beam-color-from: #2D8659;
+  --beam-color-to: #DCEFE6;
+  --beam-radius: 16px;
+  position: relative;
+  isolation: isolate;
+}
+.border-beam::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--beam-size);
+  background: conic-gradient(
+    from var(--beam-angle, 0deg),
+    transparent 0deg,
+    transparent 270deg,
+    var(--beam-color-from) 300deg,
+    var(--beam-color-to) 340deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-beam-rotate var(--beam-duration) linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: 10;
+}
+.border-beam.is-active::before {
+  opacity: 1;
+}
+
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes border-beam-rotate {
+  to { --beam-angle: 360deg; }
+}
+
+/* ============================================
+   STREAMING TEXT CARET
+   ============================================ */
+.strm-caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: strm-blink 1s steps(2) infinite;
+}
+@keyframes strm-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+  @keyframes captionShimmer{
+    0%, 100% { background-position: 0% 0%; }
+    50%      { background-position: 100% 0%; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .dath-logo .caption{ animation: none; }
+  }
 
   /* horizontal name billboard */
   .hname{
@@ -187,7 +324,16 @@
     display:inline-block;
     width:auto;
     pointer-events:none;
-    filter: drop-shadow(0 8px 28px rgba(31, 111, 67,.22));
+    /* Recolor red PNG to forest green. No drop-shadow glow. */
+    filter:
+      brightness(0)
+      saturate(100%)
+      invert(38%)
+      sepia(35%)
+      saturate(945%)
+      hue-rotate(105deg)
+      brightness(92%)
+      contrast(88%);
     vertical-align: middle;
   }
   /* Brand glyphs: both at 1em (matched cap heights — same as composite).
@@ -228,7 +374,7 @@
   }
   .side.left{ left:var(--gut); top:50%; transform: translateY(calc(-50% + (1 - var(--p-fin)) * 16px)); max-width:240px; }
   .side.right{ right:var(--gut); top:50%; transform: translateY(calc(-50% + (1 - var(--p-fin)) * 16px)); max-width:240px; text-align:right; }
-  .side .lbl{ color:var(--ink-2); font-weight:500; display:block; margin-bottom:10px; }
+  .side .lbl{ color:var(--hilite); font-weight:500; display:block; margin-bottom:10px; }
   .side .role{
     font-family:var(--display); font-size:18px; font-weight:500;
     letter-spacing:-.005em; color:var(--ink-2); line-height:1.4;
@@ -240,7 +386,9 @@
     border-bottom:1px solid var(--line);
   }
   .side .key:last-child{ border-bottom:none; }
-  .side .key b{ color:var(--ink); font-weight:500; min-width:36px; text-align:left; }
+  /* Etymology marks (Ath, In, Os) wear gold — the brand's illuminated
+     accent. .ai-key stays green italic because it's the AI emphasis. */
+  .side .key b{ color:var(--hilite); font-weight:500; min-width:36px; text-align:left; }
   .side .key .ai-key{ color:var(--accent-2); font-style:italic; }
   .side .key span{ color:var(--ink-3); }
 
@@ -273,7 +421,7 @@
   }
   .scroll-cue .line::after{
     content:""; position:absolute; left:0; right:0; top:-50%; height:50%;
-    background: linear-gradient(to bottom, transparent, var(--accent));
+    background: linear-gradient(to bottom, transparent, var(--hilite));
     animation: drip 2.4s ease-in-out infinite;
   }
   @keyframes drip{ 0%{top:-50%} 100%{top:100%} }
@@ -359,17 +507,16 @@
     .nav-brand{ --nav-brand-op: 1 !important; pointer-events: auto !important; }
   }
 
-  /* On any mobile (<=639px), pin the home nav-brand visible from the
-     start. Desktop intentionally hides it until the hero logo "flies"
-     into the navbar — but on mobile that docking happens after a long
-     scroll, leaving the navbar visually broken until then. */
+  /* Mobile layout polish (<=639px). The nav-brand stays driven by the
+     scroll-handler's --nav-brand-op so it only appears AFTER the hero
+     logo flies in and docks — same behavior as desktop. We only shrink
+     its size here for when it does become visible (the 152px desktop
+     width would eat space the status pill needs at 390px). */
   @media (max-width: 639px){
     .nav-brand{
-      --nav-brand-op: 1 !important;
-      pointer-events: auto !important;
       /* The 152px desktop brand eats too much horizontal room on a
          390px phone — shrink it so the status pill on the right has
-         space to render without clipping. */
+         space to render without clipping once docking completes. */
       width: 100px; height: 24px;
     }
     /* Tighten the home status pill so "Aug 15, 2026" doesn't clip */
@@ -405,7 +552,7 @@
     text-transform:uppercase; color:var(--ink-3); margin-bottom:24px;
   }
   .eyebrow .bar{ display:inline-block; width:36px; height:1px; background:var(--ink-4); }
-  .eyebrow b{ color:var(--accent); font-weight:500; }
+  .eyebrow b{ color:var(--hilite); font-weight:500; }
 
   .section-title{
     font-family:var(--display); font-weight:700;
@@ -857,6 +1004,13 @@
     .tl-year{ font-size: 11px; padding-top:6px; }
     .tl-role{ font-size: 22px; }
   }
+  @media (max-width: 600px){
+    .tl-row{ display: flex; flex-direction: column; gap: 8px; padding: 24px 0; }
+    .tl-spine{ display: none; }
+    .tl-year{ text-align: left; padding-top: 0; font-size: 12px; color: var(--accent); }
+    .tl-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .tl-role{ font-size: 20px; }
+  }
 
   /* CERTIFICATIONS */
   .certs{ display:grid; grid-template-columns: repeat(2, 1fr); gap:0; border-top:1px solid var(--line-2); }
@@ -1034,4 +1188,112 @@
   @media (max-width: 760px){
     .contact-grid{ grid-template-columns: 1fr; gap:48px; }
     .contact{ padding-top: 140px; }
+  }
+
+  /* ── Lifetime-views widget ──────────────────────────────────────────
+     Deliberately quiet: a small mono readout pinned bottom-left. No
+     glass panel, no glow — just a faint dot and muted text that sits
+     in the corner like a console stat. */
+  .view-counter{
+    position: fixed;
+    left: 22px; bottom: 20px;
+    z-index: 80;
+    display: flex; align-items: baseline; gap: 8px;
+    font-family: var(--mono);
+    user-select: none;
+    opacity: 0;
+    animation: vc-in .8s ease 1.2s forwards;
+  }
+  @keyframes vc-in{ to{ opacity:.62; } }
+  .view-counter:hover{ opacity: 1; }
+
+  .view-counter .vc-dot{
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent-2);
+    align-self: center;
+    flex: none;
+    animation: vc-breathe 3.6s ease-in-out infinite;
+  }
+  @keyframes vc-breathe{ 0%,100%{ opacity:.45; } 50%{ opacity:.9; } }
+
+  .view-counter .vc-body{ display: flex; align-items: baseline; gap: 6px; }
+  .view-counter .vc-num{
+    font-size: 12px; font-weight: 500; letter-spacing: .02em;
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+    user-select: text;
+  }
+  .view-counter .vc-label{
+    font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+
+  @media (max-width: 760px){
+    .view-counter{ left: 14px; bottom: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .view-counter{ animation: none; opacity: .62; }
+    .view-counter .vc-dot{ animation: none; }
+  }
+
+  /* ── Cursor glow (GSAP-driven, CursorFX.tsx) ────────────────────────
+     Ambient emerald light that trails the pointer. Sits on top with a
+     screen blend at low opacity so it only *lightens* the scene near the
+     cursor — never strong enough to hurt text contrast. Position is set
+     by GSAP (x/y + xPercent/yPercent centering); CSS owns only the look. */
+  .cursor-glow{
+    position: fixed; top: 0; left: 0;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 70;                /* below nav (90) + custom cursor (9999) */
+    visibility: hidden; opacity: 0;
+    background: radial-gradient(circle at center,
+      rgba(45,134,89,.16) 0%,
+      rgba(45,134,89,.07) 34%,
+      rgba(45,134,89,0) 68%);
+    mix-blend-mode: screen;
+    will-change: transform;
+  }
+
+  /* ── Hero lamp backdrop ─────────────────────────────────────────────
+     Soft emerald glow descending from the top-centre of the sticky hero
+     stage, behind the brand mark. Pure CSS, non-interactive. Lives inside
+     .stage so it stays pinned in the viewport through the hero scroll. */
+  .hero-lamp{
+    position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: min(960px, 92vw); height: 62vh;
+    z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 46% 64% at 50% 0%,
+        rgba(45,134,89,.20) 0%, rgba(45,134,89,.08) 38%, transparent 72%),
+      radial-gradient(ellipse 70% 40% at 50% 0%,
+        rgba(220,239,230,.06) 0%, transparent 70%);
+    filter: blur(6px);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .hero-lamp{ animation: lamp-breathe 9s ease-in-out infinite; }
+  }
+  @keyframes lamp-breathe{
+    0%,100%{ opacity: .85; }
+    50%{ opacity: 1; }
+  }
+
+  /* ── Tracing beam on the Trajectory timeline (GSAP ScrollTrigger) ───
+     Bright emerald→ice line in the spine column (centre x ≈ 214px:
+     170px year col + 32px gap + 12px half of the 24px spine col). GSAP
+     scrubs scaleY 0→1; transform-origin top so it draws downward. The
+     faint per-row .tl-spine lines remain as the static track beneath. */
+  .timeline .tl-beam{
+    position: absolute; top: 0; left: 214px;
+    width: 2px; height: 100%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top center;
+    background: linear-gradient(to bottom, var(--accent-2), var(--hilite));
+    box-shadow: 0 0 12px rgba(45,134,89,.45);
+    z-index: 1; pointer-events: none;
+  }
+  @media (max-width: 760px){
+    .timeline .tl-beam{ display: none; }
   }

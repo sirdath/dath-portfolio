@@ -1,3 +1,5 @@
+import { TimelineBeam } from "../TimelineBeam";
+
 interface Entry {
   year: string;
   role: string;
@@ -57,6 +59,7 @@ export function Trajectory() {
         </div>
 
         <div className="timeline">
+          <TimelineBeam />
           {ENTRIES.map((e, i) => (
             <article key={i} className={`tl-row reveal${e.edu ? " edu" : ""}`}>
               <span className="tl-year">{e.year}</span>

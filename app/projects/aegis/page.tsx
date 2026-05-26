@@ -1,7 +1,8 @@
 import Link from "next/link";
 import "../../redesign.css";
-import "./aegis.css";
+import "../case-study.css";
 import { RedesignCursor } from "@/components/redesign/RedesignCursor";
+import { CaseStudyShell } from "@/components/redesign/case-study/CaseStudyShell";
 
 export const metadata = {
   title: "AEGIS — Maritime Intelligence Platform · Dimitris Athinaios",
@@ -62,69 +63,20 @@ const analyticsShots = [
 
 export default function AegisPage() {
   return (
-    <div className="aegis-page">
-      <RedesignCursor />
-      <nav className="nav nav-case">
-        <div className="nav-left">
-          <Link
-            className="nav-brand nav-brand-static"
-            href="/"
-            aria-label="Back to dathproject.com"
-          >
-            <img src="/redesign/dath-logo.png" alt="DATH brand mark" />
-          </Link>
-          <span className="nav-loc">London · UK</span>
-        </div>
-        <div className="nav-right">
-          <Link href="/#work" className="aegis-back">
-            ← Back to work
-          </Link>
-          <Link href="/#contact" className="status-pill nav-status">
-            <span className="dot" aria-hidden="true" />
-            <span className="when">Aug 15, 2026</span>
-          </Link>
-        </div>
-      </nav>
-
-      <article>
-        {/* ── Hero ── */}
-        <header className="aegis-hero wrap">
-          <div className="reveal in">
-            <span className="eyebrow">
-              <span className="bar" />
-              <b>Case study</b>
-              <span>AI · Maritime intelligence</span>
-            </span>
-            <h1 className="section-title aegis-title">
-              AE<em>GIS</em>.
-            </h1>
-            <p className="aegis-tagline">
-              A multi-agent platform for monitoring maritime shipping risk across <em>chokepoints</em>, supply chains, and tariff regimes — built on top of seven live data sources, four database technologies, and a CrewAI orchestrator with W3C PROV lineage.
-            </p>
-          </div>
-
-          <div className="aegis-stats">
-            <div><b>7+</b><span>Data sources</span></div>
-            <div><b>4</b><span>Databases</span></div>
-            <div><b>3</b><span>LLM agents</span></div>
-            <div><b>W3C PROV</b><span>Lineage layer</span></div>
-          </div>
-
-          <div className="aegis-stack">
-            <span className="stack-label">/ Stack</span>
-            <div className="stack-chips">
-              <span className="chip">FastAPI</span>
-              <span className="chip">React 19</span>
-              <span className="chip">CrewAI</span>
-              <span className="chip">PostGIS</span>
-              <span className="chip">Neo4j</span>
-              <span className="chip">ChromaDB</span>
-              <span className="chip">Redis</span>
-              <span className="chip">deck.gl</span>
-              <span className="chip">Docker</span>
-            </div>
-          </div>
-        </header>
+    <CaseStudyShell
+      title="AEGIS"
+      tagline="A multi-agent platform for monitoring maritime shipping risk across chokepoints, supply chains, and tariff regimes — built on top of seven live data sources, four database technologies, and a CrewAI orchestrator with W3C PROV lineage."
+      categoryText="AI · Maritime intelligence"
+      stats={[
+        { value: "7+", label: "Data sources" },
+        { value: "4", label: "Databases" },
+        { value: "3", label: "LLM agents" },
+        { value: "W3C PROV", label: "Lineage layer" }
+      ]}
+      techStack={[
+        "FastAPI", "React 19", "CrewAI", "PostGIS", "Neo4j", "ChromaDB", "Redis", "deck.gl", "Docker"
+      ]}
+    >
 
         {/* ── Product views ── */}
         <section className="aegis-section wrap">
@@ -256,12 +208,6 @@ export default function AegisPage() {
           </div>
         </section>
 
-        {/* ── Footer ── */}
-        <footer className="aegis-foot wrap">
-          <Link href="/" className="aegis-home">← dathproject.com</Link>
-          <span>© Dimitris Athinaios · AEGIS case study</span>
-        </footer>
-      </article>
-    </div>
+    </CaseStudyShell>
   );
 }

@@ -15,14 +15,11 @@ export function RedesignNav() {
       </div>
       <div className="nav-right">
         <div className="nav-links">
-          <a href="#work">Work</a>
-          <a href="#skills">Skills</a>
-          <a href="#trajectory">Trajectory</a>
+          <a href="#work" data-magnetic="0.5">Work</a>
+          <a href="#skills" data-magnetic="0.5">Skills</a>
+          <a href="#trajectory" data-magnetic="0.5">Trajectory</a>
+          <a href="#contact" data-magnetic="0.5">Contact</a>
         </div>
-        <a className="status-pill nav-status" href="#contact">
-          <span className="dot" aria-hidden="true" />
-          <span className="when">Aug 15, 2026</span>
-        </a>
       </div>
     </nav>
   );

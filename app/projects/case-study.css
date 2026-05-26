@@ -529,6 +529,74 @@
   color: var(--ink-2);
   max-width: 66ch;
 }
+@media (max-width: 639px) {
+  .nv-pipeline .nv-step { font-size: 16px; margin-right: 12px; }
+  .nv-pipeline b { font-size: 16px; }
+}
+
+/* ============================================
+   TERMINAL BLOCK — Warp-style command + output
+   ============================================ */
+.tblk {
+  --t-bg: rgba(255, 255, 255, 0.02);
+  --t-border: rgba(255, 255, 255, 0.08);
+  --t-fg: #e4e7eb;
+  --t-muted: rgba(228, 231, 235, 0.5);
+  --t-accent: #2D8659;
+  background: var(--t-bg);
+  border: 1px solid var(--t-border);
+  border-left: 3px solid var(--t-accent);
+  border-radius: 8px;
+  color: var(--t-fg);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  overflow: hidden;
+  margin: 32px 0 0 0;
+}
+.tblk-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.55rem;
+  border-bottom: 1px solid var(--t-border);
+  background: rgba(0, 0, 0, 0.15);
+  user-select: none;
+  cursor: pointer;
+}
+.tblk-head:hover { background: rgba(0, 0, 0, 0.25); }
+.tblk-status {
+  width: 16px; height: 16px;
+  display: grid; place-items: center;
+  border-radius: 4px; font-size: 11px; font-weight: 700; flex-shrink: 0;
+  color: var(--t-accent); background: rgba(45, 134, 89, 0.15);
+}
+.tblk-cmd {
+  flex: 1; font-family: inherit; font-size: 13px; font-weight: 500;
+  color: var(--t-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tblk-cmd::before { content: '$ '; color: var(--t-muted); font-weight: 400; }
+.tblk-meta { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 11px; color: var(--t-muted); }
+.tblk-cwd { font-family: inherit; }
+.tblk-time { font-variant-numeric: tabular-nums; }
+.tblk-exit { padding: 0 0.35rem; background: rgba(255, 255, 255, 0.06); border-radius: 4px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tblk-actions { display: inline-flex; align-items: center; gap: 0.1rem; flex-shrink: 0; }
+.tblk-collapse { 
+  background: transparent; border: 0; color: var(--t-muted);
+  cursor: pointer; font-size: 14px; transition: transform 0.18s ease; 
+}
+.tblk.is-collapsed .tblk-collapse { transform: rotate(-90deg); }
+.tblk.is-collapsed .tblk-output { display: none; }
+.tblk-output {
+  margin: 0; padding: 1rem; font-family: inherit; font-size: 13px;
+  color: var(--t-fg); white-space: pre-wrap; word-break: break-word;
+  background: transparent; max-height: 480px; overflow-y: auto; line-height: 1.5;
+}
+.tblk-success { --t-accent: #34d399; }
+.tblk-success .tblk-status { color: #34d399; background: rgba(52, 211, 153, 0.15); }
+.tblk-success .tblk-exit { background: rgba(52, 211, 153, 0.18); color: #6ee7b7; }
+.tblk-card { background: rgba(0, 0, 0, 0.25); }
+.tblk-output .ansi-green { color: #34d399; }
+.tblk-output .ansi-dim { opacity: 0.6; }
 
 /* Final CTA section (no bottom border) */
 .nv-final {
@@ -662,4 +730,25 @@
     justify-content: flex-start;
     flex-wrap: wrap;
   }
+}
+
+
+/* --- From neurovault.css --- */
+/* NeuroVault-specific overrides. Most of what used to live here got
+   promoted to app/projects/aegis/aegis.css (shared case-study
+   primitives). This file now only carries genuinely page-specific
+   tweaks. */
+
+/* The stats hero on NeuroVault has 6 metrics — needs a 3-column grid
+   instead of the default 4 from aegis.css. */
+.nv-stats {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+@media (max-width: 760px) {
+  .nv-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+.nv-stats b {
+  font-size: clamp(22px, 2.4vw, 32px) !important;
 }

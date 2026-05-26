@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { RedesignCursor } from "./RedesignCursor";
+import { CursorFX } from "./CursorFX";
 import { RedesignNav } from "./RedesignNav";
 import { RedesignHero } from "./RedesignHero";
 import { Work } from "./sections/Work";
@@ -9,6 +10,7 @@ import { Skills } from "./sections/Skills";
 import { Trajectory } from "./sections/Trajectory";
 import { Certs } from "./sections/Certs";
 import { Contact } from "./sections/Contact";
+import { ViewCounter } from "./ViewCounter";
 
 /**
  * Composer for the redesigned home page. Owns two cross-cutting client
@@ -39,8 +41,18 @@ export function RedesignPage() {
 
   return (
     <>
+      {/* Vercel-style floating gradient orbs background */}
+      <div className="orbsbg orbsbg-fixed">
+        <span className="orb orb-1"></span>
+        <span className="orb orb-2"></span>
+        <span className="orb orb-3"></span>
+        <span className="orb orb-4"></span>
+        <span className="orb orb-5"></span>
+      </div>
+
       <RedesignCursor />
-      <div className="grid-bg" aria-hidden="true" />
+      <CursorFX />
+      <ViewCounter />
 
       <RedesignNav />
       <RedesignHero />

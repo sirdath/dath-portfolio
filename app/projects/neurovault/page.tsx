@@ -1,8 +1,8 @@
 import Link from "next/link";
 import "../../redesign.css";
-import "../aegis/aegis.css";
-import "./neurovault.css";
+import "../case-study.css";
 import { RedesignCursor } from "@/components/redesign/RedesignCursor";
+import { CaseStudyShell } from "@/components/redesign/case-study/CaseStudyShell";
 
 export const metadata = {
   title: "NeuroVault — Local-first memory for AI · Dimitris Athinaios",
@@ -10,100 +10,54 @@ export const metadata = {
     "A Tauri desktop app that gives Claude (and any MCP-compatible agent) persistent memory across conversations. Markdown vault + hybrid retrieval, 9.3 MB installer, runs entirely on your machine.",
 };
 
+const extraNavActions = (
+  <a
+    href="https://neurovault.dathproject.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="aegis-back nv-live"
+  >
+    Live site ↗
+  </a>
+);
+
 export default function NeuroVaultPage() {
   return (
-    <div className="aegis-page">
-      <RedesignCursor />
-      <nav className="nav nav-case">
-        <div className="nav-left">
-          <Link
-            className="nav-brand nav-brand-static"
-            href="/"
-            aria-label="Back to dathproject.com"
-          >
-            <img src="/redesign/dath-logo.png" alt="DATH brand mark" />
-          </Link>
-          <span className="nav-loc">London · UK</span>
-        </div>
-        <div className="nav-right">
+    <CaseStudyShell
+      title="NeuroVault"
+      tagline="A persistent, local-first memory layer for AI agents. Sits between your local markdown vault and any MCP-compatible agent (Claude Code, Claude Desktop, Cursor, Codex) — giving them a callable recall() + remember() surface that persists forever, with no cloud, no subscription, no Python sidecar."
+      categoryText="AI · Local-first memory"
+      extraNavActions={extraNavActions}
+      stats={[
+        { value: "9.3 MB", label: "Installer" },
+        { value: "~35 MB", label: "Idle RAM" },
+        { value: "<500ms", label: "Cold start" },
+        { value: "86.67%", label: "hit@1 default" },
+        { value: "93.33%", label: "hit@1 + reranker" },
+        { value: "20-50ms", label: "Recall latency" }
+      ]}
+      techStack={[
+        "Tauri 2", "Rust", "React 19", "TypeScript", "SQLite + sqlite-vec", "fastembed (BGE-small)", "Axum HTTP", "MCP", "FastMCP proxy"
+      ]}
+    >
+        <div className="nv-cta-row" style={{ marginTop: '2rem' }}>
           <a
             href="https://neurovault.dathproject.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="aegis-back nv-live"
+            className="nv-cta-primary"
           >
-            Live site ↗
+            Open neurovault.dathproject.com ↗
           </a>
-          <Link href="/#work" className="aegis-back">
-            ← Back to work
-          </Link>
-          <Link href="/#contact" className="status-pill nav-status">
-            <span className="dot" aria-hidden="true" />
-            <span className="when">Aug 15, 2026</span>
-          </Link>
+          <a
+            href="https://github.com/sirdath/NeuroVault"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nv-cta-secondary"
+          >
+            View source on GitHub →
+          </a>
         </div>
-      </nav>
-
-      <article>
-        {/* ── Hero ── */}
-        <header className="aegis-hero wrap">
-          <div>
-            <span className="eyebrow">
-              <span className="bar" />
-              <b>Case study</b>
-              <span>AI · Local-first memory</span>
-            </span>
-            <h1 className="section-title aegis-title">
-              Neuro<em>Vault</em>.
-            </h1>
-            <p className="aegis-tagline">
-              A <em>persistent, local-first</em> memory layer for AI agents. Sits between your local markdown vault and any MCP-compatible agent (Claude Code, Claude Desktop, Cursor, Codex) — giving them a callable <code className="nv-code">recall()</code> + <code className="nv-code">remember()</code> surface that persists forever, with no cloud, no subscription, no Python sidecar.
-            </p>
-          </div>
-
-          <div className="aegis-stats nv-stats">
-            <div><b>9.3 MB</b><span>Installer</span></div>
-            <div><b>~35 MB</b><span>Idle RAM</span></div>
-            <div><b>&lt;500ms</b><span>Cold start</span></div>
-            <div><b>86.67%</b><span>hit@1 default</span></div>
-            <div><b>93.33%</b><span>hit@1 + reranker</span></div>
-            <div><b>20-50ms</b><span>Recall latency</span></div>
-          </div>
-
-          <div className="aegis-stack">
-            <span className="stack-label">/ Stack</span>
-            <div className="stack-chips">
-              <span className="chip">Tauri 2</span>
-              <span className="chip">Rust</span>
-              <span className="chip">React 19</span>
-              <span className="chip">TypeScript</span>
-              <span className="chip">SQLite + sqlite-vec</span>
-              <span className="chip">fastembed (BGE-small)</span>
-              <span className="chip">Axum HTTP</span>
-              <span className="chip">MCP</span>
-              <span className="chip">FastMCP proxy</span>
-            </div>
-          </div>
-
-          <div className="nv-cta-row">
-            <a
-              href="https://neurovault.dathproject.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nv-cta-primary"
-            >
-              Open neurovault.dathproject.com ↗
-            </a>
-            <a
-              href="https://github.com/sirdath/NeuroVault"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nv-cta-secondary"
-            >
-              View source on GitHub →
-            </a>
-          </div>
-        </header>
 
         {/* ── What it is / isn't ── */}
         <section className="aegis-section wrap">
@@ -315,11 +269,6 @@ export default function NeuroVaultPage() {
           </div>
         </section>
 
-        <footer className="aegis-foot wrap">
-          <Link href="/" className="aegis-home">← dathproject.com</Link>
-          <span>© Dimitris Athinaios · NeuroVault case study</span>
-        </footer>
-      </article>
-    </div>
+    </CaseStudyShell>
   );
 }
