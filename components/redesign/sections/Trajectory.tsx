@@ -6,6 +6,7 @@ interface Entry {
   kind: string;
   edu?: boolean;
   org: string;
+  grade?: string;
   note: string;
   tags: string[];
 }
@@ -25,7 +26,8 @@ const ENTRIES: Entry[] = [
     kind: "Edu · MSc",
     edu: true,
     org: "UCL School of Management · London",
-    note: "Current grade: 75% — distinction track. Modules in Data Engineering (MLOps, Docker, AWS, SQL), Operational Analytics, Machine Learning, Predictive Analytics.",
+    grade: "Current grade: 75% · Distinction track",
+    note: "Modules in Data Engineering (MLOps, Docker, AWS, SQL), Operational Analytics, Machine Learning, Predictive Analytics.",
     tags: ["MLOps", "SQL", "Predictive Analytics"],
   },
   {
@@ -42,7 +44,8 @@ const ENTRIES: Entry[] = [
     kind: "Edu · BSc",
     edu: true,
     org: "Henley Business School · University of Reading",
-    note: "First Class Honours. Modules in Data Analytics, Machine Learning, Information Systems. Co-founded the Data Analytics Society (200+ members, 2023–2025).",
+    grade: "First Class Honours",
+    note: "Modules in Data Analytics, Machine Learning, Information Systems. Co-founded the Data Analytics Society (200+ members, 2023–2025).",
     tags: ["First Class", "Co-founder", "Data Society"],
   },
 ];
@@ -70,6 +73,7 @@ export function Trajectory() {
                   <span className={`tl-kind${e.edu ? " edu" : ""}`}>{e.kind}</span>
                 </div>
                 <span className="tl-org">{e.org}</span>
+                {e.grade && <span className="tl-grade">{e.grade}</span>}
                 <p className="tl-note">{e.note}</p>
                 <div className="tl-tags-inline">
                   {e.tags.map((t) => <span key={t}>{t}</span>)}

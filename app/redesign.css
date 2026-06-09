@@ -984,6 +984,15 @@
     font-family:var(--display); font-size: 15px;
     color: var(--ink-2); font-style: italic;
   }
+  .tl-grade{
+    align-self: flex-start;
+    display: inline-block; margin-top: 12px;
+    font-family: var(--mono); font-size: 12px; font-weight: 700;
+    letter-spacing: .05em; text-transform: uppercase;
+    color: var(--ink); background: var(--accent);
+    padding: 6px 12px; border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(220,239,230,.12), 0 6px 18px -8px var(--accent);
+  }
   .tl-note{
     font-family:var(--display); font-size: 14px;
     color: var(--ink-2); line-height: 1.55;

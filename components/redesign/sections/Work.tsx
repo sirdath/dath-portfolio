@@ -153,7 +153,7 @@ export function Work() {
             </div>
           </a>
           <a className="grid-card reveal" href="/projects/dataportfolio">
-            <div className="gc-media"><img src="/images/projects/heroes/dataportfolio-hero.svg" alt="Dataportfolio.co.uk" /></div>
+            <div className="gc-media"><img src="/redesign/dataportfolio/hero.webp" alt="Dataportfolio.co.uk — Your CV is a dataset" /></div>
             <div className="gc-body">
               <span className="gc-num">/ 07 · Full-stack</span>
               <h4 className="gc-title">Dataportfolio.co.uk</h4>
