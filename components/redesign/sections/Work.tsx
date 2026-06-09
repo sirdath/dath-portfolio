@@ -135,7 +135,7 @@ export function Work() {
 
         <div className="grid-rest grid-rest-2x2">
           <a className="grid-card reveal" href="/projects/housing-crime-analysis">
-            <div className="gc-media"><img src="/images/projects/heroes/housing-crime-hero.svg" alt="London Housing & Crime" /></div>
+            <div className="gc-media"><img src="/redesign/housing-crime/hero.webp" alt="London Housing & Crime — opportunity index map" /></div>
             <div className="gc-body">
               <span className="gc-num">/ 05 · Geospatial</span>
               <h4 className="gc-title">London Housing & Crime</h4>
@@ -162,7 +162,7 @@ export function Work() {
             </div>
           </a>
           <a className="grid-card reveal" href="/projects/data-engineering-pipeline">
-            <div className="gc-media"><img src="/images/projects/heroes/data-engineering-hero.svg" alt="Data Engineering Pipeline" /></div>
+            <div className="gc-media"><img src="/redesign/data-engineering/hero.webp" alt="Data Engineering Pipeline — star schema lakehouse" /></div>
             <div className="gc-body">
               <span className="gc-num">/ 08 · Data Engineering</span>
               <h4 className="gc-title">Data Engineering Pipeline</h4>
