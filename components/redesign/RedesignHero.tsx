@@ -26,10 +26,21 @@ export function RedesignHero() {
   const [isTyping, setIsTyping] = useState(true);
 
   const extRefs = useRef<{ dExt: HTMLElement[]; aExt: HTMLElement[] }>({ dExt: [], aExt: [] });
+  const heroMetricsRef = useRef({ offsetTop: 0, offsetHeight: 0 });
 
   useEffect(() => {
+    const updateMetrics = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      if (heroRef.current) {
+        heroMetricsRef.current = {
+          offsetTop: heroRef.current.offsetTop,
+          offsetHeight: heroRef.current.offsetHeight,
+        };
+      }
+    };
+    
     // Initial size and grid bg setup
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    updateMetrics();
     requestAnimationFrame(() => {
       document.querySelector(".grid-bg")?.classList.add("in");
     });
@@ -51,7 +62,7 @@ export function RedesignHero() {
     extRefs.current.aExt = Array.from(document.querySelectorAll(".row-a .L.ext")) as HTMLElement[];
 
     const onResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      updateMetrics();
     };
     window.addEventListener("resize", onResize, { passive: true });
     return () => {
@@ -73,9 +84,11 @@ export function RedesignHero() {
     if (!hero || !stage || windowSize.height === 0) return;
 
     const { dExt, aExt } = extRefs.current;
+    const heroOffsetTop = heroMetricsRef.current.offsetTop;
+    const heroOffsetHeight = heroMetricsRef.current.offsetHeight;
 
-    const rectTop = hero.offsetTop - latestScrollY;
-    const total = hero.offsetHeight - windowSize.height;
+    const rectTop = heroOffsetTop - latestScrollY;
+    const total = heroOffsetHeight - windowSize.height;
     const scrolled = -rectTop;
     const p = clamp(scrolled / total, 0, 1);
 
@@ -118,7 +131,7 @@ export function RedesignHero() {
     stage.style.setProperty("--logo-glow", Math.max(0, logoGlow).toFixed(3));
 
     // Fly past the hero — DATH logo → small mark at top-left of navbar
-    const heroBottomY = hero.offsetTop + hero.offsetHeight - windowSize.height;
+    const heroBottomY = heroOffsetTop + heroOffsetHeight - windowSize.height;
     const flySpan = windowSize.height * 0.7;
     const flyP = clamp((latestScrollY - heroBottomY) / flySpan, 0, 1);
     

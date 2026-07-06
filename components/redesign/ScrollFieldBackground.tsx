@@ -346,7 +346,6 @@ export function ScrollFieldBackground() {
     kick();
 
     const onScroll = () => {
-      calcMax();
       markStatic();
       kick();
     };

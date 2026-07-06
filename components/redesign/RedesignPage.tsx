@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Lenis from "lenis";
 import { ScrollFieldBackground } from "./ScrollFieldBackground";
 import { CursorFX } from "./CursorFX";
 import { RedesignNav } from "./RedesignNav";
@@ -35,7 +36,18 @@ export function RedesignPage() {
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
     document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
+
+    const lenis = new Lenis();
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      obs.disconnect();
+      lenis.destroy();
+    };
   }, []);
 
   return (

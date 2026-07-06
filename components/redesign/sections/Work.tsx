@@ -1,3 +1,10 @@
+import { projects } from '../../../data/projects';
+import { ImageCarousel } from '../ImageCarousel';
+
+function getGallery(slug: string) {
+  return projects.find((p) => p.slug === slug)?.galleryUrls || [];
+}
+
 /**
  * Section 01 — Selected work. 3 featured projects in alternating
  * left/right rows + a 5-project index grid below.
@@ -26,7 +33,7 @@ export function Work() {
                   <span className="url">neurovault.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/screenshots/neurovault.webp" alt="NeuroVault neural graph view" />
+                  <ImageCarousel images={getGallery("neurovault")} />
                 </div>
               </div>
             </div>
@@ -62,7 +69,7 @@ export function Work() {
                   <span className="url">aegis.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/aegis/Dashboard.webp" alt="AEGIS dashboard" />
+                  <ImageCarousel images={getGallery("aegis")} />
                 </div>
               </div>
             </div>
@@ -114,7 +121,7 @@ export function Work() {
                   <span className="url">riskterrain.dathproject.com</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/risk-terrain/hero.webp" alt="RiskTerrain — TSMC critical-event view" />
+                  <ImageCarousel images={getGallery("risk-terrain")} />
                 </div>
               </div>
             </div>
@@ -127,7 +134,7 @@ export function Work() {
                   <span className="url">ds2 · internal workspace</span>
                 </div>
                 <div className="canvas dark">
-                  <img src="/redesign/ds2-admin/copilot-conversation-dark.webp" alt="DS2 workspace — agentic copilot mid-action" />
+                  <ImageCarousel images={getGallery("ds2-admin")} />
                 </div>
               </div>
             </div>

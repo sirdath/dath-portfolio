@@ -28,6 +28,7 @@ export interface Project {
   featured: boolean;
   category: "geospatial" | "ml" | "data-engineering" | "fullstack" | "ai";
   gridSpan: "large" | "tall" | "wide" | "normal";
+  galleryUrls?: string[];
   detailContent?: ProjectDetailContent;
 }
 
@@ -104,6 +105,14 @@ export const projects: Project[] = [
     mediaUrl: "/redesign/ds2-admin/copilot-conversation-dark.webp",
     mediaType: "image",
     heroMediaUrl: "/redesign/ds2-admin/dashboard-dark.webp",
+    galleryUrls: [
+      "/redesign/ds2-admin/dashboard-dark.webp",
+      "/redesign/ds2-admin/projects-dark.webp",
+      "/redesign/ds2-admin/copilot-conversation-dark.webp",
+      "/redesign/ds2-admin/articles-dark.webp",
+      "/redesign/ds2-admin/products-dark.webp",
+      "/redesign/ds2-admin/funnel-dark.webp"
+    ],
     featured: true,
     category: "fullstack",
     gridSpan: "large",
@@ -130,6 +139,10 @@ export const projects: Project[] = [
     mediaUrl: "/images/projects/neurovault.svg",
     mediaType: "image",
     heroMediaUrl: "/images/projects/heroes/neurovault-hero.svg",
+    galleryUrls: [
+      "/redesign/neurovault/neural-graph.webp",
+      "/redesign/neurovault/command-palette.webp"
+    ],
     githubUrl: "https://github.com/sirdath/NeuroVault",
     featured: true,
     category: "ai",
@@ -236,6 +249,13 @@ export const projects: Project[] = [
     mediaUrl: "/images/projects/aegis.png",
     mediaType: "image",
     heroMediaUrl: "/images/projects/heroes/aegis-hero.svg",
+    galleryUrls: [
+      "/redesign/aegis/Dashboard.webp",
+      "/redesign/aegis/2dmap.webp",
+      "/redesign/aegis/3dGlobe.webp",
+      "/redesign/aegis/DataflowDiagram.webp",
+      "/redesign/aegis/AEGISTANALYST-Results.webp"
+    ],
     featured: true,
     category: "ai",
     gridSpan: "large",
@@ -494,6 +514,12 @@ export const projects: Project[] = [
     mediaUrl: "/images/projects/risk-terrain.svg",
     mediaType: "image",
     heroMediaUrl: "/images/projects/heroes/risk-terrain-hero.svg",
+    galleryUrls: [
+      "/redesign/risk-terrain/hero.webp",
+      "/redesign/risk-terrain/analysis.webp",
+      "/redesign/risk-terrain/events.webp",
+      "/redesign/risk-terrain/graph.webp"
+    ],
     githubUrl: "https://github.com/sirdath/Risk-Terrain-Hackathon-SurrealDB-Langchain",
     featured: true,
     category: "ai",

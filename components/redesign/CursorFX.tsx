@@ -23,18 +23,34 @@ export function CursorFX() {
       const strength = parseFloat(el.dataset.magnetic || "0.4") || 0.4;
       const mx = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3" });
       const my = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3" });
-      const onElMove = (e: MouseEvent) => {
+      
+      let rectLeft = 0, rectTop = 0, rectWidth = 0, rectHeight = 0;
+      
+      const onElEnter = () => {
         const r = el.getBoundingClientRect();
-        mx((e.clientX - (r.left + r.width / 2)) * strength);
-        my((e.clientY - (r.top + r.height / 2)) * strength);
+        rectLeft = r.left + window.scrollX;
+        rectTop = r.top + window.scrollY;
+        rectWidth = r.width;
+        rectHeight = r.height;
       };
+
+      const onElMove = (e: MouseEvent) => {
+        const centerX = rectLeft + rectWidth / 2;
+        const centerY = rectTop + rectHeight / 2;
+        mx((e.pageX - centerX) * strength);
+        my((e.pageY - centerY) * strength);
+      };
+      
       const onElLeave = () => {
         mx(0);
         my(0);
       };
+      
+      el.addEventListener("mouseenter", onElEnter);
       el.addEventListener("mousemove", onElMove);
       el.addEventListener("mouseleave", onElLeave);
       disposers.push(() => {
+        el.removeEventListener("mouseenter", onElEnter);
         el.removeEventListener("mousemove", onElMove);
         el.removeEventListener("mouseleave", onElLeave);
         gsap.killTweensOf(el);
