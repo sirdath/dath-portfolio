@@ -1,6 +1,5 @@
 import "../../redesign.css";
 import "../case-study.css";
-import { RedesignCursor } from "@/components/redesign/RedesignCursor";
 import { CaseStudyShell } from "@/components/redesign/case-study/CaseStudyShell";
 
 export const metadata = {
@@ -37,22 +36,20 @@ const libraryShots = [
 
 export default function NodebookPage() {
   return (
-    <>
-      <RedesignCursor />
-      <CaseStudyShell
-        title="Nodebook"
-        tagline="An on-demand knowledge compiler. Submit a topic, a link or a question and Nodebook compiles a beautiful, finished book — chapters, diagrams, math and cited sources — then wraps it in a spaced-recall loop so you finish the module, trust it, and still remember it next month."
-        categoryText="AI · Learning · Web + mobile"
-        stats={[
-          { value: "Web + iOS", label: "Next.js + Expo" },
-          { value: "Cited", label: "Grounded synthesis" },
-          { value: "Spaced", label: "Recall by design" },
-          { value: "node-book.app", label: "Live" },
-        ]}
-        techStack={[
-          "Next.js 15", "React 19", "Expo / React Native", "TypeScript", "Supabase", "KaTeX", "Gemini", "Tailwind 4", "Vercel",
-        ]}
-      >
+    <CaseStudyShell
+      title="Nodebook"
+      tagline="An on-demand knowledge compiler. Submit a topic, a link or a question and Nodebook compiles a beautiful, finished book — chapters, diagrams, math and cited sources — then wraps it in a spaced-recall loop so you finish the module, trust it, and still remember it next month."
+      categoryText="AI · Learning · Web + mobile"
+      stats={[
+        { value: "Web + iOS", label: "Next.js + Expo" },
+        { value: "Cited", label: "Grounded synthesis" },
+        { value: "Spaced", label: "Recall by design" },
+        { value: "node-book.app", label: "Live" },
+      ]}
+      techStack={[
+        "Next.js 15", "React 19", "Expo / React Native", "TypeScript", "Supabase", "KaTeX", "Gemini", "Tailwind 4", "Vercel",
+      ]}
+    >
 
         {/* ── Context ── */}
         <section className="aegis-section wrap">
@@ -110,7 +107,6 @@ export default function NodebookPage() {
           </div>
         </section>
 
-      </CaseStudyShell>
-    </>
+    </CaseStudyShell>
   );
 }

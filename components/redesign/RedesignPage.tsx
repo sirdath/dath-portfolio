@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { RedesignCursor } from "./RedesignCursor";
 import { ScrollFieldBackground } from "./ScrollFieldBackground";
 import { CursorFX } from "./CursorFX";
 import { RedesignNav } from "./RedesignNav";
@@ -16,8 +15,7 @@ import { ViewCounter } from "./ViewCounter";
 /**
  * Composer for the redesigned home page. Owns two cross-cutting client
  * concerns:
- *   1. The custom A-cursor (RedesignCursor handles its own listeners).
- *   2. The IntersectionObserver that adds .in to any .reveal element
+ *   1. The IntersectionObserver that adds .in to any .reveal element
  *      once it enters the viewport — drives the section fade-in.
  *
  * Per-section content lives in components/redesign/sections/*. The
@@ -45,7 +43,6 @@ export function RedesignPage() {
       {/* Scroll-driven ambient field: map → contours → graph → hex */}
       <ScrollFieldBackground />
 
-      <RedesignCursor />
       <CursorFX />
       <ViewCounter />
 

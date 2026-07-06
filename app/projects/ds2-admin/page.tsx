@@ -1,6 +1,5 @@
 import "../../redesign.css";
 import "../case-study.css";
-import { RedesignCursor } from "@/components/redesign/RedesignCursor";
 import { CaseStudyShell } from "@/components/redesign/case-study/CaseStudyShell";
 
 export const metadata = {
@@ -83,22 +82,20 @@ const contentShots = [
 
 export default function DS2AdminPage() {
   return (
-    <>
-      <RedesignCursor />
-      <CaseStudyShell
-        title="DS2 Workspace"
-        tagline="The private operating system for a two-founder digital-solutions consultancy — an agentic copilot with model routing and a confirm-gate, six AI micro-engines, and a full pipeline / leads / content workspace, all in one authenticated Next.js app."
-        categoryText="Full-stack · Agentic internal tooling"
-        stats={[
-          { value: "6", label: "AI micro-engines" },
-          { value: "3", label: "Model tiers routed" },
-          { value: "12", label: "Workspace views" },
-          { value: "Supabase", label: "Auth · Postgres · pgvector" },
-        ]}
-        techStack={[
-          "Next.js 15", "React 19", "TypeScript", "Tailwind 4", "Supabase", "Anthropic SDK", "Turborepo", "Remotion", "Vercel",
-        ]}
-      >
+    <CaseStudyShell
+      title="DS2 Workspace"
+      tagline="The private operating system for a two-founder digital-solutions consultancy — an agentic copilot with model routing and a confirm-gate, six AI micro-engines, and a full pipeline / leads / content workspace, all in one authenticated Next.js app."
+      categoryText="Full-stack · Agentic internal tooling"
+      stats={[
+        { value: "6", label: "AI micro-engines" },
+        { value: "3", label: "Model tiers routed" },
+        { value: "12", label: "Workspace views" },
+        { value: "Supabase", label: "Auth · Postgres · pgvector" },
+      ]}
+      techStack={[
+        "Next.js 15", "React 19", "TypeScript", "Tailwind 4", "Supabase", "Anthropic SDK", "Turborepo", "Remotion", "Vercel",
+      ]}
+    >
 
         {/* ── Context ── */}
         <section className="aegis-section wrap">
@@ -202,7 +199,6 @@ export default function DS2AdminPage() {
           </div>
         </section>
 
-      </CaseStudyShell>
-    </>
+    </CaseStudyShell>
   );
 }

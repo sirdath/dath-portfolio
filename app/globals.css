@@ -52,16 +52,6 @@
   }
 }
 
-/* Custom cursor - hide native on devices with a precise pointer */
-/* Intentionally unlayered so it overrides all cursor styles */
-@media (pointer: fine) {
-  *,
-  *::before,
-  *::after {
-    cursor: none !important;
-  }
-}
-
 @layer components {
   /* Glow utilities */
   .glow-cyan {
@@ -382,4 +372,3 @@
   color: transparent;
   animation: shimmer-sweep 4s linear infinite;
 }
-

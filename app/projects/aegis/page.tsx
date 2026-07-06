@@ -1,7 +1,5 @@
-import Link from "next/link";
 import "../../redesign.css";
 import "../case-study.css";
-import { RedesignCursor } from "@/components/redesign/RedesignCursor";
 import { CaseStudyShell } from "@/components/redesign/case-study/CaseStudyShell";
 
 export const metadata = {

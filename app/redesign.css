@@ -14,12 +14,6 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{ background:var(--bg); color:var(--ink); min-height:100vh; }
-  /* Custom A cursor takes over on the redesign page; hide the system cursor. */
-  html.cursor-custom-ready, 
-  html.cursor-custom-ready body, 
-  html.cursor-custom-ready a, 
-  html.cursor-custom-ready button, 
-  html.cursor-custom-ready .dath-logo { cursor: none; }
   body{ font-family:var(--sans); font-size:15px; line-height:1.55;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
   a{ color:inherit; text-decoration:none; }
