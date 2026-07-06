@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { RedesignCursor } from "./RedesignCursor";
+import { ScrollFieldBackground } from "./ScrollFieldBackground";
 import { CursorFX } from "./CursorFX";
 import { RedesignNav } from "./RedesignNav";
 import { RedesignHero } from "./RedesignHero";
@@ -41,14 +42,8 @@ export function RedesignPage() {
 
   return (
     <>
-      {/* Vercel-style floating gradient orbs background */}
-      <div className="orbsbg orbsbg-fixed">
-        <span className="orb orb-1"></span>
-        <span className="orb orb-2"></span>
-        <span className="orb orb-3"></span>
-        <span className="orb orb-4"></span>
-        <span className="orb orb-5"></span>
-      </div>
+      {/* Scroll-driven ambient field: map → contours → graph → hex */}
+      <ScrollFieldBackground />
 
       <RedesignCursor />
       <CursorFX />

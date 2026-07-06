@@ -232,6 +232,62 @@
 }
 
 /* ============================================
+   AMBIENT BACKGROUND — drifting forest-aurora orbs + film grain + vignette.
+   Styles the .orbsbg markup in RedesignPage (previously unstyled). Fixed,
+   sits behind all content, tuned to the forest palette, reduced-motion safe.
+   ============================================ */
+.orbsbg{
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% -10%, rgba(45,134,89,.10), transparent 60%);
+}
+.orbsbg-fixed{ position: fixed; }
+.fieldcanvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+.orb{
+  position: absolute; border-radius: 50%;
+  filter: blur(90px); opacity: .55;
+  mix-blend-mode: screen; will-change: transform;
+}
+.orb-1{ width: 52vw; height: 52vw; left: -12vw; top: -10vw;
+  background: radial-gradient(circle at 30% 30%, rgba(31,111,67,.90), rgba(31,111,67,0) 70%);
+  animation: orb-drift-a 26s ease-in-out infinite; }
+.orb-2{ width: 44vw; height: 44vw; right: -14vw; top: 6vh;
+  background: radial-gradient(circle at 50% 50%, rgba(45,134,89,.85), rgba(45,134,89,0) 70%);
+  animation: orb-drift-b 32s ease-in-out infinite; }
+.orb-3{ width: 40vw; height: 40vw; left: 20vw; bottom: -16vw;
+  background: radial-gradient(circle at 50% 50%, rgba(34,116,116,.68), rgba(34,116,116,0) 70%);
+  animation: orb-drift-c 30s ease-in-out infinite; }
+.orb-4{ width: 30vw; height: 30vw; right: 8vw; bottom: -6vw;
+  background: radial-gradient(circle at 50% 50%, rgba(220,239,230,.26), rgba(220,239,230,0) 70%);
+  animation: orb-drift-a 36s ease-in-out infinite reverse; }
+.orb-5{ width: 26vw; height: 26vw; left: 42vw; top: 34vh;
+  background: radial-gradient(circle at 50% 50%, rgba(45,134,89,.50), rgba(45,134,89,0) 70%);
+  animation: orb-drift-b 28s ease-in-out infinite; }
+/* Edge vignette for depth. */
+.orbsbg::before{
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(120% 100% at 50% 40%, transparent 55%, rgba(6,9,8,.55) 100%);
+}
+/* Fine static film grain for a premium finish. */
+.orbsbg::after{
+  content:''; position:absolute; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.05;  /* mix-blend-mode removed: it forced a full recomposite every animated frame */
+}
+@keyframes orb-drift-a{
+  0%,100%{ transform: translate3d(0,0,0) scale(1); }
+  50%{ transform: translate3d(6%, 5%, 0) scale(1.08); }
+}
+@keyframes orb-drift-b{
+  0%,100%{ transform: translate3d(0,0,0) scale(1); }
+  50%{ transform: translate3d(-7%, 4%, 0) scale(1.10); }
+}
+@keyframes orb-drift-c{
+  0%,100%{ transform: translate3d(0,0,0) scale(1); }
+  50%{ transform: translate3d(5%, -6%, 0) scale(1.06); }
+}
+
+/* ============================================
    BORDER BEAM — Rotating gradient beam around a border
    ============================================ */
 .border-beam {
@@ -533,7 +589,16 @@
   }
 
   /* ────── POST-HERO SECTIONS ─────────────────────────────── */
-  main.post{ position:relative; z-index:2; background:var(--bg); }
+  main.post{ position:relative; z-index:2;
+    /* Opaque base still covers the sticky hero on scroll; three soft
+       viewport-anchored forest glows give the whole scroll ambient depth
+       instead of a flat wall of black. */
+    background:
+      radial-gradient(85vw 60vh at 10% 0%,   rgba(31,111,67,.12),  transparent 60%),
+      radial-gradient(75vw 60vh at 95% 32%,  rgba(45,134,89,.10),  transparent 60%),
+      radial-gradient(65vw 55vh at 50% 102%, rgba(220,239,230,.05), transparent 60%),
+      var(--bg);
+  }
   .wrap{ max-width:1280px; margin:0 auto; padding: 0 var(--gut); position:relative; }
   .section{ position:relative; padding: 160px 0; border-top:1px solid var(--line); }
   .section:first-of-type{ border-top:none; padding-top: 200px; }
@@ -563,8 +628,8 @@
   }
   .section-title em{ color:var(--accent-2); font-style:italic; font-weight:700; }
 
-  .reveal{ opacity:0; transform: translateY(28px); filter: blur(4px); transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1), filter 1.2s ease; }
-  .reveal.in{ opacity:1; transform: translateY(0); filter: blur(0); }
+  .reveal{ opacity:0; transform: translateY(28px); transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in{ opacity:1; transform: translateY(0); }
 
   /* Stagger for grids/lists */
   .grid-rest .grid-card.reveal:nth-child(2){ transition-delay: .08s; }
@@ -1258,10 +1323,9 @@
     z-index: 70;                /* below nav (90) + custom cursor (9999) */
     visibility: hidden; opacity: 0;
     background: radial-gradient(circle at center,
-      rgba(45,134,89,.16) 0%,
+      rgba(45,134,89,.22) 0%,
       rgba(45,134,89,.07) 34%,
       rgba(45,134,89,0) 68%);
-    mix-blend-mode: screen;
     will-change: transform;
   }
 
@@ -1306,3 +1370,34 @@
   @media (max-width: 760px){
     .timeline .tl-beam{ display: none; }
   }
+
+
+/* ============================================
+   AMBIENT ORBS - fills the previously-unstyled .orbsbg markup in
+   RedesignPage with a soft, slowly drifting forest-green atmosphere
+   behind the hero. Reduced-motion safe.
+   ============================================ */
+.orbsbg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.orbsbg-fixed{ position:fixed; }
+.orbsbg::after{ content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(120% 85% at 50% -8%, rgba(45,134,89,.10), transparent 60%),
+    radial-gradient(100% 100% at 50% 118%, rgba(11,15,14,.75), transparent 55%); }
+.orb{ position:absolute; border-radius:50%; filter:blur(64px); opacity:.5;
+  will-change:transform; animation:orb-drift 30s ease-in-out infinite alternate; }
+.orb-1{ width:46vw; height:46vw; left:-8vw;  top:-6vw;
+  background:radial-gradient(circle at 32% 32%, rgba(31,111,67,.55), transparent 70%); animation-duration:30s; }
+.orb-2{ width:38vw; height:38vw; right:-6vw; top:8vh;
+  background:radial-gradient(circle at 50% 50%, rgba(45,134,89,.45), transparent 70%); animation-duration:34s; animation-delay:-6s; }
+.orb-3{ width:34vw; height:34vw; left:18vw; bottom:-12vh;
+  background:radial-gradient(circle at 50% 50%, rgba(220,239,230,.14), transparent 70%); animation-duration:38s; animation-delay:-12s; }
+.orb-4{ width:28vw; height:28vw; right:14vw; bottom:6vh;
+  background:radial-gradient(circle at 50% 50%, rgba(31,111,67,.40), transparent 70%); animation-duration:28s; animation-delay:-3s; }
+.orb-5{ width:22vw; height:22vw; left:44vw; top:34vh;
+  background:radial-gradient(circle at 50% 50%, rgba(45,134,89,.30), transparent 70%); animation-duration:32s; animation-delay:-16s; }
+@keyframes orb-drift{
+  0%{ transform:translate3d(0,0,0) scale(1); }
+  50%{ transform:translate3d(3vw,-2vh,0) scale(1.08); }
+  100%{ transform:translate3d(-2vw,3vh,0) scale(.96); }
+}
+@media (prefers-reduced-motion: reduce){ .orb{ animation:none; } }

@@ -10,7 +10,7 @@ export function Work() {
           <span className="eyebrow">
             <span className="bar" />
             <b>01</b>
-            <span>Selected work · 08 total</span>
+            <span>Selected work · 11 total</span>
           </span>
           <h2 className="section-title">
             Things <em>built</em>.
@@ -119,6 +119,78 @@ export function Work() {
               </div>
             </div>
           </article>
+          <article className="work-row reveal">
+            <div className="work-media">
+              <div className="safari-frame">
+                <div className="chrome">
+                  <span className="dot r" /><span className="dot y" /><span className="dot g" />
+                  <span className="url">ds2 · internal workspace</span>
+                </div>
+                <div className="canvas dark">
+                  <img src="/redesign/ds2-admin/copilot-conversation-dark.webp" alt="DS2 workspace — agentic copilot mid-action" />
+                </div>
+              </div>
+            </div>
+            <div className="work-copy">
+              <span className="work-num">/ 05 — Full-stack · Agentic internal tooling</span>
+              <h3 className="work-name">DS2 <em>Workspace</em>.</h3>
+              <p className="work-sub">
+                The private operating system for a two-founder digital-solutions consultancy. An agentic copilot with model routing and a confirm-gate, six owned AI micro-engines, and a full pipeline / leads / content workspace — one authenticated Next.js app, fully themed light and dark.
+              </p>
+              <div className="work-tags">
+                <span>Next.js 15</span><span>React 19</span><span>Supabase</span><span>Anthropic SDK</span><span>Turborepo</span>
+              </div>
+              <a className="work-cta" href="/projects/ds2-admin">View case study</a>
+            </div>
+          </article>
+          <article className="work-row right reveal">
+            <div className="work-copy">
+              <span className="work-num">/ 06 — AI · Learning · Web + mobile</span>
+              <h3 className="work-name">Node<em>book</em>.</h3>
+              <p className="work-sub">
+                An on-demand knowledge compiler. Hand it a topic, a link or a question and it compiles a beautiful, cited book — chapters, math, diagrams — then wraps it in a spaced-recall loop so you actually keep it. Next.js 15 web plus an Expo iOS/Android app on Supabase.
+              </p>
+              <div className="work-tags">
+                <span>Next.js 15</span><span>Expo</span><span>Supabase</span><span>KaTeX</span><span>Gemini</span>
+              </div>
+              <a className="work-cta" href="/projects/nodebook">View case study</a>
+            </div>
+            <div className="work-media">
+              <div className="safari-frame">
+                <div className="chrome">
+                  <span className="dot r" /><span className="dot y" /><span className="dot g" />
+                  <span className="url">node-book.app</span>
+                </div>
+                <div className="canvas dark">
+                  <img src="/redesign/nodebook/hero.webp" alt="Nodebook — learn anything and keep it" />
+                </div>
+              </div>
+            </div>
+          </article>
+          <article className="work-row reveal">
+            <div className="work-media">
+              <div className="safari-frame">
+                <div className="chrome">
+                  <span className="dot r" /><span className="dot y" /><span className="dot g" />
+                  <span className="url">DreamBug · storybook app</span>
+                </div>
+                <div className="canvas dark">
+                  <img src="/redesign/dreambug/story-bramwyn-1.webp" alt="DreamBug — an illustrated storybook page" />
+                </div>
+              </div>
+            </div>
+            <div className="work-copy">
+              <span className="work-num">/ 07 — Mobile · Generative art · Coming soon</span>
+              <h3 className="work-name">Dream<em>Bug</em>.</h3>
+              <p className="work-sub">
+                A personalized children&apos;s storybook app. Parents pick a hero; DreamBug assembles illustrated, age-appropriate books on-demand with a coherent cast and world on every page — from a local, cost-free art pipeline instead of a live paid image API.
+              </p>
+              <div className="work-tags">
+                <span>Expo</span><span>React Native</span><span>Supabase</span><span>Rive</span><span>SDXL · ComfyUI</span>
+              </div>
+              <a className="work-cta" href="/projects/dreambug" style={{ opacity: 0.72 }}>Coming soon</a>
+            </div>
+          </article>
         </div>
 
         <div className="work-index-head reveal">
@@ -137,7 +209,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/housing-crime-analysis">
             <div className="gc-media"><img src="/redesign/housing-crime/hero.webp" alt="London Housing & Crime — opportunity index map" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 05 · Geospatial</span>
+              <span className="gc-num">/ 08 · Geospatial</span>
               <h4 className="gc-title">London Housing & Crime</h4>
               <p className="gc-sub">Spatio-temporal pipeline merging 1M+ records into a predictive Opportunity Index. XGBoost regressor tuned via Optuna, R² = 0.92.</p>
               <div className="gc-tags">Python · Optuna · XGBoost · Pandas</div>
@@ -146,7 +218,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/datascrub">
             <div className="gc-media"><img src="/redesign/datascrub/hero.webp" alt="DataScrub" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 06 · AI · Privacy</span>
+              <span className="gc-num">/ 09 · AI · Privacy</span>
               <h4 className="gc-title">DataScrub</h4>
               <p className="gc-sub">Privacy-first browser-based data cleaning agent. Rule-based + LLM, optional local Ollama inference, no backend.</p>
               <div className="gc-tags">Vanilla JS · Ollama · PapaParse</div>
@@ -155,7 +227,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/dataportfolio">
             <div className="gc-media"><img src="/redesign/dataportfolio/hero.webp" alt="Dataportfolio.co.uk — Your CV is a dataset" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 07 · Full-stack</span>
+              <span className="gc-num">/ 10 · Full-stack</span>
               <h4 className="gc-title">Dataportfolio.co.uk</h4>
               <p className="gc-sub">Production SaaS that automates portfolio creation for data professionals — no-code GUI, dynamic metadata.</p>
               <div className="gc-tags">Next.js · Node.js · PostgreSQL</div>
@@ -164,7 +236,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/data-engineering-pipeline">
             <div className="gc-media"><img src="/redesign/data-engineering/hero.webp" alt="Data Engineering Pipeline — star schema lakehouse" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 08 · Data Engineering</span>
+              <span className="gc-num">/ 11 · Data Engineering</span>
               <h4 className="gc-title">Data Engineering Pipeline</h4>
               <p className="gc-sub">Star Schema lakehouse unifying NoSQL + CSV. Pandas to flatten nested JSON; Parquet + DuckDB for SQL aggregation.</p>
               <div className="gc-tags">PySpark · MongoDB · DuckDB · Parquet</div>
