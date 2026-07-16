@@ -158,6 +158,7 @@ export default async function ProjectPage({ params }: Props) {
 // be excluded here, otherwise static export tries to write two HTML
 // files to the same path and `next build` errors out.
 const PORTED_TO_REDESIGN = new Set([
+  "dathhub",
   "ds2-admin",
   "nodebook",
   "dreambug",

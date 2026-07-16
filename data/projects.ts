@@ -34,6 +34,36 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "dathhub",
+    slug: "dathhub",
+    title: "DATHHUB",
+    subtitle: "Local-first AI command center",
+    description:
+      "A summonable desktop Jarvis for running life and work from one HUD: persistent workspace chats, Google Calendar, goals, project awareness, local voice, NeuroVault memory, and a permission broker for agent actions.",
+    techStack: [
+      "Tauri 2",
+      "React 19",
+      "TypeScript",
+      "Rust",
+      "Node.js",
+      "Agent SDK",
+      "NeuroVault MCP",
+      "SQLite",
+      "WebSocket",
+      "Whisper",
+    ],
+    mediaUrl: "/redesign/dathhub/home.webp",
+    mediaType: "image",
+    heroMediaUrl: "/redesign/dathhub/home.webp",
+    galleryUrls: [
+      "/redesign/dathhub/home.webp",
+      "/redesign/dathhub/gatekeeper.webp",
+    ],
+    featured: true,
+    category: "ai",
+    gridSpan: "large",
+  },
+  {
     id: "nodebook",
     slug: "nodebook",
     title: "Nodebook",

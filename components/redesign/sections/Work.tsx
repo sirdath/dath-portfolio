@@ -17,7 +17,7 @@ export function Work() {
           <span className="eyebrow">
             <span className="bar" />
             <b>01</b>
-            <span>Selected work · 11 total</span>
+            <span>Selected work · 12 total</span>
           </span>
           <h2 className="section-title">
             Things <em>built</em>.
@@ -25,6 +25,31 @@ export function Work() {
         </div>
 
         <div className="work-featured">
+          <article className="work-row reveal">
+            <div className="work-media">
+              <div className="safari-frame">
+                <div className="chrome">
+                  <span className="dot r" /><span className="dot y" /><span className="dot g" />
+                  <span className="url">DATHHUB · local command center</span>
+                </div>
+                <div className="canvas dark">
+                  <ImageCarousel images={getGallery("dathhub")} />
+                </div>
+              </div>
+            </div>
+            <div className="work-copy">
+              <span className="work-num">/ 01 — AI · Local-first desktop</span>
+              <h3 className="work-name">DATH<em>HUB</em>.</h3>
+              <p className="work-sub">
+                A summonable Jarvis for running life and work from one desktop HUD. Persistent workspace chats, Google Calendar, goals, project awareness, local voice, NeuroVault memory, and a permission broker that keeps every agent action visible and governed.
+              </p>
+              <div className="work-tags">
+                <span>Tauri 2</span><span>React 19</span><span>Rust</span><span>Agent SDK</span><span>NeuroVault MCP</span>
+              </div>
+              <a className="work-cta" href="/projects/dathhub">View case study</a>
+            </div>
+          </article>
+
           <article className="work-row reveal">
             <div className="work-media">
               <div className="safari-frame">
@@ -38,7 +63,7 @@ export function Work() {
               </div>
             </div>
             <div className="work-copy">
-              <span className="work-num">/ 01 — AI · Local-first memory</span>
+              <span className="work-num">/ 02 — AI · Local-first memory</span>
               <h3 className="work-name">Neuro<em>Vault</em>.</h3>
               <p className="work-sub">
                 A Tauri desktop app that gives Claude persistent memory across conversations. Markdown vault, knowledge graph, hybrid retrieval — outperforms RAG at 96% hit@3, ~275 tokens/answer, and runs entirely on your machine.
@@ -52,7 +77,7 @@ export function Work() {
 
           <article className="work-row right reveal">
             <div className="work-copy">
-              <span className="work-num">/ 02 — AI · Maritime intelligence</span>
+              <span className="work-num">/ 03 — AI · Maritime intelligence</span>
               <h3 className="work-name">AE<em>GIS</em>.</h3>
               <p className="work-sub">
                 Maritime shipping risk platform aggregating 7+ sources across 4 database technologies. LLM-powered CrewAI agents for risk, route planning, and trade compliance — with W3C PROV lineage and hallucination checking.
@@ -88,7 +113,7 @@ export function Work() {
               </div>
             </div>
             <div className="work-copy">
-              <span className="work-num">/ 03 — Geospatial · ML</span>
+              <span className="work-num">/ 04 — Geospatial · ML</span>
               <h3 className="work-name">London <em>Synergy</em>.</h3>
               <p className="work-sub">
                 Pipeline tessellating Greater London into 55,000 H3 hexagons — LandScan rasters, ONS Census, OSM POIs enriched with graph-centrality. Spatially cross-validated XGBoost; Burt&apos;s Structural Hole Theory applied to retail siting.
@@ -104,7 +129,7 @@ export function Work() {
 
           <article className="work-row right reveal">
             <div className="work-copy">
-              <span className="work-num">/ 04 — AI · Cascading risk intelligence</span>
+              <span className="work-num">/ 05 — AI · Cascading risk intelligence</span>
               <h3 className="work-name">Risk<em>Terrain</em>.</h3>
               <p className="work-sub">
                 A 6-node LangGraph pipeline that ingests live geopolitical events (USGS, NewsAPI), traverses a 154-company supply-chain graph in SurrealDB, and scores cascading exposure in under 8 seconds. Hybrid graph-vector retrieval with sentence-transformer embeddings.
@@ -139,7 +164,7 @@ export function Work() {
               </div>
             </div>
             <div className="work-copy">
-              <span className="work-num">/ 05 — Full-stack · Agentic internal tooling</span>
+              <span className="work-num">/ 06 — Full-stack · Agentic internal tooling</span>
               <h3 className="work-name">DS2 <em>Workspace</em>.</h3>
               <p className="work-sub">
                 The private operating system for a two-founder digital-solutions consultancy. An agentic copilot with model routing and a confirm-gate, six owned AI micro-engines, and a full pipeline / leads / content workspace — one authenticated Next.js app, fully themed light and dark.
@@ -152,7 +177,7 @@ export function Work() {
           </article>
           <article className="work-row right reveal">
             <div className="work-copy">
-              <span className="work-num">/ 06 — AI · Learning · Web + mobile</span>
+              <span className="work-num">/ 07 — AI · Learning · Web + mobile</span>
               <h3 className="work-name">Node<em>book</em>.</h3>
               <p className="work-sub">
                 An on-demand knowledge compiler. Hand it a topic, a link or a question and it compiles a beautiful, cited book — chapters, math, diagrams — then wraps it in a spaced-recall loop so you actually keep it. Next.js 15 web plus an Expo iOS/Android app on Supabase.
@@ -187,7 +212,7 @@ export function Work() {
               </div>
             </div>
             <div className="work-copy">
-              <span className="work-num">/ 07 — Mobile · Generative art · Coming soon</span>
+              <span className="work-num">/ 08 — Mobile · Generative art · Coming soon</span>
               <h3 className="work-name">Dream<em>Bug</em>.</h3>
               <p className="work-sub">
                 A personalized children&apos;s storybook app. Parents pick a hero; DreamBug assembles illustrated, age-appropriate books on-demand with a coherent cast and world on every page — from a local, cost-free art pipeline instead of a live paid image API.
@@ -216,7 +241,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/housing-crime-analysis">
             <div className="gc-media"><img src="/redesign/housing-crime/hero.webp" alt="London Housing & Crime — opportunity index map" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 08 · Geospatial</span>
+              <span className="gc-num">/ 09 · Geospatial</span>
               <h4 className="gc-title">London Housing & Crime</h4>
               <p className="gc-sub">Spatio-temporal pipeline merging 1M+ records into a predictive Opportunity Index. XGBoost regressor tuned via Optuna, R² = 0.92.</p>
               <div className="gc-tags">Python · Optuna · XGBoost · Pandas</div>
@@ -225,7 +250,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/datascrub">
             <div className="gc-media"><img src="/redesign/datascrub/hero.webp" alt="DataScrub" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 09 · AI · Privacy</span>
+              <span className="gc-num">/ 10 · AI · Privacy</span>
               <h4 className="gc-title">DataScrub</h4>
               <p className="gc-sub">Privacy-first browser-based data cleaning agent. Rule-based + LLM, optional local Ollama inference, no backend.</p>
               <div className="gc-tags">Vanilla JS · Ollama · PapaParse</div>
@@ -234,7 +259,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/dataportfolio">
             <div className="gc-media"><img src="/redesign/dataportfolio/hero.webp" alt="Dataportfolio.co.uk — Your CV is a dataset" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 10 · Full-stack</span>
+              <span className="gc-num">/ 11 · Full-stack</span>
               <h4 className="gc-title">Dataportfolio.co.uk</h4>
               <p className="gc-sub">Production SaaS that automates portfolio creation for data professionals — no-code GUI, dynamic metadata.</p>
               <div className="gc-tags">Next.js · Node.js · PostgreSQL</div>
@@ -243,7 +268,7 @@ export function Work() {
           <a className="grid-card reveal" href="/projects/data-engineering-pipeline">
             <div className="gc-media"><img src="/redesign/data-engineering/hero.webp" alt="Data Engineering Pipeline — star schema lakehouse" /></div>
             <div className="gc-body">
-              <span className="gc-num">/ 11 · Data Engineering</span>
+              <span className="gc-num">/ 12 · Data Engineering</span>
               <h4 className="gc-title">Data Engineering Pipeline</h4>
               <p className="gc-sub">Star Schema lakehouse unifying NoSQL + CSV. Pandas to flatten nested JSON; Parquet + DuckDB for SQL aggregation.</p>
               <div className="gc-tags">PySpark · MongoDB · DuckDB · Parquet</div>
