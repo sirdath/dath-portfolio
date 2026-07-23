@@ -8,6 +8,17 @@ export const metadata = {
     "Nodebook (node-book.app) turns any topic, link or question into a finished, cited book — chapters, diagrams, math, and a spaced-recall loop so you actually remember it. Next.js 15 web + Expo mobile on Supabase, with a Gemini consensus engine.",
 };
 
+const nodebookLiveAction = (
+  <a
+    href="https://node-book.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="aegis-back nv-live"
+  >
+    Open node-book.app ↗
+  </a>
+);
+
 const compileShots = [
   {
     src: "/redesign/nodebook/hero.webp",
@@ -40,6 +51,7 @@ export default function NodebookPage() {
       title="Nodebook"
       tagline="An on-demand knowledge compiler. Submit a topic, a link or a question and Nodebook compiles a beautiful, finished book — chapters, diagrams, math and cited sources — then wraps it in a spaced-recall loop so you finish the module, trust it, and still remember it next month."
       categoryText="AI · Learning · Web + mobile"
+      extraNavActions={nodebookLiveAction}
       stats={[
         { value: "Web + iOS", label: "Next.js + Expo" },
         { value: "Cited", label: "Grounded synthesis" },
@@ -50,6 +62,17 @@ export default function NodebookPage() {
         "Next.js 15", "React 19", "Expo / React Native", "TypeScript", "Supabase", "KaTeX", "Gemini", "Tailwind 4", "Vercel",
       ]}
     >
+
+        <div className="nv-cta-row" style={{ marginTop: "2rem" }}>
+          <a
+            href="https://node-book.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nv-cta-primary"
+          >
+            Open node-book.app ↗
+          </a>
+        </div>
 
         {/* ── Context ── */}
         <section className="aegis-section wrap">

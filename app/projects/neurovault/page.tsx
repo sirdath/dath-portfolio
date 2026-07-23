@@ -187,26 +187,36 @@ export default function NeuroVaultPage() {
             04 / Inside the <em>app</em>.
           </h2>
           <p className="aegis-lead">
-            The UI is built around three primary surfaces: the markdown editor (boring on purpose), the command palette (where agents&apos; memory operations show up), and the knowledge graph (the only place the hidden links between notes become visible).
+            The UI is built around three primary surfaces: a readable markdown memory workspace, a spatial graph for relationships between notes, and a daily control surface that shows when memory helped — including when staying quiet was the right answer.
           </p>
 
           <figure className="aegis-arch-feature">
             <div className="aegis-frame">
-              <img src="/redesign/neurovault/neural-graph.webp" alt="NeuroVault knowledge graph" loading="lazy" />
+              <img src="/redesign/neurovault/editor.webp" alt="NeuroVault markdown memory workspace" loading="lazy" />
             </div>
             <figcaption>
-              <b>Knowledge graph view</b>
-              <span>Engrams are nodes; typed edges connect them by semantic similarity, shared entities, and explicit wikilinks. Clicking a node opens the underlying markdown.</span>
+              <b>Memory workspace</b>
+              <span>Ordinary markdown stays readable and editable while folders, tabs, status, and word-count context make the vault feel like a real working environment rather than a hidden vector store.</span>
             </figcaption>
           </figure>
 
           <figure className="aegis-arch-feature">
             <div className="aegis-frame">
-              <img src="/redesign/neurovault/command-palette.webp" alt="NeuroVault command palette" loading="lazy" />
+              <img src="/redesign/neurovault/graph-3d.webp" alt="NeuroVault 3D knowledge graph" loading="lazy" />
             </div>
             <figcaption>
-              <b>Command palette</b>
-              <span>One keyboard shortcut to everything — note operations, recall, brain switching, and the same surface agents use through MCP.</span>
+              <b>3D knowledge graph</b>
+              <span>Engrams become a navigable memory sphere. Colour reveals clusters; edges expose semantic, entity, and wikilink relationships that stay invisible in a flat note list.</span>
+            </figcaption>
+          </figure>
+
+          <figure className="aegis-arch-feature">
+            <div className="aegis-frame">
+              <img src="/redesign/neurovault/today.webp" alt="NeuroVault Today memory dashboard" loading="lazy" />
+            </div>
+            <figcaption>
+              <b>Today dashboard</b>
+              <span>A calm operating view for automatic context, surfaced memories, review state, resumable work, and recent changes. Quiet is treated as a valid result, not a failure.</span>
             </figcaption>
           </figure>
         </section>

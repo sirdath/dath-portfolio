@@ -186,6 +186,15 @@ export function Work() {
                 <span>Next.js 15</span><span>Expo</span><span>Supabase</span><span>KaTeX</span><span>Gemini</span>
               </div>
               <a className="work-cta" href="/projects/nodebook">View case study</a>
+              <a
+                className="work-cta"
+                href="https://node-book.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ marginLeft: "1rem" }}
+              >
+                Open live ↗
+              </a>
             </div>
             <div className="work-media">
               <div className="safari-frame">
@@ -220,7 +229,16 @@ export function Work() {
               <div className="work-tags">
                 <span>Expo</span><span>React Native</span><span>Supabase</span><span>Rive</span><span>SDXL · ComfyUI</span>
               </div>
-              <a className="work-cta" href="/projects/dreambug" style={{ opacity: 0.72 }}>Coming soon</a>
+              <a className="work-cta" href="/projects/dreambug">View case study</a>
+              <a
+                className="work-cta"
+                href="https://dreambug.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ marginLeft: "1rem" }}
+              >
+                Open live ↗
+              </a>
             </div>
           </article>
         </div>

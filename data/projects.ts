@@ -110,6 +110,7 @@ export const projects: Project[] = [
     mediaUrl: "/redesign/dreambug/story-bramwyn-1.webp",
     mediaType: "image",
     heroMediaUrl: "/redesign/dreambug/reader.webp",
+    liveUrl: "https://dreambug.app",
     featured: true,
     category: "fullstack",
     gridSpan: "large",
@@ -166,12 +167,13 @@ export const projects: Project[] = [
       "Tailwind v4",
       "Axum",
     ],
-    mediaUrl: "/images/projects/neurovault.svg",
+    mediaUrl: "/redesign/neurovault/editor.webp",
     mediaType: "image",
-    heroMediaUrl: "/images/projects/heroes/neurovault-hero.svg",
+    heroMediaUrl: "/redesign/neurovault/editor.webp",
     galleryUrls: [
-      "/redesign/neurovault/neural-graph.webp",
-      "/redesign/neurovault/command-palette.webp"
+      "/redesign/neurovault/editor.webp",
+      "/redesign/neurovault/graph-3d.webp",
+      "/redesign/neurovault/today.webp"
     ],
     githubUrl: "https://github.com/sirdath/NeuroVault",
     featured: true,
