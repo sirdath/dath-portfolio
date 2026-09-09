@@ -68,21 +68,22 @@
   <script>
     (function () {
       var KEY = 'hc-unlocked';
-      var HASH = 'bfd7f2fafa674a3ac611af6f62730daa2d62e1727cb45ce502105bfa236077eb';
+      var KEYV = 193410136;
       try { if (sessionStorage.getItem(KEY) === '1') { location.replace('app.html'); return; } } catch (e) {}
 
-      async function sha256(text) {
-        var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
-        return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+      function fold(text) {
+        var h = 5381;
+        for (var i = 0; i < text.length; i++) h = ((Math.imul(h, 33) ^ text.charCodeAt(i)) >>> 0);
+        return h;
       }
 
       var form = document.getElementById('gate');
       var pw = document.getElementById('pw');
       var err = document.getElementById('err');
-      form.addEventListener('submit', async function (e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         var ok = false;
-        try { ok = (await sha256(pw.value.trim().toLowerCase())) === HASH; } catch (x) { ok = false; }
+        try { ok = fold(pw.value.trim().toLowerCase()) === KEYV; } catch (x) { ok = false; }
         if (ok) {
           try { sessionStorage.setItem(KEY, '1'); } catch (x) {}
           location.replace('app.html');
