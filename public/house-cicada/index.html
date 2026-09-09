@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>House Cicada — Private preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      background: #1E2122; color: #EAE5DB;
+      font-family: 'Archivo', system-ui, sans-serif;
+      display: grid; place-items: center; padding: 24px;
+    }
+    .card { width: min(380px, 100%); text-align: center; }
+    .mark { width: 72px; height: 72px; margin: 0 auto 28px; display: block; }
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400;
+      font-size: 40px; line-height: 1.05; letter-spacing: 0.01em;
+    }
+    .sub { margin-top: 10px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #B9B3A8; }
+    form { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
+    label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #B9B3A8; text-align: left; }
+    input {
+      width: 100%; padding: 14px 16px; font: inherit; font-size: 16px; color: #EAE5DB;
+      background: transparent; border: 1px solid #4a4e4f; border-radius: 4px; outline: none;
+      letter-spacing: 0.2em;
+    }
+    input:focus { border-color: #EAE5DB; }
+    button {
+      padding: 14px 16px; font: inherit; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #1E2122; background: #EAE5DB; border: 0; border-radius: 4px; cursor: pointer;
+    }
+    button:hover { background: #F7F4EF; }
+    .err { min-height: 20px; font-size: 13px; color: #d9a48a; }
+    .err.shake { animation: shake .35s; }
+    @keyframes shake { 20%,60% { transform: translateX(-4px) } 40%,80% { transform: translateX(4px) } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="#EAE5DB" stroke-width="1.6" stroke-linecap="round">
+        <ellipse cx="20" cy="26" rx="6.4" ry="15.6" transform="rotate(-18 20 26)"/>
+        <ellipse cx="20" cy="26" rx="6.4" ry="15.6" transform="rotate(18 20 26)"/>
+        <circle cx="20" cy="8.4" r="3.9"/>
+        <line x1="20" y1="12.3" x2="20" y2="34"/>
+        <line x1="16.9" y1="5.6" x2="13.4" y2="2.2"/>
+        <line x1="23.1" y1="5.6" x2="26.6" y2="2.2"/>
+        <line x1="17.4" y1="19" x2="22.6" y2="19"/>
+        <line x1="17.4" y1="23.4" x2="22.6" y2="23.4"/>
+        <line x1="17.4" y1="27.8" x2="22.6" y2="27.8"/>
+      </g>
+    </svg>
+    <h1>House Cicada</h1>
+    <p class="sub">Porto Heli · Private preview</p>
+    <form id="gate" autocomplete="off">
+      <label for="pw">Password</label>
+      <input id="pw" type="password" inputmode="text" autocapitalize="off" autofocus required>
+      <button type="submit">Enter</button>
+      <p class="err" id="err" aria-live="polite"></p>
+    </form>
+  </main>
+  <script>
+    (function () {
+      var KEY = 'hc-unlocked';
+      var HASH = 'bfd7f2fafa674a3ac611af6f62730daa2d62e1727cb45ce502105bfa236077eb';
+      try { if (sessionStorage.getItem(KEY) === '1') { location.replace('app.html'); return; } } catch (e) {}
+
+      async function sha256(text) {
+        var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+      }
+
+      var form = document.getElementById('gate');
+      var pw = document.getElementById('pw');
+      var err = document.getElementById('err');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var ok = false;
+        try { ok = (await sha256(pw.value.trim().toLowerCase())) === HASH; } catch (x) { ok = false; }
+        if (ok) {
+          try { sessionStorage.setItem(KEY, '1'); } catch (x) {}
+          location.replace('app.html');
+        } else {
+          err.textContent = 'That is not the password.';
+          err.classList.remove('shake'); void err.offsetWidth; err.classList.add('shake');
+          pw.select();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
