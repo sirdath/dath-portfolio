@@ -41,10 +41,10 @@ button{font:inherit;color:inherit}
 .gridbg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .gcols{position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,1fr);
   gap:var(--gut);padding:0 var(--mar)}
-.gcols>div{border-left:1px solid currentColor;opacity:.18;transform-origin:top center}
+.gcols>div{border-left:1px solid currentColor;opacity:.07;transform-origin:top center}
 .gcols>div:last-child{border-right:1px solid currentColor}
 .gridbg>b{position:absolute;left:0;right:0;height:1px;background:currentColor;
-  opacity:.18;transform-origin:left center}
+  opacity:.07;transform-origin:left center}
 
 /* ---------- shared structure ---------- */
 section{position:relative}
@@ -79,12 +79,12 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 .fr-body{padding:12px;background:var(--bg)}
 .fr-body img{width:100%}
 .fr.phone .fr-body{padding:10px}
-.fr.phone img{max-height:52vh;width:auto;margin:0 auto}
+.fr.phone img{max-height:70vh;width:auto;margin:0 auto}
 .trip{display:flex;gap:18px;align-items:flex-start}
 .trip .fr{width:340px}
 .pair{display:flex;gap:18px;align-items:flex-start}
 .pair .fr{width:320px}
-.pair .fr.tall .fr-body img{max-height:46vh;width:auto;margin:0 auto}
+.pair .fr.tall .fr-body img{max-height:66vh;width:auto;margin:0 auto}
 .pair-icon .fr:first-child{width:250px}
 .pair-icon .fr:last-child{width:200px;align-self:center}
 
@@ -130,7 +130,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 #s1{border-top:3px solid var(--ink)}
 
 /* ---------- S1 preface ---------- */
-.pad{padding:96px 0 110px}
+.pad{padding:56px 0 64px}
 .ledger-3{grid-column:2 / 12;border-top:1px solid currentColor}
 .lrow{display:grid;grid-template-columns:2fr 8fr;gap:var(--gut);
   border-bottom:1px solid currentColor;padding:20px 0;align-items:baseline}
@@ -175,8 +175,8 @@ h1,h2,h3,p,ul,li,figure{margin:0}
   font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;opacity:.7;
   writing-mode:vertical-rl}
 .stop-ex{flex:none}
-.rail .stop .fr{max-height:76vh;overflow:hidden}
-.rail .stop .fr-body img{max-height:62vh;width:auto;margin:0 auto}
+.rail .stop .fr{max-height:82vh;overflow:hidden}
+.rail .stop .fr-body img{max-height:78vh;width:auto;margin:0 auto}
 .stop-note{position:absolute;bottom:12vh;font-family:'IBM Plex Mono',monospace;font-size:11px;
   letter-spacing:.1em;text-transform:uppercase;background:var(--signal);color:#fff;padding:4px 8px}
 .ruler{position:absolute;bottom:0;left:0;right:0;height:38px;z-index:4;
@@ -195,7 +195,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 @media (hover:hover) and (pointer:fine){.rail-stage.hascursor{cursor:none}}
 
 /* ---------- S4 shelf ---------- */
-.shelfsec .wrap{padding-top:90px;padding-bottom:110px}
+.shelfsec .wrap{padding-top:52px;padding-bottom:56px}
 .tagplate{grid-column:1 / 8;margin-bottom:34px}
 .tagplate .tp{background:var(--navy);padding:22px 28px;display:inline-block}
 .tagplate .tp b{font-family:'Baloo 2',cursive;font-weight:700;font-size:34px;color:#f6f1df;
@@ -296,7 +296,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 
 /* ---------- S5 proof facts ---------- */
 .proof{display:grid;grid-template-columns:repeat(3,1fr);grid-column:1 / 13}
-.pf{padding:40px 30px;border-left:1px solid currentColor}
+.pf{padding:26px 24px;border-left:1px solid currentColor}
 .pf:last-child{border-right:1px solid currentColor}
 .pf-n{font-size:96px;line-height:.9;font-variation-settings:'wdth' 125,'wght' 800;
   -webkit-text-stroke:1.5px currentColor;color:transparent;margin-bottom:18px}
@@ -343,7 +343,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 
 /* ---------- S10 two messages ---------- */
 .msg{grid-column:1 / 13}
-.mplate{border:1px solid var(--bone);padding:34px 38px;margin-bottom:0}
+.mplate{border:1px solid var(--bone);padding:22px 26px;margin-bottom:0}
 .mplate:nth-of-type(2){margin-left:calc(100% / 12)}
 .mplate-lab{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;opacity:.7;margin-bottom:16px}
@@ -398,7 +398,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
   .stop-note{position:static;display:inline-block}
   .trip,.pair{flex-direction:column}
   .trip .fr,.pair .fr,.pair-icon .fr:first-child,.pair-icon .fr:last-child{width:100%}
-  .fr.phone img{max-height:60vh}
+  .fr.phone img{max-height:76vh}
   .fr-lab{flex-wrap:wrap}
   .shelf-frame{overflow:hidden}
   .shelf-stage{min-height:auto;padding-bottom:16px;transition:padding-bottom .2s linear}
@@ -506,7 +506,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 <div class="secrule" aria-hidden="true"><span class="secrule-tab">01 / DREAMBUG / RAIL A / 8 STOPS</span></div>
 
   <section class="rail room-light" id="railA" data-rail="A" data-stops="8">
-    <div class="rail-wrap" style="height:900vh">
+    <div class="rail-wrap" style="height:520vh">
       <div class="rail-stage">
         <div class="gridbg" aria-hidden="true"><div class="gcols"><div style="--i:0"></div><div style="--i:1"></div><div style="--i:2"></div><div style="--i:3"></div><div style="--i:4"></div><div style="--i:5"></div><div style="--i:6"></div><div style="--i:7"></div><div style="--i:8"></div><div style="--i:9"></div><div style="--i:10"></div><div style="--i:11"></div></div></div>
         <div class="runhead">01 / DREAMBUG / RAIL A / 8 STOPS</div>
@@ -811,7 +811,7 @@ h1,h2,h3,p,ul,li,figure{margin:0}
 <div class="secrule dark" aria-hidden="true"><span class="secrule-tab">02 / NODEBOOK / RAIL B / 10 STOPS / REVERSED</span></div>
 
   <section class="rail room-dark" id="railB" data-rail="B" data-stops="10">
-    <div class="rail-wrap" style="height:1100vh">
+    <div class="rail-wrap" style="height:620vh">
       <div class="rail-stage">
         <div class="gridbg" aria-hidden="true"><div class="gcols"><div style="--i:0"></div><div style="--i:1"></div><div style="--i:2"></div><div style="--i:3"></div><div style="--i:4"></div><div style="--i:5"></div><div style="--i:6"></div><div style="--i:7"></div><div style="--i:8"></div><div style="--i:9"></div><div style="--i:10"></div><div style="--i:11"></div></div></div>
         <div class="runhead">02 / NODEBOOK / RAIL B / 10 STOPS / REVERSED</div>
@@ -933,7 +933,8 @@ h1,h2,h3,p,ul,li,figure{margin:0}
     var t = p * n, i = Math.floor(t); if (i >= n) i = n - 1;
     var f = t - i;
     var e = f < 0.5 ? 2*f*f : 1 - Math.pow(-2*f + 2, 2)/2;
-    return (i + e) / n;
+    var eased = (i + e) / n;
+    return p * 0.6 + eased * 0.4;
   }
 
   function updateRails(){
